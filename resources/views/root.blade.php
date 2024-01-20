@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- Title --}}
-    <title>{{ App::config('app.name') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     {{-- Tailwind Styles --}}
     @vite('resources/css/app.css')
