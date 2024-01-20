@@ -9,6 +9,9 @@
     {{-- Title --}}
     <title>{{ App::config('app.name') }}</title>
 
+    {{-- Tailwind Styles --}}
+    @vite('resources/css/app.css')
+
     {{-- Livewire Styles --}}
     @livewireStyles
 </head>
