@@ -23,7 +23,7 @@
                             <label for="password"
                                 class="select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white">Passwort</label>
                             <div class="text-sm">
-                                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">
+                                <a href="#" class="font-semibold text-app-yellow hover:text-app-yellow/90">
                                     Passwort vergessen?
                                 </a>
                             </div>
@@ -35,7 +35,7 @@
 
                     <div>
                         <button type="submit"
-                            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="flex w-full justify-center rounded-md bg-app-yellow px-3 py-1.5 text-sm font-semibold leading-6 text-zinc-950 shadow-sm hover:bg-app-yellow/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-yellow">
                             Anmelden
                         </button>
                     </div>
@@ -44,7 +44,7 @@
 
             <p class="mt-10 text-sm text-center text-gray-500">
                 Kein Mitglied?
-                <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                <a href="#" class="font-semibold leading-6 text-app-yellow hover:text-app-yellow/90">
                     Einwöchige Testphase starten
                 </a>
             </p>
