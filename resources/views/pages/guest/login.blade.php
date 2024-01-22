@@ -5,8 +5,8 @@
 @section('content')
     <div class="flex flex-col justify-center min-h-full px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h1 class="text-3xl font-bold text-center dark:text-white text-zinc-950">Coowrk.</h1>
-            <h2 class="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-zinc-500 dark:text-zinc-400">
+            <h1 class="text-3xl font-bold text-center dark:text-app-yellow text-zinc-950">Coowrk.</h1>
+            <h2 class="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-zinc-500 dark:text-white">
                 Melde dich in deinem Konto an
             </h2>
         </div>
