@@ -9,4 +9,24 @@ export default {
         extend: {},
     },
     plugins: [],
+
+    // Generate class names
+    safelist: [
+        "bg-transparent",
+        "dark:bg-white/5",
+        "border",
+        "border-zinc-950/10",
+        "data-[hover]:border-zinc-950/20",
+        "dark:border-white/10",
+        "dark:data-[hover]:border-white/20",
+        "after:pointer-events-none",
+        "focus:outline-none",
+        "after:absolute",
+        "after:inset-0",
+        "after:rounded-lg",
+        "after:ring-inset",
+        "after:ring-transparent",
+        "sm:after:focus-within:ring-2",
+        "sm:after:focus-within:ring-blue-500",
+    ],
 };

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-full" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     {{-- Meta data --}}
@@ -16,7 +16,9 @@
     @livewireStyles
 </head>
 
-<body class="antialiased">
+<body class="h-full antialiased bg-zinc-900">
+    {{-- Content --}}
+    @yield('content')
 
     {{-- Livewire Scripts --}}
     @livewireScripts
