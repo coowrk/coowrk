@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Guest Routes
+Route::group(['middleware' => 'guest'], function () {
+    // Login
+    Route::get('login', \App\Http\Controllers\Guest\LoginController::class);
+
+    Route::redirect('{route}', 'login');
 });
