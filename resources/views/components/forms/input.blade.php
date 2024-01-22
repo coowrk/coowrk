@@ -1,20 +1,40 @@
 <div>
-    {{-- Input Title --}}
-    <label for="{{ $name }}"
-        class="select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white">
-        {{ $labelName }}
-    </label>
+    <input {{ $attributes }} @class([
+        // Basic layout
+        'block w-full relative rounded-lg',
+    
+        // Prevent mobile browser from modifying
+        'appearance-none',
+    
+        // Background-Colors
+        'bg-transparent dark:bg-white/5 data-[disabled]:dark:bg-white/[2.5%]',
+    
+        // Text-Colors
+        'dark:text-white text-zinc-950 placeholder:text-zinc-500',
+    
+        // Font-Size
+        'text-base/6 sm:text-sm/6',
+    
+        // Padding
+        'px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
+    
+        // Border Base
+        'border  data-[hover]:border-zinc-950/20  dark:data-[hover]:border-white/20 data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500 data-[disabled]:border-zinc-950/20 dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 ',
+    
+        // Border Default
+        'border-zinc-950/10 dark:border-white/10' => !$errors->has(
+            $attributes->get('name')),
+    
+        // Border on Error
+        'border-red-500' => $errors->has($attributes->get('name')),
+    
+        // Focus ring
+        'after:pointer-events-none focus:outline-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500',
+    ])>
 
-    {{-- Input Description --}}
-    @if ($description)
-        <p data-slot="description"
-            class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-zinc-400">
-            {{ $description }}
-        </p>
-    @endif
+    @error($attributes->get('name'))
+        <span
+            class="block mt-3 text-base/6 text-red-600 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-red-500">{{ $message }}</span>
+    @enderror
 
-    {{-- Input Box --}}
-    <div class="mt-3">
-        <x-forms.headless-input :$type :$name />
-    </div>
 </div>

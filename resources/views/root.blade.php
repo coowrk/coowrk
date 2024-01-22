@@ -16,7 +16,7 @@
     @livewireStyles
 </head>
 
-<body class="h-full antialiased bg-zinc-900">
+<body class="h-full antialiased bg-zinc-900 ">
     {{-- Content --}}
     @yield('content')
 
