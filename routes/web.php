@@ -18,5 +18,7 @@ Route::group(['middleware' => 'guest'], function () {
     // Login
     Route::get('login', \App\Http\Controllers\Guest\LoginController::class);
 
+    // Redirect to login
+    Route::redirect('', 'login');
     Route::redirect('{route}', 'login');
 });
