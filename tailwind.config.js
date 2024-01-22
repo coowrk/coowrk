@@ -6,6 +6,10 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
+        fontFamily: {
+            sans: ["Inter"],
+        },
+
         extend: {
             colors: {
                 app: {
