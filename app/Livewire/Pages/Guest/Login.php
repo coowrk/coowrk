@@ -32,8 +32,10 @@ class Login extends Component
         if (!Auth::attempt($this->only(['mail', 'password'])))
             return $this->addError('mail', __('auth.failed'));
 
+        $this->dispatch("modal.show", now());
+
         sleep(2);
 
-        $this->dispatch("modal.show", now());
+        return redirect('/home');
     }
 }
