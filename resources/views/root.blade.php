@@ -19,6 +19,8 @@
 </head>
 
 <body class="h-full bg-zinc-900 antialiased">
+	<livewire:modal />
+
 	{{-- Content --}}
 	@yield('content')
 
