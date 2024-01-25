@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'guest'], function () {
     // Login
     Route::get('login', \App\Http\Controllers\Guest\LoginController::class)->name('login');
+    Route::redirect('', 'login');
 });
 
 // Auth Routes

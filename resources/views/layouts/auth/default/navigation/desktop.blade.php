@@ -1,6 +1,6 @@
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-10 lg:flex lg:w-72 lg:flex-col">
 	<!-- Sidebar component, swap this element with another sidebar if you like -->
-	<div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-zinc-950/10 border-zinc-950/10 bg-transparent px-6 pb-4 dark:border-white/10">
+	<div class="border-zinc-950/ flex grow flex-col gap-y-5 overflow-y-auto border-r bg-transparent px-6 pb-4 dark:border-white/10">
 		<div class="flex h-16 shrink-0 items-center">
 			<a class="text-xl font-bold text-white"
 				href="{{ route('home') }}"
