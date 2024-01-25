@@ -6,21 +6,19 @@ use App\Http\Requests\Pages\Guest\LoginRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 
 class Login extends Component
 {
+    #[Validate('required|email')]
     public string $mail;
+
+    #[Validate('required')]
     public string $password;
 
     public function render(): View
     {
         return view('components.livewire.pages.guest.login');
-    }
-
-    // Validate FORM
-    protected function rules(): array
-    {
-        return (new LoginRequest())->rules();
     }
 
     public function submit()
@@ -32,10 +30,7 @@ class Login extends Component
         if (!Auth::attempt($this->only(['mail', 'password'])))
             return $this->addError('mail', __('auth.failed'));
 
-        $this->dispatch("modal.show", now());
-
-        sleep(2);
-
-        return redirect('/home');
+        // Redirect to home
+        return $this->redirectRoute('home');
     }
 }

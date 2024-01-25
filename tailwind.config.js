@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ["class", '[data-mode="dark"]'],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -18,19 +19,13 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
 
     // Generate class names
     safelist: [
-        "bg-transparent",
-        "dark:bg-white/5",
-        "border",
-        "border-zinc-950/10",
         "data-[hover]:border-zinc-950/20",
-        "dark:border-white/10",
         "dark:data-[hover]:border-white/20",
         "after:pointer-events-none",
-        "focus:outline-none",
         "after:absolute",
         "after:inset-0",
         "after:rounded-lg",

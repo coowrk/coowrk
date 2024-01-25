@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 // Guest Routes
 Route::group(['middleware' => 'guest'], function () {
     // Login
-    Route::get('login', \App\Http\Controllers\Guest\LoginController::class);
+    Route::get('login', \App\Http\Controllers\Guest\LoginController::class)->name('login');
+});
 
-    // Redirect to login
-    Route::redirect('', 'login');
-    Route::redirect('{route}', 'login');
+// Auth Routes
+Route::group(['middleware' => 'auth'], function () {
+    // Home
+    Route::get('/home', function () {
+        return view('pages.auth.index');
+    })->name('home');
 });

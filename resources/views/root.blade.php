@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="h-full"
+	data-mode="dark"
 	lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -18,11 +19,12 @@
 	@livewireStyles
 </head>
 
-<body class="h-full bg-zinc-900 antialiased">
-	<livewire:modal />
+<body class="h-full bg-white antialiased dark:bg-zinc-900">
+	{{-- Layout --}}
+	@yield('layout')
 
-	{{-- Content --}}
-	@yield('content')
+	{{-- Modal --}}
+	<livewire:modal />
 
 	{{-- Livewire Scripts --}}
 	@livewireScripts
