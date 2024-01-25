@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Guest Routes
 Route::group(['middleware' => 'guest'], function () {
     // Login
-    Route::get('login', \App\Http\Controllers\Guest\LoginController::class)->name('login');
+    Route::view('login', 'pages.guest.login')->name('login');
     Route::redirect('', 'login');
 });
 
@@ -26,4 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
         return view('pages.auth.index');
     })->name('home');
+
+    // Letter protocol
+    Route::resource('/letter-protocol', \App\Http\Controllers\Pages\Auth\LetterProtocolController::class);
 });

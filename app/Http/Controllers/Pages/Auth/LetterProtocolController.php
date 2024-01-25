@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers\Pages\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class LetterProtocolController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function __invoke(): View
+    public function index()
     {
-        return view('pages.guest.login');
+        return view('pages.auth.letter-protocol.index');
     }
 
     /**

@@ -1,6 +1,6 @@
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-10 lg:flex lg:w-72 lg:flex-col">
 	<!-- Sidebar component, swap this element with another sidebar if you like -->
-	<div class="border-zinc-950/ flex grow flex-col gap-y-5 overflow-y-auto border-r bg-transparent px-6 pb-4 dark:border-white/10">
+	<div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-zinc-950 bg-transparent px-6 pb-4 dark:border-zinc-800 dark:bg-zinc-950">
 		<div class="flex h-16 shrink-0 items-center">
 			<a class="text-xl font-bold text-white"
 				href="{{ route('home') }}"
@@ -16,7 +16,11 @@
 						role="list">
 						<li>
 							<!-- Current: "bg-gray-50 text-indigo-600", Default: "dark:text-zinc-600 hover:text-indigo-600 hover:bg-gray-50" -->
-							<a class="group flex gap-x-3 rounded-lg bg-white/5 p-2 text-sm font-semibold leading-6 text-white"
+							<a @class([
+								'group flex gap-x-3 rounded-lg p-2 text-sm font-semibold leading-6',
+								'dark:text-zinc-400 dark:hover:text-white' => !Route::is('home'),
+								'bg-white/5 text-white' => Route::is('home'),
+							])
 								href="{{ route('home') }}"
 								wire:navigate>
 								<svg color="currentColor"
@@ -43,8 +47,14 @@
 
 						<li>
 							<!-- Current: "bg-gray-50 text-indigo-600", Default: "dark:text-zinc-600 hover:text-indigo-600 hover:bg-gray-50" -->
-							<a class="group flex gap-x-3 rounded-lg p-2 text-sm font-semibold leading-6 dark:text-zinc-400 dark:hover:text-white"
-								href="#">
+							<a @class([
+								'group flex gap-x-3 rounded-lg p-2 text-sm font-semibold leading-6',
+								'dark:text-zinc-400 dark:hover:text-white' => !Route::is(
+									'letter-protocol.*'),
+								'bg-white/5 text-white' => Route::is('letter-protocol.*'),
+							])
+								href="{{ route('letter-protocol.index') }}"
+								wire:navigate>
 								<svg color="currentColor"
 									fill="none"
 									height="24px"

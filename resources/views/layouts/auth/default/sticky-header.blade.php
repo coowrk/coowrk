@@ -1,5 +1,5 @@
 <div
-	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-zinc-950/10 bg-zinc-900 px-4 shadow-sm dark:border-white/10 sm:gap-x-6 sm:px-6 lg:px-8">
+	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-zinc-950/10 px-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:gap-x-6 sm:px-6 lg:px-8">
 	<button class="-m-2.5 p-2.5 text-gray-700 lg:hidden"
 		type="button">
 		<span class="sr-only">Open sidebar</span>
