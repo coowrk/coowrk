@@ -2,15 +2,14 @@
 
 namespace App\Livewire\Modals;
 
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
 class Notification extends Component
 {
-    public bool $show = false;
-    public string $type;
-    public string $title;
-    public string $text;
+    public array $notifications;
 
     public function render()
     {
@@ -20,10 +19,11 @@ class Notification extends Component
     #[On('notification.show')]
     public function show(string $type, string $title, string $text)
     {
-        $this->type = $type;
-        $this->title = $title;
-        $this->text = $text;
-        $this->show = true;
-        $this->render();
+        $this->notifications = Arr::prepend($this->notifications, [
+            "key" => Carbon::now()->getPreciseTimestamp(4),
+            "type" => $type,
+            "title" => $title,
+            "text" => $text,
+        ]);
     }
 }
