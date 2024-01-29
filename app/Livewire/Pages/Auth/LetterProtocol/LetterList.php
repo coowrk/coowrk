@@ -21,4 +21,10 @@ class LetterList extends Component
             ->take(10)
             ->get();
     }
+
+    public function edit()
+    {
+        return dd(11);
+        $this->dispatch('slide-over.show');
+    }
 }

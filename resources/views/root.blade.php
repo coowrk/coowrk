@@ -24,7 +24,7 @@
 	@yield('layout')
 
 	{{-- Modal --}}
-	<livewire:modal />
+	@include('components.modal')
 
 	{{-- Livewire Scripts --}}
 	@livewireScripts

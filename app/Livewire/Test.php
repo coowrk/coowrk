@@ -13,6 +13,6 @@ class Test extends Component
 
     public function test()
     {
-        $this->dispatch('modal.show', 'success', 'Account erfolgreich erstellt!', 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ');
+        $this->dispatch('notification.show', 'success', 'Account erfolgreich erstellt!', 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ');
     }
 }

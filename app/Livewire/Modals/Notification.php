@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Modals;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
 
-class Modal extends Component
+class Notification extends Component
 {
+    public bool $show = false;
     public string $type;
     public string $title;
     public string $text;
-    public bool $show = false;
 
     public function render()
     {
-        return view('components.modal');
+        return view('components.modals.notification');
     }
 
-    #[On('modal.show')]
+    #[On('notification.show')]
     public function show(string $type, string $title, string $text)
     {
         $this->type = $type;
