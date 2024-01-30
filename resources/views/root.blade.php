@@ -23,9 +23,6 @@
 	{{-- Layout --}}
 	@yield('layout')
 
-	{{-- Modal --}}
-	@include('components.modal')
-
 	{{-- Livewire Scripts --}}
 	@livewireScripts
 </body>

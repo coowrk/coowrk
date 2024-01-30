@@ -29,7 +29,5 @@
 			</div>
 
 		</div>
-
-		<livewire:test />
 	</div>
 @endsection
