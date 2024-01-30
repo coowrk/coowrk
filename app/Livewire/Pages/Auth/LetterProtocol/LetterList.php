@@ -19,6 +19,7 @@ class LetterList extends Component
     {
         return $this->letters = Letter::query()
             ->take(10)
+            ->with('customer:id,first_name,last_name')
             ->get();
     }
 

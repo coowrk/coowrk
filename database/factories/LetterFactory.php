@@ -17,10 +17,12 @@ class LetterFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'customer_id' => \App\Models\Customer::factory()->create()->id,
             'topic' => fake()->words(3, true),
             'description' => fake()->words(100, true),
-            'status' => 1
+            'status' => 1,
+            'created_by' => fake()->randomNumber(1),
+            'updated_by' => fake()->randomNumber(1),
         ];
     }
 }

@@ -27,7 +27,6 @@
 			<div class="prose prose-sm prose-zinc">
 				<h1 class="font-medium text-white">Test</h1>
 			</div>
-
 		</div>
 	</div>
 @endsection

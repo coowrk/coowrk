@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('slug');
+            $table->foreignIdFor(\App\Models\Customer::class);
             $table->string('topic');
             $table->text('description');
             $table->integer('status');
+            $table->foreignIdFor(\App\Models\User::class, 'created_by');
+            $table->foreignIdFor(\App\Models\User::class, 'updated_by');
             $table->timestamps();
         });
     }

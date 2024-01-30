@@ -2,7 +2,7 @@
 	@foreach ($letters as $letter)
 		<tr wire:key="letter-{{ $letter->id }}">
 			<td class="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
-				<div class="truncate text-sm font-medium leading-6 text-white">{{ $letter->name }}</div>
+				<div class="truncate text-sm font-medium leading-6 text-white">{{ $letter->customer->first_name }} {{ $letter->customer->last_name }}</div>
 			</td>
 			<td class="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
 				<div class="text-sm leading-6 text-zinc-400">{{ $letter->topic }}</div>
@@ -28,5 +28,4 @@
 			</td>
 		</tr>
 	@endforeach
-
 </div>

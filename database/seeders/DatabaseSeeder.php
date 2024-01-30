@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // Create users
         \App\Models\User::factory(10)->create();
 
-        // Craete letters
+        // Create letters
         \App\Models\Letter::factory(10)->create();
 
         // Root User
