@@ -12,7 +12,7 @@ class LetterList extends Component
 
     public function render()
     {
-        return view('livewire.pages.auth.letter-protocol.letter-list');
+        return view('components.livewire.pages.auth.letter-protocol.letter-list');
     }
 
     public function mount(): Collection

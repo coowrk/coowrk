@@ -20,7 +20,7 @@ class LetterProtocolController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.auth.letter-protocol.create');
     }
 
     /**
