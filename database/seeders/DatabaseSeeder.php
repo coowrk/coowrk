@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
 
         // Root User
         \App\Models\User::factory()->create([
-            'name' => 'Nail Ucdu',
+            'first_name' => 'Nail',
+            'last_name' => 'Ucdu',
             'mail' => 'nailgokturkler@gmail.com',
         ]);
     }

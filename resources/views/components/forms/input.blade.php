@@ -30,7 +30,7 @@
 			'border-red-500' => $errors->has($attributes->get('name')),
 		
 			// Focus ring
-			'after:pointer-events-none focus:outline-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500',
+			'after:pointer-events-none focus:outline-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-app-yellow',
 		])>
 
 	@error($attributes->get('name'))

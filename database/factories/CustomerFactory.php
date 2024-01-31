@@ -23,7 +23,8 @@ class CustomerFactory extends Factory
             'street' => fake()->streetAddress(),
             'street_number' => fake()->randomNumber(1),
             'postalcode' => fake()->randomNumber(5),
-            'city' => fake()->city()
+            'city' => fake()->city(),
+            'country' => fake()->country()
         ];
     }
 }

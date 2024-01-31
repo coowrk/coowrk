@@ -76,7 +76,7 @@
 					<span class="hidden lg:flex lg:items-center">
 						<span class="flex flex-col text-left">
 							<span aria-hidden="true"
-								class="ml-4 text-sm/5 font-medium text-white">{{ Auth::user()->name }}</span>
+								class="ml-4 text-sm/5 font-medium text-white">{{ Auth::user()->fullName }}</span>
 							<span aria-hidden="true"
 								class="ml-4 text-xs/5 text-zinc-400">Administrator</span>
 						</span>

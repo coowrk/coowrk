@@ -22,5 +22,6 @@ class Customer extends Model
         'street_number',
         'postalcode',
         'city',
+        'country'
     ];
 }
