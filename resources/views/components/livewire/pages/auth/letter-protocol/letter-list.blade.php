@@ -1,17 +1,16 @@
 <div>
-    @if (!$letters->isEmpty())
-        <div class="flex justify-between mt-5">
-            <div>
-                <x-forms.input wire:model="search" wire:keyup.debounce.250ms="searchLetters" />
-            </div>
-
-            <div>
-                <x-forms.buttonAsLink href="{{ route('letter-protocol.create') }}" wire:navigate>
-                    Brief erstellen
-                </x-forms.buttonAsLink>
-            </div>
+    <div class="flex justify-between mt-5">
+        <div>
+            <x-forms.input wire:model="search" wire:keyup.debounce.250ms="searchLetters" />
         </div>
 
+        <div>
+            <x-forms.buttonAsLink href="{{ route('letter-protocol.create') }}" wire:navigate>
+                Brief erstellen
+            </x-forms.buttonAsLink>
+        </div>
+    </div>
+    @if (!$letters->isEmpty())
         <div class="mt-5 border rounded-lg border-zinc-800">
             <table class="w-full text-left whitespace-nowrap">
                 <colgroup>
@@ -72,7 +71,7 @@
   }
   ```
 -->
-        <div class="max-w-lg mx-auto">
+        <div class="max-w-lg mx-auto mt-10">
             <div class="text-center">
                 <svg class="mx-auto size-10 stroke-zinc-400" fill="none" height="40px" stroke-width="1.5"
                     viewBox="0 0 24 24" width="40px" xmlns="http://www.w3.org/2000/svg">
