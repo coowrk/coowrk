@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('salutation');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('full_name');
             $table->string('street');
             $table->string('street_number');
             $table->string('postalcode');

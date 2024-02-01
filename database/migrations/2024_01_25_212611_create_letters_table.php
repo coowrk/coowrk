@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Customer::class);
             $table->string('topic');
             $table->text('description');
-            $table->integer('status');
+            $table->integer('status')->default(0);
+            $table->json('checked')->nullable();
             $table->foreignIdFor(\App\Models\User::class, 'created_by');
             $table->foreignIdFor(\App\Models\User::class, 'updated_by');
             $table->timestamps();

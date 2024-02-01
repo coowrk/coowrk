@@ -3,17 +3,15 @@
 
 {{-- Breadcrumb --}}
 @section('breadcrumb')
-	{{ Breadcrumbs::render('letter-protocol.create') }}
+    {{ Breadcrumbs::render('letter-protocol.create') }}
 @endsection
 
 {{-- Title --}}
 @section('title')
-	<h2 class="text-base/7 font-semibold text-white">Briefprotokoll erstellen</h2>
+    <h2 class="font-semibold text-white text-base/7">Briefprotokoll erstellen</h2>
 @endsection
 
 {{-- Content --}}
 @section('content')
-	<div class="mt-5">
-		<livewire:pages.auth.letter-protocol.letter-create />
-	</div>
+    <livewire:pages.auth.letter-protocol.letter-create />
 @endsection

@@ -6,20 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Button extends Component
+class Check extends Component
 {
-    /**
-     * The properties / methods that should not be exposed to the component template.
-     *
-     * @var array
-     */
-    protected $except = ['second'];
-
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $type = "submit")
+    public function __construct()
     {
+        //
     }
 
     /**
@@ -27,6 +21,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.button');
+        return view('components.forms.check');
     }
 }

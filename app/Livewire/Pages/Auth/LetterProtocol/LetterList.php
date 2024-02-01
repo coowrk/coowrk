@@ -2,30 +2,72 @@
 
 namespace App\Livewire\Pages\Auth\LetterProtocol;
 
+use Livewire\Attributes\Url;
 use App\Models\Letter;
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class LetterList extends Component
 {
-    public Collection $letters;
+    public Collection|Builder $letters;
 
-    public function render()
+    #[Url]
+    public string $search = '';
+
+    #[Url]
+    public string $sort = '';
+
+    /**
+     * Rendering the view
+     * 
+     * @return View
+     */
+    public function render(): View
     {
         return view('components.livewire.pages.auth.letter-protocol.letter-list');
     }
 
-    public function mount(): Collection
+    /**
+     * Mounting the data.
+     * 
+     * @return Collection|Builder
+     */
+    public function mount(): Collection|Builder
     {
+        if ($this->search || $this->sort)
+            return $this->searchLetters();
+
         return $this->letters = Letter::query()
+            ->with('customer:id,first_name,last_name,full_name')
             ->take(10)
-            ->with('customer:id,first_name,last_name')
+            ->latest()
             ->get();
     }
 
-    public function edit()
+    /**
+     * Updating the query.
+     * 
+     * @return Collection|Builder
+     */
+    public function searchLetters(): Collection|Builder
     {
-        return dd(11);
-        $this->dispatch('slide-over.show');
+        $data = Letter::query()
+            ->take(10)
+            ->with('customer:id,first_name,last_name,full_name');
+
+        if ($this->search)
+            $data->whereHas('customer', function ($query) {
+                $query->where('full_name', 'LIKE', '%' . $this->search . '%');
+            });
+
+        if ($this->sort == 'ascending')
+            $data->latest();
+
+        if ($this->sort == 'descending')
+            $data->oldest();
+
+        return $this->letters = $data->get();
     }
 }

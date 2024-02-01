@@ -18,10 +18,33 @@ class Customer extends Model
         'salutation',
         'first_name',
         'last_name',
+        'full_name',
         'street',
         'street_number',
         'postalcode',
         'city',
         'country'
     ];
+
+    /**
+     * The "booted" method of the model.
+     * 
+     * @return void
+     */
+    public static function booted(): void
+    {
+        /**
+         * on create, add creator id
+         */
+        static::creating(function ($model) {
+            $model->full_name = $model->first_name . " " . $model->last_name;
+        });
+
+        /**
+         * on update, add updater id
+         */
+        static::updating(function ($model) {
+            $model->full_name = $model->first_name . " " . $model->last_name;
+        });
+    }
 }
