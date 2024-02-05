@@ -14,11 +14,20 @@ return new class extends Migration
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->foreignIdFor(\App\Models\Customer::class);
             $table->string('topic');
             $table->text('description');
             $table->integer('status')->default(0);
             $table->json('checked')->nullable();
+            $table->foreignIdFor(\App\Models\Customer::class);
+            $table->string('salutation');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('full_name');
+            $table->string('street');
+            $table->string('street_number');
+            $table->string('postalcode');
+            $table->string('city');
+            $table->string('country');
             $table->foreignIdFor(\App\Models\User::class, 'created_by');
             $table->foreignIdFor(\App\Models\User::class, 'updated_by');
             $table->timestamps();

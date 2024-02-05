@@ -1,7 +1,8 @@
 <div>
-    <div class="flex justify-between mt-5">
-        <div>
-            <x-forms.input wire:model="search" wire:keyup.debounce.250ms="searchLetters" />
+    <div class="flex justify-between">
+        <div class="flex items-center gap-5">
+            <x-forms.input placeholder="Suche nach Namen, Betreff" wire:model="search"
+                wire:keyup.debounce.250ms="searchLetters" />
         </div>
 
         <div>
@@ -21,11 +22,12 @@
                 </colgroup>
                 <thead class="text-sm leading-6 text-white border-b border-zinc-950/10 dark:border-zinc-800">
                     <tr>
-                        <th class="py-4 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8" scope="col">Name</th>
-                        <th class="hidden py-4 pl-0 pr-8 font-semibold sm:table-cell" scope="col">Thematik</th>
+                        <th class="py-4 pl-4 pr-8 font-semibold cursor-pointer sm:pl-6 lg:pl-8" scope="col">
+                            Name</th>
+                        <th class="hidden py-4 pl-0 pr-8 font-semibold sm:table-cell" scope="col">Betreff</th>
                         <th class="hidden py-4 pl-0 pr-8 font-semibold md:table-cell lg:pr-20" scope="col">Erstellt
                         </th>
-                        <th class="hidden py-4 pl-0 pr-4 font-semibold text-right sm:table-cell sm:pr-6 lg:pr-8"
+                        <th class="hidden py-4 pl-0 pr-4 font-semibold text-right text-zinc-400 sm:table-cell sm:pr-6 lg:pr-8"
                             scope="col">Aktionen</th>
                     </tr>
                 </thead>
@@ -34,7 +36,8 @@
                         <tr wire:key="letter-{{ $letter->id }}">
                             <td class="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                                 <div class="text-sm font-medium leading-6 text-white truncate">
-                                    {{ $letter->customer->first_name }} {{ $letter->customer->last_name }}</div>
+                                    {{ $letter->full_name }}
+                                </div>
                             </td>
                             <td class="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
                                 <div class="text-sm leading-6 text-zinc-400">{{ $letter->topic }}</div>
@@ -56,21 +59,9 @@
                 </tbody>
             </table>
         </div>
+
+        {{ $letters->links('components.paginator') }}
     @else
-        <!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
         <div class="max-w-lg mx-auto mt-10">
             <div class="text-center">
                 <svg class="mx-auto size-10 stroke-zinc-400" fill="none" height="40px" stroke-width="1.5"

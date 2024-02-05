@@ -13,7 +13,7 @@ class LetterCreate extends Component
     /**
      * Form attributes.
      */
-    #[Validate('required|max:128')]
+    #[Validate('required|in:Firma,Herr,Frau|max:128')]
     public string $salutation;
 
     #[Validate('required|max:128')]
@@ -80,6 +80,14 @@ class LetterCreate extends Component
             'topic' => $this->topic,
             'description' => $this->description,
             'checked' => $this->checked,
+            'salutation' => $this->salutation,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'street' => $this->street,
+            'street_number' => $this->street_number,
+            'postalcode' => $this->postalcode,
+            'city' => $this->city,
+            'country' => $this->country,
 
             // Find or create Customer.
             'customer_id' => Customer::firstOrCreate(

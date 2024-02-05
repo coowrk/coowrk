@@ -6,7 +6,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Auth;
 
 class Letter extends Model
 {
@@ -29,6 +28,15 @@ class Letter extends Model
         'topic',
         'description',
         'checked',
+        'salutation',
+        'first_name',
+        'last_name',
+        'full_name',
+        'street',
+        'street_number',
+        'postalcode',
+        'city',
+        'country',
         'customer_id',
         'created_by',
         'updated_by',
@@ -45,15 +53,17 @@ class Letter extends Model
          * on create, add creator id
          */
         static::creating(function ($model) {
-            $model->created_by = Auth::user()->id;
-            $model->updated_by = Auth::user()->id;
+            $model->created_by = auth()->user()->id;
+            $model->updated_by = auth()->user()->id;
+            $model->full_name = $model->first_name . " " . $model->last_name;
         });
 
         /**
          * on update, add updater id
          */
         static::updating(function ($model) {
-            $model->updated_by = Auth::user()->id;
+            $model->updated_by = auth()->user()->id;
+            $model->full_name = $model->first_name . " " . $model->last_name;
         });
     }
 

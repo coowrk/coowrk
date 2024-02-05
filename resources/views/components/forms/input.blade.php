@@ -20,10 +20,10 @@
             'px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
         
             // Border
-            'border border-zinc-950/10 dark:border-white/10 data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15',
+            'ring-1 ring-inset ring-zinc-950/10 dark:ring-white/10 data-[invalid]:ring-red-500 data-[invalid]:dark:ring-red-500 data-[disabled]:ring-zinc-950/20 data-[disabled]:dark:ring-white/15',
         
             // Focus ring
-            'focus:dark:border-app-yellow focus:border-app-yellow focus:data-[invalid]:border-app-yellow focus:dark:data-[invalid]:border-app-yellow focus:outline-0 focus:ring-0',
+            'focus:dark:ring-app-yellow focus:ring-app-yellow focus:data-[invalid]:ring-app-yellow focus:dark:data-[invalid]:ring-app-yellow focus:outline-0 focus:ring-2',
         ])>
 
     @error($attributes->get('name'))

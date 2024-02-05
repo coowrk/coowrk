@@ -7,17 +7,17 @@ use App\Models\Letter;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class LetterList extends Component
 {
-    public Collection|Builder $letters;
+    use WithPagination;
 
     #[Url]
     public string $search = '';
-
-    #[Url]
-    public string $sort = '';
 
     /**
      * Rendering the view
@@ -26,48 +26,25 @@ class LetterList extends Component
      */
     public function render(): View
     {
-        return view('components.livewire.pages.auth.letter-protocol.letter-list');
+        return view('components.livewire.pages.auth.letter-protocol.letter-list', [
+            'letters' => Letter::query()
+                ->select(['id', 'full_name', 'topic', 'created_at'])
+                ->where(function ($query) {
+                    $query->orWhere('full_name', 'LIKE', '%' . $this->search . '%');
+                    $query->orWhere('topic', 'LIKE', '%' . $this->search . '%');
+                })
+                ->latest()
+                ->paginate(10)
+        ]);
     }
 
     /**
-     * Mounting the data.
+     * Rendering the view
      * 
-     * @return Collection|Builder
+     * @return void
      */
-    public function mount(): Collection|Builder
+    public function searchLetters(): void
     {
-        if ($this->search || $this->sort)
-            return $this->searchLetters();
-
-        return $this->letters = Letter::query()
-            ->with('customer:id,first_name,last_name,full_name')
-            ->take(10)
-            ->latest()
-            ->get();
-    }
-
-    /**
-     * Updating the query.
-     * 
-     * @return Collection|Builder
-     */
-    public function searchLetters(): Collection|Builder
-    {
-        $data = Letter::query()
-            ->take(10)
-            ->with('customer:id,first_name,last_name,full_name');
-
-        if ($this->search)
-            $data->whereHas('customer', function ($query) {
-                $query->where('full_name', 'LIKE', '%' . $this->search . '%');
-            });
-
-        if ($this->sort == 'ascending')
-            $data->latest();
-
-        if ($this->sort == 'descending')
-            $data->oldest();
-
-        return $this->letters = $data->get();
+        $this->resetPage();
     }
 }

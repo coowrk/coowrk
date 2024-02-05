@@ -242,8 +242,8 @@
     <form class="grid gap-10" wire:submit="create">
         <div class="grid grid-cols-1 gap-10 xl:grid-cols-2">
             <div class="grid col-span-1 h-fit gap-y-10">
-                <div>
-                    <div class="flex items-center justify-between">
+                <div x-data="{ show: true }">
+                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
                         <div>
                             <h3
                                 class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
@@ -253,15 +253,26 @@
                                 Use the name you'd like people to see in their cart.
                             </p>
                         </div>
-                        <div>
-                            <x-forms.button second type="button" wire:click="modal.show = true">
+
+                        <div class="flex items-center gap-5">
+                            <x-forms.button style="second" type="button" wire:click="modal.show = true">
                                 Kunde ermitteln
                             </x-forms.button>
+
+                            <div x-on:click="show = !show"
+                                class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
+                                <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
+                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                    <div
-                        class="grid grid-cols-4 p-3 mt-3 border rounded-lg gap-x-5 gap-y-3 border-white/5 lg:grid-cols-12">
-                        <div class="col-span-2">
+                    <div x-show="show" class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12">
+                        <div class="col-span-3">
                             <label
                                 class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
                                 for="salutation">
@@ -269,7 +280,13 @@
                             </label>
 
                             <div class="mt-3">
-                                <x-forms.input id="salutation" name="salutation" wire:model.blur="salutation" />
+                                <x-forms.dropdown id="salutation" name="salutation" wire:model.blur="salutation"
+                                    :data="collect([
+                                        'Firma' => 'Firma',
+                                        'Herr' => 'Herr',
+                                        'Frau' => 'Frau',
+                                        'Prof.' => 'Prof.',
+                                    ])" :selected="$salutation" />
                             </div>
                         </div>
 
@@ -285,7 +302,7 @@
                             </div>
                         </div>
 
-                        <div class="col-span-5">
+                        <div class="col-span-4">
                             <label
                                 class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
                                 for="last_name">
@@ -307,16 +324,31 @@
                     </div>
                 </div>
 
-                <div>
-                    <h3
-                        class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                        Anschrift
-                    </h3>
-                    <p class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                        Use the name you'd like people to see in their cart.
-                    </p>
-                    <div
-                        class="grid grid-cols-4 p-3 mt-3 border rounded-lg gap-x-5 gap-y-3 border-white/5 lg:grid-cols-12">
+                <div x-data="{ show: true }">
+                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
+                        <div>
+                            <h3
+                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
+                                Anschrift
+                            </h3>
+                            <p
+                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
+                                Use the name you'd like people to see in their cart.
+                            </p>
+                        </div>
+
+                        <div x-on:click="show = !show"
+                            class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
+                            <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div x-show="show" class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12">
                         <div class="col-span-10">
                             <label
                                 class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
@@ -385,18 +417,33 @@
                 </div>
             </div>
 
-            <div class="col-span-1 h-fit">
+            <div class="col-span-1 h-fit" x-data="{ show: true }">
                 <div>
-                    <h3
-                        class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                        Brief
-                    </h3>
-                    <p class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                        Use the name you'd like people to see in their cart.
-                    </p>
+                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
+                        <div>
+                            <h3
+                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
+                                Brief
+                            </h3>
+                            <p
+                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
+                                Use the name you'd like people to see in their cart.
+                            </p>
+                        </div>
 
-                    <div
-                        class="grid grid-cols-4 p-3 mt-3 border rounded-lg gap-x-5 gap-y-3 border-white/5 lg:grid-cols-12">
+                        <div x-on:click="show = !show"
+                            class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
+                            <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12" x-show="show">
                         <div class="col-span-12">
                             <label
                                 class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
@@ -426,11 +473,8 @@
                                     wire:model.blur="description"></x-forms.textarea>
                             </div>
                         </div>
-                    </div>
 
-                    <div
-                        class="grid grid-cols-1 p-3 mt-3 border rounded-lg gap-x-5 gap-y-3 border-white/5 lg:grid-cols-3">
-                        <div class="lg:col-span-2">
+                        <div class="lg:col-span-8">
                             <h4
                                 class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
                                 Sie erhalten den Vorgang
@@ -447,7 +491,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:col-span-1">
+
+                        <div class="lg:col-span-4">
                             <h4
                                 class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
                                 Test
@@ -466,7 +511,7 @@
 
         <div class="relative bottom-0 flex justify-end gap-5 p-3 border rounded-lg border-white/5">
             <div>
-                <x-forms.buttonAsLink href="{{ route('letter-protocol.index') }}" second
+                <x-forms.buttonAsLink href="{{ route('letter-protocol.index') }}" style="third"
                     wire:navigate>Abbrechen</x-forms.buttonAsLink>
             </div>
 
