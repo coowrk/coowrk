@@ -245,13 +245,7 @@
                 <x-pages.auth.letter-protocol.forms.container title="Kunde" description="Test" disclaimer
                     modal-button>
                     <div class="col-span-3">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="salutation">
-                            Anrede
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Anrede" for="salutation">
                             <x-forms.dropdown id="salutation" name="salutation" wire:model.blur="salutation"
                                 :data="collect([
                                     'Firma' => 'Firma',
@@ -259,90 +253,51 @@
                                     'Frau' => 'Frau',
                                     'Prof.' => 'Prof.',
                                 ])" :selected="$salutation" />
-                        </div>
+                        </x-forms.label>
                     </div>
 
                     <div class="col-span-5">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="first_name">
-                            Vorname
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Vorname" for="first_name">
                             <x-forms.input id="first_name" name="first_name" wire:model.blur="first_name" />
-                        </div>
+                        </x-forms.label>
                     </div>
 
                     <div class="col-span-4">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="last_name">
-                            Nachname
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Nachname" for="last_name">
                             <x-forms.input id="last_name" name="last_name" wire:model.blur="last_name" />
-                        </div>
+                        </x-forms.label>
                     </div>
                 </x-pages.auth.letter-protocol.forms.container>
 
                 <x-pages.auth.letter-protocol.forms.container title="Anschrift" description="Test" disclaimer>
                     <div class="col-span-10">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="street">
-                            Straße
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Straße" for="street">
                             <x-forms.input id="street" name="street" wire:model.blur="street" />
-                        </div>
+                        </x-forms.label>
                     </div>
-                    <div class="col-span-2">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="street_number">
-                            Hausnummer
-                        </label>
 
-                        <div class="mt-3">
+                    <div class="col-span-2">
+                        <x-forms.label title="Hausnummer" for="street_number">
                             <x-forms.input id="street_number" name="street_number" wire:model.blur="street_number" />
-                        </div>
+                        </x-forms.label>
                     </div>
 
                     <div class="col-span-2">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="postalcode">
-                            Postleitzahl
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Postleitzahl" for="postalcode">
                             <x-forms.input id="postalcode" name="postalcode" wire:model.blur="postalcode" />
-                        </div>
+                        </x-forms.label>
                     </div>
+
                     <div class="col-span-6">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="city">
-                            Stadt
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Stadt" for="city">
                             <x-forms.input id="city" name="city" wire:model.blur="city" />
-                        </div>
+                        </x-forms.label>
                     </div>
-                    <div class="col-span-4">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="country">
-                            Land
-                        </label>
 
-                        <div class="mt-3">
+                    <div class="col-span-4">
+                        <x-forms.label title="Land" for="country">
                             <x-forms.input id="country" name="country" wire:model.blur="country" />
-                        </div>
+                        </x-forms.label>
                     </div>
                 </x-pages.auth.letter-protocol.forms.container>
             </div>
@@ -350,33 +305,15 @@
             <div class="col-span-1 h-fit">
                 <x-pages.auth.letter-protocol.forms.container title="Brief" description="Test">
                     <div class="col-span-12">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="topic">
-                            Betreff
-                        </label>
-
-                        <div class="mt-3">
+                        <x-forms.label title="Betreff" for="topic">
                             <x-forms.input id="topic" name="topic" wire:model.blur="topic" />
-                        </div>
+                        </x-forms.label>
                     </div>
 
                     <div class="col-span-12">
-                        <label
-                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                            for="description">
-                            Beschreibung
-                        </label>
-
-                        <p
-                            class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                            Use the name you'd like people to see in their cart.
-                        </p>
-
-                        <div class="mt-3">
-                            <x-forms.textarea id="description" name="description"
-                                wire:model.blur="description"></x-forms.textarea>
-                        </div>
+                        <x-forms.label title="Beschreibung" description="test" for="description">
+                            <x-forms.input id="description" name="description" wire:model.blur="description" />
+                        </x-forms.label>
                     </div>
 
                     <div class="lg:col-span-8">
