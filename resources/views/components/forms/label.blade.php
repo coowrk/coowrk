@@ -3,6 +3,12 @@
     {{ $attributes->get('title') }}
 </label>
 
+@if ($attributes->has('description'))
+    <p class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
+        {{ $attributes->get('description') }}
+    </p>
+@endif
+
 <div class="mt-3">
     {{ $slot }}
 </div>
