@@ -420,7 +420,7 @@
             </div>
 
             <div>
-                <x-forms.button>Bearbeiten</x-forms.button>
+                <x-forms.button>Speichern</x-forms.button>
             </div>
         </div>
     </form>
