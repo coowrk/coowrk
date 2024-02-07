@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Letter extends Model
 {
@@ -53,8 +54,13 @@ class Letter extends Model
          * on create, add creator id
          */
         static::creating(function ($model) {
+            // Set created_by
             $model->created_by = auth()->user()->id;
+
+            // Set updated_by
             $model->updated_by = auth()->user()->id;
+
+            // Set full_name
             $model->full_name = $model->first_name . " " . $model->last_name;
         });
 
@@ -62,7 +68,10 @@ class Letter extends Model
          * on update, add updater id
          */
         static::updating(function ($model) {
+            // Update updated_by
             $model->updated_by = auth()->user()->id;
+
+            // Update full_name
             $model->full_name = $model->first_name . " " . $model->last_name;
         });
     }
@@ -85,7 +94,7 @@ class Letter extends Model
     {
         return [
             'slug' => [
-                'source' => ['topic', 'name']
+                'source' => ['first_name', 'last_name', 'topic']
             ]
         ];
     }
@@ -98,5 +107,15 @@ class Letter extends Model
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    /**
+     * Return the feed of the letter
+     *
+     * @return BelongsTo
+     */
+    public function feed(): HasMany
+    {
+        return $this->hasMany(LetterFeed::class)->orderBy('created_at', 'desc');
     }
 }

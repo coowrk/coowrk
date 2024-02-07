@@ -62,7 +62,7 @@ class LetterCreate extends Component
      */
     public function render(): View
     {
-        return view('components.livewire.pages.auth.letter-protocol.letter-create');
+        return view('livewire.pages.auth.letter-protocol.letter-create');
     }
 
     /**
@@ -102,7 +102,13 @@ class LetterCreate extends Component
                     'country' => $this->country
                 ]
             )->id
-        ]);
+        ])
+            // Create feed.
+            ->feed()
+            ->create([
+                'user_id' => auth()->user()->id,
+                'keyword' => 'created'
+            ]);
 
         // Redirect back to letter-protocol.index route.
         $this->redirect(route('letter-protocol.index'));

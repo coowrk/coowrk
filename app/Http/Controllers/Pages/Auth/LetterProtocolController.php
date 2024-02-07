@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Letter;
 use Illuminate\Http\Request;
 
 class LetterProtocolController extends Controller
@@ -34,17 +35,26 @@ class LetterProtocolController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        return view('pages.auth.letter-protocol.show', [
+            'letter' => Letter::query()
+                ->where('slug', $slug)
+                ->with(['feed:letter_id,user_id,keyword,comment,created_at', 'feed.user:id,first_name,last_name'])
+                ->firstOrFail()
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
-        //
+        return view('pages.auth.letter-protocol.edit', [
+            'letter' => Letter::query()
+                ->where('slug', $slug)
+                ->firstOrFail()
+        ]);
     }
 
     /**

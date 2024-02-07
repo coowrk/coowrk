@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Pages\Guest;
 
-use App\Http\Requests\Pages\Guest\LoginRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -18,7 +17,7 @@ class Login extends Component
 
     public function render(): View
     {
-        return view('components.livewire.pages.guest.login');
+        return view('livewire.pages.guest.login');
     }
 
     public function submit()

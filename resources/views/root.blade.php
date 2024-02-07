@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html class="h-full"
-	data-mode="dark"
-	lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-full" data-mode="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-	{{-- Meta data --}}
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1"
-		name="viewport">
+    {{-- Meta data --}}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
-	{{-- Title --}}
-	<title>{{ config('app.name') }}</title>
+    {{-- Title --}}
+    <title>{{ config('app.name') }}</title>
 
-	{{-- Tailwind Styles --}}
-	@vite('resources/css/app.css')
+    {{-- Tailwind Styles --}}
+    @vite('resources/css/app.css')
 
-	{{-- Livewire Styles --}}
-	@livewireStyles
+    {{-- Livewire Styles --}}
+    @livewireStyles
 </head>
 
-<body class="h-full bg-white antialiased dark:bg-zinc-900">
-	{{-- Layout --}}
-	@yield('layout')
+<body class="h-full antialiased bg-white dark:bg-zinc-900">
+    {{-- Layout --}}
+    @yield('layout')
 
-	{{-- Livewire Scripts --}}
-	@livewireScripts
+    {{-- Livewire Scripts --}}
+    @livewireScripts
 </body>
 
 </html>

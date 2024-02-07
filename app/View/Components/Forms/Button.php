@@ -9,16 +9,9 @@ use Illuminate\View\Component;
 class Button extends Component
 {
     /**
-     * The properties / methods that should not be exposed to the component template.
-     *
-     * @var array
-     */
-    protected $except = ['second'];
-
-    /**
      * Create a new component instance.
      */
-    public function __construct(public string $type = "submit")
+    public function __construct(public string $type = "submit", public ?string $tag = "button")
     {
     }
 

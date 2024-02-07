@@ -29,7 +29,7 @@
                     <!-- Preview Visible: "sm:h-96" -->
                     <div class="flex-auto min-w-0 px-6 py-4 overflow-y-auto max-h-96 scroll-py-4 sm:h-96">
                         <!-- Default state, show/hide based on command palette state. -->
-                        <h2 class="mt-2 mb-4 text-xs font-semibold text-zinc-500">Gefundene Kunden</h2>
+                        <h2 class="mt-2 mb-4 text-xs font-semibold text-zinc-400">Gefundene Kunden</h2>
                         <ul class="-mx-2 text-sm text-white" id="recent" role="listbox">
                             <template x-for="(customer, key) in customers">
                                 <!-- Active: "bg-gray-100 text-gray-900" -->
@@ -66,7 +66,7 @@
                     <!-- Preview Visible: "sm:h-96" -->
                     <div class="flex-auto min-w-0 px-6 py-4 overflow-y-auto max-h-96 scroll-py-4 sm:h-96">
                         <!-- Default state, show/hide based on command palette state. -->
-                        <h2 class="mt-2 mb-4 text-xs font-semibold text-zinc-500">Gefundene Kunden</h2>
+                        <h2 class="mt-2 mb-4 text-xs font-semibold text-zinc-400">Gefundene Kunden</h2>
                         <ul class="-mx-2 text-sm text-white" id="recent" role="listbox">
                             <!-- Active: "bg-gray-100 text-gray-900" -->
                             <li class="flex items-center justify-between p-2 rounded-md cursor-pointer select-none hover:bg-white/5"
@@ -242,277 +242,181 @@
     <form class="grid gap-10" wire:submit="create">
         <div class="grid grid-cols-1 gap-10 xl:grid-cols-2">
             <div class="grid col-span-1 h-fit gap-y-10">
-                <div x-data="{ show: true }">
-                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
-                        <div>
-                            <h3
-                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                                Kunde</h3>
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                                Use the name you'd like people to see in their cart.
-                            </p>
-                        </div>
+                <x-pages.auth.letter-protocol.forms.container title="Kunde" description="Test" disclaimer
+                    modal-button>
+                    <div class="col-span-3">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="salutation">
+                            Anrede
+                        </label>
 
-                        <div class="flex items-center gap-5">
-                            <x-forms.button style="second" type="button" wire:click="modal.show = true">
-                                Kunde ermitteln
-                            </x-forms.button>
-
-                            <div x-on:click="show = !show"
-                                class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
-                                <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                            </div>
+                        <div class="mt-3">
+                            <x-forms.dropdown id="salutation" name="salutation" wire:model.blur="salutation"
+                                :data="collect([
+                                    'Firma' => 'Firma',
+                                    'Herr' => 'Herr',
+                                    'Frau' => 'Frau',
+                                    'Prof.' => 'Prof.',
+                                ])" :selected="$salutation" />
                         </div>
                     </div>
-                    <div x-show="show" class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12">
-                        <div class="col-span-3">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="salutation">
-                                Anrede
-                            </label>
 
-                            <div class="mt-3">
-                                <x-forms.dropdown id="salutation" name="salutation" wire:model.blur="salutation"
-                                    :data="collect([
-                                        'Firma' => 'Firma',
-                                        'Herr' => 'Herr',
-                                        'Frau' => 'Frau',
-                                        'Prof.' => 'Prof.',
-                                    ])" :selected="$salutation" />
-                            </div>
-                        </div>
+                    <div class="col-span-5">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="first_name">
+                            Vorname
+                        </label>
 
-                        <div class="col-span-5">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="first_name">
-                                Vorname
-                            </label>
-
-                            <div class="mt-3">
-                                <x-forms.input id="first_name" name="first_name" wire:model.blur="first_name" />
-                            </div>
-                        </div>
-
-                        <div class="col-span-4">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="last_name">
-                                Nachname
-                            </label>
-
-                            <div class="mt-3">
-                                <x-forms.input id="last_name" name="last_name" wire:model.blur="last_name" />
-                            </div>
-                        </div>
-
-                        <div class="col-span-12">
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-xs/4">
-                                Die eingegebenen Daten werden automatisch gespeichert, um zukünftige Abläufe
-                                effizienter zu gestalten.
-                            </p>
+                        <div class="mt-3">
+                            <x-forms.input id="first_name" name="first_name" wire:model.blur="first_name" />
                         </div>
                     </div>
-                </div>
 
-                <div x-data="{ show: true }">
-                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
-                        <div>
-                            <h3
-                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                                Anschrift
-                            </h3>
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                                Use the name you'd like people to see in their cart.
-                            </p>
-                        </div>
+                    <div class="col-span-4">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="last_name">
+                            Nachname
+                        </label>
 
-                        <div x-on:click="show = !show"
-                            class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
-                            <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
-                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
+                        <div class="mt-3">
+                            <x-forms.input id="last_name" name="last_name" wire:model.blur="last_name" />
                         </div>
                     </div>
-                    <div x-show="show" class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12">
-                        <div class="col-span-10">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="street">
-                                Straße
-                            </label>
+                </x-pages.auth.letter-protocol.forms.container>
 
-                            <div class="mt-3">
-                                <x-forms.input id="street" name="street" wire:model.blur="street" />
-                            </div>
-                        </div>
-                        <div class="col-span-2">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="street_number">
-                                Hausnummer
-                            </label>
+                <x-pages.auth.letter-protocol.forms.container title="Anschrift" description="Test" disclaimer>
+                    <div class="col-span-10">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="street">
+                            Straße
+                        </label>
 
-                            <div class="mt-3">
-                                <x-forms.input id="street_number" name="street_number"
-                                    wire:model.blur="street_number" />
-                            </div>
-                        </div>
-
-                        <div class="col-span-2">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="postalcode">
-                                Postleitzahl
-                            </label>
-
-                            <div class="mt-3">
-                                <x-forms.input id="postalcode" name="postalcode" wire:model.blur="postalcode" />
-                            </div>
-                        </div>
-                        <div class="col-span-6">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="city">
-                                Stadt
-                            </label>
-
-                            <div class="mt-3">
-                                <x-forms.input id="city" name="city" wire:model.blur="city" />
-                            </div>
-                        </div>
-                        <div class="col-span-4">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="country">
-                                Land
-                            </label>
-
-                            <div class="mt-3">
-                                <x-forms.input id="country" name="country" wire:model.blur="country" />
-                            </div>
-                        </div>
-                        <div class="col-span-12">
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-xs/4">
-                                Die eingegebenen Daten werden automatisch gespeichert, um zukünftige Abläufe
-                                effizienter zu gestalten.
-                            </p>
+                        <div class="mt-3">
+                            <x-forms.input id="street" name="street" wire:model.blur="street" />
                         </div>
                     </div>
-                </div>
+                    <div class="col-span-2">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="street_number">
+                            Hausnummer
+                        </label>
+
+                        <div class="mt-3">
+                            <x-forms.input id="street_number" name="street_number" wire:model.blur="street_number" />
+                        </div>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="postalcode">
+                            Postleitzahl
+                        </label>
+
+                        <div class="mt-3">
+                            <x-forms.input id="postalcode" name="postalcode" wire:model.blur="postalcode" />
+                        </div>
+                    </div>
+                    <div class="col-span-6">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="city">
+                            Stadt
+                        </label>
+
+                        <div class="mt-3">
+                            <x-forms.input id="city" name="city" wire:model.blur="city" />
+                        </div>
+                    </div>
+                    <div class="col-span-4">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="country">
+                            Land
+                        </label>
+
+                        <div class="mt-3">
+                            <x-forms.input id="country" name="country" wire:model.blur="country" />
+                        </div>
+                    </div>
+                </x-pages.auth.letter-protocol.forms.container>
             </div>
 
-            <div class="col-span-1 h-fit" x-data="{ show: true }">
-                <div>
-                    <div class="flex items-center justify-between p-3 border rounded-lg border-white/5">
-                        <div>
-                            <h3
-                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                                Brief
-                            </h3>
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                                Use the name you'd like people to see in their cart.
-                            </p>
-                        </div>
+            <div class="col-span-1 h-fit">
+                <x-pages.auth.letter-protocol.forms.container title="Brief" description="Test">
+                    <div class="col-span-12">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="topic">
+                            Betreff
+                        </label>
 
-                        <div x-on:click="show = !show"
-                            class="flex items-center justify-center w-[34px] h-[34px] rounded-lg cursor-pointer hover:bg-white/10 bg-white/5 transition-colors shrink-0">
-                            <svg width="24px" height="24px" class="stroke-white" stroke-width="1.5"
-                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path x-show="!show" d="M6 9L12 15L18 9" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path x-show="show" x-cloak d="M6 15L12 9L18 15" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
+                        <div class="mt-3">
+                            <x-forms.input id="topic" name="topic" wire:model.blur="topic" />
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-4 p-3 rounded-lg gap-x-5 gap-y-3 lg:grid-cols-12" x-show="show">
-                        <div class="col-span-12">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="topic">
-                                Betreff
-                            </label>
+                    <div class="col-span-12">
+                        <label
+                            class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
+                            for="description">
+                            Beschreibung
+                        </label>
 
-                            <div class="mt-3">
-                                <x-forms.input id="topic" name="topic" wire:model.blur="topic" />
-                            </div>
+                        <p
+                            class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
+                            Use the name you'd like people to see in their cart.
+                        </p>
+
+                        <div class="mt-3">
+                            <x-forms.textarea id="description" name="description"
+                                wire:model.blur="description"></x-forms.textarea>
                         </div>
+                    </div>
 
-                        <div class="col-span-12">
-                            <label
-                                class="select-none text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6"
-                                for="description">
-                                Beschreibung
-                            </label>
-
-                            <p
-                                class="text-base/6 text-zinc-500 data-[disabled]:opacity-50 dark:text-zinc-400 sm:text-sm/6">
-                                Use the name you'd like people to see in their cart.
-                            </p>
-
-                            <div class="mt-3">
-                                <x-forms.textarea id="description" name="description"
-                                    wire:model.blur="description"></x-forms.textarea>
+                    <div class="lg:col-span-8">
+                        <h4
+                            class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
+                            Sie erhalten den Vorgang
+                        </h4>
+                        <div class="grid grid-cols-1 mt-3 lg:grid-cols-2">
+                            <div class="col-span-1">
+                                <x-forms.check name="checked" type="checkbox" id="wiedervorlage"
+                                    value="wiedervorlage" wire:model="checked" title="zur Wiedervorlage" />
                             </div>
-                        </div>
 
-                        <div class="lg:col-span-8">
-                            <h4
-                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                                Sie erhalten den Vorgang
-                            </h4>
-                            <div class="grid grid-cols-1 mt-3 lg:grid-cols-2">
-                                <div class="col-span-1">
-                                    <x-forms.check name="checked" type="checkbox" id="wiedervorlage"
-                                        value="wiedervorlage" wire:model="checked" title="zur Wiedervorlage" />
-                                </div>
-
-                                <div class="col-span-1">
-                                    <x-forms.check name="checked" type="checkbox" id="prufung" value="prufung"
-                                        wire:model="checked" title="zur Prüfung" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="lg:col-span-4">
-                            <h4
-                                class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
-                                Test
-                            </h4>
-                            <div class="mt-3">
-                                <x-forms.check name="checked" type="checkbox" id="unterschrift" value="unterschrift"
-                                    wire:model="checked" title="zur Unterschrift" />
-                                <x-forms.check name="checked" type="checkbox" id="verbleib" value="verbleib"
-                                    wire:model="checked" title="zum Verbleib" />
+                            <div class="col-span-1">
+                                <x-forms.check name="checked" type="checkbox" id="prufung" value="prufung"
+                                    wire:model="checked" title="zur Prüfung" />
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="lg:col-span-4">
+                        <h4
+                            class="text-base/6 font-medium text-zinc-950 data-[disabled]:opacity-50 dark:text-white sm:text-sm/6">
+                            Test
+                        </h4>
+                        <div class="mt-3">
+                            <x-forms.check name="checked" type="checkbox" id="unterschrift" value="unterschrift"
+                                wire:model="checked" title="zur Unterschrift" />
+                            <x-forms.check name="checked" type="checkbox" id="verbleib" value="verbleib"
+                                wire:model="checked" title="zum Verbleib" />
+                        </div>
+                    </div>
+                </x-pages.auth.letter-protocol.forms.container>
             </div>
         </div>
 
-        <div class="relative bottom-0 flex justify-end gap-5 p-3 border rounded-lg border-white/5">
+        <div class="relative bottom-0 flex justify-end gap-5 p-3 border rounded-lg border-zinc-800">
             <div>
-                <x-forms.buttonAsLink href="{{ route('letter-protocol.index') }}" style="third"
-                    wire:navigate>Abbrechen</x-forms.buttonAsLink>
+                <x-forms.button type="button" href="{{ route('letter-protocol.index') }}" theme="third"
+                    wire:navigate>Abbrechen</x-forms.button>
             </div>
 
             <div>

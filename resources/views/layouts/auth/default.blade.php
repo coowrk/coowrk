@@ -16,9 +16,17 @@
             {{-- Content --}}
             <main class="relative px-4 py-10 sm:px-6 lg:px-8">
                 @hasSection('title')
-                    <div class="pb-10">
-                        @yield('breadcrumb')
-                        @yield('title')
+                    <div class="flex items-center justify-between pb-10">
+                        <div>
+                            @yield('breadcrumb')
+                            @yield('title')
+                        </div>
+
+                        @hasSection('button')
+                            <div>
+                                @yield('button')
+                            </div>
+                        @endif
                     </div>
                 @endif
 

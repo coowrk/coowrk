@@ -1,6 +1,6 @@
 <div>
-    <input {{ $attributes }} {{ $errors->has($attributes->get('name')) ? 'data-invalid' : '' }}
-        @class([
+    <input {{ $attributes->filter(fn($value, $key) => !in_array($key, ['style', 'theme'])) }}
+        {{ $errors->has($attributes->get('name')) ? 'data-invalid' : '' }} @class([
             // Basic layout
             'block w-full relative rounded-lg after:pointer-events-none',
         
@@ -24,6 +24,12 @@
         
             // Focus ring
             'focus:dark:ring-app-yellow focus:ring-app-yellow focus:data-[invalid]:ring-app-yellow focus:dark:data-[invalid]:ring-app-yellow focus:outline-0 focus:ring-2',
+        
+            // Theme Transparent
+            'bg-transparent dark:bg-transparent ring-0 focus:dark:ring-transparent' =>
+                $attributes->get('theme') == 'transparent',
+        
+            $attributes->get('style'),
         ])>
 
     @error($attributes->get('name'))

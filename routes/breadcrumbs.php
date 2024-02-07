@@ -24,3 +24,15 @@ Breadcrumbs::for('letter-protocol.create', function (BreadcrumbTrail $trail) {
     $trail->parent('letter-protocol');
     $trail->push('Erstellen', route('letter-protocol.create'));
 });
+
+// home > letter-protocol > show
+Breadcrumbs::for('letter-protocol.show', function (BreadcrumbTrail $trail, $letter_protocol) {
+    $trail->parent('letter-protocol');
+    $trail->push($letter_protocol->slug, route('letter-protocol.show', $letter_protocol->slug));
+});
+
+// home > letter-protocol > edit
+Breadcrumbs::for('letter-protocol.edit', function (BreadcrumbTrail $trail, $letter_protocol) {
+    $trail->parent('letter-protocol.show', $letter_protocol);
+    $trail->push('Bearbeiten');
+});

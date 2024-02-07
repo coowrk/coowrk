@@ -10,7 +10,7 @@
         'bg-transparent checked:bg-app-yellow checked:hover:bg-app-yellow hover:bg-white/5',
     
         // Border
-        'border border-zinc-950/10 dark:border-white/10 data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15',
+        'border border-zinc-950/10 dark:border-zinc-800 data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15',
     
         // Focus ring
         'focus:dark:border-app-yellow focus:border-app-yellow focus:data-[invalid]:border-app-yellow focus:dark:data-[invalid]:border-app-yellow focus:outline-0 focus:ring-0',
@@ -40,6 +40,4 @@
                 {{ $message }}</p>
         @enderror
     </div>
-
-
 </div>

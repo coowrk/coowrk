@@ -1,4 +1,4 @@
-<button {{ $attributes->filter(fn($value, $key) => $key != 'style') }} @class([
+<button {{ $attributes->filter(fn($value, $key) => !in_array($key, ['style', 'theme'])) }} @class([
     // Basic layout
     'flex justify-center rounded-lg shadow-sm',
 
@@ -6,35 +6,17 @@
     'text-sm/6 font-semibold',
 
     // Text-Color (default)
-    'text-zinc-950' =>
-        !$attributes->has('style') ||
-        ($attributes->has('style') && $attributes->get('style') == 'second'),
-
-    // Text-Color (third)
-    'text-white' =>
-        $attributes->has('style') && $attributes->get('style') == 'third',
+    'text-zinc-950' => !$attributes->has('theme'),
 
     // Background-Colors (default)
-    'bg-app-yellow' => !$attributes->has('style'),
-
-    // Background-Colors (second)
-    'bg-white' =>
-        $attributes->has('style') && $attributes->get('style') == 'second',
-
-    // Background-Colors (third)
-    'bg-white/5' =>
-        $attributes->has('style') && $attributes->get('style') == 'third',
+    'bg-app-yellow' => !$attributes->has('theme'),
 
     // Hover (default)
-    'enabled:hover:bg-app-yellow/90' => !$attributes->has('style'),
+    'enabled:hover:bg-app-yellow/90' => !$attributes->has('theme'),
 
     // Hover (second)
     'enabled:hover:bg-gray-50' =>
-        $attributes->has('style') && $attributes->get('style') == 'second',
-
-    // Hover (third)
-    'enabled:hover:bg-white/10' =>
-        $attributes->has('style') && $attributes->get('style') == 'third',
+        $attributes->has('theme') && $attributes->get('theme') == 'second',
 
     // Padding
     'px-3 py-1.5',
@@ -44,6 +26,20 @@
 
     // Disabled-State
     'disabled:opacity-50 disabled:cursor-not-allowed',
+
+    // Theme (second)
+    'bg-white enabled:hover:bg-gray-50 text-zinc-950' =>
+        $attributes->get('theme') == 'second',
+
+    // Theme (third)
+    'bg-white/5 enabled:hover:bg-white/10 text-white' =>
+        $attributes->get('theme') == 'third',
+
+    // Theme (delete)
+    'bg-red-600 enabled:hover:bg-red-500 text-white' =>
+        $attributes->get('theme') == 'delete',
+
+    $attributes->get('style'),
 ])
     type="{{ $type }}">
     {{ $slot }}

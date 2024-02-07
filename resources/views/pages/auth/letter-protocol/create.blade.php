@@ -8,7 +8,7 @@
 
 {{-- Title --}}
 @section('title')
-    <h2 class="font-semibold text-white text-base/7">Briefprotokoll erstellen</h2>
+    <h2 class="font-semibold text-white text-base/6">Briefprotokoll erstellen</h2>
 @endsection
 
 {{-- Content --}}
