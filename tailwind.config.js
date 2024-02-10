@@ -8,7 +8,13 @@ export default {
     fontFamily: {
       sans: ["Inter"],
   },
-    extend: {},
+  extend: {
+    colors: {
+        app: {
+            yellow: "#FCCD03",
+        },
+    },
+},
   },
   plugins: [],
 }

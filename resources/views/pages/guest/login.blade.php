@@ -1,3 +1,3 @@
 <x-layouts.guest.authentication>
-	Test
+	<livewire:pages.guest.login />
 </x-layouts.guest.authentication>
