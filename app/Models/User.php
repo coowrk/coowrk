@@ -3,8 +3,6 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -20,9 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'mail',
+        'name',
+        'email',
         'password',
     ];
 
@@ -42,17 +39,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'mail_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    /**
-     * Get the user's full name.
-     */
-    protected function fullName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->first_name . " " . $this->last_name,
-        );
-    }
 }
