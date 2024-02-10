@@ -5,6 +5,9 @@ export default {
     "./resources/**/*.js",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Inter"],
+  },
     extend: {},
   },
   plugins: [],
