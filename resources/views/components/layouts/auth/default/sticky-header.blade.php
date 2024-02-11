@@ -149,7 +149,7 @@
 				<div
 					aria-labelledby="user-menu-button"
 					aria-orientation="vertical"
-					class="min-w-32 absolute right-0 isolate z-10 mt-2.5 grid w-max origin-top-right grid-cols-1 overflow-y-auto rounded-lg bg-white p-2 text-right ring-1 ring-inset ring-gray-200 dark:bg-zinc-900 dark:ring-zinc-800 sm:mt-1 sm:w-full"
+					class="min-w-32 absolute right-0 isolate z-10 mt-2.5 grid w-max origin-top-right grid-cols-1 gap-1 overflow-y-auto rounded-lg bg-white p-2 text-right ring-1 ring-inset ring-gray-200 dark:bg-zinc-900 dark:ring-zinc-800 sm:mt-1 sm:w-full"
 					role="menu"
 					tabindex="-1"
 					x-cloak
@@ -164,16 +164,23 @@
 				>
 					<!-- Active: "bg-gray-50", Not Active: "" -->
 					<a
-						class="col-span-full block rounded-lg px-3 py-1 text-sm/6 text-gray-500 hover:bg-black/5 hover:text-gray-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
-						href="#"
+						@class([
+							"col-span-full block rounded-lg px-3 py-1 text-sm/6",
+							"text-gray-500 hover:bg-black/[3%] hover:text-gray-900 dark:text-zinc-500 dark:hover:bg-white/[3%] dark:hover:text-white" => !Route::is(
+								"profile.settings"),
+							"bg-black/[3%] dark:bg-white/[3%] text-gray-900 dark:text-white" => Route::is(
+								"profile.settings"),
+						])
+						href="{{ route("profile.settings") }}"
 						id="user-menu-item-0"
 						role="menuitem"
 						tabindex="-1"
+						wire:navigate
 					>
 						Einstellungen
 					</a>
 					<a
-						class="col-span-full rounded-lg px-3 py-1 text-sm/6 text-gray-500 hover:bg-black/5 hover:text-gray-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
+						class="col-span-full rounded-lg px-3 py-1 text-sm/6 text-gray-500 hover:bg-black/[3%] hover:text-gray-900 dark:text-zinc-500 dark:hover:bg-white/[3%] dark:hover:text-white"
 						href="#"
 						id="user-menu-item-1"
 						role="menuitem"

@@ -19,4 +19,8 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::view('home', 'pages.auth.home')->name('home');
+
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+        Route::view('settings', 'pages.auth.profile.settings')->name('settings');
+    });
 });
