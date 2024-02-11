@@ -17,6 +17,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::view('login', 'pages.guest.login')->name('login');
 });
 
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::view('home', 'pages.guest.home')->name('home');
-// });
+Route::group(['middleware' => 'auth'], function () {
+    Route::view('home', 'pages.auth.home')->name('home');
+});

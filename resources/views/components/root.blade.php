@@ -18,7 +18,7 @@
 		>
 
 		{{-- Title --}}
-		<title>{{ config("app.name") }}</title>
+		<title>@yield("title", config("app.name"))</title>
 
 		{{-- Tailwind Styles --}}
 		@vite("resources/css/app.css")
@@ -27,7 +27,10 @@
 		@livewireStyles
 	</head>
 
-	<body class="h-full bg-white dark:bg-zinc-900">
+	<body
+		{{ $attributes }}
+		class="h-full bg-white dark:bg-zinc-900"
+	>
 		{{-- Layout --}}
 		{{ $slot }}
 

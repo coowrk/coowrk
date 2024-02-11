@@ -44,7 +44,7 @@
 					"text-sm/6 cursor-pointer text-gray-500",
 					"text-gray-900 dark:text-white font-medium" => $attributes->has(
 						"description"),
-					"dark:text-zinc-400 text-gray-500 font-normal" => !$attributes->has(
+					"dark:text-zinc-500 text-gray-500 font-normal" => !$attributes->has(
 						"description"),
 				])
 				for="{{ $attributes->get("id") }}"
@@ -54,7 +54,7 @@
 		@endif
 
 		@if ($attributes->has("description"))
-			<p class="text-sm text-zinc-400">{{ $attributes->get("description") }}</p>
+			<p class="text-sm text-gray-500 dark:text-zinc-500">{{ $attributes->get("description") }}</p>
 		@endif
 
 		@error($attributes->get("name"))
