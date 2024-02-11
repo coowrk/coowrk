@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
-	{{-- data-mode="dark" --}}
 	class="h-full antialiased"
+	data-mode="dark"
 	lang="{{ str_replace("_", "-", app()->getLocale()) }}"
 >
 
@@ -29,7 +29,7 @@
 
 	<body
 		{{ $attributes }}
-		class="h-full bg-gray-50 dark:bg-zinc-900"
+		class="h-full bg-gray-50 dark:bg-zinc-950/95"
 	>
 		{{-- Layout --}}
 		{{ $slot }}

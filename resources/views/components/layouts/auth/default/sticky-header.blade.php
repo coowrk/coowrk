@@ -1,5 +1,5 @@
 <div
-	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-950 sm:gap-x-6 sm:px-6 lg:px-8"
+	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900 sm:gap-x-6 sm:px-6 lg:px-8"
 >
 	{{-- Mobile Menu Button --}}
 	<button
@@ -149,7 +149,7 @@
 				<div
 					aria-labelledby="user-menu-button"
 					aria-orientation="vertical"
-					class="min-w-32 absolute right-0 isolate z-10 mt-2.5 w-max origin-top-right overflow-y-auto rounded-lg bg-white/75 bg-zinc-900 p-1 py-2 text-right shadow-lg outline outline-1 outline-transparent ring-1 ring-zinc-950/10 backdrop-blur-xl [--anchor-gap:theme(spacing.2)] [--anchor-padding:theme(spacing.3)] focus:outline-none data-[anchor~=end]:[--anchor-offset:4px] data-[anchor~=start]:[--anchor-offset:-4px] supports-[grid-template-columns:subgrid]:grid supports-[grid-template-columns:subgrid]:grid-cols-[auto_1fr_1.5rem_0.5rem_auto] dark:bg-zinc-800/75 dark:ring-inset dark:ring-white/10"
+					class="min-w-32 absolute right-0 isolate z-10 mt-2.5 grid w-max origin-top-right grid-cols-1 overflow-y-auto rounded-lg bg-white p-2 text-right ring-1 ring-inset ring-gray-200 dark:bg-zinc-900 dark:ring-zinc-800 sm:mt-1 sm:w-full"
 					role="menu"
 					tabindex="-1"
 					x-cloak
@@ -164,18 +164,16 @@
 				>
 					<!-- Active: "bg-gray-50", Not Active: "" -->
 					<a
-						class="col-span-full px-3 py-1 text-sm/6 dark:text-zinc-400 dark:hover:text-white"
+						class="col-span-full block rounded-lg px-3 py-1 text-sm/6 text-gray-500 hover:bg-black/5 hover:text-gray-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
 						href="#"
 						id="user-menu-item-0"
 						role="menuitem"
 						tabindex="-1"
-					>Dein Profil</a>
-					<div
-						class="forced-colors:bg-[CanvasText] col-span-full mx-3.5 my-1 h-px border-0 bg-zinc-950/5 dark:bg-white/10 sm:mx-3"
-						role="separator"
-					></div>
+					>
+						Einstellungen
+					</a>
 					<a
-						class="col-span-full px-3 py-1 text-sm/6 dark:text-zinc-400 dark:hover:text-white"
+						class="col-span-full rounded-lg px-3 py-1 text-sm/6 text-gray-500 hover:bg-black/5 hover:text-gray-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
 						href="#"
 						id="user-menu-item-1"
 						role="menuitem"
