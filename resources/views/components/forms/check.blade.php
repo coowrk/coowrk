@@ -41,8 +41,11 @@
 		@if ($attributes->has("title"))
 			<label
 				@class([
-					"text-sm/6 font-medium cursor-pointer text-zinc-950 dark:text-white",
-					"dark:text-zinc-400 font-normal" => !$attributes->has("description"),
+					"text-sm/6 cursor-pointer text-gray-500",
+					"text-gray-900 dark:text-white font-medium" => $attributes->has(
+						"description"),
+					"dark:text-zinc-400 text-gray-500 font-normal" => !$attributes->has(
+						"description"),
 				])
 				for="{{ $attributes->get("id") }}"
 			>

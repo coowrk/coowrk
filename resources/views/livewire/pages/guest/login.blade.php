@@ -11,8 +11,9 @@
 		<div class="mx-auto w-full max-w-sm lg:w-96">
 			<div>
 				<h1 class="text-3xl font-bold text-app-yellow">Coowrk.</h1>
-				<h2 class="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900">Melde dich in deinem Konto an</h2>
-				<p class="mt-2 text-sm leading-6 text-gray-500">
+				<h2 class="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">Melde dich in deinem Konto
+					an</h2>
+				<p class="mt-2 text-sm leading-6 text-gray-500 dark:text-zinc-500">
 					Kein Mitglied?
 					<a
 						class="font-semibold text-app-yellow hover:text-app-yellow/90"
