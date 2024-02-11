@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ["class", '[data-mode="dark"]'],
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
@@ -11,7 +12,7 @@ export default {
   extend: {
     colors: {
         app: {
-            yellow: "#FCCD03",
+            yellow: "#f5cb5c",
         },
     },
 },

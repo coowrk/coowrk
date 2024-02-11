@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html
+	{{-- data-mode="dark" --}}
 	class="h-full antialiased"
 	lang="{{ str_replace("_", "-", app()->getLocale()) }}"
 >

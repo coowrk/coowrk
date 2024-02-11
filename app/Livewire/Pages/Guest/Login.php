@@ -15,6 +15,9 @@ class Login extends Component
     #[Validate('required')]
     public string $password;
 
+    #[Validate('boolean')]
+    public bool $remember_me = false;
+
     public function render(): View
     {
         return view('livewire.pages.guest.login');
@@ -26,7 +29,7 @@ class Login extends Component
         $this->validate();
 
         // If Authentication failes redirect back
-        if (!Auth::attempt($this->only(['mail', 'password'])))
+        if (!Auth::attempt($this->only(['mail', 'password']), $this->remember_me))
             return $this->addError('mail', __('auth.failed'));
 
         // Redirect to home

@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('login', 'pages.guest.login');
+Route::group(['middleware' => 'guest'], function () {
+    Route::view('login', 'pages.guest.login')->name('login');
+});
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::view('home', 'pages.guest.home')->name('home');
+// });
