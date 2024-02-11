@@ -1,9 +1,9 @@
 <div
-	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900 sm:gap-x-6 sm:px-6 lg:px-8"
+	class="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-950 sm:gap-x-6 sm:px-6 lg:px-8"
 >
 	{{-- Mobile Menu Button --}}
 	<button
-		class="-m-2.5 p-2.5 text-gray-900 lg:hidden"
+		class="-m-2.5 p-2.5 text-gray-900 dark:text-white lg:hidden"
 		type="button"
 		x-on:click="showMobileMenu = true"
 	>
@@ -27,7 +27,7 @@
 	{{-- Seperator --}}
 	<div
 		aria-hidden="true"
-		class="h-full w-px bg-gray-200 lg:hidden"
+		class="h-full w-px bg-gray-200 dark:bg-zinc-800 lg:hidden"
 	></div>
 
 	<div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">

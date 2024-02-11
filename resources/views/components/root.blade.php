@@ -29,7 +29,7 @@
 
 	<body
 		{{ $attributes }}
-		class="h-full bg-white dark:bg-zinc-900"
+		class="h-full bg-gray-50 dark:bg-zinc-900"
 	>
 		{{-- Layout --}}
 		{{ $slot }}

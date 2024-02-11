@@ -4,10 +4,10 @@
 {{-- Content --}}
 <x-layouts.auth.default>
 	<div class="grid grid-cols-1 gap-5 sm:grid-cols-4 lg:gap-y-10">
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-gray-200 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-100 dark:bg-zinc-800">
+		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
 				<svg
-					class="size-8 stroke-gray-500 dark:stroke-zinc-500"
+					class="size-8 stroke-app-yellow"
 					color="#000000"
 					fill="none"
 					height="24px"
@@ -60,10 +60,10 @@
 			</dd>
 		</dl>
 
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-gray-200 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-100 dark:bg-zinc-800">
+		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
 				<svg
-					class="size-8 stroke-gray-500 dark:stroke-zinc-500"
+					class="size-8 stroke-app-yellow"
 					color="#000000"
 					fill="none"
 					height="24px"
@@ -90,10 +90,8 @@
 			</dd>
 		</dl>
 
-		<dl
-			class="group col-span-1 flex items-center gap-5 rounded-lg p-3 ring-inset hover:bg-white/5 hover:ring-1 hover:ring-white/10"
-		>
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-zinc-800 group-hover:bg-zinc-900">
+		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"
@@ -143,15 +141,13 @@
 				</svg>
 			</dt>
 			<dd>
-				<p class="text-sm/5 font-medium text-zinc-400">Angelegte Kunden</p>
-				<h2 class="text-2xl/8 font-semibold text-white">1.423</h2>
+				<p class="text-sm/5 font-medium text-gray-500 dark:text-zinc-500">Angelegte Kunden</p>
+				<h2 class="text-2xl/8 font-semibold text-gray-900 dark:text-white">1.423</h2>
 			</dd>
 		</dl>
 
-		<dl
-			class="group col-span-1 flex items-center gap-5 rounded-lg p-3 ring-inset hover:bg-white/5 hover:ring-1 hover:ring-white/10"
-		>
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-zinc-800 group-hover:bg-zinc-900">
+		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"
@@ -201,8 +197,8 @@
 				</svg>
 			</dt>
 			<dd>
-				<p class="text-sm/5 font-medium text-zinc-400">Angelegte Kunden</p>
-				<h2 class="text-2xl/8 font-semibold text-white">1.423</h2>
+				<p class="text-sm/5 font-medium text-gray-500 dark:text-zinc-500">Angelegte Kunden</p>
+				<h2 class="text-2xl/8 font-semibold text-gray-900 dark:text-white">1.423</h2>
 			</dd>
 		</dl>
 	</div>
