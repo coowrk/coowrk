@@ -1,5 +1,4 @@
 <div class="flex min-h-full">
-
 	<div class="relative hidden w-0 flex-1 lg:block">
 		<img
 			alt=""
@@ -7,10 +6,11 @@
 			src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
 		>
 	</div>
+
 	<div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
 		<div class="mx-auto w-full max-w-sm lg:w-96">
 			<div>
-				<h1 class="text-3xl font-bold text-app-yellow">Coowrk.</h1>
+				<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Coowrk<span class="text-app-yellow">.</span></h1>
 				<h2 class="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">Melde dich in deinem Konto
 					an</h2>
 				<p class="mt-2 text-sm leading-6 text-gray-500 dark:text-zinc-500">
