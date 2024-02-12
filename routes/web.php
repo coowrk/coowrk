@@ -21,6 +21,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::view('home', 'pages.auth.home')->name('home');
 
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
-        Route::view('settings', 'pages.auth.profile.settings')->name('settings');
+        // Settings redirect
+        Route::redirect('/settings/', '/profile/settings/general')->name('settings');
+
+        // Settings
+        Route::group(["prefix" => "settings", "as" => "settings."], function () {
+
+            Route::view('general', 'pages.auth.profile.settings.general')->name('general');
+            Route::view('security', 'pages.auth.profile.settings.security')->name('security');
+        });
     });
 });

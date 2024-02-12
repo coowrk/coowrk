@@ -83,7 +83,7 @@
 								class="-mx-2 space-y-1"
 								role="list"
 							>
-								<x-layouts.auth.default.navigation.item.navigation route="home">
+								<x-layouts.auth.default.sidebar.item.tab route="home">
 									<svg
 										color="currentColor"
 										fill="none"
@@ -108,9 +108,9 @@
 										></path>
 									</svg>
 									Dashboard
-								</x-layouts.auth.default.navigation.item.navigation>
+								</x-layouts.auth.default.sidebar.item.tab>
 
-								<x-layouts.auth.default.navigation.item.navigation route="letter-protocol">
+								<x-layouts.auth.default.sidebar.item.tab route="letter-protocol">
 									<svg
 										color="currentColor"
 										fill="none"
@@ -133,7 +133,7 @@
 										></path>
 									</svg>
 									Briefprotokoll
-								</x-layouts.auth.default.navigation.item.navigation>
+								</x-layouts.auth.default.sidebar.item.tab>
 							</ul>
 						</li>
 						<li>
@@ -142,9 +142,9 @@
 								class="-mx-2 mt-2 space-y-1"
 								role="list"
 							>
-								<x-layouts.auth.default.navigation.item.team team="Heroicons" />
-								<x-layouts.auth.default.navigation.item.team team="Tailwind Labs" />
-								<x-layouts.auth.default.navigation.item.team team="Workcation" />
+								<x-layouts.auth.default.sidebar.item.team team="Heroicons" />
+								<x-layouts.auth.default.sidebar.item.team team="Tailwind Labs" />
+								<x-layouts.auth.default.sidebar.item.team team="Workcation" />
 							</ul>
 						</li>
 						<li class="mt-auto">

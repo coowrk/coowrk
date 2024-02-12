@@ -1,0 +1,24 @@
+<header class="-mx-8 -mt-10 mb-10 border-b border-gray-200 bg-white py-1 dark:border-zinc-800 dark:bg-zinc-900">
+	{{-- Secondary navigation --}}
+	<nav class="flex overflow-x-auto p-4 sm:px-0">
+		<ul
+			class="flex min-w-full flex-none gap-x-6 px-4 text-sm font-semibold leading-6 text-gray-400 sm:px-6 lg:px-8"
+			role="list"
+		>
+			@foreach ($tabs as $tab)
+				<li>
+					<a
+						@class([
+							"text-gray-500 dark:text-zinc-500" => !Route::is($tab["route"]),
+							"text-gray-900 dark:text-white" => Route::is($tab["route"]),
+						])
+						href="{{ route($tab["route"]) }}"
+						wire:navigate
+					>
+						{{ $tab["title"] }}
+					</a>
+				</li>
+			@endforeach
+		</ul>
+	</nav>
+</header>
