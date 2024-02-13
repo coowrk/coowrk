@@ -13,21 +13,21 @@
 		{{-- Content --}}
 		<main class="relative px-4 py-10 sm:px-6 lg:px-8">
 			{{-- Secondary navigation --}}
-			@hasSection("secondary_navigation")
-				@yield("secondary_navigation")
+			@hasSection('secondary_navigation')
+				@yield('secondary_navigation')
 			@endif
 
 			{{-- Page title, breadcrumb & button --}}
-			@hasSection("title")
+			@hasSection('title')
 				<div class="flex items-center justify-between pb-10">
 					<div>
-						@yield("breadcrumb")
-						<h2 class="text-base/6 font-semibold text-gray-900 dark:text-white">@yield("title")</h2>
+						@yield('breadcrumb')
+						<h2 class="text-lg/6 font-semibold text-gray-900 dark:text-white sm:text-base/6">@yield('title')</h2>
 					</div>
 
-					@hasSection("button")
+					@hasSection('button')
 						<div>
-							@yield("button")
+							@yield('button')
 						</div>
 					@endif
 				</div>

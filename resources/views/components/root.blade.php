@@ -2,7 +2,7 @@
 <html
 	class="h-full antialiased"
 	data-mode="dark"
-	lang="{{ str_replace("_", "-", app()->getLocale()) }}"
+	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
 
 	<head>
@@ -18,10 +18,10 @@
 		>
 
 		{{-- Title --}}
-		<title>@yield("title", config("app.name"))</title>
+		<title>@yield('title', config('app.name'))</title>
 
 		{{-- Tailwind Styles --}}
-		@vite("resources/css/app.css")
+		@vite('resources/css/app.css')
 
 		{{-- Livewire Styles --}}
 		@livewireStyles
