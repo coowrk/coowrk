@@ -17,7 +17,7 @@
 						for="appereance"
 						title="Darstellung"
 					>
-						<x-forms.dropdown
+						<x-forms.select
 							:options="[
 							    'dark' => 'Dunkel',
 							    'light' => 'Hell',
