@@ -165,13 +165,13 @@
 					<!-- Active: "bg-gray-50", Not Active: "" -->
 					<a
 						@class([
-							"col-span-full block rounded-lg px-3 py-1 text-sm/6",
-							"text-gray-500 hover:bg-black/[3%] hover:text-gray-900 dark:text-zinc-500 dark:hover:bg-white/[3%] dark:hover:text-white" => !Route::is(
-								"profile.settings"),
-							"bg-black/[3%] dark:bg-white/[3%] text-gray-900 dark:text-white" => Route::is(
-								"profile.settings"),
+							'col-span-full block rounded-lg px-3 py-1 text-sm/6',
+							'text-gray-500 hover:bg-black/[3%] hover:text-gray-900 dark:text-zinc-500 dark:hover:bg-white/[3%] dark:hover:text-white' => !Route::is(
+								'profile.settings.*'),
+							'bg-black/[3%] dark:bg-white/[3%] text-gray-900 dark:text-white' => Route::is(
+								'profile.settings.*'),
 						])
-						href="{{ route("profile.settings") }}"
+						href="{{ route('profile.settings') }}"
 						id="user-menu-item-0"
 						role="menuitem"
 						tabindex="-1"

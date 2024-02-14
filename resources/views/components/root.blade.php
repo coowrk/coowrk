@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="h-full antialiased"
-	data-mode="dark"
+	data-mode="{{ auth()->user()->appereance ?? 'light' }}"
 	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
 

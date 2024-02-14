@@ -2,7 +2,7 @@
 	{{ $attributes->filter(fn($value, $key) => !in_array($key, ['style', 'theme'])) }}
 	@class([
 		// Basic layout
-		'flex justify-center rounded-lg w-full',
+		'flex justify-center rounded-lg w-full transition',
 	
 		// Prevent mobile browser from modifying
 		'appearance-none',
@@ -11,7 +11,7 @@
 		'text-base/6 sm:text-sm/6 font-semibold',
 	
 		// Padding
-		'px-3 py-1.5',
+		'px-4 py-1.5',
 	
 		// Focus ring
 		'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-yellow',
@@ -34,6 +34,12 @@
 			$attributes->get('theme') == 'opacity',
 		'dark:bg-white/[7.5%] dark:enabled:hover:bg-white/5 dark:text-white' =>
 			$attributes->get('theme') == 'opacity',
+	
+		// Theme (contrast)
+		'bg-gray-900 enabled:hover:bg-gray-800 text-white' =>
+			$attributes->get('theme') == 'contrast',
+		'dark:bg-white dark:enabled:hover:bg-gray-100 dark:text-gray-950' =>
+			$attributes->get('theme') == 'contrast',
 	
 		// Theme (Border)
 		'ring-1' => $attributes->get('theme') == 'border',

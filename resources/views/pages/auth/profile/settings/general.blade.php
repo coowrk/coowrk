@@ -1,13 +1,8 @@
 {{-- Title --}}
-@section("title", "Einstellungen - Allgemein")
+@section('title', 'Einstellungen - Allgemein')
 
-@section("secondary_navigation")
-	@include("components.layouts.auth.default.secondary-navigation", [
-		"tabs" => [
-			["title" => "Allgemein", "route" => "profile.settings.general"],
-			["title" => "Sicherheit", "route" => "profile.settings.security"],
-		],
-	])
+@section('secondary_navigation')
+	@include('pages.auth.profile.settings')
 @endsection
 
 <x-layouts.auth.default>

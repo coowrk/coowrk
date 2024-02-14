@@ -26,9 +26,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         // Settings
         Route::group(["prefix" => "settings", "as" => "settings."], function () {
-
             Route::view('general', 'pages.auth.profile.settings.general')->name('general');
             Route::view('security', 'pages.auth.profile.settings.security')->name('security');
+            Route::view('appereance', 'pages.auth.profile.settings.appereance')->name('appereance');
         });
     });
 });

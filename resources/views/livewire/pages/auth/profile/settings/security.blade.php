@@ -54,29 +54,18 @@
 					</x-forms.label>
 				</div>
 
-
+				<div class="col-span-full flex justify-end">
+					<div>
+						<x-forms.button
+							theme="contrast"
+							type="submit"
+						>
+							Speichern
+						</x-forms.button>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<div class="div col-span-full flex justify-between rounded-lg border p-3 dark:border-zinc-800">
-			<div>
-				<x-forms.button
-					href="{{ route('home') }}"
-					theme="opacity"
-					type="button"
-					wire:navigate
-				>
-					Abbrechen
-				</x-forms.button>
-			</div>
-
-			<div>
-				<x-forms.button>
-					Speichern
-				</x-forms.button>
-			</div>
-		</div>
-
 	</form>
 
 </div>

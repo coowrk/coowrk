@@ -4,7 +4,7 @@
 		{{ $attributes->filter(fn($value, $key) => !in_array($key, ['style', 'theme'])) }}
 		@class([
 			// Basic layout
-			'block w-full relative rounded-lg after:pointer-events-none',
+			'block w-full relative rounded-lg after:pointer-events-none transition',
 		
 			// Prevent mobile browser from modifying
 			'appearance-none',

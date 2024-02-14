@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Auth\Profile\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -25,7 +26,7 @@ class General extends Component
     }
 
     // Render view
-    public function render()
+    public function render(): View
     {
         return view('livewire.pages.auth.profile.settings.general');
     }

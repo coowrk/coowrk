@@ -67,7 +67,7 @@
 				<div class="flex h-16 shrink-0 items-center">
 					<a
 						class="text-xl font-bold text-gray-900 dark:text-white"
-						href="{{ route("home") }}"
+						href="{{ route('home') }}"
 						wire:navigate
 					>
 						Coowrk<span class="text-app-yellow">.</span>

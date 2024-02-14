@@ -19,12 +19,13 @@
 						src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 					>
 					<div>
-						<button
-							class="rounded-lg bg-black/[7.5%] px-3 py-2 text-sm font-semibold text-gray-900 enabled:hover:bg-black/5 dark:bg-white/[7.5%] dark:text-white dark:enabled:hover:bg-white/5"
+						<x-forms.button
+							theme="border"
+							type="button"
 							type="button"
 						>
 							Change avatar
-						</button>
+						</x-forms.button>
 						<p class="mt-2 text-xs leading-5 text-gray-400">JPG, GIF or PNG. 1MB max.</p>
 					</div>
 				</div>
@@ -68,28 +69,19 @@
 						/>
 					</x-forms.label>
 				</div>
+
+				<div class="col-span-full flex justify-end">
+					<div>
+						<x-forms.button
+							theme="contrast"
+							type="submit"
+						>
+							Speichern
+						</x-forms.button>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<div class="div col-span-full flex justify-between rounded-lg border p-3 dark:border-zinc-800">
-			<div>
-				<x-forms.button
-					href="{{ route('home') }}"
-					theme="opacity"
-					type="button"
-					wire:navigate
-				>
-					Abbrechen
-				</x-forms.button>
-			</div>
-
-			<div>
-				<x-forms.button>
-					Speichern
-				</x-forms.button>
-			</div>
-		</div>
-
 	</form>
 
 </div>
