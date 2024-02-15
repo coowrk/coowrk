@@ -6,6 +6,7 @@
 		{{-- Hidden input --}}
 		<input
 			{{ $attributes->filter(fn($value, $key) => $key != 'options') }}
+			class="hidden"
 			type="hidden"
 		>
 
@@ -45,16 +46,6 @@
 	</div>
 
 	{{-- Select menu --}}
-	<!--
-						Select popover, show/hide based on select state.
-
-						Entering: ""
-								From: ""
-								To: ""
-						Leaving: "transition ease-in duration-100"
-								From: "opacity-100"
-								To: "opacity-0"
-				-->
 	<ul
 		aria-activedescendant="listbox-option-3"
 		aria-labelledby="listbox-label"
@@ -68,7 +59,6 @@
 		x-transition:leave-start="opacity-100"
 		x-transition:leave="transition ease-in duration-100"
 	>
-
 		{{-- Items --}}
 		<template x-for="(option, value) in options">
 			<li
