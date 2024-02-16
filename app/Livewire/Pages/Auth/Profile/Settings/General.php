@@ -4,16 +4,21 @@ namespace App\Livewire\Pages\Auth\Profile\Settings;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class General extends Component
 {
+    use WithFileUploads;
+
     // Attributes
     public User $user;
     public string $first_name;
     public string $last_name;
     public string $mail;
+    public $avatar;
 
     // Validation
     public function rules()
@@ -22,6 +27,7 @@ class General extends Component
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'mail' => ['required', 'email', Rule::unique('users')->ignore($this->user->id)],
+            'avatar' => ['image', 'max:1024']
         ];
     }
 
@@ -46,7 +52,16 @@ class General extends Component
     // Update
     public function submit()
     {
+        $this->updateProfilePicture();
+
         $this->user->update($this->validate());
         $this->redirect(request()->header('Referer'));
+    }
+
+    public function updateProfilePicture()
+    {
+        if ($this->avatar) {
+            dd(Storage::url($this->avatar->store('uploads')));
+        }
     }
 }

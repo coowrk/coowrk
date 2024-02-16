@@ -13,20 +13,44 @@
 		<div class="md:col-span-2">
 			<div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 				<div class="col-span-full flex items-center gap-x-8">
-					<img
-						alt="{{ $user->full_name }}"
-						class="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
-						src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-					>
+					<div class="hidden">
+						<x-forms.input
+							id="avatar"
+							name="avatar"
+							type="file"
+							wire:model="avatar"
+							x-ref="avatar"
+						/>
+					</div>
+
+					@if ($avatar)
+						<img
+							alt="{{ $user->full_name }}"
+							class="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
+							src="{{ $avatar->temporaryUrl() }}"
+						>
+					@else
+						<img
+							alt="{{ $user->full_name }}"
+							class="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
+							src="{{ Storage::get('uploads/', 'Ce0tf3IzdFRXuetuPGGyEJmMNwjCXfkrcC9rhJkz.jpg') }}"
+						>
+					@endif
+
 					<div>
 						<x-forms.button
 							theme="border"
 							type="button"
-							type="button"
+							x-on:click="$refs.avatar.click()"
 						>
 							Change avatar
 						</x-forms.button>
-						<p class="mt-2 text-xs leading-5 text-gray-400">JPG, GIF or PNG. 1MB max.</p>
+
+						<p class="mt-2 text-xs/5 text-gray-500 dark:text-zinc-500">JPG, GIF or PNG. 1MB max.</p>
+
+						@error('avatar')
+							<span class="error">{{ $message }}</span>
+						@enderror
 					</div>
 				</div>
 
