@@ -33,7 +33,7 @@
 						<img
 							alt="{{ $user->full_name }}"
 							class="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
-							src="{{ Storage::get('uploads/', 'Ce0tf3IzdFRXuetuPGGyEJmMNwjCXfkrcC9rhJkz.jpg') }}"
+							src="{{ Storage::url($user->avatar) }}"
 						>
 					@endif
 

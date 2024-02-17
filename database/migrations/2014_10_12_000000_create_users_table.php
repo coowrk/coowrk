@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('mail')->unique();
             $table->timestamp('mail_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable();
             $table->enum('appereance', ['light', 'dark'])->default('light');
             $table->rememberToken();
             $table->timestamps();
