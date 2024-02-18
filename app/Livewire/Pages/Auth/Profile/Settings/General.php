@@ -50,7 +50,7 @@ class General extends Component
     }
 
     // Update
-    public function submit()
+    public function submit(): Void
     {
         $this->user->update(array_merge(
             $this->validate(),
@@ -63,12 +63,12 @@ class General extends Component
     /**
      * Update & upload user avatar
      * 
-     * @return string|array
+     * @return array
      */
     public function updateProfilePicture()
     {
         if (!$this->avatar)
-            return [null];
+            return ['avatar' => $this->user->avatar];
 
         if ($this->user->avatar)
             Storage::delete($this->user->avatar);

@@ -117,8 +117,10 @@
 						<span class="flex flex-col text-left">
 							<span
 								aria-hidden="true"
-								class="ml-4 text-sm/5 font-medium text-gray-900 dark:text-white"
-							>{{ Auth::user()->fullName }}</span>
+								class="max-w-32 ml-4 truncate text-sm/5 font-medium text-gray-900 dark:text-white"
+							>
+								{{ Auth::user()->fullName }}
+							</span>
 							<span
 								aria-hidden="true"
 								class="ml-4 text-xs/5 text-gray-500 dark:text-zinc-500"
