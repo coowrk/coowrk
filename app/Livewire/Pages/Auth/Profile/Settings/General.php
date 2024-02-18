@@ -52,8 +52,10 @@ class General extends Component
     // Update
     public function submit()
     {
-        $this->updateProfilePicture();
-        $this->user->update($this->validate());
+        $this->user->update(array_merge(
+            $this->validate(),
+            $this->updateProfilePicture()
+        ));
 
         $this->redirect(request()->header('Referer'));
     }
@@ -61,20 +63,16 @@ class General extends Component
     /**
      * Update & upload user avatar
      * 
-     * @return string|false
+     * @return string|array
      */
     public function updateProfilePicture()
     {
         if (!$this->avatar)
-            return;
+            return [null];
 
         if ($this->user->avatar)
             Storage::delete($this->user->avatar);
 
-        $this->user->update([
-            'avatar' => $path = Storage::putFile('public/avatars', $this->avatar, 'public')
-        ]);
-
-        return $path;
+        return ['avatar' => Storage::putFile('public/avatars', $this->avatar, 'public')];
     }
 }
