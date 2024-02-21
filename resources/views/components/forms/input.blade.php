@@ -32,14 +32,14 @@
 				'theme'),
 		
 			// Focus ring
-			'focus:outline-0 focus:ring-2',
+			'focus:outline-0 focus:ring-2' => !$attributes->has('theme'),
 			'focus:ring-app-yellow focus:data-[invalid]:ring-red-400' => !$attributes->has(
 				'theme'),
 			'dark:focus:ring-app-yellow dark:focus:data-[invalid]:ring-red-500' => !$attributes->has(
 				'theme'),
 		
 			// Theme Transparent
-			'bg-transparent dark:bg-transparent' =>
+			'bg-transparent dark:bg-transparent focus:outline-0' =>
 				$attributes->get('theme') == 'transparent',
 		
 			// Styles

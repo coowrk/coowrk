@@ -18,8 +18,10 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    // Dashboard
     Route::view('home', 'pages.auth.home')->name('home');
 
+    // Profil
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
         // Settings redirect
         Route::redirect('/settings/', '/profile/settings/general')->name('settings');
@@ -30,5 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::view('security', 'pages.auth.profile.settings.security')->name('security');
             Route::view('appereance', 'pages.auth.profile.settings.appereance')->name('appereance');
         });
+    });
+
+    // Datenbanken
+    Route::group(["prefix" => "database", "as" => "database."], function () {
+        Route::resource('customer', \App\Http\Controllers\Pages\Auth\Databases\CustomerController::class);
     });
 });
