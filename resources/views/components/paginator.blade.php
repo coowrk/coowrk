@@ -1,7 +1,5 @@
 @if ($paginator->hasPages())
-	<div
-		class="mt-10 flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900"
-	>
+	<x-forms.container_call_to_action>
 		<div>
 			@if (!$paginator->onFirstPage())
 				<x-forms.button
@@ -40,5 +38,5 @@
 				</x-forms.button>
 			@endif
 		</div>
-	</div>
+	</x-forms.container_call_to_action>
 @endif
