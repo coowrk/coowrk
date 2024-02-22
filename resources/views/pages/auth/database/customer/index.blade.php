@@ -1,5 +1,5 @@
 {{-- Title --}}
-@section('title', 'Kunden - Datenbank')
+@section('title', 'Kunden')
 
 {{-- Breadcrumb --}}
 @section('breadcrumb')

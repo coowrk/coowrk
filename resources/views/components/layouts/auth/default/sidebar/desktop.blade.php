@@ -22,7 +22,10 @@
 						class="-mx-2 space-y-1"
 						role="list"
 					>
-						<x-layouts.auth.default.sidebar.item.tab route="home">
+						<x-layouts.auth.default.sidebar.item.tab
+							routeIs="home"
+							route="home"
+						>
 							<svg
 								color="currentColor"
 								fill="none"
@@ -49,7 +52,10 @@
 							Dashboard
 						</x-layouts.auth.default.sidebar.item.tab>
 
-						<x-layouts.auth.default.sidebar.item.tab route="letter-protocol">
+						<x-layouts.auth.default.sidebar.item.tab
+							routeIs="letter-protocol"
+							route="letter-protocol"
+						>
 							<svg
 								color="currentColor"
 								fill="none"
@@ -82,7 +88,10 @@
 						class="-mx-2 mt-2 space-y-1"
 						role="list"
 					>
-						<x-layouts.auth.default.sidebar.item.tab route="database.customer.index">
+						<x-layouts.auth.default.sidebar.item.tab
+							routeIs="database.customer"
+							route="database.customer.index"
+						>
 							<svg
 								color="currentColor"
 								fill="none"

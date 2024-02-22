@@ -1,6 +1,7 @@
 {{-- Title --}}
 @section('title', 'Einstellungen - Allgemein')
 
+{{-- Secondary navigation --}}
 @section('secondary_navigation')
 	@include('pages.auth.profile.settings')
 @endsection

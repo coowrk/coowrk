@@ -1,5 +1,10 @@
 {{-- Title --}}
-@section('title', 'Kunden - Datenbank')
+@section('title', 'Anlegen')
+
+{{-- Breadcrumb --}}
+@section('breadcrumb')
+	{{ Breadcrumbs::render('database.customer.create') }}
+@endsection
 
 {{-- Button --}}
 @section('button')

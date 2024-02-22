@@ -16,11 +16,17 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 // Database
 Breadcrumbs::for('database', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Database', route('database'));
+    $trail->push('Datenbank', route('database.index'));
 });
 
 // Database Customer
 Breadcrumbs::for('database.customer', function (BreadcrumbTrail $trail) {
     $trail->parent('database');
-    $trail->push('Customer', route('database.customer'));
+    $trail->push('Kunden', route('database.customer.index'));
+});
+
+// Database Customer Create
+Breadcrumbs::for('database.customer.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('database.customer');
+    $trail->push('Anlegen', route('database.customer.create'));
 });

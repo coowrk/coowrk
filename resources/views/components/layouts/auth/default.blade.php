@@ -17,13 +17,15 @@
 				@yield('secondary_navigation')
 			@endif
 
-			{{-- Page title, breadcrumb & button --}}
+			{{-- Breadcrumb --}}
+			@hasSection('breadcrumb')
+				@yield('breadcrumb')
+			@endif
+
+			{{-- Page title & button --}}
 			@hasSection('title')
 				<div class="flex items-center justify-between pb-10">
-					<div>
-						@yield('breadcrumb')
-						<h2 class="text-lg/6 font-semibold text-gray-900 dark:text-white sm:text-base/6">@yield('title')</h2>
-					</div>
+					<h2 class="text-lg/6 font-semibold text-gray-900 dark:text-white sm:text-base/6">@yield('title')</h2>
 
 					@hasSection('button')
 						<div>

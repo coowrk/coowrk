@@ -1,5 +1,7 @@
 @if ($paginator->hasPages())
-	<div class="mt-10 flex items-center justify-between rounded-lg border border-gray-200 p-3 dark:border-zinc-800">
+	<div
+		class="mt-10 flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900"
+	>
 		<div>
 			@if (!$paginator->onFirstPage())
 				<x-forms.button

@@ -36,6 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Datenbanken
     Route::group(["prefix" => "database", "as" => "database."], function () {
+        Route::view('/', 'pages.auth.database.index')->name('index');
+
         Route::resource('customer', \App\Http\Controllers\Pages\Auth\Databases\CustomerController::class);
     });
 });
