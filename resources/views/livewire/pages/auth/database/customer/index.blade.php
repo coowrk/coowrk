@@ -42,7 +42,7 @@
 			</thead>
 
 			{{-- Table Data --}}
-			<tbody class="divide-y divide-gray-200 text-sm/6 text-gray-500 dark:divide-zinc-800 dark:text-zinc-500">
+			<tbody class="divide-y divide-gray-200 text-sm/6 text-gray-500 dark:divide-zinc-800 dark:text-zinc-400">
 				@foreach ($customers as $customer)
 					<tr
 						{{-- x-on:click="Livewire.navigate('{{ route('letter-protocol.show', $letter->slug) }}')" --}}

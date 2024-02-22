@@ -32,7 +32,7 @@ class Index extends Component
                     $query->orWhere('city', 'LIKE', '%' . $this->search . '%');
                     $query->orWhere('country', 'LIKE', '%' . $this->search . '%');
                 })
-                ->with('created_by_user')
+                ->with('created_by_user:id,first_name,last_name')
                 ->latest()
                 ->paginate(self::lettersPerPage)
         ]);
