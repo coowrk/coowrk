@@ -13,7 +13,7 @@
 						<li class="flex">
 							<div class="flex items-center">
 								<a
-									class="text-gray-500 hover:text-gray-900 dark:text-zinc-400 dark:hover:text-white"
+									class="text-gray-500 hover:text-gray-900 dark:text-zinc-500 dark:hover:text-white"
 									href="{{ $breadcrumb->url }}"
 									wire:navigate
 								>
@@ -29,7 +29,7 @@
 											fill-rule="evenodd"
 										/>
 									</svg>
-									<span class="sr-only">Home</span>
+									<span class="sr-only">{{ $breadcrumb->title }}</span>
 								</a>
 							</div>
 						</li>
@@ -46,7 +46,7 @@
 									<path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
 								</svg>
 								<a
-									class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-zinc-400 dark:hover:text-white"
+									class="ml-4 text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-zinc-500 dark:hover:text-white sm:text-sm/6"
 									href="{{ $breadcrumb->url }}"
 									wire:navigate
 								>{{ $breadcrumb->title }}</a>
@@ -66,7 +66,7 @@
 								</svg>
 								<a
 									aria-current="page"
-									class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-zinc-400 dark:hover:text-white"
+									class="ml-4 text-base font-semibold text-gray-900 dark:text-white sm:text-sm/6"
 									href="{{ $breadcrumb->url }}"
 									wire:navigate
 								>{{ $breadcrumb->title }}</a>
