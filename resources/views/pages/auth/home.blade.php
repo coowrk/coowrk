@@ -1,11 +1,13 @@
 {{-- Title --}}
-@section("title", "Dashboard")
+@section('title', 'Dashboard')
 
 {{-- Content --}}
 <x-layouts.auth.default>
 	<div class="grid grid-cols-1 gap-5 sm:grid-cols-4 lg:gap-y-10">
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
+		<dl
+			class="col-span-1 flex items-center gap-5 rounded-lg bg-white p-3 ring-1 ring-inset ring-black/10 dark:bg-zinc-900 dark:ring-white/10"
+		>
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-50 dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"
@@ -60,8 +62,10 @@
 			</dd>
 		</dl>
 
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
+		<dl
+			class="col-span-1 flex items-center gap-5 rounded-lg bg-white p-3 ring-1 ring-inset ring-black/10 dark:bg-zinc-900 dark:ring-white/10"
+		>
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-50 dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"
@@ -90,8 +94,10 @@
 			</dd>
 		</dl>
 
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
+		<dl
+			class="col-span-1 flex items-center gap-5 rounded-lg bg-white p-3 ring-1 ring-inset ring-black/10 dark:bg-zinc-900 dark:ring-white/10"
+		>
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-50 dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"
@@ -146,8 +152,10 @@
 			</dd>
 		</dl>
 
-		<dl class="col-span-1 flex items-center gap-5 rounded-lg p-3 ring-1 ring-inset ring-black/10 dark:ring-white/10">
-			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/[3%] dark:bg-white/[3%]">
+		<dl
+			class="col-span-1 flex items-center gap-5 rounded-lg bg-white p-3 ring-1 ring-inset ring-black/10 dark:bg-zinc-900 dark:ring-white/10"
+		>
+			<dt class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-50 dark:bg-white/[3%]">
 				<svg
 					class="size-8 stroke-app-yellow"
 					color="#000000"

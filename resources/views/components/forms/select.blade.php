@@ -1,6 +1,6 @@
 <div
 	class="group relative"
-	x-data="{ show: false, bind: @entangle($attributes->get('name')), options: {{ json_encode($attributes->get('options')) }}, selected: '{{ $selected ?? '' }}' }"
+	x-data="{ show: false, bind: @entangle($attributes->get('wire:model.blur')), options: {{ json_encode($attributes->get('options')) }}, selected: '{{ $selected ?? '' }}' }"
 >
 	<div class="relative overflow-hidden">
 		{{-- Hidden input --}}
@@ -24,7 +24,7 @@
 		>
 			<template x-if="options[bind]"><span x-text="options[bind]"></span></template>
 			<template x-if="!options[bind] && !selected">
-				<span class="text-gray-500 dark:text-zinc-500">Bitte auswählen</span>
+				<span class="truncate text-gray-500 dark:text-zinc-500">Bitte auswählen</span>
 			</template>
 		</div>
 
