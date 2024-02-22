@@ -24,7 +24,7 @@ class CustomerFactory extends Factory
             ->id;
 
         return [
-            'salutation' => fake()->randomElement(['Firma', 'Herr', 'Frau']),
+            'salutation' => fake()->randomElement(['firm', 'sir', 'madam', 'divers']),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'street' => fake()->streetAddress(),

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Casts\SalutationCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Customer extends Model
 {
@@ -28,6 +28,15 @@ class Customer extends Model
         'country',
         'created_by',
         'updated_by'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'salutation' => SalutationCast::class,
     ];
 
     /**
