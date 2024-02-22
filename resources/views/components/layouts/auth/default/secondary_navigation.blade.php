@@ -3,7 +3,7 @@
 		{{-- Secondary navigation --}}
 		<nav class="flex overflow-x-auto">
 			<ul
-				class="flex min-w-full flex-none gap-x-6 px-4 text-sm font-semibold leading-6 text-gray-400 sm:px-6 sm:px-6 lg:px-8"
+				class="flex min-w-full flex-none gap-x-6 px-4 text-base font-semibold sm:px-6 sm:text-sm/6 lg:px-8"
 				role="list"
 			>
 				@foreach ($tabs as $tab)

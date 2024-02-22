@@ -8,18 +8,18 @@
 	{{-- Right half --}}
 	<div class="min-h-screen lg:pl-72">
 		{{-- Static sticky-header --}}
-		<x-layouts.auth.default.sticky-header />
+		<x-layouts.auth.default.sticky_header />
 
 		{{-- Content --}}
 		<main class="relative px-4 py-10 sm:px-6 lg:px-8">
-			{{-- Secondary navigation --}}
-			@hasSection('secondary_navigation')
-				@yield('secondary_navigation')
-			@endif
-
 			{{-- Breadcrumb --}}
 			@hasSection('breadcrumb')
 				@yield('breadcrumb')
+			@endif
+
+			{{-- Secondary navigation --}}
+			@hasSection('secondary_navigation')
+				@yield('secondary_navigation')
 			@endif
 
 			{{-- Page title & button --}}
