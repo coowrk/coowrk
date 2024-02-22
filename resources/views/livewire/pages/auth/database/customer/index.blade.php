@@ -1,7 +1,7 @@
-<div>
-	<div class="overflow-hidden rounded-lg border border-gray-200 dark:border-zinc-800">
+<div class="grid grid-cols-1 gap-y-10">
+	<div class="relative overflow-hidden rounded-lg border border-gray-200 dark:border-zinc-800">
 		{{-- Table --}}
-		<table class="w-full whitespace-nowrap text-left">
+		<table class="relative w-full whitespace-nowrap text-left">
 			{{-- Grid --}}
 			<colgroup>
 				<col class="w-full sm:w-4/12">
@@ -11,20 +11,28 @@
 			</colgroup>
 
 			{{-- Search Header --}}
-			<thead class="text-sm/6">
+			<thead class="overflow-hidden text-sm/6">
 				<tr class="bg-white dark:bg-zinc-900">
 					<td
 						class="pl-4 pr-8 lg:pl-8"
 						colspan="4"
 					>
-						<x-forms.input
+						<label
+							class="sr-only"
+							for="search"
+						>
+							Suche nach Name oder Anschrift
+						</label>
+
+						<input
+							class="w-full bg-transparent py-4 font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none dark:text-white dark:placeholder:text-zinc-500"
 							id="search"
-							placeholder="Suche nach Name oder Betreff..."
-							style="px-0 py-4"
-							theme="transparent"
+							name="search"
+							placeholder="Suche nach Name oder Anschrift"
+							type="text"
 							wire:keyup.debounce.250ms="searchCustomers"
 							wire:model="search"
-						/>
+						>
 					</td>
 				</tr>
 			</thead>
@@ -42,7 +50,7 @@
 			</thead>
 
 			{{-- Table Data --}}
-			<tbody class="divide-y divide-gray-200 text-sm/6 text-gray-500 dark:divide-zinc-800 dark:text-zinc-400">
+			<tbody class="divide-y divide-gray-200 text-sm/6 text-gray-500 dark:divide-zinc-800 dark:text-zinc-500">
 				@foreach ($customers as $customer)
 					<tr
 						{{-- x-on:click="Livewire.navigate('{{ route('letter-protocol.show', $letter->slug) }}')" --}}
