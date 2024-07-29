@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 {{-- html --}}
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+	class="h-full"
+	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+>
 
 	{{-- head --}}
 
@@ -26,7 +29,7 @@
 
 	{{-- body --}}
 
-	<body>
+	<body class="h-full">
 		{{-- content --}}
 		{{ $slot }}
 
