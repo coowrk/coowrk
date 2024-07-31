@@ -1,5 +1,5 @@
 {{-- desktop sidebar --}}
-<div class="fixed inset-y-0 left-0 w-64 max-lg:hidden">
+<div class="fixed inset-y-0 left-0 w-64 pr-px max-lg:hidden">
 	<nav class="flex h-full min-h-0 flex-col">
 
 		{{-- top section --}}
@@ -36,10 +36,11 @@
 					class="group relative flex cursor-not-allowed items-center gap-3 rounded-lg px-2 py-2.5 opacity-50 hover:bg-white/5 sm:py-2"
 					wire:navigate="{{ route('home') }}"
 				>
-					<span
+					{{-- <span
 						class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
 						style="transform: none; transform-origin: 50% 50% 0px;"
-					></span>
+					></span> --}}
+
 					<div class="size-6 flex items-center justify-center">
 						<svg
 							class="size-5 fill-zinc-500 group-hover:fill-white"
@@ -99,6 +100,7 @@
 						class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
 						style="transform: none; transform-origin: 50% 50% 0px;"
 					></span>
+
 					<div class="size-6 flex items-center justify-center">
 						<svg
 							class="size-5 fill-zinc-500 group-hover:fill-white"
