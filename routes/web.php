@@ -18,5 +18,15 @@ Route::middleware(['guest'])
 // auth routes
 Route::middleware(['auth'])
     ->group(function () {
+        // home
         Route::get('home', App\Livewire\Pages\Auth\Home::class)->name('home');
+
+        // shortletter
+        Route::prefix('shortletter')
+            ->as('shortletter.')
+            ->group(function () {
+                Route::get('/', App\Livewire\Pages\Auth\Shortletter\Index::class)->name('index');
+                Route::get('create', App\Livewire\Pages\Auth\Shortletter\Create::class)->name('create');
+                Route::get('edit', App\Livewire\Pages\Auth\Shortletter\Edit::class)->name('edit');
+            });
     });
