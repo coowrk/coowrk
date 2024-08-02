@@ -63,16 +63,19 @@
 
 		<div class="flex flex-col p-4">
 			<div class="flex flex-col gap-0.5">
-
 				{{-- home button --}}
 				<button
 					class="group relative flex items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
-					wire:navigate="{{ route('home') }}"
+					href="{{ route('home') }}"
+					wire:navigate
 				>
-					<span
-						class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
-						style="transform: none; transform-origin: 50% 50% 0px;"
-					></span>
+					@if (Route::is('home'))
+						<span
+							class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+							style="transform: none; transform-origin: 50% 50% 0px;"
+						></span>
+					@endif
+
 					<div class="size-6 flex items-center justify-center">
 						<svg
 							class="size-5 fill-zinc-500 group-hover:fill-white"
@@ -93,13 +96,16 @@
 
 				{{-- shortletters --}}
 				<button
-					class="group relative flex items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
-					wire:navigate="{{ route('home') }}"
+					class="group relative flex w-full items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
+					href="{{ route('shortletter.index') }}"
+					wire:navigate
 				>
-					<span
-						class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
-						style="transform: none; transform-origin: 50% 50% 0px;"
-					></span>
+					@if (Route::is('shortletter.*'))
+						<span
+							class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+							style="transform: none; transform-origin: 50% 50% 0px;"
+						></span>
+					@endif
 
 					<div class="size-6 flex items-center justify-center">
 						<svg
@@ -122,7 +128,7 @@
 		<div class="mt-auto flex flex-col border-t border-zinc-950/5 p-4 dark:border-white/5">
 			<div class="flex flex-col gap-0.5">
 
-				{{-- team button --}}
+				{{-- user button --}}
 				<button class="flex cursor-default items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2">
 					<span class="size-10 inline-flex shrink-0 items-center justify-center rounded-lg bg-white/10">
 						<span class="text-xs font-medium leading-none text-white">NU</span>
