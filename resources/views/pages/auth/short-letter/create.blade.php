@@ -97,6 +97,17 @@
 				/>
 			</div>
 
+			<div>
+				<x-forms.label
+					for="reason"
+					title="Betreff"
+				/>
+				<x-forms.input
+					for="reason"
+					title="Betreff"
+				/>
+			</div>
+
 			<div class="grid grid-cols-3">
 				<div class="col-span-2">
 					<x-typography.title.h3 title="Wir bitten um" />
