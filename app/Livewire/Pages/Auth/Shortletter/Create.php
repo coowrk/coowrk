@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\Auth\ShortLetter;
 
+use App\Models\Customer;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -10,28 +11,28 @@ use Spatie\LaravelPdf\Facades\Pdf;
 class Create extends Component
 {
     // properties
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:2', 'max:255'])]
     public $first_name;
 
-    #[Validate(['required'])]
+    #[Validate(['nullable', 'min:2', 'max:255'])]
     public $last_name;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:1', 'max:255'])]
     public $street;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:1', 'max:255'])]
     public $house_number;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:1', 'max:255'])]
     public $postcode;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:1', 'max:255'])]
     public $country;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
 
-    #[Validate(['required'])]
+    #[Validate(['required', 'in:rueckruf,schadenanzeige,zum-verbleib'])]
     public $options = [];
 
     // render html
@@ -44,8 +45,10 @@ class Create extends Component
     // create
     public function create()
     {
+        Customer::create($this->validate());
+
         // dd(Pdf::view('pdf.shortletter')->save(storage_path('app/public/pdf/') . 'test.pdf'));
-        return Pdf::view('pdf.shortletter')->name('invoice-2023-04-10.pdf')
-            ->download();
+        // return Pdf::view('pdf.shortletter')->name('invoice-2023-04-10.pdf')
+        //     ->download();
     }
 }
