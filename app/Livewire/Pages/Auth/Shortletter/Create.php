@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Auth\ShortLetter;
 
 use App\Models\Customer;
+use App\Models\ShortLetter;
 use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
@@ -50,22 +51,25 @@ class Create extends Component
     public function create()
     {
         // validate input data
+        $validated = $this->validate();
+
         // create customer if doesn't exist
-        Customer::firstOrCreate(
-            Arr::only($this->validate(), [
-                'salutation',
-                'first_name',
-                'last_name',
-                'street',
-                'house_number',
-                'postcode',
-                'country'
+        $customer = Customer::firstOrCreate(
+            Arr::except($validated, [
+                'options',
+                'reason'
             ])
         );
 
-
-        // dd(Pdf::view('pdf.shortletter')->save(storage_path('app/public/pdf/') . 'test.pdf'));
-        // return Pdf::view('pdf.shortletter')->name('invoice-2023-04-10.pdf')
-        //     ->download();
+        // create short letter
+        ShortLetter::create(
+            Arr::collapse(
+                [
+                    $validated,
+                    ['customer_id' => $customer->id],
+                    ['user_id' => auth()->user()->id]
+                ],
+            )
+        );
     }
 }
