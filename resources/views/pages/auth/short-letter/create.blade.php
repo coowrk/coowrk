@@ -37,7 +37,12 @@
 					title="Vorname"
 				/>
 				<x-forms.select
-					:options="['Herr', 'Frau', 'Divers', 'Firma']"
+					:options="[
+					    'Herr' => 'Herr',
+					    'Frau' => 'Frau',
+					    'Divers' => 'Divers',
+					    'Firma' => 'Firma',
+					]"
 					for="salutation"
 					title="first name"
 				>

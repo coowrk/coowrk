@@ -12,7 +12,7 @@ use Livewire\Component;
 class Create extends Component
 {
     // properties
-    #[Validate(['required', 'in:0,1,2,3'])]
+    #[Validate(['required', 'in:Herr,Frau,Divers,Firma'])]
     public $salutation;
 
     #[Validate(['required', 'min:2', 'max:255'])]

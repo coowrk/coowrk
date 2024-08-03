@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('short_letters', function (Blueprint $table) {
             $table->id();
-            $table->integer('salutation');
+            $table->string('salutation');
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('street');
