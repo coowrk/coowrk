@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('house_number');
             $table->string('postcode');
             $table->string('country');
+            $table->string('email');
+            $table->string('telephone');
             $table->timestamps();
         });
     }
