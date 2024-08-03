@@ -15,6 +15,7 @@ class Customer extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'salutation',
         'first_name',
         'last_name',
         'street',
@@ -24,16 +25,4 @@ class Customer extends Model
         'email',
         'telephone',
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'options' => 'array',
-        ];
-    }
 }

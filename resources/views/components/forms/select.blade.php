@@ -10,10 +10,7 @@
 			@if ($attributes->has('for') || $attributes->has('wire:model')) wire:model="{{ $attributes->get('wire:model') ?? $attributes->get('for') }}" @endif
 			class="block w-full appearance-none rounded-lg border-0 bg-white/5 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none data-[invalid]:ring-red-500 sm:text-sm/6"
 		>
-			<option
-				class="bg-zinc-800 py-3"
-				disabled
-			>
+			<option class="bg-zinc-800 py-3">
 				Bitte Auswählen
 			</option>
 

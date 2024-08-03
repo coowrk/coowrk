@@ -12,6 +12,9 @@ use Spatie\LaravelPdf\Facades\Pdf;
 class Create extends Component
 {
     // properties
+    #[Validate(['required', 'in:0,1,2,3'])]
+    public $salutation;
+
     #[Validate(['required', 'min:2', 'max:255'])]
     public $first_name;
 
@@ -46,24 +49,20 @@ class Create extends Component
     // create
     public function create()
     {
-        if (Customer::query()->where(Arr::only($this->validate(), [
-            'first_name',
-            'last_name',
-            'street',
-            'house_number',
-            'postcode',
-            'country'
-        ]))->count() == 0)
-            Customer::create(
-                Arr::only($this->validate(), [
-                    'first_name',
-                    'last_name',
-                    'street',
-                    'house_number',
-                    'postcode',
-                    'country'
-                ])
-            );
+        // validate input data
+        // create customer if doesn't exist
+        Customer::firstOrCreate(
+            Arr::only($this->validate(), [
+                'salutation',
+                'first_name',
+                'last_name',
+                'street',
+                'house_number',
+                'postcode',
+                'country'
+            ])
+        );
+
 
         // dd(Pdf::view('pdf.shortletter')->save(storage_path('app/public/pdf/') . 'test.pdf'));
         // return Pdf::view('pdf.shortletter')->name('invoice-2023-04-10.pdf')
