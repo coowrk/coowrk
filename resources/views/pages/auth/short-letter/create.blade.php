@@ -33,6 +33,19 @@
 		<form wire:submit="create">
 			<div>
 				<x-forms.label
+					for="salutation"
+					title="Vorname"
+				/>
+				<x-forms.select
+					:options="['Herr', 'Frau', 'Divers', 'Firma']"
+					for="salutation"
+					title="first name"
+				>
+				</x-forms.select>
+			</div>
+
+			<div>
+				<x-forms.label
 					for="first_name"
 					title="Vorname"
 				/>
