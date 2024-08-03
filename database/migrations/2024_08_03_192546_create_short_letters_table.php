@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('house_number');
             $table->string('postcode');
             $table->string('country');
-            $table->array('options');
+            $table->json('options');
             $table->foreignIdFor(Customer::class);
             $table->timestamps();
         });
