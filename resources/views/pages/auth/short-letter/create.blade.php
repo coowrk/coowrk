@@ -101,6 +101,17 @@
 
 			<div>
 				<x-forms.label
+					for="city"
+					title="Stadt"
+				/>
+				<x-forms.input
+					for="city"
+					title="Stadt"
+				/>
+			</div>
+
+			<div>
+				<x-forms.label
 					for="country"
 					title="Land"
 				/>

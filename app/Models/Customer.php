@@ -21,6 +21,7 @@ class Customer extends Model
         'street',
         'house_number',
         'postcode',
+        'city',
         'country',
         'email',
         'telephone',

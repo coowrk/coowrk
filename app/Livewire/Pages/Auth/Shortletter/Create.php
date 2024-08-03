@@ -8,7 +8,6 @@ use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
-use Spatie\LaravelPdf\Facades\Pdf;
 
 class Create extends Component
 {
@@ -30,6 +29,9 @@ class Create extends Component
 
     #[Validate(['required', 'min:1', 'max:255'])]
     public $postcode;
+
+    #[Validate(['required', 'min:1', 'max:255'])]
+    public $city;
 
     #[Validate(['required', 'min:1', 'max:255'])]
     public $country;

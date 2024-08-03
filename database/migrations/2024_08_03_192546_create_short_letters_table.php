@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('street');
             $table->string('house_number');
             $table->string('postcode');
+            $table->string('city');
             $table->string('country');
             $table->string('reason');
             $table->json('options');
