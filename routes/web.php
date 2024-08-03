@@ -27,6 +27,7 @@ Route::middleware(['auth'])
             ->group(function () {
                 Route::get('/', App\Livewire\Pages\Auth\Shortletter\Index::class)->name('index');
                 Route::get('create', App\Livewire\Pages\Auth\Shortletter\Create::class)->name('create');
-                Route::get('edit/{id}', App\Livewire\Pages\Auth\Shortletter\Edit::class)->name('edit');
+                Route::get('/{id}', App\Livewire\Pages\Auth\Shortletter\Show::class)->where('id', '[0-9]+')->name('show');
+                Route::get('/{id}/edit', App\Livewire\Pages\Auth\Shortletter\Edit::class)->where('id', '[0-9]+')->name('edit');
             });
     });

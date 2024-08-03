@@ -41,7 +41,7 @@
 		<x-tables.body>
 			@foreach ($short_letters as $short_letter)
 				<x-tables.body.row>
-					<x-tables.body.cell href="{{ route('shortletter.edit', $short_letter->id) }}">
+					<x-tables.body.cell href="{{ route('shortletter.show', $short_letter->id) }}">
 						<div class="flex">
 							<div class="w-14 text-zinc-500">{{ $short_letter->salutation }}</div>
 							{{ $short_letter->first_name }}
@@ -50,19 +50,19 @@
 					</x-tables.body.cell>
 					<x-tables.body.cell
 						class="text-zinc-500"
-						href="{{ route('shortletter.edit', $short_letter->id) }}"
+						href="{{ route('shortletter.show', $short_letter->id) }}"
 					>
 						{{ $short_letter->reason }}
 					</x-tables.body.cell>
 					<x-tables.body.cell
 						class="text-zinc-500"
-						href="{{ route('shortletter.edit', $short_letter->id) }}"
+						href="{{ route('shortletter.show', $short_letter->id) }}"
 					>
 						Nail Ucdu
 					</x-tables.body.cell>
 					<x-tables.body.cell
 						class="text-right text-zinc-500"
-						href="{{ route('shortletter.edit', $short_letter->id) }}"
+						href="{{ route('shortletter.show', $short_letter->id) }}"
 					>
 						{{ $short_letter->created_at->diffForHumans() }}
 					</x-tables.body.cell>
