@@ -44,7 +44,9 @@
 			</div>
 
 			<div>
-				<x-forms.button />
+				<x-forms.buttons.white type="submit">
+					Anmelden
+				</x-forms.buttons.white>
 			</div>
 		</form>
 	</div>

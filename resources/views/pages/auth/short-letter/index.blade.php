@@ -1,9 +1,13 @@
 <div>
 	<div class="flex w-full flex-wrap items-end justify-between gap-4 pb-6">
-		<h1 class="text-2xl/8 font-semibold text-zinc-950 dark:text-white sm:text-xl/8">Kurzbriefe</h1>
+		<x-typography.title.h1 title="Kurzbriefe" />
 
 		<div>
-			<x-forms.buttons.white>
+			<x-forms.buttons.white
+				href="{{ route('shortletter.create') }}"
+				type="button"
+				wire:navigate
+			>
 				<svg
 					aria-hidden="true"
 					class="size-4 text-zinc-500"
