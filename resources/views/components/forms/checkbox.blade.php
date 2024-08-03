@@ -1,4 +1,5 @@
 <div class="flex items-start gap-x-3">
+	{{-- checkbox --}}
 	<div class="relative shrink-0">
 		<input
 			@if ($attributes->has('wire:model')) wire:model="{{ $attributes->get('wire:model') }}" @endif
@@ -27,8 +28,23 @@
 		</div>
 	</div>
 
-	<x-forms.label
-		:for="$attributes->get('for')"
-		:title="$attributes->get('title')"
-	/>
+	{{-- text --}}
+	<div>
+		{{-- label --}}
+		<x-forms.label
+			:for="$attributes->get('for')"
+			:title="$attributes->get('title')"
+		/>
+
+		{{-- description --}}
+		@if ($attributes->has('description'))
+			<x-typography.text :text="$attributes->get('description')" />
+		@endif
+
+		{{-- error --}}
+		@error($attributes->get('wire:model') ?? $attributes->get('wire:model.live'))
+			<span
+				class="block text-sm/6 font-medium text-red-600 disabled:opacity-50 dark:text-red-500 sm:text-xs/6">{{ $message }}</span>
+		@enderror
+	</div>
 </div>
