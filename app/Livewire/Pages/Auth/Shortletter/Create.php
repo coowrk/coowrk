@@ -82,7 +82,19 @@ class Create extends Component
         );
 
         // save pdf
-        Pdf::view('pdf.templates.shortletter')
+        Pdf::view(
+            'pdf.templates.shortletter',
+            Arr::only($validated, [
+                'reason',
+                'salutation',
+                'first_name',
+                'last_name',
+                'street',
+                'house_number',
+                'postcode',
+                'city'
+            ])
+        )
             ->format(Format::A4)
             ->save($pdf_path);
 
