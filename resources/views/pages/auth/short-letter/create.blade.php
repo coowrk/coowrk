@@ -1,14 +1,14 @@
 <div>
 	{{-- breadcrumb --}}
-	<div class="max-lg:hidden">
+	<div>
 		<a
-			class="inline-flex items-center gap-2 text-sm/6 text-zinc-500 dark:text-zinc-400"
+			class="inline-flex items-center gap-2 text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6"
 			href="{{ route('shortletter.index', ['page' => auth()->user()->settings->misc['short_letter']['pagination']['last_visited_page'] ?? 1]) }}"
 			wire:navigate
 		>
 			<svg
 				aria-hidden="true"
-				class="size-4 fill-zinc-400 dark:fill-zinc-500"
+				class="size-4 fill-zinc-500 dark:fill-zinc-400"
 				data-slot="icon"
 				fill="currentColor"
 				viewBox="0 0 16 16"
@@ -106,8 +106,8 @@
 				</div>
 			</div>
 
-			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-5">
-				<div class="col-span-4">
+			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
+				<div class="col-span-1 sm:col-span-4">
 					<x-forms.label
 						for="street"
 						title="Straße"
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 
-			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-5">
+			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
 				<div class="col-span-1">
 					<x-forms.label
 						for="postcode"
@@ -142,7 +142,7 @@
 					/>
 				</div>
 
-				<div class="col-span-3">
+				<div class="col-span-1 sm:col-span-3">
 					<x-forms.label
 						for="city"
 						title="Stadt"
@@ -167,7 +167,7 @@
 				</div>
 			</div>
 
-			<x-typography.divider class="my-8" />
+			<x-typography.divider class="my-4 sm:my-8" />
 
 			<div>
 				<x-forms.label
@@ -180,8 +180,8 @@
 				/>
 			</div>
 
-			<div class="grid grid-cols-1 sm:grid-cols-3">
-				<div class="col-span-2">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+				<div class="col-span-1 sm:col-span-2">
 					<x-typography.title.h3 title="Wir bitten um" />
 
 					<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
