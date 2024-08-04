@@ -78,7 +78,11 @@
 
 					<div class="size-6 flex items-center justify-center">
 						<svg
-							class="size-5 fill-zinc-500 group-hover:fill-white"
+							@class([
+								'size-5 group-hover:fill-white',
+								'fill-zinc-500' => !Route::is('home'),
+								'fill-white' => Route::is('home'),
+							])
 							fill="currentColor"
 							viewBox="0 0 20 20"
 							xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +113,11 @@
 
 					<div class="size-6 flex items-center justify-center">
 						<svg
-							class="size-5 fill-zinc-500 group-hover:fill-white"
+							@class([
+								'size-5 group-hover:fill-white',
+								'fill-zinc-500' => !Route::is('shortletter.*'),
+								'fill-white' => Route::is('shortletter.*'),
+							])
 							fill="currentColor"
 							viewBox="0 0 20 20"
 							xmlns="http://www.w3.org/2000/svg"
