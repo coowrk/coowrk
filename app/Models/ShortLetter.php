@@ -26,6 +26,7 @@ class ShortLetter extends Model
         'options',
         'reason',
         'status',
+        'pdf_path',
         'customer_id',
         'user_id',
     ];

@@ -7,8 +7,8 @@ use App\Models\ShortLetter;
 use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
-use function Spatie\LaravelPdf\Support\pdf;
 use Livewire\Component;
+use Spatie\Browsershot\Browsershot;
 
 class Show extends Component
 {
@@ -40,9 +40,9 @@ class Show extends Component
 
     public function download()
     {
-        return pdf()
-            ->view('pdf.template.shortletter')
-            ->format('a4')
-            ->name('invoice-2023-04-10.pdf');
+        $pdf = Browsershot::html(view('pdf.templates.shortletter')->render())
+            ->pdf();
+
+        return response()->streamDownload(fn () => $pdf, 'test.pdf');
     }
 }

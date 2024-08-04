@@ -8,6 +8,9 @@ use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Spatie\LaravelPdf\Enums\Format;
+use Spatie\LaravelPdf\Facades\Pdf;
+use Str;
 
 class Create extends Component
 {
@@ -55,6 +58,9 @@ class Create extends Component
         // validate input data
         $validated = $this->validate();
 
+        // pdf path
+        $pdf_path = storage_path('app/pdf/' . Str::random() . '.pdf');
+
         // create customer if doesn't exist
         $customer = Customer::firstOrCreate(
             Arr::except($validated, [
@@ -64,14 +70,23 @@ class Create extends Component
         );
 
         // create short letter
-        ShortLetter::create(
+        $short_letter = ShortLetter::create(
             Arr::collapse(
                 [
                     $validated,
                     ['customer_id' => $customer->id],
-                    ['user_id' => auth()->user()->id]
+                    ['user_id' => auth()->user()->id],
+                    ['pdf_path' => $pdf_path]
                 ],
             )
         );
+
+        // save pdf
+        Pdf::view('pdf.templates.shortletter')
+            ->format(Format::A4)
+            ->save($pdf_path);
+
+        // redirect to entry
+        return $this->redirect(route('shortletter.show', $short_letter->id));
     }
 }

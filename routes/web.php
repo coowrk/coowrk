@@ -29,5 +29,6 @@ Route::middleware(['auth'])
                 Route::get('create', App\Livewire\Pages\Auth\ShortLetter\Create::class)->name('create');
                 Route::get('/{id}', App\Livewire\Pages\Auth\ShortLetter\Show::class)->where('id', '[0-9]+')->name('show');
                 Route::get('/{id}/edit', App\Livewire\Pages\Auth\ShortLetter\Edit::class)->where('id', '[0-9]+')->name('edit');
+                Route::get('/{id}/pdf', App\Livewire\Pages\Auth\ShortLetter\Pdf::class)->where('id', '[0-9]+')->name('pdf');
             });
     });

@@ -96,8 +96,9 @@
 
 		<div class="flex h-fit gap-4">
 			<x-forms.buttons.zinc
+				href="{{ route('shortletter.pdf', $short_letter->id) }}"
+				target="_blank"
 				type="button"
-				wire:click="download"
 			>
 				<svg
 					class="size-4 text-zinc-500"

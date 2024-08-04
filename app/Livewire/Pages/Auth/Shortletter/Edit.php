@@ -4,10 +4,13 @@ namespace App\Livewire\Pages\Auth\ShortLetter;
 
 use App\Models\Customer;
 use App\Models\ShortLetter;
+use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Spatie\LaravelPdf\Enums\Format;
+use Spatie\LaravelPdf\Facades\Pdf;
 
 class Edit extends Component
 {
@@ -75,5 +78,35 @@ class Edit extends Component
         $this->country = $this->short_letter->country;
         $this->reason = $this->short_letter->reason;
         $this->options = $this->short_letter->options;
+    }
+
+    // edit
+    public function edit()
+    {
+        // validate input data
+        $validated = $this->validate();
+
+        // update short letter
+        $this->short_letter->update($validated);
+
+        // save pdf
+        Pdf::view(
+            'pdf.templates.shortletter',
+            Arr::only($validated, [
+                'reason',
+                'salutation',
+                'first_name',
+                'last_name',
+                'street',
+                'house_number',
+                'postcode',
+                'city'
+            ])
+        )
+            ->format(Format::A4)
+            ->save($this->short_letter->pdf_path);
+
+        // redirect to entry
+        return $this->redirect(route('shortletter.show', $this->short_letter->id));
     }
 }

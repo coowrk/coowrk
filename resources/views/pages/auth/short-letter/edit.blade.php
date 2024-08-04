@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="mt-12">
-		<form wire:submit="create">
+		<form wire:submit="edit">
 			<div>
 				<x-forms.label
 					for="salutation"
