@@ -30,101 +30,128 @@
 	</div>
 
 	<div class="mt-12">
-		<form wire:submit="create">
-			<div>
-				<x-forms.label
-					for="salutation"
-					title="Vorname"
-				/>
-				<x-forms.select
-					:options="[
-					    'Herr' => 'Herr',
-					    'Frau' => 'Frau',
-					    'Divers' => 'Divers',
-					    'Firma' => 'Firma',
-					]"
-					for="salutation"
-					title="first name"
-				>
-				</x-forms.select>
+		<form
+			class="flex flex-col gap-y-4"
+			wire:submit="create"
+		>
+			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-8">
+				<div class="col-span-2">
+					<x-forms.label
+						for="salutation"
+						title="Anrede"
+					/>
+					<x-forms.select
+						:options="[
+						    'Herr' => 'Herr',
+						    'Frau' => 'Frau',
+						    'Divers' => 'Divers',
+						    'Firma' => 'Firma',
+						]"
+						for="salutation"
+						title="first name"
+						wire:model.live="salutation"
+					>
+					</x-forms.select>
+				</div>
+
+				@if ($salutation == 'Firma')
+					<div class="col-span-6">
+						<x-forms.label
+							for="first_name"
+							title="Name"
+						/>
+						<x-forms.input
+							for="first_name"
+							title="first name"
+						/>
+					</div>
+				@else
+					<div class="col-span-3">
+						<x-forms.label
+							for="first_name"
+							title="Vorname"
+						/>
+						<x-forms.input
+							for="first_name"
+							title="first name"
+						/>
+					</div>
+
+					<div class="col-span-3">
+						<x-forms.label
+							for="last_name"
+							title="Nachname"
+						/>
+						<x-forms.input
+							for="last_name"
+							title="last name"
+						/>
+					</div>
+				@endif
 			</div>
 
-			<div>
-				<x-forms.label
-					for="first_name"
-					title="Vorname"
-				/>
-				<x-forms.input
-					for="first_name"
-					title="first name"
-				/>
+			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-5">
+				<div class="col-span-4">
+					<x-forms.label
+						for="street"
+						title="Straße"
+					/>
+					<x-forms.input
+						for="street"
+						title="street"
+					/>
+				</div>
+
+				<div class="col-span-1">
+					<x-forms.label
+						for="house_number"
+						title="Hausnummer"
+					/>
+					<x-forms.input
+						for="house_number"
+						title="Hausnummer"
+					/>
+				</div>
 			</div>
 
-			<div>
-				<x-forms.label
-					for="last_name"
-					title="Nachname"
-				/>
-				<x-forms.input
-					for="last_name"
-					title="last name"
-				/>
+			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-5">
+				<div class="col-span-1">
+					<x-forms.label
+						for="postcode"
+						title="Postleitzahl"
+					/>
+					<x-forms.input
+						for="postcode"
+						title="Postleitzahl"
+					/>
+				</div>
+
+				<div class="col-span-3">
+					<x-forms.label
+						for="city"
+						title="Stadt"
+					/>
+					<x-forms.input
+						for="city"
+						title="Stadt"
+					/>
+				</div>
+
+				<div class="col-span-1">
+					<div>
+						<x-forms.label
+							for="country"
+							title="Land"
+						/>
+						<x-forms.input
+							for="country"
+							title="Land"
+						/>
+					</div>
+				</div>
 			</div>
 
-			<div>
-				<x-forms.label
-					for="street"
-					title="Straße"
-				/>
-				<x-forms.input
-					for="street"
-					title="street"
-				/>
-			</div>
-
-			<div>
-				<x-forms.label
-					for="house_number"
-					title="Hausnummer"
-				/>
-				<x-forms.input
-					for="house_number"
-					title="Hausnummer"
-				/>
-			</div>
-
-			<div>
-				<x-forms.label
-					for="postcode"
-					title="Postleitzahl"
-				/>
-				<x-forms.input
-					for="postcode"
-					title="Postleitzahl"
-				/>
-			</div>
-
-			<div>
-				<x-forms.label
-					for="city"
-					title="Stadt"
-				/>
-				<x-forms.input
-					for="city"
-					title="Stadt"
-				/>
-			</div>
-
-			<div>
-				<x-forms.label
-					for="country"
-					title="Land"
-				/>
-				<x-forms.input
-					for="country"
-					title="Land"
-				/>
-			</div>
+			<x-typography.divider class="my-8" />
 
 			<div>
 				<x-forms.label
@@ -137,75 +164,80 @@
 				/>
 			</div>
 
-			<div class="grid grid-cols-3">
+			<div class="grid grid-cols-1 sm:grid-cols-3">
 				<div class="col-span-2">
 					<x-typography.title.h3 title="Wir bitten um" />
 
-					<x-forms.checkbox
-						for="rueckruf"
-						title="Rückruf"
-						wire:model="options"
-					/>
+					<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+						<x-forms.checkbox
+							for="rueckruf"
+							title="Rückruf"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="stellungnahme"
-						title="Stellungnahme"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="stellungnahme"
+							title="Stellungnahme"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="erledigung"
-						title="Erledigung"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="erledigung"
+							title="Erledigung"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="rueckgabe"
-						title="Rückgabe"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="rueckgabe"
+							title="Rückgabe"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="pruefung"
-						title="Prüfung"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="pruefung"
+							title="Prüfung"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="kenntnisnahme"
-						title="Kenntnisnahme"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="kenntnisnahme"
+							title="Kenntnisnahme"
+							wire:model="options"
+						/>
+					</div>
 				</div>
 				<div class="col-span-1">
 					<x-typography.title.h3 title="Sie erhalten den Vorgang" />
-					<x-forms.checkbox
-						for="zum-verbleib"
-						title="zum Verbleib"
-						wire:model="options"
-					/>
 
-					<x-forms.checkbox
-						for="zur-weitergabe"
-						title="zur Weitergabe"
-						wire:model="options"
-					/>
+					<div class="mt-2 flex flex-col gap-4">
+						<x-forms.checkbox
+							for="zum-verbleib"
+							title="zum Verbleib"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="zur-unterschrift"
-						title="zur Unterschrift"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="zur-weitergabe"
+							title="zur Weitergabe"
+							wire:model="options"
+						/>
 
-					<x-forms.checkbox
-						for="anbei-anlagen"
-						title="Anbei Anlagen"
-						wire:model="options"
-					/>
+						<x-forms.checkbox
+							for="zur-unterschrift"
+							title="zur Unterschrift"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="anbei-anlagen"
+							title="Anbei Anlagen"
+							wire:model="options"
+						/>
+					</div>
 				</div>
 			</div>
 
-			<div class="mt-12 flex justify-end">
+			<div class="mt-4 flex justify-end">
 				<x-forms.buttons.white>
 					Erstellen
 				</x-forms.buttons.white>

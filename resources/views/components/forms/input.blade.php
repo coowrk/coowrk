@@ -8,7 +8,8 @@
 		@if ($attributes->has('for') || $attributes->has('name')) name="{{ $attributes->get('name') ?? $attributes->get('for') }}" @endif
 		@if ($attributes->has('for') || $attributes->has('type')) type="{{ $attributes->get('type') ?? $attributes->get('for') }}" @endif
 		@if ($attributes->has('for') || $attributes->has('title')) title="{{ $attributes->get('title') ?? $attributes->get('for') }}" @endif
-		@if ($attributes->has('for') || $attributes->has('wire:model')) wire:model="{{ $attributes->get('wire:model') ?? $attributes->get('for') }}" @endif
+		@if (!$attributes->has('wire:model.live') && ($attributes->has('for') || $attributes->has('wire:model'))) wire:model="{{ $attributes->get('wire:model') ?? $attributes->get('for') }}" @endif
+		@if ($attributes->has('wire:model.live')) wire:model.live="{{ $attributes->get('wire:model.live') ?? $attributes->get('for') }}" @endif
 		class="block w-full rounded-lg border-0 bg-white/5 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none data-[invalid]:ring-red-500 sm:text-sm/6"
 	>
 
