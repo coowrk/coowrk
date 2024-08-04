@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('reason');
             $table->json('options');
+            $table->enum('status', [0, 1, 2, 3, 4]);
             $table->foreignIdFor(User::class)->comment('short letter created by (user)_id');
             $table->foreignIdFor(Customer::class)->comment('short letter belongs to (customer)_id');
             $table->timestamps();
