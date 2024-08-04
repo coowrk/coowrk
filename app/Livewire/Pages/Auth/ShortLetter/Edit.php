@@ -4,13 +4,10 @@ namespace App\Livewire\Pages\Auth\ShortLetter;
 
 use App\Models\Customer;
 use App\Models\ShortLetter;
-use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
-use Spatie\LaravelPdf\Enums\Format;
-use Spatie\LaravelPdf\Facades\Pdf;
 
 class Edit extends Component
 {

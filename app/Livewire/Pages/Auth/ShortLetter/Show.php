@@ -8,7 +8,6 @@ use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Component;
-use Spatie\Browsershot\Browsershot;
 
 class Show extends Component
 {
