@@ -22,7 +22,12 @@ class Index extends Component
     {
         return view(
             'pages.auth.short-letter.index',
-            ['short_letters' => ShortLetter::paginate(1)]
+            [
+                'short_letters' => ShortLetter::query()
+                    ->select(['id', 'salutation', 'first_name', 'last_name', 'reason', 'status', 'created_at'])
+                    ->latest()
+                    ->paginate(10)
+            ]
         );
     }
 

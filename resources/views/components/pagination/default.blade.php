@@ -52,8 +52,14 @@
 
 			{{-- pages --}}
 			<span class="hidden items-baseline gap-x-2 sm:flex">
+				@if ($paginator->currentPage() >= 5)
+					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 sm:text-sm/6">
+						...
+					</span>
+				@endif
+
 				@for ($i = $paginator->currentPage() - 3; $i < $paginator->currentPage() + 4; $i++)
-					@if ($i >= 1 && $i <= $paginator->total())
+					@if ($i >= 1 && $i <= $paginator->lastPage())
 						<a
 							@class([
 								'cursor-pointer rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6',
@@ -63,10 +69,15 @@
 							wire:navigate
 						>
 							{{ $i }}
-
 						</a>
 					@endif
 				@endfor
+
+				@if ($paginator->lastPage() - $paginator->currentPage() >= 4)
+					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 sm:text-sm/6">
+						...
+					</span>
+				@endif
 			</span>
 
 			{{-- next --}}

@@ -24,7 +24,7 @@ class Edit extends Component
     #[Validate(['required', 'min:2', 'max:255'])]
     public $first_name;
 
-    #[Validate(['nullable', 'min:2', 'max:255'])]
+    #[Validate(['max:255', 'required_if:salutation,Herr,Frau,Divers'])]
     public $last_name;
 
     #[Validate(['required', 'min:1', 'max:255'])]
