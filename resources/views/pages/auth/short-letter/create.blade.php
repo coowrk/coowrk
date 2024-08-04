@@ -35,60 +35,75 @@
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
-			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-8">
-				<div class="col-span-2">
-					<x-forms.label
-						for="salutation"
-						title="Anrede"
-					/>
-					<x-forms.select
-						:options="[
-						    'Herr' => 'Herr',
-						    'Frau' => 'Frau',
-						    'Divers' => 'Divers',
-						    'Firma' => 'Firma',
-						]"
-						for="salutation"
-						title="first name"
-						wire:model.live="salutation"
-					>
-					</x-forms.select>
+			<div class="flex flex-col-reverse sm:flex-row sm:gap-4">
+				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
+					<div class="col-span-1 sm:col-span-2">
+						<x-forms.label
+							for="salutation"
+							title="Anrede"
+						/>
+						<x-forms.select
+							:options="[
+							    'Herr' => 'Herr',
+							    'Frau' => 'Frau',
+							    'Divers' => 'Divers',
+							    'Firma' => 'Firma',
+							]"
+							for="salutation"
+							title="first name"
+							wire:model.live="salutation"
+						>
+						</x-forms.select>
+					</div>
+
+					@if ($salutation == 'Firma')
+						<div class="col-span-1 sm:col-span-6">
+							<x-forms.label
+								for="first_name"
+								title="Name"
+							/>
+							<x-forms.input
+								for="first_name"
+								title="first name"
+							/>
+						</div>
+					@else
+						<div class="col-span-1 sm:col-span-3">
+							<x-forms.label
+								for="first_name"
+								title="Vorname"
+							/>
+							<x-forms.input
+								for="first_name"
+								title="first name"
+							/>
+						</div>
+
+						<div class="col-span-1 sm:col-span-3">
+							<x-forms.label
+								for="last_name"
+								title="Nachname"
+							/>
+							<x-forms.input
+								for="last_name"
+								title="last name"
+							/>
+						</div>
+					@endif
 				</div>
 
-				@if ($salutation == 'Firma')
-					<div class="col-span-6">
-						<x-forms.label
-							for="first_name"
-							title="Name"
-						/>
-						<x-forms.input
-							for="first_name"
-							title="first name"
-						/>
+				{{-- search user --}}
+				<div class="shrink-0">
+					<div class="flex flex-col sm:items-end sm:text-right">
+						<x-forms.label title="Suche" />
+						<div class="mt-2">
+							<x-forms.buttons.zinc>
+								Empfänger ermitteln
+							</x-forms.buttons.zinc>
+						</div>
 					</div>
-				@else
-					<div class="col-span-3">
-						<x-forms.label
-							for="first_name"
-							title="Vorname"
-						/>
-						<x-forms.input
-							for="first_name"
-							title="first name"
-						/>
-					</div>
-
-					<div class="col-span-3">
-						<x-forms.label
-							for="last_name"
-							title="Nachname"
-						/>
-						<x-forms.input
-							for="last_name"
-							title="last name"
-						/>
-					</div>
-				@endif
+					<x-typography.divider class="my-8 sm:hidden" />
+				</div>
 			</div>
 
 			<div class="grid grow grid-cols-1 gap-x-4 sm:grid-cols-5">
