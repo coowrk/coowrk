@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password')
-        ]);
+        ])->settings()->create();
     }
 }
