@@ -3,7 +3,7 @@
 namespace App\Livewire\Pages\Auth\ShortLetter;
 
 use App\Models\ShortLetter;
-use Illuminate\Support\Facades\Response;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class Pdf
 {
@@ -17,13 +17,18 @@ class Pdf
         $this->short_letter = ShortLetter::findOrFail($id);
 
         // return pdf
-        return Response::make(
-            file_get_contents($this->short_letter->pdf_path),
-            200,
-            [
-                'Content-type' => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="Kurzbrief.pdf"'
-            ]
-        );
+        return FacadePdf::loadView('pdf.templates.shortletter', [
+            'salutation' => $this->short_letter->salutation,
+            'first_name' => $this->short_letter->first_name,
+            'last_name' => $this->short_letter->last_name,
+            'street' => $this->short_letter->street,
+            'house_number' => $this->short_letter->house_number,
+            'postcode' => $this->short_letter->postcode,
+            'city' => $this->short_letter->city,
+            'reason' => $this->short_letter->reason,
+            'options' => json_encode($this->short_letter->options)
+        ])
+            ->addInfo(['Title', 'test'])
+            ->stream('Kurzbrief.pdf');
     }
 }

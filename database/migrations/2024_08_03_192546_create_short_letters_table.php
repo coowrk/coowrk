@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('country');
             $table->string('reason');
             $table->json('options');
-            $table->string('pdf_path');
             $table->foreignIdFor(User::class)->comment('short letter created by (user)_id');
             $table->foreignIdFor(Customer::class)->comment('short letter belongs to (customer)_id');
             $table->timestamps();

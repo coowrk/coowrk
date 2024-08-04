@@ -42,7 +42,7 @@ class Create extends Component
     #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
 
-    #[Validate(['required', 'array', 'in:rueckruf,schadenanzeige,zum-verbleib'])]
+    #[Validate(['required', 'array', 'in:rueckruf,erledigung,pruefung,kenntnisnahme,stellungnahme,rueckgabe,zum-verbleib,zur-weitergabe,zur-unterschrift,anbei-anlagen'])]
     public $options = [];
 
     // render html
@@ -58,9 +58,6 @@ class Create extends Component
         // validate input data
         $validated = $this->validate();
 
-        // pdf path
-        $pdf_path = storage_path('app/pdf/' . Str::random() . '.pdf');
-
         // create customer if doesn't exist
         $customer = Customer::firstOrCreate(
             Arr::except($validated, [
@@ -75,28 +72,10 @@ class Create extends Component
                 [
                     $validated,
                     ['customer_id' => $customer->id],
-                    ['user_id' => auth()->user()->id],
-                    ['pdf_path' => $pdf_path]
+                    ['user_id' => auth()->user()->id]
                 ],
             )
         );
-
-        // save pdf
-        Pdf::view(
-            'pdf.templates.shortletter',
-            Arr::only($validated, [
-                'reason',
-                'salutation',
-                'first_name',
-                'last_name',
-                'street',
-                'house_number',
-                'postcode',
-                'city'
-            ])
-        )
-            ->format(Format::A4)
-            ->save($pdf_path);
 
         // redirect to entry
         return $this->redirect(route('shortletter.show', $short_letter->id));

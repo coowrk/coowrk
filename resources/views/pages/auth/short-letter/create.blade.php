@@ -148,8 +148,32 @@
 					/>
 
 					<x-forms.checkbox
-						for="schadenanzeige"
-						title="Schadenanzeige"
+						for="stellungnahme"
+						title="Stellungnahme"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="erledigung"
+						title="Erledigung"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="rueckgabe"
+						title="Rückgabe"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="pruefung"
+						title="Prüfung"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="kenntnisnahme"
+						title="Kenntnisnahme"
 						wire:model="options"
 					/>
 				</div>
@@ -158,6 +182,24 @@
 					<x-forms.checkbox
 						for="zum-verbleib"
 						title="zum Verbleib"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="zur-weitergabe"
+						title="zur Weitergabe"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="zur-unterschrift"
+						title="zur Unterschrift"
+						wire:model="options"
+					/>
+
+					<x-forms.checkbox
+						for="anbei-anlagen"
+						title="Anbei Anlagen"
 						wire:model="options"
 					/>
 				</div>

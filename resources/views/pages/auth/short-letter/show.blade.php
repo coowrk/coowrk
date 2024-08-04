@@ -3,7 +3,7 @@
 	<div class="max-lg:hidden">
 		<a
 			class="inline-flex items-center gap-2 text-sm/6 text-zinc-500 dark:text-zinc-400"
-			href="{{ route('shortletter.index') }}"
+			href="{{ url()->previous() }}"
 			wire:navigate
 		>
 			<svg
@@ -185,6 +185,8 @@
 				<x-typography.title.h3 title="Tagebuch" />
 				<x-typography.divider class="mt-4" />
 			</div>
+
+
 		</div>
 	</div>
 </div>

@@ -48,7 +48,7 @@ class Edit extends Component
     #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
 
-    #[Validate(['required', 'array', 'in:rueckruf,schadenanzeige,zum-verbleib'])]
+    #[Validate(['required', 'array', 'in:rueckruf,erledigung,pruefung,kenntnisnahme,stellungnahme,rueckgabe,zum-verbleib,zur-weitergabe,zur-unterschrift,anbei-anlagen'])]
     public $options = [];
 
     // render html
@@ -88,23 +88,6 @@ class Edit extends Component
 
         // update short letter
         $this->short_letter->update($validated);
-
-        // save pdf
-        Pdf::view(
-            'pdf.templates.shortletter',
-            Arr::only($validated, [
-                'reason',
-                'salutation',
-                'first_name',
-                'last_name',
-                'street',
-                'house_number',
-                'postcode',
-                'city'
-            ])
-        )
-            ->format(Format::A4)
-            ->save($this->short_letter->pdf_path);
 
         // redirect to entry
         return $this->redirect(route('shortletter.show', $this->short_letter->id));

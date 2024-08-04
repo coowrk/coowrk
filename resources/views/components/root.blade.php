@@ -24,7 +24,7 @@
 
 		{{-- styles --}}
 		@livewireStyles
-		@vite('resources/styles/app.css')
+		@vite('resources/scripts/app.js')
 	</head>
 
 	{{-- body --}}

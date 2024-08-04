@@ -37,12 +37,4 @@ class Show extends Component
         $this->user = User::find($this->short_letter->user_id);
         $this->customer = Customer::find($this->short_letter->customer_id);
     }
-
-    public function download()
-    {
-        $pdf = Browsershot::html(view('pdf.templates.shortletter')->render())
-            ->pdf();
-
-        return response()->streamDownload(fn () => $pdf, 'test.pdf');
-    }
 }
