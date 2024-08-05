@@ -10,27 +10,6 @@ class Pdf
     // properties
     public ShortLetter $short_letter;
 
-    public $options_available = [
-        'we_ask_for' => [
-            'anruf-ruecksprache' => 'Anruf / Rücksprache',
-            'rueckgabe' => 'Rückgabe',
-            'kenntnisnahme' => 'Kenntnisnahme',
-            'bericht' => 'Bericht',
-            'erledigung' => 'Erledigung',
-            'weitere-veranlassung' => 'Weitere Veranlassung',
-            'stellungnahme' => 'Stellungnahme',
-            'pruefung' => 'Prüfung'
-        ],
-        'cause_for_letter' => [
-            'zur-unterschrift' => 'zur Unterschrift',
-            'zum-verbleib' => 'zum Verbleib',
-            'zur-weitergabe' => 'zur Weitergabe',
-            'zur-vorlage' => 'zur Vorlage',
-            'mit-dank-zurueck' => 'mit Dank zurück',
-            'anbei-anlagen' => 'Anbei Anlagen'
-        ]
-    ];
-
     // render pdf
     public function __invoke($id)
     {
@@ -47,8 +26,8 @@ class Pdf
             'postcode' => $this->short_letter->postcode,
             'city' => $this->short_letter->city,
             'reason' => $this->short_letter->reason,
-            'we_ask_for' => json_encode($this->options_available['we_ask_for']),
-            'cause_for_letter' => json_encode($this->options_available['cause_for_letter']),
+            'we_ask_for' => json_encode($this->short_letter->all_options('we_ask_for')),
+            'cause_for_letter' => json_encode($this->short_letter->all_options('cause_for_letter')),
             'options' => json_encode($this->short_letter->options)
         ])
             ->addInfo(['Title', 'test'])

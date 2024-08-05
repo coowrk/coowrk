@@ -173,12 +173,14 @@
 					<x-descriptionlists.base>
 						<x-descriptionlists.term text="Betreff" />
 						<x-descriptionlists.detail text="{{ $short_letter->reason }}" />
-						<x-descriptionlists.term text="Wir bitten um" />
+						<x-descriptionlists.term text="Optionen" />
 						<x-descriptionlists.detail>
-							<x-badges.red text="Rückruf" />
+							<div class="flex flex-wrap gap-1">
+								@foreach ($short_letter->options as $option)
+									<x-badges.zinc text="{{ $short_letter->option_to_value($option) }}" />
+								@endforeach
+							</div>
 						</x-descriptionlists.detail>
-						<x-descriptionlists.term text="Aktion" />
-						<x-descriptionlists.detail text="Test" />
 					</x-descriptionlists.base>
 				</div>
 			</div>
@@ -187,7 +189,6 @@
 				<x-typography.title.h3 title="Tagebuch" />
 				<x-typography.divider class="mt-4" />
 			</div>
-
 
 		</div>
 	</div>
