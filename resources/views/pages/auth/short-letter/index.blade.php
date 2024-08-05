@@ -9,22 +9,21 @@
 				wire:navigate
 			>
 				<svg
-					aria-hidden="true"
-					class="size-4 text-zinc-500"
+					class="size-5 sm:size-4 text-zinc-500"
 					fill="currentColor"
-					viewBox="0 0 16 16"
+					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z"
-					></path>
+						d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"
+					/>
 				</svg>
+
 
 				Erstellen
 			</x-forms.buttons.white>
 		</div>
 	</div>
-
 
 	<div class="mt-12">
 		<x-tables.base>
@@ -59,7 +58,10 @@
 							class="text-zinc-500"
 							href="{{ route('shortletter.show', $short_letter->id) }}"
 						>
-							<x-badges.red text="Versand steht aus" />
+							<x-badges
+								text="{{ $short_letter->status_badge()['title'] }}"
+								theme="{{ $short_letter->status_badge()['theme'] }}"
+							/>
 						</x-tables.body.cell>
 						<x-tables.body.cell
 							class="text-right text-zinc-500"

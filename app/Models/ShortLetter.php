@@ -88,4 +88,50 @@ class ShortLetter extends Model
     {
         return $this->all_options()[$key];
     }
+
+    /**
+     * return badge of the current status
+     * 
+     * @return array
+     */
+    public function status_badge()
+    {
+        switch ($this->status) {
+            case '0':
+                return [
+                    'theme' => 'lime',
+                    'title' => 'Erledigt'
+                ];
+            case '1':
+                return [
+                    'theme' => 'yellow',
+                    'title' => 'Versand steht aus'
+                ];
+            case '2':
+                return [
+                    'theme' => 'yellow',
+                    'title' => 'Auf dem Postweg'
+                ];
+            case '3':
+                return [
+                    'theme' => 'blue',
+                    'title' => 'Mutmaßlich zugestellt'
+                ];
+            case '4':
+                return [
+                    'theme' => 'red',
+                    'title' => 'Postrückläufer'
+                ];
+            case '5':
+                return [
+                    'theme' => 'indigo',
+                    'title' => 'Rückmeldung vom Kunden'
+                ];
+            default:
+                return [
+                    'theme' => 'lime',
+                    'title' => 'Erledigt'
+                ];
+        }
+    }
 }

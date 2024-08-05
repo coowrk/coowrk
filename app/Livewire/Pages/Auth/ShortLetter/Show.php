@@ -36,4 +36,13 @@ class Show extends Component
         $this->user = User::find($this->short_letter->user_id);
         $this->customer = Customer::find($this->short_letter->customer_id);
     }
+
+    // quick actions
+    public function quick_action($type)
+    {
+        // done
+        if ($type == 'done') {
+            $this->short_letter->update(['status' => '0']);
+        }
+    }
 }

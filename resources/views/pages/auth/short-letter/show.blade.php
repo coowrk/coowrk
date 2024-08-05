@@ -8,7 +8,7 @@
 		>
 			<svg
 				aria-hidden="true"
-				class="size-4 fill-zinc-400 dark:fill-zinc-500"
+				class="size-5 sm:size-4 fill-zinc-400 dark:fill-zinc-500"
 				data-slot="icon"
 				fill="currentColor"
 				viewBox="0 0 16 16"
@@ -28,7 +28,10 @@
 	<div class="mt-4 lg:mt-8">
 		<div class="flex items-center gap-4">
 			<x-typography.title.h1 title="{{ $short_letter->first_name }} {{ $short_letter->last_name }}" />
-			<x-badges.red text="Versand steht aus" />
+			<x-badges
+				text="{{ $short_letter->status_badge()['title'] }}"
+				theme="{{ $short_letter->status_badge()['theme'] }}"
+			/>
 		</div>
 	</div>
 
@@ -37,14 +40,14 @@
 		<div class="flex flex-wrap gap-x-10 gap-y-4 py-1.5">
 			<div class="text-base-/6 flex items-end gap-3 text-zinc-950 dark:text-zinc-100 sm:text-sm/6">
 				<svg
-					class="size-4 shrink-0 fill-zinc-500"
+					class="size-5 sm:size-4 shrink-0 fill-zinc-500"
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
 						clip-rule="evenodd"
-						d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"
+						d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z"
 						fill-rule="evenodd"
 					/>
 				</svg>
@@ -57,15 +60,18 @@
 
 			<div class="text-base-/6 flex items-end gap-3 text-zinc-950 dark:text-zinc-100 sm:text-sm/6">
 				<svg
-					class="size-4 fill-zinc-500"
+					class="size-5 sm:size-4 shrink-0 fill-zinc-500"
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z"
+						clip-rule="evenodd"
+						d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+						fill-rule="evenodd"
 					/>
 				</svg>
+
 
 				<div class="flex flex-col">
 					<span class="text-sm/8 text-zinc-400">Erstellt von</span>
@@ -75,15 +81,16 @@
 
 			<div class="text-base-/6 flex items-end gap-3 text-zinc-950 dark:text-zinc-100 sm:text-sm/6">
 				<svg
-					class="size-4 fill-zinc-500"
+					class="size-5 sm:size-4 shrink-0 fill-zinc-500"
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z"
+						d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM1.49 15.326a.78.78 0 0 1-.358-.442 3 3 0 0 1 4.308-3.516 6.484 6.484 0 0 0-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 0 1-2.07-.655ZM16.44 15.98a4.97 4.97 0 0 0 2.07-.654.78.78 0 0 0 .357-.442 3 3 0 0 0-4.308-3.517 6.484 6.484 0 0 1 1.907 3.96 2.32 2.32 0 0 1-.026.654ZM18 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5.304 16.19a.844.844 0 0 1-.277-.71 5 5 0 0 1 9.947 0 .843.843 0 0 1-.277.71A6.975 6.975 0 0 1 10 18a6.974 6.974 0 0 1-4.696-1.81Z"
 					/>
 				</svg>
+
 
 				<div class="flex flex-col">
 					<span class="text-sm/8 text-zinc-400">Zugehöriger Kunde</span>
@@ -101,16 +108,16 @@
 				type="button"
 			>
 				<svg
-					class="size-4 text-zinc-500"
+					class="size-5 sm:size-4 text-zinc-500"
 					fill="currentColor"
-					viewBox="0 0 16 16"
+					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						d="M8.75 2.75a.75.75 0 0 0-1.5 0v5.69L5.03 6.22a.75.75 0 0 0-1.06 1.06l3.5 3.5a.75.75 0 0 0 1.06 0l3.5-3.5a.75.75 0 0 0-1.06-1.06L8.75 8.44V2.75Z"
+						d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"
 					/>
 					<path
-						d="M3.5 9.75a.75.75 0 0 0-1.5 0v1.5A2.75 2.75 0 0 0 4.75 14h6.5A2.75 2.75 0 0 0 14 11.25v-1.5a.75.75 0 0 0-1.5 0v1.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1.5Z"
+						d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"
 					/>
 				</svg>
 
@@ -123,15 +130,13 @@
 				wire:navigate
 			>
 				<svg
-					class="size-4 text-zinc-500"
+					class="size-5 sm:size-4 text-zinc-500"
 					fill="currentColor"
-					viewBox="0 0 16 16"
+					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						clip-rule="evenodd"
-						d="M11.013 2.513a1.75 1.75 0 0 1 2.475 2.474L6.226 12.25a2.751 2.751 0 0 1-.892.596l-2.047.848a.75.75 0 0 1-.98-.98l.848-2.047a2.75 2.75 0 0 1 .596-.892l7.262-7.261Z"
-						fill-rule="evenodd"
+						d="m2.695 14.762-1.262 3.155a.5.5 0 0 0 .65.65l3.155-1.262a4 4 0 0 0 1.343-.886L17.5 5.501a2.121 2.121 0 0 0-3-3L3.58 13.419a4 4 0 0 0-.885 1.343Z"
 					/>
 				</svg>
 
@@ -142,8 +147,8 @@
 
 	{{-- description list --}}
 	<div class="mt-12">
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-10">
-			<div class="col-span-2 grid gap-y-12">
+		<div class="grid grid-cols-1 gap-4 sm:gap-10 md:grid-cols-12">
+			<div class="col-span-1 flex flex-col gap-y-12 md:col-span-7">
 				<div>
 					<x-typography.title.h3 title="Empfänger" />
 					<x-typography.divider class="mt-4" />
@@ -177,7 +182,10 @@
 						<x-descriptionlists.detail>
 							<div class="flex flex-wrap gap-1">
 								@foreach ($short_letter->options as $option)
-									<x-badges.zinc text="{{ $short_letter->option_to_value($option) }}" />
+									<x-badges
+										text="{{ $short_letter->option_to_value($option) }}"
+										theme="zinc"
+									/>
 								@endforeach
 							</div>
 						</x-descriptionlists.detail>
@@ -185,9 +193,89 @@
 				</div>
 			</div>
 
-			<div class="col-span-1">
-				<x-typography.title.h3 title="Tagebuch" />
-				<x-typography.divider class="mt-4" />
+			<div class="col-span-1 flex flex-col gap-y-12 md:col-span-5">
+				<div>
+					<x-typography.title.h3 title="Schnelle Aktion" />
+					<x-typography.divider class="mt-4" />
+					<div class="mt-4 flex flex-wrap gap-4">
+						<x-forms.buttons.zinc type="button">
+							<svg
+								class="size-5 sm:size-4 text-zinc-500"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M3.505 2.365A41.369 41.369 0 0 1 9 2c1.863 0 3.697.124 5.495.365 1.247.167 2.18 1.108 2.435 2.268a4.45 4.45 0 0 0-.577-.069 43.141 43.141 0 0 0-4.706 0C9.229 4.696 7.5 6.727 7.5 8.998v2.24c0 1.413.67 2.735 1.76 3.562l-2.98 2.98A.75.75 0 0 1 5 17.25v-3.443c-.501-.048-1-.106-1.495-.172C2.033 13.438 1 12.162 1 10.72V5.28c0-1.441 1.033-2.717 2.505-2.914Z"
+								/>
+								<path
+									d="M14 6c-.762 0-1.52.02-2.271.062C10.157 6.148 9 7.472 9 8.998v2.24c0 1.519 1.147 2.839 2.71 2.935.214.013.428.024.642.034.2.009.385.09.518.224l2.35 2.35a.75.75 0 0 0 1.28-.531v-2.07c1.453-.195 2.5-1.463 2.5-2.915V8.998c0-1.526-1.157-2.85-2.729-2.936A41.645 41.645 0 0 0 14 6Z"
+								/>
+							</svg>
+
+							Rückmeldung vom Kunden
+						</x-forms.buttons.zinc>
+
+						<x-forms.buttons.zinc type="button">
+							<svg
+								class="size-5 sm:size-4 text-zinc-500"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902 1.168.188 2.352.327 3.55.414.28.02.521.18.642.413l1.713 3.293a.75.75 0 0 0 1.33 0l1.713-3.293a.783.783 0 0 1 .642-.413 41.102 41.102 0 0 0 3.55-.414c1.437-.231 2.43-1.49 2.43-2.902V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0 0 10 2ZM6.75 6a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 2.5a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z"
+									fill-rule="evenodd"
+								/>
+							</svg>
+
+							Kommentar verfassen
+						</x-forms.buttons.zinc>
+
+						<x-forms.buttons.zinc type="button">
+							<svg
+								class="size-5 sm:size-4 text-zinc-500"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
+									fill-rule="evenodd"
+								/>
+							</svg>
+
+							Postrückläufer
+						</x-forms.buttons.zinc>
+
+						<x-forms.buttons.zinc
+							type="button"
+							wire:click="quick_action('done')"
+						>
+							<svg
+								class="size-5 sm:size-4 text-zinc-500"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+									fill-rule="evenodd"
+								/>
+							</svg>
+
+							Erledigt
+						</x-forms.buttons.zinc>
+					</div>
+				</div>
+
+				<div>
+					<x-typography.title.h3 title="Tagebuch" />
+					<x-typography.divider class="mt-4" />
+				</div>
 			</div>
 
 		</div>
