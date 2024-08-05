@@ -172,9 +172,11 @@
 
 					<x-descriptionlists.base>
 						<x-descriptionlists.term text="Betreff" />
-						<x-descriptionlists.detail text="Test" />
-						<x-descriptionlists.term text="Weshalb" />
-						<x-descriptionlists.detail text="Test" />
+						<x-descriptionlists.detail text="{{ $short_letter->reason }}" />
+						<x-descriptionlists.term text="Wir bitten um" />
+						<x-descriptionlists.detail>
+							<x-badges.red text="Rückruf" />
+						</x-descriptionlists.detail>
 						<x-descriptionlists.term text="Aktion" />
 						<x-descriptionlists.detail text="Test" />
 					</x-descriptionlists.base>
