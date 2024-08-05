@@ -18,3 +18,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/storage/dompdf
+storage/dompdf/cache/fonts/installed-fonts.json
