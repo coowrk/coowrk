@@ -1,4 +1,9 @@
-<div x-data="{ show: @entangle('show') }">
+<div
+	x-data="{ show: @entangle('show') }"
+	x-on:keydown.escape="show = false"
+	x-trap.inert="show"
+	x-trap.noscroll="show"
+>
 	{{-- base --}}
 	<div
 		aria-modal="true"
@@ -56,11 +61,13 @@
 					</svg>
 
 					<input
+						autofocus
 						class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-zinc-100 placeholder:text-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
 						placeholder="Search..."
 						type="text"
 						wire:keyup.debounce.250ms="searchUser"
 						wire:model.live="search"
+						x-ref="searchUserPallet"
 					>
 				</form>
 
@@ -84,8 +91,17 @@
 											{{ $customer->salutation }}
 										</div>
 
-										{{ $customer->first_name }}
-										{{ $customer->last_name }}
+										<div class="mr-3">
+											{{ $customer->first_name }}
+											{{ $customer->last_name }}
+										</div>
+
+										<div class="truncate text-zinc-500">
+											{{ $customer->street }}
+											{{ $customer->house_number }},
+											{{ $customer->postcode }}
+											{{ $customer->city }}
+										</div>
 									</li>
 								@endforeach
 

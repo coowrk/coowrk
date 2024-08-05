@@ -34,7 +34,7 @@ class SearchUserPalett extends Component
 
         $this->customers = Customer::query()
             ->where('first_name', 'LIKE', '%' . $this->search . '%')
-            ->select(['id', 'first_name', 'last_name', 'salutation'])
+            ->select(['id', 'first_name', 'last_name', 'salutation', 'street', 'house_number', 'postcode', 'city'])
             ->get();
     }
 
