@@ -22,6 +22,11 @@
 			line-height: 1rem;
 		}
 
+		.text-xs/4 {
+			font-size: 0.75rem;
+			line-height: 1rem;
+		}
+
 		.text-gray-500 {
 			color: #6B7280;
 		}
@@ -64,6 +69,10 @@
 
 		.h-8 {
 			height: 32px;
+		}
+
+		.h-10 {
+			height: 40px;
 		}
 
 		.relative {
@@ -130,6 +139,8 @@
 	<table class="w-full border-collapse">
 		<tr>
 			<td>
+				<div class="text-xs/4">Bezirksdirektion Caykara * Mülheimer Str. 100 * 47057 Duisburg</div>
+				<br>
 				<div>{{ $salutation }}</div>
 				<div>{{ $first_name }} {{ $last_name }} </div>
 				<div>{{ $street }} {{ $house_number }}</div>
@@ -138,30 +149,30 @@
 			<td class="text-right">
 				<div>
 					<img
-						class="h-8"
+						class="h-10"
 						src="{{ resource_path('images/signal-iduna.png') }}"
 					/>
 				</div>
 
-				<div class="mt-2">Bezirksdirektion</div>
+				<div class="mt-6">Bezirksdirektion</div>
 				<div>Cihan Volkan Caykara</div>
-				<div class="text-sm/4 text-gray-500">Mülheimer Str. 100</div>
-				<div class="text-sm/4 text-gray-500">47057 Duisburg</div>
-				<div class="text-sm/4 text-gray-500">Öffnungszeiten von:</div>
-				<div class="text-sm/4 text-gray-500">Mo. - Do. von 09:00 bis 16:00 Uhr</div>
-				<div class="text-sm/4 text-gray-500">Fr. von 09:00 bis 14:00 Uhr</div>
+				<div class="text-xs/4 text-gray-500">Mülheimer Str. 100</div>
+				<div class="text-xs/4 text-gray-500">47057 Duisburg</div>
+				<div class="text-xs/4 text-gray-500">Öffnungszeiten von:</div>
+				<div class="text-xs/4 text-gray-500">Mo. - Do. von 09:00 bis 16:00 Uhr</div>
+				<div class="text-xs/4 text-gray-500">Fr. von 09:00 bis 14:00 Uhr</div>
 				<br>
 				<div>Es schreibt Ihnen:</div>
 				<div>Nail Ucdu</div>
 				<div>Auszubildender</div>
-				<div class="text-sm/4 text-gray-500">E-Mail: nail.ucdu@signal-iduna.net</div>
-				<div class="text-sm/4 text-gray-500">Telefon: 0203 - 93025931</div>
-				<div class="text-sm/4 text-gray-500">Fax: 0203 - 93025932</div>
+				<div class="text-xs/4 text-gray-500">E-Mail: nail.ucdu@signal-iduna.net</div>
+				<div class="text-xs/4 text-gray-500">Telefon: 0203 - 93025931</div>
+				<div class="text-xs/4 text-gray-500">Fax: 0203 - 93025932</div>
 			</td>
 		</tr>
 	</table>
 
-	<div class="mt-12 text-right text-sm">
+	<div class="mt-12 text-right text-xs">
 		04. August 2024
 	</div>
 
@@ -182,28 +193,56 @@
 						<tr>
 							<td class="relative w-1/2 py-4 pl-8">
 								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('stellungnahme', json_decode($options)))
+									@if (in_array('anruf-ruecksprache', json_decode($options)))
 										<img
 											class="h-4"
 											src="{{ resource_path('images/x-icon.png') }}"
 										/>
 									@endif
 								</div>
-								<div class="-mt-1">
-									Stellungnahme
+								<div class="text-sm/4">
+									Anruf / Rücksprache
 								</div>
 							</td>
 							<td class="relative w-1/2 py-4 pl-8">
 								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('rueckruf', json_decode($options)))
+									@if (in_array('rueckgabe', json_decode($options)))
 										<img
 											class="h-4"
 											src="{{ resource_path('images/x-icon.png') }}"
 										/>
 									@endif
 								</div>
-								<div class="-mt-1">
-									Rückruf
+								<div class="text-sm/4">
+									Rückgabe
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="relative w-1/2 py-4 pl-8">
+								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
+									@if (in_array('kenntnisnahme', json_decode($options)))
+										<img
+											class="h-4"
+											src="{{ resource_path('images/x-icon.png') }}"
+										/>
+									@endif
+								</div>
+								<div class="text-sm/4">
+									Kenntnisnahme
+								</div>
+							</td>
+							<td class="relative w-1/2 py-4 pl-8">
+								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
+									@if (in_array('bericht', json_decode($options)))
+										<img
+											class="h-4"
+											src="{{ resource_path('images/x-icon.png') }}"
+										/>
+									@endif
+								</div>
+								<div class="text-sm/4">
+									Bericht
 								</div>
 							</td>
 						</tr>
@@ -217,8 +256,36 @@
 										/>
 									@endif
 								</div>
-								<div class="-mt-1">
+								<div class="text-sm/4">
 									Erledigung
+								</div>
+							</td>
+							<td class="relative w-1/2 py-4 pl-8">
+								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
+									@if (in_array('weitere-veranlassung', json_decode($options)))
+										<img
+											class="h-4"
+											src="{{ resource_path('images/x-icon.png') }}"
+										/>
+									@endif
+								</div>
+								<div class="text-sm/4">
+									Weitere Veranlassung
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="relative w-1/2 py-4 pl-8">
+								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
+									@if (in_array('stellungnahme', json_decode($options)))
+										<img
+											class="h-4"
+											src="{{ resource_path('images/x-icon.png') }}"
+										/>
+									@endif
+								</div>
+								<div class="text-sm/4">
+									Stellungnahme
 								</div>
 							</td>
 							<td class="relative w-1/2 py-4 pl-8">
@@ -230,36 +297,8 @@
 										/>
 									@endif
 								</div>
-								<div class="-mt-1">
+								<div class="text-sm/4">
 									Prüfung
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('rueckgabe', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="-mt-1">
-									Rückgabe
-								</div>
-							</td>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('kenntnisnahme', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="-mt-1">
-									Kenntnisnahme
 								</div>
 							</td>
 						</tr>
@@ -278,7 +317,7 @@
 									/>
 								@endif
 							</div>
-							<div class="-mt-1">
+							<div class="text-sm/4">
 								zum Verbleib
 							</div>
 						</div>
@@ -292,9 +331,9 @@
 									/>
 								@endif
 							</div>
-							<div class="-mt-1">
+							<div class="text-sm/4">
 								zur Weitergabe
-								<div class="text-sm/4 text-gray-500">Bspw. beim Finanzamt</div>
+								<div class="text-xs/4 text-gray-500">Bspw. beim Finanzamt</div>
 							</div>
 						</div>
 
@@ -307,7 +346,7 @@
 									/>
 								@endif
 							</div>
-							<div class="-mt-1">
+							<div class="text-sm/4">
 								zur Unterschrift
 							</div>
 						</div>
@@ -321,7 +360,7 @@
 									/>
 								@endif
 							</div>
-							<div class="-mt-1">
+							<div class="text-sm/4">
 								Anbei Anlagen
 							</div>
 						</div>

@@ -26,6 +26,7 @@
 			body {
 				font-family: 'Inter';
 				font-weight: 400;
+				padding: 32px;
 			}
 
 			@font-face {
@@ -131,7 +132,7 @@
 
 	{{-- body --}}
 
-	<body>
+	<body class="text-sm">
 		{{-- content --}}
 		{{ $slot }}
 	</body>
