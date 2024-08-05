@@ -171,20 +171,8 @@
 
 					<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
 						<x-forms.checkbox
-							for="rueckruf"
-							title="Rückruf"
-							wire:model="options"
-						/>
-
-						<x-forms.checkbox
-							for="stellungnahme"
-							title="Stellungnahme"
-							wire:model="options"
-						/>
-
-						<x-forms.checkbox
-							for="erledigung"
-							title="Erledigung"
+							for="anruf-ruecksprache"
+							title="Anruf / Rücksprache"
 							wire:model="options"
 						/>
 
@@ -195,14 +183,38 @@
 						/>
 
 						<x-forms.checkbox
-							for="pruefung"
-							title="Prüfung"
+							for="kenntnisnahme"
+							title="Kenntnisnahme"
 							wire:model="options"
 						/>
 
 						<x-forms.checkbox
-							for="kenntnisnahme"
-							title="Kenntnisnahme"
+							for="bericht"
+							title="Bericht"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="erledigung"
+							title="Erledigung"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="weitere-veranlassung"
+							title="Weitere Veranlassung"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="stellungnahme"
+							title="Stellungnahme"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="pruefung"
+							title="Prüfung"
 							wire:model="options"
 						/>
 					</div>
@@ -211,6 +223,12 @@
 					<x-typography.title.h3 title="Sie erhalten den Vorgang" />
 
 					<div class="mt-2 flex flex-col gap-4">
+						<x-forms.checkbox
+							for="zur-unterschrift"
+							title="zur Unterschrift"
+							wire:model="options"
+						/>
+
 						<x-forms.checkbox
 							for="zum-verbleib"
 							title="zum Verbleib"
@@ -224,14 +242,20 @@
 						/>
 
 						<x-forms.checkbox
-							for="zur-unterschrift"
-							title="zur Unterschrift"
+							for="zur-vorlage"
+							title="zur Vorlage"
+							wire:model="options"
+						/>
+
+						<x-forms.checkbox
+							for="mit-dank-zurueck"
+							title="mit Dank zurück"
 							wire:model="options"
 						/>
 
 						<x-forms.checkbox
 							for="anbei-anlagen"
-							title="Anbei Anlagen"
+							title="anbei Anlagen"
 							wire:model="options"
 						/>
 					</div>

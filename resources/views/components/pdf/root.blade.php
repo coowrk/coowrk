@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 {{-- html --}}
-<html
-	class="h-full antialiased"
-	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
->
+<html>
 
 	{{-- head --}}
 
@@ -22,11 +19,12 @@
 		{{-- title --}}
 		<title>{{ config('app.name') }}</title>
 
+		{{-- styles --}}
 		<style>
 			body {
 				font-family: 'Inter';
 				font-weight: 400;
-				padding: 32px;
+				padding: 64px;
 			}
 
 			@font-face {
@@ -132,7 +130,7 @@
 
 	{{-- body --}}
 
-	<body class="text-sm">
+	<body class="text-sm/4">
 		{{-- content --}}
 		{{ $slot }}
 	</body>

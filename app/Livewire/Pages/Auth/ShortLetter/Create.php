@@ -40,7 +40,11 @@ class Create extends Component
     #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
 
-    #[Validate(['required', 'array', 'in:anruef-ruecksprache,rueckgabe,kenntnisnahme,bericht,erledigung,weitere-veranlassung,stellungnahme,pruefung,zum-verbleib,zur-weitergabe,zur-unterschrift,anbei-anlagen'])]
+    #[Validate([
+        'required',
+        'array',
+        'in:anruf-ruecksprache,rueckgabe,kenntnisnahme,bericht,erledigung,weitere-veranlassung,stellungnahme,pruefung,zur-unterschrift,zum-verbleib,zur-weitergabe,zur-vorlage,mit-dank-zurueck,anbei-anlagen'
+    ])]
     public $options = [];
 
     // render html

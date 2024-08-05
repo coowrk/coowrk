@@ -35,8 +35,8 @@
 			text-align: right;
 		}
 
-		.-mt-1 {
-			margin-top: -4px;
+		.-mt-2 {
+			margin-top: -8px;
 		}
 
 		.mt-2 {
@@ -47,8 +47,8 @@
 			margin-top: 24px;
 		}
 
-		.mt-12 {
-			margin-top: 48px;
+		.mt-24 {
+			margin-top: 96px;
 		}
 
 		.w-full {
@@ -75,6 +75,14 @@
 			height: 40px;
 		}
 
+		.h-12 {
+			height: 48px;
+		}
+
+		.h-32 {
+			height: 128px;
+		}
+
 		.relative {
 			position: relative;
 		}
@@ -93,9 +101,14 @@
 			padding-bottom: 16px
 		}
 
-		.size-4 {
-			height: 16px;
-			width: 16px;
+		.py-8 {
+			padding-top: 32px;
+			padding-bottom: 32px
+		}
+
+		.size-12 {
+			height: 48px;
+			width: 48px;
 		}
 
 		.left-0 {
@@ -106,8 +119,8 @@
 			right: 0;
 		}
 
-		.pl-8 {
-			padding-left: 32px;
+		.pl-20 {
+			padding-left: 80px;
 		}
 
 		.pr-8 {
@@ -123,8 +136,8 @@
 			border-color: rgb(107 114 128);
 		}
 
-		.rounded-md {
-			border-radius: 0.375rem;
+		.rounded {
+			border-radius: 12px;
 		}
 
 		.align-top {
@@ -149,7 +162,7 @@
 			<td class="text-right">
 				<div>
 					<img
-						class="h-10"
+						class="h-32"
 						src="{{ resource_path('images/signal-iduna.png') }}"
 					/>
 				</div>
@@ -172,205 +185,73 @@
 		</tr>
 	</table>
 
-	<div class="mt-12 text-right text-xs">
+	<div class="mt-24 text-right text-xs/4">
 		04. August 2024
 	</div>
 
-	<div class="mt-12 font-bold">
+	<div class="mt-24 font-bold">
 		{{ $reason }}
 	</div>
 
 	<div class="mt-6">
-		Um unseren Schriftverkehr zu verkürzen, senden wir Ihnen diesen Kurzbrief.
+		Zur Vereinfachung unseres Schriftverkehrs senden wir Ihnen diesen Kurzbrief.
 	</div>
 
-	<div class="mt-12">
+	<div class="mt-24">
 		<table class="w-full border-collapse">
 			<tr>
 				<td class="w-2/3 align-top">
 					<div class="font-medium">Wir bitten um</div>
 					<table class="mt-6 w-full border-collapse">
-						<tr>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('anruf-ruecksprache', json_decode($options)))
+						@foreach (json_decode($we_ask_for) as $key => $value)
+							@if ($loop->index % 2 == 0)
+								<tr>
+							@endif
+							<td class="relative w-1/2 py-8 pl-20">
+								<div class="size-12 absolute left-0 rounded border border-gray-500">
+									@if (in_array($key, json_decode($options)))
 										<img
-											class="h-4"
+											class="h-12"
 											src="{{ resource_path('images/x-icon.png') }}"
 										/>
 									@endif
 								</div>
-								<div class="text-sm/4">
-									Anruf / Rücksprache
+								<div class="-mt-2 text-sm/4">
+									{{ $value }}
 								</div>
 							</td>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('rueckgabe', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Rückgabe
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('kenntnisnahme', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Kenntnisnahme
-								</div>
-							</td>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('bericht', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Bericht
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('erledigung', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Erledigung
-								</div>
-							</td>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('weitere-veranlassung', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Weitere Veranlassung
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('stellungnahme', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Stellungnahme
-								</div>
-							</td>
-							<td class="relative w-1/2 py-4 pl-8">
-								<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-									@if (in_array('pruefung', json_decode($options)))
-										<img
-											class="h-4"
-											src="{{ resource_path('images/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="text-sm/4">
-									Prüfung
-								</div>
-							</td>
-						</tr>
-					</table>
-				</td>
-				<td class="relative w-1/3 text-right align-top">
-					<div class="font-medium">Sie erhalten den Vorgang</div>
+							@if ($loop->index % 2 != 0)
+			</tr>
+			@endif
+			@endforeach
+		</table>
+		</td>
+		<td class="relative w-1/3 text-right align-top">
+			<div class="font-medium">Sie erhalten den Vorgang</div>
 
-					<div class="relative mt-6 w-full">
-						<div class="relative py-4 pl-8">
-							<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-								@if (in_array('zum-verbleib', json_decode($options)))
-									<img
-										class="h-4"
-										src="{{ resource_path('images/x-icon.png') }}"
-									/>
-								@endif
-							</div>
-							<div class="text-sm/4">
-								zum Verbleib
-							</div>
+			<div class="relative mt-6 w-full">
+				@foreach (json_decode($cause_for_letter) as $key => $value)
+					<div class="relative py-8 pl-20">
+						<div class="size-12 absolute left-0 rounded border border-gray-500">
+							@if (in_array($key, json_decode($options)))
+								<img
+									class="h-12"
+									src="{{ resource_path('images/x-icon.png') }}"
+								/>
+							@endif
 						</div>
-
-						<div class="relative py-4 pl-8">
-							<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-								@if (in_array('zur-weitergabe', json_decode($options)))
-									<img
-										class="h-4"
-										src="{{ resource_path('images/x-icon.png') }}"
-									/>
-								@endif
-							</div>
-							<div class="text-sm/4">
-								zur Weitergabe
-								<div class="text-xs/4 text-gray-500">Bspw. beim Finanzamt</div>
-							</div>
-						</div>
-
-						<div class="relative py-4 pl-8">
-							<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-								@if (in_array('zur-unterschrift', json_decode($options)))
-									<img
-										class="h-4"
-										src="{{ resource_path('images/x-icon.png') }}"
-									/>
-								@endif
-							</div>
-							<div class="text-sm/4">
-								zur Unterschrift
-							</div>
-						</div>
-
-						<div class="relative py-4 pl-8">
-							<div class="size-4 absolute left-0 rounded-md border border-gray-500">
-								@if (in_array('anbei-anlagen', json_decode($options)))
-									<img
-										class="h-4"
-										src="{{ resource_path('images/x-icon.png') }}"
-									/>
-								@endif
-							</div>
-							<div class="text-sm/4">
-								Anbei Anlagen
-							</div>
+						<div class="-mt-2 text-sm/4">
+							{{ $value }}
 						</div>
 					</div>
-				</td>
-			</tr>
+				@endforeach
+			</div>
+		</td>
+		</tr>
 		</table>
 	</div>
 
-	<div class="mt-12">
+	<div class="mt-24">
 		Mit freundlichen Grüßen
 	</div>
 </x-pdf.root>
