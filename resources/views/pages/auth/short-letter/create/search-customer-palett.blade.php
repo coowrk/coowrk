@@ -14,10 +14,7 @@
 			x-transition:leave="ease-out duration-200"
 		>
 			{{-- form --}}
-			<form
-				class="relative"
-				wire:submit="searchUser"
-			>
+			<form class="relative">
 				<svg
 					aria-hidden="true"
 					class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-zinc-500 dark:text-zinc-400"
@@ -38,7 +35,6 @@
 					type="text"
 					wire:keyup.debounce.250ms="searchCustomer"
 					wire:model.live="search"
-					x-ref="searchCustomerPallet"
 				>
 			</form>
 
