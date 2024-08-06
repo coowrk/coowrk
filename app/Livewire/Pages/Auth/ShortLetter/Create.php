@@ -92,8 +92,8 @@ class Create extends Component
     }
 
     // fetch user data
-    #[On('set.short-letter.user-data')]
-    public function setShortLetterUserData($customer_id)
+    #[On('set.short-letter.customer-data')]
+    public function setShortLetterCustomerData($customer_id)
     {
         $customer = Customer::find($customer_id);
 
