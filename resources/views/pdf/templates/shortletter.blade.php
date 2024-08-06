@@ -236,7 +236,7 @@
 							@if (in_array($key, json_decode($options)))
 								<img
 									class="h-12"
-									src="{{ resource_path('images/x-icon.png') }}"
+									src="{{ resource_path('images/icon.png') }}"
 								/>
 							@endif
 						</div>
