@@ -104,7 +104,6 @@
 							<x-forms.buttons.zinc
 								type="button"
 								wire:click="$dispatch('change.short-letter.search-user-palett.visibility.state')"
-								x-on:click="$refs.searchUserPalett.focus()"
 							>
 								Empfänger ermitteln
 							</x-forms.buttons.zinc>
