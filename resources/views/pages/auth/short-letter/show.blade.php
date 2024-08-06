@@ -279,7 +279,7 @@
 					<x-typography.title.h3 title="Tagebuch" />
 					<x-typography.divider class="mt-4" />
 
-					<div>
+					<div class="scrollbar-hide max-h-96 overflow-y-scroll">
 						<x-feeds.base>
 							@foreach ($short_letter->feed as $feed)
 								<x-feeds.item :date="$feed->created_at->diffForHumans()">
@@ -299,7 +299,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

@@ -50,7 +50,7 @@ class ShortLetter extends Model
      */
     public function feed(): HasMany
     {
-        return $this->hasMany(ShortLetterFeed::class);
+        return $this->hasMany(ShortLetterFeed::class)->latest();
     }
 
     /**

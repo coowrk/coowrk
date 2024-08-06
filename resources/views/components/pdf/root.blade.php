@@ -24,7 +24,7 @@
 			body {
 				font-family: 'Inter';
 				font-weight: 400;
-				padding: 64px;
+				padding: 96px;
 			}
 
 			@font-face {
