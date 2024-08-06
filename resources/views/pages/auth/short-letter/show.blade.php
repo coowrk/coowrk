@@ -195,26 +195,8 @@
 
 			<div class="col-span-1 flex flex-col gap-y-12 md:col-span-5">
 				<div>
-					<x-typography.title.h3 title="Schnelle Aktion" />
-					<x-typography.divider class="mt-4" />
-					<div class="mt-4 flex flex-wrap gap-4">
-						<x-forms.buttons.zinc type="button">
-							<svg
-								class="size-5 sm:size-4 text-zinc-500"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M3.505 2.365A41.369 41.369 0 0 1 9 2c1.863 0 3.697.124 5.495.365 1.247.167 2.18 1.108 2.435 2.268a4.45 4.45 0 0 0-.577-.069 43.141 43.141 0 0 0-4.706 0C9.229 4.696 7.5 6.727 7.5 8.998v2.24c0 1.413.67 2.735 1.76 3.562l-2.98 2.98A.75.75 0 0 1 5 17.25v-3.443c-.501-.048-1-.106-1.495-.172C2.033 13.438 1 12.162 1 10.72V5.28c0-1.441 1.033-2.717 2.505-2.914Z"
-								/>
-								<path
-									d="M14 6c-.762 0-1.52.02-2.271.062C10.157 6.148 9 7.472 9 8.998v2.24c0 1.519 1.147 2.839 2.71 2.935.214.013.428.024.642.034.2.009.385.09.518.224l2.35 2.35a.75.75 0 0 0 1.28-.531v-2.07c1.453-.195 2.5-1.463 2.5-2.915V8.998c0-1.526-1.157-2.85-2.729-2.936A41.645 41.645 0 0 0 14 6Z"
-								/>
-							</svg>
-
-							Rückmeldung vom Kunden
-						</x-forms.buttons.zinc>
+					<div class="flex items-end justify-between">
+						<x-typography.title.h3 title="Tagebuch" />
 
 						<x-forms.buttons.zinc type="button">
 							<svg
@@ -232,51 +214,8 @@
 
 							Kommentar verfassen
 						</x-forms.buttons.zinc>
-
-						<x-forms.buttons.zinc
-							type="button"
-							wire:click="quick_action('postal-return')"
-						>
-							<svg
-								class="size-5 sm:size-4 text-zinc-500"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									clip-rule="evenodd"
-									d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
-									fill-rule="evenodd"
-								/>
-							</svg>
-
-							Postrückläufer
-						</x-forms.buttons.zinc>
-
-						<x-forms.buttons.zinc
-							type="button"
-							wire:click="quick_action('done')"
-						>
-							<svg
-								class="size-5 sm:size-4 text-zinc-500"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									clip-rule="evenodd"
-									d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-									fill-rule="evenodd"
-								/>
-							</svg>
-
-							Erledigt
-						</x-forms.buttons.zinc>
 					</div>
-				</div>
 
-				<div>
-					<x-typography.title.h3 title="Tagebuch" />
 					<x-typography.divider class="mt-4" />
 
 					<div class="scrollbar-hide max-h-96 overflow-y-scroll">
