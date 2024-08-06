@@ -38,6 +38,7 @@
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
+			{{-- customer options --}}
 			<div class="flex flex-col-reverse sm:flex-row sm:gap-4">
 				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
 					<div class="col-span-1 sm:col-span-2">
@@ -95,7 +96,7 @@
 					@endif
 				</div>
 
-				{{-- search user --}}
+				{{-- search customer --}}
 				<div class="shrink-0">
 					<div class="flex flex-col sm:items-end sm:text-right">
 						<x-forms.label title="Suche" />
@@ -176,6 +177,7 @@
 
 			<x-typography.divider class="my-4 sm:my-8" />
 
+			{{-- letter options --}}
 			<div>
 				<x-forms.label
 					for="reason"

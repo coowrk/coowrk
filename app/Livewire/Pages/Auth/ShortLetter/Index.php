@@ -31,6 +31,7 @@ class Index extends Component
         );
     }
 
+    // save last visited page
     public function boot()
     {
         // update user settings

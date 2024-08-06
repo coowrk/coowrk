@@ -30,11 +30,13 @@
 		<x-typography.title.h1 title="Bearbeiten" />
 	</div>
 
+	{{-- formular --}}
 	<div class="mt-12">
 		<form
 			class="flex flex-col gap-y-4"
 			wire:submit="edit"
 		>
+			{{-- customer options --}}
 			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
 				<div class="col-span-1 sm:col-span-2">
 					<x-forms.label
@@ -154,6 +156,7 @@
 
 			<x-typography.divider class="my-4 sm:my-8" />
 
+			{{-- letter options --}}
 			<div>
 				<x-forms.label
 					for="reason"
