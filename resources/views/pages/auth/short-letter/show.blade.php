@@ -1,4 +1,7 @@
 <div wire:poll.5s>
+	{{-- add diary entry dialog --}}
+	<livewire:pages.auth.short-letter.show.add-diary-entry-dialog short_letter="{{ $short_letter->id }}" />
+
 	{{-- breadcrumb --}}
 	<div>
 		<a
@@ -198,7 +201,10 @@
 					<div class="flex items-end justify-between">
 						<x-typography.title.h3 title="Tagebuch" />
 
-						<x-forms.buttons.zinc type="button">
+						<x-forms.buttons.zinc
+							type="button"
+							wire:click="$dispatch('change.short-letter.show.add-diary-entry-dialog.visibility.state')"
+						>
 							<svg
 								class="size-5 sm:size-4 text-zinc-500"
 								fill="currentColor"
@@ -223,7 +229,7 @@
 							@foreach ($short_letter->feed as $feed)
 								<x-feeds.item :date="$feed->created_at->diffForHumans()">
 									<div class="flex flex-wrap gap-2">
-										<x-feeds.item.title>{{ __($feed->title) }}</x-feeds.item.title>
+										<x-feeds.item.title>{{ __($feed->title, ['user' => $feed->user->name]) }}</x-feeds.item.title>
 										@if (isset($feed->new_status))
 											<x-badges
 												text="{{ $short_letter->status_badge($feed->new_status)['title'] }}"
@@ -231,7 +237,9 @@
 											/>
 										@endif
 									</div>
-									<x-feeds.item.text>{{ $feed->user->name }}</x-feeds.item.text>
+									<x-feeds.item.text>
+										{{ $feed->comment ?? $feed->user->name }}
+									</x-feeds.item.text>
 								</x-feeds.item>
 							@endforeach
 						</x-feeds.base>

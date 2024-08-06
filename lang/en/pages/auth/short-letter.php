@@ -12,8 +12,9 @@ return [
     */
 
     'feed' => [
-        'creation' => 'Anlage des Kurzbriefes.',
-        'changed-state' => 'Änderung des Status zu'
+        'creation' => 'Creation of the short letter',
+        'changed-state' => 'Changing the status to',
+        'comment' => 'Comment'
     ],
 
 ];
