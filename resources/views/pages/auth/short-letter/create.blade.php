@@ -1,6 +1,6 @@
 <div>
 	{{-- search user palett --}}
-	<livewire:pages.auth.short-letter.create.search-user-palett />
+	<livewire:pages.auth.short-letter.create.search-customer-palett />
 
 	{{-- breadcrumb --}}
 	<div>
@@ -103,7 +103,7 @@
 						<div class="mt-2">
 							<x-forms.buttons.zinc
 								type="button"
-								wire:click="$dispatch('change.short-letter.search-user-palett.visibility.state')"
+								wire:click="$dispatch('change.short-letter.search-customer-palett.visibility.state')"
 							>
 								Empfänger ermitteln
 							</x-forms.buttons.zinc>

@@ -36,9 +36,9 @@
 					class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-zinc-100 placeholder:text-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
 					placeholder="Search..."
 					type="text"
-					wire:keyup.debounce.250ms="searchUser"
+					wire:keyup.debounce.250ms="searchCustomer"
 					wire:model.live="search"
-					x-ref="searchUserPallet"
+					x-ref="searchCustomerPallet"
 				>
 			</form>
 
@@ -56,7 +56,7 @@
 									class="flex cursor-default select-none px-4 py-2 text-zinc-100 hover:bg-white/5"
 									role="customer"
 									tabindex="-1"
-									wire:click="sendShortLetterUserData('{{ $customer->id }}')"
+									wire:click="sendShortLetterCustomerData('{{ $customer->id }}')"
 								>
 									<div class="w-14 text-zinc-500">
 										{{ $customer->salutation }}

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-class SearchUserPalett extends Component
+class SearchCustomerPalett extends Component
 {
     // properties
     public $show = false;
@@ -19,11 +19,11 @@ class SearchUserPalett extends Component
     // render html
     public function render()
     {
-        return view('pages.auth.short-letter.create.search-user-palett');
+        return view('pages.auth.short-letter.create.search-customer-palett');
     }
 
     // fetch data
-    public function searchUser()
+    public function searchCustomer()
     {
         if (strlen($this->search) == 0)
             if (!empty($this->customers))
@@ -38,16 +38,16 @@ class SearchUserPalett extends Component
             ->get();
     }
 
-    // send user data to create controller
-    public function sendShortLetterUserData($customer_id)
+    // send customer data to create controller
+    public function sendShortLetterCustomerData($customer_id)
     {
         $this->reset();
-        $this->dispatch('set.short-letter.user-data', customer_id: $customer_id);
+        $this->dispatch('set.short-letter.customer-data', customer_id: $customer_id);
     }
 
     // visibility state event
-    #[On('change.short-letter.search-user-palett.visibility.state')]
-    public function changeShortLetterSearchUserPalettVisibilityState()
+    #[On('change.short-letter.search-customer-palett.visibility.state')]
+    public function changeShortLetterSearchCustomerPalettVisibilityState()
     {
         $this->show = true;
     }
