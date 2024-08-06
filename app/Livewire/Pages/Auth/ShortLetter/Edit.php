@@ -91,6 +91,6 @@ class Edit extends Component
         $this->short_letter->update($validated);
 
         // redirect to entry
-        return $this->redirect(route('shortletter.show', $this->short_letter->id));
+        return $this->redirect(route('short-letter.show', $this->short_letter->id));
     }
 }

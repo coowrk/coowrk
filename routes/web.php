@@ -26,7 +26,7 @@ Route::middleware(['auth'])
 
         // shortletter
         Route::prefix('shortletter')
-            ->as('shortletter.')
+            ->as('short-letter.')
             ->group(function () {
                 Route::get('/', App\Livewire\Pages\Auth\ShortLetter\Index::class)->name('index');
                 Route::get('create', App\Livewire\Pages\Auth\ShortLetter\Create::class)->name('create');

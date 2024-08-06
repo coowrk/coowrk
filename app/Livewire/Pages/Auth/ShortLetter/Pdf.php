@@ -17,7 +17,7 @@ class Pdf
         $this->short_letter = ShortLetter::findOrFail($id);
 
         // return pdf
-        return FacadePdf::loadView('pdf.templates.shortletter', [
+        return FacadePdf::loadView('pdf.templates.short-letter', [
             'salutation' => $this->short_letter->salutation,
             'first_name' => $this->short_letter->first_name,
             'last_name' => $this->short_letter->last_name,

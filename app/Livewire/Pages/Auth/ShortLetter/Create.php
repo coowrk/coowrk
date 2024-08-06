@@ -88,7 +88,7 @@ class Create extends Component
             ]);
 
         // redirect to entry
-        return $this->redirect(route('shortletter.show', $short_letter->id));
+        return $this->redirect(route('short-letter.show', $short_letter->id));
     }
 
     // fetch user data

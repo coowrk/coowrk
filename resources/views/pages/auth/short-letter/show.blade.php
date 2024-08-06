@@ -3,7 +3,7 @@
 	<div>
 		<a
 			class="inline-flex items-center gap-2 text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6"
-			href="{{ route('shortletter.index', ['page' => auth()->user()->settings->misc['short_letter']['pagination']['last_visited_page'] ?? 1]) }}"
+			href="{{ route('short-letter.index', ['page' => auth()->user()->settings->misc['short_letter']['pagination']['last_visited_page'] ?? 1]) }}"
 			wire:navigate
 		>
 			<svg
@@ -103,7 +103,7 @@
 
 		<div class="flex h-fit gap-4">
 			<x-forms.buttons.zinc
-				href="{{ route('shortletter.pdf', $short_letter->id) }}"
+				href="{{ route('short-letter.pdf', $short_letter->id) }}"
 				target="_blank"
 				type="button"
 			>
@@ -125,7 +125,7 @@
 			</x-forms.buttons.zinc>
 
 			<x-forms.buttons.white
-				href="{{ route('shortletter.edit', $short_letter->id) }}"
+				href="{{ route('short-letter.edit', $short_letter->id) }}"
 				type="button"
 				wire:navigate
 			>

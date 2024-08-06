@@ -4,7 +4,7 @@
 
 		<div>
 			<x-forms.buttons.white
-				href="{{ route('shortletter.create') }}"
+				href="{{ route('short-letter.create') }}"
 				type="button"
 				wire:navigate
 			>
@@ -41,7 +41,7 @@
 			<x-tables.body>
 				@foreach ($short_letters as $short_letter)
 					<x-tables.body.row>
-						<x-tables.body.cell href="{{ route('shortletter.show', $short_letter->id) }}">
+						<x-tables.body.cell href="{{ route('short-letter.show', $short_letter->id) }}">
 							<div class="flex">
 								<div class="w-14 text-zinc-500">{{ $short_letter->salutation }}</div>
 								{{ $short_letter->first_name }}
@@ -50,13 +50,13 @@
 						</x-tables.body.cell>
 						<x-tables.body.cell
 							class="text-zinc-500"
-							href="{{ route('shortletter.show', $short_letter->id) }}"
+							href="{{ route('short-letter.show', $short_letter->id) }}"
 						>
 							{{ $short_letter->reason }}
 						</x-tables.body.cell>
 						<x-tables.body.cell
 							class="text-zinc-500"
-							href="{{ route('shortletter.show', $short_letter->id) }}"
+							href="{{ route('short-letter.show', $short_letter->id) }}"
 						>
 							<x-badges
 								text="{{ $short_letter->status_badge()['title'] }}"
@@ -65,7 +65,7 @@
 						</x-tables.body.cell>
 						<x-tables.body.cell
 							class="text-right text-zinc-500"
-							href="{{ route('shortletter.show', $short_letter->id) }}"
+							href="{{ route('short-letter.show', $short_letter->id) }}"
 						>
 							{{ $short_letter->created_at->diffForHumans() }}
 						</x-tables.body.cell>

@@ -3,7 +3,7 @@
 	<div>
 		<a
 			class="inline-flex items-center gap-2 text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6"
-			href="{{ route('shortletter.show', $short_letter->id) }}"
+			href="{{ route('short-letter.show', $short_letter->id) }}"
 			wire:navigate
 		>
 			<svg
