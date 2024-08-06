@@ -79,6 +79,14 @@ class Create extends Component
             )
         );
 
+        // create short letter feed
+        $short_letter
+            ->feed()
+            ->create([
+                'user_id' => auth()->user()->id,
+                'title' => 'pages/auth/short-letter.feed.creation'
+            ]);
+
         // redirect to entry
         return $this->redirect(route('shortletter.show', $short_letter->id));
     }

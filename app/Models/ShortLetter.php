@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 
 class ShortLetter extends Model
@@ -42,6 +43,14 @@ class ShortLetter extends Model
         return [
             'options' => 'array',
         ];
+    }
+
+    /**
+     * Get the feeds for the short letter.
+     */
+    public function feed(): HasMany
+    {
+        return $this->hasMany(ShortLetterFeed::class);
     }
 
     /**
@@ -94,35 +103,35 @@ class ShortLetter extends Model
      * 
      * @return array
      */
-    public function status_badge()
+    public function status_badge($status = false)
     {
-        switch ($this->status) {
-            case '0':
+        switch ($status === false ? $this->status : $status) {
+            case 1:
                 return [
                     'theme' => 'lime',
                     'title' => 'Erledigt'
                 ];
-            case '1':
+            case 2:
                 return [
                     'theme' => 'yellow',
                     'title' => 'Versand steht aus'
                 ];
-            case '2':
+            case 3:
                 return [
                     'theme' => 'yellow',
                     'title' => 'Auf dem Postweg'
                 ];
-            case '3':
+            case 4:
                 return [
                     'theme' => 'blue',
                     'title' => 'Mutmaßlich zugestellt'
                 ];
-            case '4':
+            case 5:
                 return [
                     'theme' => 'red',
                     'title' => 'Postrückläufer'
                 ];
-            case '5':
+            case 6:
                 return [
                     'theme' => 'indigo',
                     'title' => 'Rückmeldung vom Kunden'

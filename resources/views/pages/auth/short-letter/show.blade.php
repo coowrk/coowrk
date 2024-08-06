@@ -1,4 +1,4 @@
-<div>
+<div wire:poll.5s>
 	{{-- breadcrumb --}}
 	<div>
 		<a
@@ -233,7 +233,10 @@
 							Kommentar verfassen
 						</x-forms.buttons.zinc>
 
-						<x-forms.buttons.zinc type="button">
+						<x-forms.buttons.zinc
+							type="button"
+							wire:click="quick_action('postal-return')"
+						>
 							<svg
 								class="size-5 sm:size-4 text-zinc-500"
 								fill="currentColor"
@@ -275,6 +278,25 @@
 				<div>
 					<x-typography.title.h3 title="Tagebuch" />
 					<x-typography.divider class="mt-4" />
+
+					<div>
+						<x-feeds.base>
+							@foreach ($short_letter->feed as $feed)
+								<x-feeds.item :date="$feed->created_at->diffForHumans()">
+									<div class="flex flex-wrap gap-2">
+										<x-feeds.item.title>{{ __($feed->title) }}</x-feeds.item.title>
+										@if (isset($feed->new_status))
+											<x-badges
+												text="{{ $short_letter->status_badge($feed->new_status)['title'] }}"
+												theme="{{ $short_letter->status_badge($feed->new_status)['theme'] }}"
+											/>
+										@endif
+									</div>
+									<x-feeds.item.text>{{ $feed->user->name }}</x-feeds.item.text>
+								</x-feeds.item>
+							@endforeach
+						</x-feeds.base>
+					</div>
 				</div>
 			</div>
 

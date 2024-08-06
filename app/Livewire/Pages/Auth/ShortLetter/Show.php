@@ -40,9 +40,32 @@ class Show extends Component
     // quick actions
     public function quick_action($type)
     {
-        // done
+        // status done
         if ($type == 'done') {
-            $this->short_letter->update(['status' => '0']);
+            if ($this->short_letter->status == 1)
+                return;
+
+            $this->short_letter->feed()->create([
+                'user_id' => auth()->user()->id,
+                'new_status' => '1',
+                'title' => 'pages/auth/short-letter.feed.changed-state'
+            ]);
+
+            $this->short_letter->update(['status' => '1']);
+        }
+
+        // status done
+        if ($type == 'postal-return') {
+            if ($this->short_letter->status == 5)
+                return;
+
+            $this->short_letter->feed()->create([
+                'user_id' => auth()->user()->id,
+                'new_status' => '5',
+                'title' => 'pages/auth/short-letter.feed.changed-state'
+            ]);
+
+            $this->short_letter->update(['status' => '5']);
         }
     }
 }

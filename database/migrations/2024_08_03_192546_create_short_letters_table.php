@@ -25,13 +25,13 @@ return new class extends Migration
             $table->string('country');
             $table->string('reason');
             $table->json('options');
-            $table->enum('status', [0, 1, 2, 3, 4, 5])->default(1)->comment('
-            0 -> done, 
-            1 -> not send yet,
-            2 -> on the way, 
-            3 -> should be arrived, 
-            4 -> postal return, 
-            5 -> message from customer
+            $table->enum('status', [1, 2, 3, 4, 5, 6])->default(2)->comment('
+            1 -> done, 
+            2 -> not send yet,
+            3 -> on the way, 
+            4 -> should be arrived, 
+            5 -> postal return, 
+            6 -> message from customer
             ');
             $table->foreignIdFor(User::class)->comment('short letter created by (user)_id');
             $table->foreignIdFor(Customer::class)->comment('short letter belongs to (customer)_id');

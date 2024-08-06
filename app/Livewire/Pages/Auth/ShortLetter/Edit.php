@@ -48,7 +48,7 @@ class Edit extends Component
     #[Validate([
         'required',
         'array',
-        'in:anruef-ruecksprache,rueckgabe,kenntnisnahme,bericht,erledigung,weitere-veranlassung,stellungnahme,pruefung,zur-unterschrift,zum-verbleib,zur-weitergabe,zur-vorlage,mit-dank-zurueck,anbei-anlagen'
+        'in:anruf-ruecksprache,rueckgabe,kenntnisnahme,bericht,erledigung,weitere-veranlassung,stellungnahme,pruefung,zur-unterschrift,zum-verbleib,zur-weitergabe,zur-vorlage,mit-dank-zurueck,anbei-anlagen',
     ])]
     public $options = [];
 
