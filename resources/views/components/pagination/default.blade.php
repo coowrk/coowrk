@@ -6,9 +6,8 @@
 				@if (!$paginator->onFirstPage())
 					<a
 						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6"
-						href="{{ $paginator->url($paginator->currentPage() - 1) }}"
 						rel="prev"
-						wire:navigate
+						wire:click="previousPage()"
 					>
 						<svg
 							aria-hidden="true"
@@ -60,16 +59,15 @@
 
 				@for ($i = $paginator->currentPage() - 3; $i < $paginator->currentPage() + 4; $i++)
 					@if ($i >= 1 && $i <= $paginator->lastPage())
-						<a
+						<span
 							@class([
 								'cursor-pointer rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6',
 								'bg-white/10 hover:bg-white/15' => $paginator->currentPage() == $i,
 							])
-							href="{{ $paginator->url($i) }}"
-							wire:navigate
+							wire:click="setPage({{ $i }})"
 						>
 							{{ $i }}
-						</a>
+						</span>
 					@endif
 				@endfor
 
@@ -85,9 +83,8 @@
 				@if (!$paginator->onLastPage())
 					<a
 						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6"
-						href="{{ $paginator->url($paginator->currentPage() + 1) }}"
 						rel="next"
-						wire:navigate
+						wire:click="nextPage()"
 					>
 						Next
 						<svg

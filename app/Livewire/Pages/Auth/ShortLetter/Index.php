@@ -16,6 +16,12 @@ class Index extends Component
     #[Url()]
     public $page;
 
+    #[Url()]
+    public $search;
+
+    #[Url()]
+    public $search_option;
+
     // render html
     #[Layout('components.layouts.pages.auth.default')]
     public function render()
@@ -25,19 +31,38 @@ class Index extends Component
             [
                 'short_letters' => ShortLetter::query()
                     ->select(['id', 'salutation', 'first_name', 'last_name', 'reason', 'status', 'created_at'])
+                    ->where(function ($query) {
+                        if ($this->search && $this->search_option)
+                            if (in_array($this->search_option, ['reason', 'first_name', 'last_name']))
+                                return $query->where($this->search_option, 'LIKE', '%' . $this->search . '%');
+                    })
                     ->latest()
-                    ->paginate(10)
+                    ->paginate(1)
             ]
         );
     }
 
-    // save last visited page
-    public function boot()
+    // update user settings
+    public function updateUserLastSearchOptions($page = null)
     {
-        // update user settings
-        // last visited page of short_letters
+        // last page of short_letters
+        // last search of short_letters
+        // last search option of short_letters
         auth()->user()->settings->update([
-            'misc->short_letter->pagination->last_visited_page' => $this->page
+            'misc->short_letter->pagination->last_page' => $page,
+            'misc->short_letter->pagination->last_search' => $this->search,
+            'misc->short_letter->pagination->last_search_option' => $this->search_option
         ]);
+    }
+
+    public function updateSearchQuery()
+    {
+        $this->resetPage();
+        $this->updateUserLastSearchOptions();
+    }
+
+    public function updatedPage($page)
+    {
+        $this->updateUserLastSearchOptions($page);
     }
 }

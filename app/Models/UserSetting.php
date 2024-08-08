@@ -18,7 +18,9 @@ class UserSetting extends Model
         'misc',
         'misc->short_letter',
         'misc->short_letter->pagination',
-        'misc->short_letter->pagination->last_visited_page',
+        'misc->short_letter->pagination->last_page',
+        'misc->short_letter->pagination->last_search',
+        'misc->short_letter->pagination->last_search_option',
     ];
 
     /**

@@ -4,6 +4,7 @@
 			@if ($attributes->has('required')) required @endif
 			@if ($errors->has($attributes->get('for') ?? $attributes->get('name'))) data-invalid @endif
 			@if ($attributes->has('value')) value="{{ $attributes->get('value') }}" @endif
+			@if ($attributes->has('wire:change')) wire:change="{{ $attributes->get('wire:change') }}" @endif
 			@if ($attributes->has('autocomplete')) autocomplete="{{ $attributes->get('autocomplete') }}" @endif
 			@if ($attributes->has('for') || $attributes->has('id')) id="{{ $attributes->get('id') ?? $attributes->get('for') }}" @endif
 			@if ($attributes->has('for') || $attributes->has('title')) title="{{ $attributes->get('title') ?? $attributes->get('for') }}" @endif

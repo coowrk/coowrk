@@ -26,8 +26,33 @@
 		</div>
 	</div>
 
-	{{-- table --}}
 	<div class="mt-12">
+		<div class="grid gap-4 sm:grid-cols-6">
+			<div class="col-span-1">
+				<x-forms.select
+					:options="[
+					    'first_name' => 'Vorname',
+					    'last_name' => 'Nachname',
+					    'reason' => 'Betreff',
+					]"
+					for="search_option"
+					wire:change="updateSearchQuery"
+				>
+				</x-forms.select>
+			</div>
+
+			<div class="col-span-1 sm:col-span-5">
+				<x-forms.input
+					for="search"
+					placeholder="Suche..."
+					wire:keyup.debounce.500ms="updateSearchQuery"
+				/>
+			</div>
+		</div>
+	</div>
+
+	{{-- table --}}
+	<div class="mt-6">
 		<x-tables.base>
 			<x-tables.head>
 				<x-tables.head.row>
