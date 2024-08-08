@@ -1,4 +1,5 @@
 <div>
+	{{-- head --}}
 	<div class="flex w-full flex-wrap items-end justify-between gap-4">
 		<x-typography.title.h1 title="Kurzbriefe" />
 
@@ -25,6 +26,7 @@
 		</div>
 	</div>
 
+	{{-- table --}}
 	<div class="mt-12">
 		<x-tables.base>
 			<x-tables.head>
@@ -75,6 +77,7 @@
 		</x-tables.base>
 	</div>
 
+	{{-- pagination --}}
 	<div class="mt-12">
 		{{ $short_letters->links('components.pagination.default') }}
 	</div>
