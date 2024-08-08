@@ -14,7 +14,7 @@ return [
     'feed' => [
         'creation' => 'Anlage des Kurzbriefes',
         'changed-state' => 'Änderung des Status zu',
-        'comment' => 'Kommentar von :user'
+        'edit' => 'Kurzbrief bearbeitet',
     ],
 
 ];

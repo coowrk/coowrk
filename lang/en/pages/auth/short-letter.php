@@ -14,7 +14,7 @@ return [
     'feed' => [
         'creation' => 'Creation of the short letter',
         'changed-state' => 'Changing the status to',
-        'comment' => 'Comment'
+        'edit' => 'Edited short letter',
     ],
 
 ];

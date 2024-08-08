@@ -67,7 +67,7 @@ class Edit extends Component
     public function mount()
     {
         // set short letter
-        $this->short_letter = ShortLetter::with('belongs_to_customer:id,created_at')->findOrFail($this->id);
+        $this->short_letter = ShortLetter::with('belongs_to_customer:id,created_at', 'feed:id')->findOrFail($this->id);
 
         // set short letter properties
         $this->salutation = $this->short_letter->salutation;
@@ -95,6 +95,12 @@ class Edit extends Component
         if ($this->update_customer)
             if ($this->short_letter->belongs_to_customer->created_at->diffInHours(Carbon::now(), false) < 1)
                 $this->short_letter->belongs_to_customer->update($validated);
+
+        // add short letter feed
+        $this->short_letter->feed()->create([
+            'user_id' => auth()->user()->id,
+            'title' => 'pages/auth/short-letter.feed.edit'
+        ]);
 
         // redirect to entry
         return $this->redirect(route('short-letter.show', $this->short_letter->id));
