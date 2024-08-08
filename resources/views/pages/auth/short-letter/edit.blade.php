@@ -154,6 +154,18 @@
 				</div>
 			</div>
 
+			{{-- update main customer data option --}}
+			@if ($short_letter->belongs_to_customer->created_at->diffInHours(Carbon\Carbon::now(), false) < 1)
+				<div class="mt-2">
+					<x-forms.checkbox
+						description="Durch das Bestätigen dieses Häkchens werden die Hauptdaten des Kunden sowie die Kundendaten des Kurzbriefes automatisch aktualisiert."
+						for="update_customer"
+						title="Kunde aktualisieren"
+						wire:model="update_customer"
+					/>
+				</div>
+			@endif
+
 			<x-typography.divider class="my-4 sm:my-8" />
 
 			{{-- letter options --}}

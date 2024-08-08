@@ -4,6 +4,8 @@ namespace App\Livewire\Pages\Auth\ShortLetter;
 
 use App\Models\Customer;
 use App\Models\ShortLetter;
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
@@ -42,6 +44,9 @@ class Edit extends Component
     #[Validate(['required', 'min:1', 'max:255'])]
     public $country;
 
+    #[Validate(['nullable'])]
+    public $update_customer = [];
+
     #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
 
@@ -63,10 +68,7 @@ class Edit extends Component
     public function mount()
     {
         // set short letter
-        $this->short_letter = ShortLetter::findOrFail($this->id);
-
-        // set customer and user data
-        $this->customer = Customer::find($this->short_letter->customer_id);
+        $this->short_letter = ShortLetter::with('belongs_to_customer:id,created_at')->findOrFail($this->id);
 
         // set short letter properties
         $this->salutation = $this->short_letter->salutation;
@@ -89,6 +91,11 @@ class Edit extends Component
 
         // update short letter
         $this->short_letter->update($validated);
+
+        // update customers 
+        if ($this->update_customer)
+            if ($this->short_letter->belongs_to_customer->created_at->diffInHours(Carbon::now(), false) < 1)
+                $this->short_letter->belongs_to_customer->update($validated);
 
         // redirect to entry
         return $this->redirect(route('short-letter.show', $this->short_letter->id));
