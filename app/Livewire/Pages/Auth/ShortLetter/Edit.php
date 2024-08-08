@@ -92,7 +92,7 @@ class Edit extends Component
         // update short letter
         $this->short_letter->update($validated);
 
-        // update customers 
+        // update customer main data
         if ($this->update_customer)
             if ($this->short_letter->belongs_to_customer->created_at->diffInHours(Carbon::now(), false) < 1)
                 $this->short_letter->belongs_to_customer->update($validated);
