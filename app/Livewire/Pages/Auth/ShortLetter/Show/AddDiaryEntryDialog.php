@@ -3,8 +3,6 @@
 namespace App\Livewire\Pages\Auth\ShortLetter\Show;
 
 use App\Models\ShortLetter;
-use App\Models\ShortLetterFeed;
-use Illuminate\Support\Arr;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;

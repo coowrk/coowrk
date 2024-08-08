@@ -5,7 +5,6 @@ namespace App\Livewire\Pages\Auth\ShortLetter;
 use App\Models\Customer;
 use App\Models\ShortLetter;
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
