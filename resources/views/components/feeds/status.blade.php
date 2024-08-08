@@ -2,7 +2,8 @@
 <x-feeds.item.base :date="$data->created_at->diffForHumans()">
 	{{-- text --}}
 	<x-feeds.item.text>
-		{{ $data->created_by->name }}
+		{{ $data->created_by->first_name }}
+		{{ $data->created_by->last_name }}
 	</x-feeds.item.text>
 
 	<div class="flex flex-wrap gap-x-2 gap-y-1">

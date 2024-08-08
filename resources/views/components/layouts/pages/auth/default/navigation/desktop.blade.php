@@ -143,7 +143,10 @@
 					</span>
 
 					<div class="truncate text-left">
-						<p class="truncate text-sm/5 font-medium text-white">{{ auth()->user()->name }}</p>
+						<p class="truncate text-sm/5 font-medium text-white">
+							{{ auth()->user()->first_name }}
+							{{ auth()->user()->last_name }}
+						</p>
 						<p class="truncate text-xs/5 text-zinc-400">{{ auth()->user()->email }}</p>
 					</div>
 

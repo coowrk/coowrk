@@ -14,23 +14,16 @@ class Pdf
     public function __invoke($id)
     {
         // fetch data
-        $this->short_letter = ShortLetter::findOrFail($id);
+        $this->short_letter = ShortLetter::with('created_by:id,first_name,last_name')
+            ->select(['id', 'user_id', 'salutation', 'first_name', 'last_name', 'street', 'house_number', 'city', 'postcode', 'reason', 'options'])
+            ->findOrFail($id);
 
         // return pdf
         return FacadePdf::loadView('pdf.templates.short-letter', [
-            'salutation' => $this->short_letter->salutation,
-            'first_name' => $this->short_letter->first_name,
-            'last_name' => $this->short_letter->last_name,
-            'street' => $this->short_letter->street,
-            'house_number' => $this->short_letter->house_number,
-            'postcode' => $this->short_letter->postcode,
-            'city' => $this->short_letter->city,
-            'reason' => $this->short_letter->reason,
+            'short_letter' => json_encode($this->short_letter),
             'we_ask_for' => json_encode($this->short_letter->all_options('we_ask_for')),
-            'cause_for_letter' => json_encode($this->short_letter->all_options('cause_for_letter')),
-            'options' => json_encode($this->short_letter->options)
+            'cause_for_letter' => json_encode($this->short_letter->all_options('cause_for_letter'))
         ])
-            ->addInfo(['Title', 'test'])
             ->stream('Kurzbrief.pdf');
     }
 }

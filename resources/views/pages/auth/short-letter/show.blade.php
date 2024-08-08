@@ -78,7 +78,10 @@
 
 				<div class="flex flex-col">
 					<span class="text-sm/8 text-zinc-400">Erstellt von</span>
-					<span class="text-sm/4">{{ $short_letter->created_by->name }}</span>
+					<span class="text-sm/4">
+						{{ $short_letter->created_by->first_name }}
+						{{ $short_letter->created_by->last_name }}
+					</span>
 				</div>
 			</div>
 

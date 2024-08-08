@@ -1,7 +1,8 @@
 {{-- feed comment --}}
 <x-feeds.item.base :date="$data->created_at->diffForHumans()">
 	<x-feeds.item.text>
-		{{ $data->created_by->name }}
+		{{ $data->created_by->first_name }}
+		{{ $data->created_by->last_name }}
 	</x-feeds.item.text>
 
 	<div class="dark:border-white/15 mt-1 flex items-start gap-3 rounded-lg border p-3">

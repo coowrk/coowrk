@@ -1,3 +1,7 @@
+@php
+	$short_letter = json_decode($short_letter);
+@endphp
+
 <x-pdf.root>
 	<style>
 		.w-1/2 {
@@ -154,10 +158,10 @@
 			<td>
 				<div class="text-xs/4">Bezirksdirektion Caykara * Mülheimer Str. 100 * 47057 Duisburg</div>
 				<br>
-				<div>{{ $salutation }}</div>
-				<div>{{ $first_name }} {{ $last_name }} </div>
-				<div>{{ $street }} {{ $house_number }}</div>
-				<div>{{ $postcode }} {{ $city }}</div>
+				<div>{{ $short_letter->salutation }}</div>
+				<div>{{ $short_letter->first_name }} {{ $short_letter->last_name }} </div>
+				<div>{{ $short_letter->street }} {{ $short_letter->house_number }}</div>
+				<div>{{ $short_letter->postcode }} {{ $short_letter->city }}</div>
 			</td>
 			<td class="text-right">
 				<div>
@@ -176,7 +180,10 @@
 				<div class="text-xs/4 text-gray-500">Fr. von 09:00 bis 14:00 Uhr</div>
 				<br>
 				<div>Es schreibt Ihnen:</div>
-				<div>Nail Ucdu</div>
+				<div>
+					{{ $short_letter->created_by->first_name }}
+					{{ $short_letter->created_by->last_name }}
+				</div>
 				<div>Auszubildender</div>
 				<div class="text-xs/4 text-gray-500">E-Mail: nail.ucdu@signal-iduna.net</div>
 				<div class="text-xs/4 text-gray-500">Telefon: 0203 - 93025931</div>
@@ -190,7 +197,7 @@
 	</div>
 
 	<div class="mt-24 font-bold">
-		{{ $reason }}
+		{{ $short_letter->reason }}
 	</div>
 
 	<div class="mt-6">
@@ -209,7 +216,7 @@
 							@endif
 							<td class="relative w-1/2 py-8 pl-20">
 								<div class="size-12 absolute left-0 rounded border border-gray-500">
-									@if (in_array($key, json_decode($options)))
+									@if (in_array($key, $short_letter->options))
 										<img
 											class="h-12"
 											src="{{ resource_path('images/icons/x-icon.png') }}"
@@ -233,7 +240,7 @@
 				@foreach (json_decode($cause_for_letter) as $key => $value)
 					<div class="relative py-8 pl-20">
 						<div class="size-12 absolute left-0 rounded border border-gray-500">
-							@if (in_array($key, json_decode($options)))
+							@if (in_array($key, $short_letter->options))
 								<img
 									class="h-12"
 									src="{{ resource_path('images/icons/x-icon.png') }}"
