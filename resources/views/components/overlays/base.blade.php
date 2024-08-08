@@ -7,7 +7,7 @@
 	{{-- base --}}
 	<div
 		aria-modal="true"
-		class="relative z-10"
+		class="relative z-50"
 		role="dialog"
 		x-cloak
 		x-show="show"
