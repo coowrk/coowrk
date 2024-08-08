@@ -227,20 +227,17 @@
 					<div class="scrollbar-hide max-h-96 overflow-y-scroll">
 						<x-feeds.base>
 							@foreach ($short_letter->feed as $feed)
-								<x-feeds.item :date="$feed->created_at->diffForHumans()">
-									<div class="flex flex-wrap gap-2">
-										<x-feeds.item.title>{{ __($feed->title, ['user' => $feed->user->name]) }}</x-feeds.item.title>
-										@if (isset($feed->new_status))
-											<x-badges
-												text="{{ $short_letter->status_badge($feed->new_status)['title'] }}"
-												theme="{{ $short_letter->status_badge($feed->new_status)['theme'] }}"
-											/>
-										@endif
-									</div>
-									<x-feeds.item.text>
-										{{ $feed->comment ?? $feed->user->name }}
-									</x-feeds.item.text>
-								</x-feeds.item>
+								@if ($feed->comment)
+									<x-feeds.comment
+										:badge="$short_letter->status_badge($feed->new_status)"
+										:data="$feed"
+									/>
+								@else
+									<x-feeds.status
+										:badge="$short_letter->status_badge($feed->new_status)"
+										:data="$feed"
+									/>
+								@endif
 							@endforeach
 						</x-feeds.base>
 					</div>
