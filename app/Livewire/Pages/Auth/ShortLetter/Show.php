@@ -16,8 +16,6 @@ class Show extends Component
     public $id;
 
     public ShortLetter $short_letter;
-    public User $user;
-    public Customer $customer;
 
     // render html
     #[Layout('components.layouts.pages.auth.default')]
@@ -30,10 +28,11 @@ class Show extends Component
     public function mount()
     {
         // set short letter
-        $this->short_letter = ShortLetter::findOrFail($this->id);
-
-        // set customer and user data
-        $this->user = User::find($this->short_letter->user_id);
-        $this->customer = Customer::find($this->short_letter->customer_id);
+        $this->short_letter = ShortLetter::with(
+            'created_by:id,name',
+            'belongs_to_customer:id,first_name,last_name',
+            'feed:id,short_letter_id,user_id,new_status,title,comment,created_at',
+            'feed.created_by:id,name'
+        )->findOrFail($this->id);
     }
 }

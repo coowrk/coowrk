@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 
@@ -51,6 +52,22 @@ class ShortLetter extends Model
     public function feed(): HasMany
     {
         return $this->hasMany(ShortLetterFeed::class)->latest();
+    }
+
+    /**
+     * Get the staff who created the short letter.
+     */
+    public function created_by(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the customer associated with the short letter.
+     */
+    public function belongs_to_customer(): BelongsTo
+    {
+        return $this->BelongsTo(Customer::class, 'customer_id', 'id');
     }
 
     /**

@@ -1,4 +1,4 @@
-<div wire:poll.5s>
+<div>
 	{{-- add diary entry dialog --}}
 	<livewire:pages.auth.short-letter.show.add-diary-entry-dialog short_letter="{{ $short_letter->id }}" />
 
@@ -78,7 +78,7 @@
 
 				<div class="flex flex-col">
 					<span class="text-sm/8 text-zinc-400">Erstellt von</span>
-					<span class="text-sm/4">{{ $user->name }}</span>
+					<span class="text-sm/4">{{ $short_letter->created_by->name }}</span>
 				</div>
 			</div>
 
@@ -98,7 +98,7 @@
 				<div class="flex flex-col">
 					<span class="text-sm/8 text-zinc-400">Zugehöriger Kunde</span>
 					<span class="text-sm/4">
-						{{ $customer->first_name }} {{ $customer->last_name }}
+						{{ $short_letter->belongs_to_customer->first_name }} {{ $short_letter->belongs_to_customer->last_name }}
 					</span>
 				</div>
 			</div>

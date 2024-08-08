@@ -6,6 +6,6 @@
 		</x-feeds.item.title>
 	</div>
 	<x-feeds.item.text>
-		{{ $data->user->name }}
+		{{ $data->created_by->name }}
 	</x-feeds.item.text>
 </x-feeds.item.base>

@@ -6,13 +6,13 @@
 
 		{{-- badge --}}
 		<x-badges
-			text="{{ $badge['title'] }}"
+			text="{{ __($badge['title']) }}"
 			theme="{{ $badge['theme'] }}"
 		/>
 	</div>
 
 	{{-- text --}}
 	<x-feeds.item.text>
-		{{ $data->user->name }}
+		{{ $data->created_by->name }}
 	</x-feeds.item.text>
 </x-feeds.item.base>

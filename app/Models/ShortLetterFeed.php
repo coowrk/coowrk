@@ -26,8 +26,8 @@ class ShortLetterFeed extends Model
     /**
      * Get the user that created the feed.
      */
-    public function user(): BelongsTo
+    public function created_by(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
