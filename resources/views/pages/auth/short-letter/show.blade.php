@@ -38,7 +38,7 @@
 		</div>
 	</div>
 
-	{{-- useful data? --}}
+	{{-- header with data --}}
 	<div class="mt-2.5 flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
 		<div class="flex flex-wrap gap-x-10 gap-y-4 py-1.5">
 			<div class="text-base-/6 flex items-end gap-3 text-zinc-950 dark:text-zinc-100 sm:text-sm/6">
@@ -148,9 +148,9 @@
 		</div>
 	</div>
 
-	{{-- description list --}}
 	<div class="mt-12">
 		<div class="grid grid-cols-1 gap-4 sm:gap-10 md:grid-cols-12">
+			{{-- short letter description list  --}}
 			<div class="col-span-1 flex flex-col gap-y-12 md:col-span-7">
 				<div>
 					<x-typography.title.h3 title="Empfänger" />
@@ -196,6 +196,7 @@
 				</div>
 			</div>
 
+			{{-- feed --}}
 			<div class="col-span-1 flex flex-col gap-y-12 md:col-span-5">
 				<div>
 					<div class="flex items-end justify-between">
