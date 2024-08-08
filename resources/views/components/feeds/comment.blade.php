@@ -4,7 +4,7 @@
 		{{ $data->created_by->name }}
 	</x-feeds.item.text>
 
-	<div class="dark:border-white/15 mt-1 flex items-start gap-2 rounded-lg border p-3">
+	<div class="dark:border-white/15 mt-1 flex items-start gap-3 rounded-lg border p-3">
 		<svg
 			class="size-5 sm:size-4 mt-1 shrink-0 text-zinc-500"
 			fill="currentColor"
