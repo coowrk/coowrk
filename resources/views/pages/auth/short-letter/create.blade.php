@@ -38,79 +38,77 @@
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
-			{{-- customer options --}}
-			<div class="flex flex-col-reverse sm:flex-row sm:gap-4">
-				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
-					<div class="col-span-1 sm:col-span-2">
-						<x-forms.label
-							for="salutation"
-							title="Anrede"
-						/>
-						<x-forms.select
-							:options="[
-							    'Herr' => 'Herr',
-							    'Frau' => 'Frau',
-							    'Divers' => 'Divers',
-							    'Firma' => 'Firma',
-							]"
-							for="salutation"
-							title="first name"
-							wire:model.live="salutation"
+			{{-- search customer --}}
+			<div class="shrink-0">
+				<div class="flex flex-col">
+					<x-forms.label title="Suche" />
+					<div class="mt-2">
+						<x-forms.buttons.zinc
+							type="button"
+							wire:click="$dispatch('change.short-letter.search-customer-palett.visibility.state')"
 						>
-						</x-forms.select>
+							Empfänger ermitteln
+						</x-forms.buttons.zinc>
 					</div>
+				</div>
+				<x-typography.divider class="my-8 sm:hidden" />
+			</div>
 
-					@if ($salutation == 'Firma')
-						<div class="col-span-1 sm:col-span-6">
-							<x-forms.label
-								for="first_name"
-								title="Name"
-							/>
-							<x-forms.input
-								for="first_name"
-								title="first name"
-							/>
-						</div>
-					@else
-						<div class="col-span-1 sm:col-span-3">
-							<x-forms.label
-								for="first_name"
-								title="Vorname"
-							/>
-							<x-forms.input
-								for="first_name"
-								title="first name"
-							/>
-						</div>
-
-						<div class="col-span-1 sm:col-span-3">
-							<x-forms.label
-								for="last_name"
-								title="Nachname"
-							/>
-							<x-forms.input
-								for="last_name"
-								title="last name"
-							/>
-						</div>
-					@endif
+			{{-- customer options --}}
+			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
+				<div class="col-span-1 sm:col-span-2">
+					<x-forms.label
+						for="salutation"
+						title="Anrede"
+					/>
+					<x-forms.select
+						:options="[
+						    'Herr' => 'Herr',
+						    'Frau' => 'Frau',
+						    'Divers' => 'Divers',
+						    'Firma' => 'Firma',
+						]"
+						for="salutation"
+						title="first name"
+						wire:model.live="salutation"
+					>
+					</x-forms.select>
 				</div>
 
-				{{-- search customer --}}
-				<div class="shrink-0">
-					<div class="flex flex-col sm:items-end sm:text-right">
-						<x-forms.label title="Suche" />
-						<div class="mt-2">
-							<x-forms.buttons.zinc
-								type="button"
-								wire:click="$dispatch('change.short-letter.search-customer-palett.visibility.state')"
-							>
-								Empfänger ermitteln
-							</x-forms.buttons.zinc>
-						</div>
+				@if ($salutation == 'Firma')
+					<div class="col-span-1 sm:col-span-6">
+						<x-forms.label
+							for="first_name"
+							title="Name"
+						/>
+						<x-forms.input
+							for="first_name"
+							title="first name"
+						/>
 					</div>
-					<x-typography.divider class="my-8 sm:hidden" />
-				</div>
+				@else
+					<div class="col-span-1 sm:col-span-3">
+						<x-forms.label
+							for="first_name"
+							title="Vorname"
+						/>
+						<x-forms.input
+							for="first_name"
+							title="first name"
+						/>
+					</div>
+
+					<div class="col-span-1 sm:col-span-3">
+						<x-forms.label
+							for="last_name"
+							title="Nachname"
+						/>
+						<x-forms.input
+							for="last_name"
+							title="last name"
+						/>
+					</div>
+				@endif
 			</div>
 
 			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
