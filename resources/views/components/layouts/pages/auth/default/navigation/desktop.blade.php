@@ -137,7 +137,99 @@
 			<div class="flex flex-col gap-0.5">
 
 				{{-- user button --}}
-				<button class="flex cursor-default items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2">
+				<div
+					class="relative"
+					x-data="{ show: false }"
+				>
+					<div
+						class="absolute bottom-16 w-full origin-top rounded-xl p-1 ring-1 backdrop-blur-xl backdrop-brightness-150 dark:bg-zinc-800/75 dark:ring-inset dark:ring-white/10"
+						x-cloak
+						x-on:click.away="show = false"
+						x-show="show"
+						x-transition:enter-end="transform opacity-100 scale-100"
+						x-transition:enter-start="transform opacity-0 scale-95"
+						x-transition:enter="transition ease-out duration-100"
+						x-transition:leave-end="transform opacity-0 scale-95"
+						x-transition:leave-start="transform opacity-100 scale-100"
+						x-transition:leave="transition ease-out duration-75"
+						x-trap.inert="show"
+					>
+						<a
+							class="group flex cursor-default items-center gap-2 rounded-lg px-3.5 py-2.5 text-sm/6 hover:bg-zinc-100 focus:outline-none dark:text-white dark:hover:text-zinc-950 sm:px-3 sm:py-1.5"
+						>
+							<svg
+								class="size-5 sm:size-4 text-zinc-500 dark:text-zinc-400 group-hover:dark:text-zinc-950"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z"
+									fill-rule="evenodd"
+								/>
+
+							</svg>
+
+							Mein Profil
+						</a>
+						<div
+							class="mx-3.5 my-1 h-px border-0 bg-zinc-950/5 dark:bg-white/10 sm:mx-3"
+							role="separator"
+						></div>
+						<a
+							class="group flex cursor-default items-center gap-2 rounded-lg px-3.5 py-2.5 text-sm/6 hover:bg-zinc-100 focus:outline-none dark:text-white dark:hover:text-zinc-950 sm:px-3 sm:py-1.5"
+						>
+							<svg
+								class="size-5 sm:size-4 text-zinc-500 dark:text-zinc-400 group-hover:dark:text-zinc-950"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M2 4.75A2.75 2.75 0 0 1 4.75 2h3a2.75 2.75 0 0 1 2.75 2.75v.5a.75.75 0 0 1-1.5 0v-.5c0-.69-.56-1.25-1.25-1.25h-3c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h3c.69 0 1.25-.56 1.25-1.25v-.5a.75.75 0 0 1 1.5 0v.5A2.75 2.75 0 0 1 7.75 14h-3A2.75 2.75 0 0 1 2 11.25v-6.5Zm9.47.47a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 1 1-1.06-1.06l.97-.97H5.25a.75.75 0 0 1 0-1.5h7.19l-.97-.97a.75.75 0 0 1 0-1.06Z"
+									fill-rule="evenodd"
+								/>
+							</svg>
+
+							Abmelden
+						</a>
+					</div>
+
+					<button
+						class="flex w-full cursor-default items-center gap-3 rounded-lg p-2 hover:bg-white/5"
+						x-on:click="show = !show"
+					>
+						<span class="size-10 inline-flex shrink-0 items-center justify-center rounded-lg bg-white/10">
+							<span class="text-xs font-medium leading-none text-white">NU</span>
+						</span>
+
+						<div class="truncate text-left">
+							<p class="truncate text-sm/5 font-medium text-white">
+								{{ auth()->user()->first_name }}
+								{{ auth()->user()->last_name }}
+							</p>
+							<p class="truncate text-xs/5 text-zinc-400">{{ auth()->user()->email }}</p>
+						</div>
+
+						<div>
+							<svg
+								class="size-4 shrink-0 fill-zinc-500"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									clip-rule="evenodd"
+									d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+									fill-rule="evenodd"
+								/>
+							</svg>
+						</div>
+					</button>
+				</div>
+				{{-- <button class="flex cursor-default items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2">
 					<span class="size-10 inline-flex shrink-0 items-center justify-center rounded-lg bg-white/10">
 						<span class="text-xs font-medium leading-none text-white">NU</span>
 					</span>
@@ -151,7 +243,7 @@
 					</div>
 
 					<svg
-						class="size-4 ml-auto shrink-0 fill-zinc-500"
+						class="size-4 shrink-0 fill-zinc-500"
 						fill="currentColor"
 						viewBox="0 0 16 16"
 						xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +254,7 @@
 							fill-rule="evenodd"
 						/>
 					</svg>
-				</button>
+				</button> --}}
 			</div>
 		</div>
 	</nav>
