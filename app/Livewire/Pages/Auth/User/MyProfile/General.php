@@ -8,7 +8,7 @@ use Livewire\Component;
 class General extends Component
 {
     // render html
-    #[Layout('components.layouts.pages.auth.default')]
+    #[Layout('components.layouts.pages.auth.user.my-profile.default')]
     public function render()
     {
         return view('pages.auth.user.my-profile.general');
