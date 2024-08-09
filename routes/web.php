@@ -28,9 +28,13 @@ Route::middleware(['auth'])
         Route::prefix('user')
             ->as('user.')
             ->group(function () {
-                Route::get('my-profile', function () {
-                    return 1;
-                });
+
+                // my profile
+                Route::prefix('my-profile')
+                    ->as('my-profile.')
+                    ->group(function () {
+                        Route::get('general', App\Livewire\Pages\Auth\User\MyProfile\General::class)->name('general');
+                    });
             });
 
         // shortletter
