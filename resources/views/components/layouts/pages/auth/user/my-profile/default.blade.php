@@ -39,7 +39,7 @@
 					'hover:bg-white/5' => !Route::is('user.my-profile.security'),
 					'bg-white/5' => Route::is('user.my-profile.security'),
 				])
-				href="{{ route('user.my-profile.general') }}"
+				href="{{ route('user.my-profile.security') }}"
 				wire:navigate
 			>
 				<div class="size-6 flex items-center justify-center">
