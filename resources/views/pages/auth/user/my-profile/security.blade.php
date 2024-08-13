@@ -20,6 +20,9 @@
 		<x-typography.divider class="my-4" />
 
 		@foreach ($sessions as $session)
+			{{ $session->user_agent }}
+			{{ $session->ip_address }}
+			<x-typography.divider class="my-4" />
 		@endforeach
 	</div>
 </div>

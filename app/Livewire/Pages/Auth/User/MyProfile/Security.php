@@ -17,6 +17,7 @@ class Security extends Component
         return view('pages.auth.user.my-profile.security');
     }
 
+    // fetch data
     public function mount()
     {
         $this->sessions = auth()->user()->sessions;
