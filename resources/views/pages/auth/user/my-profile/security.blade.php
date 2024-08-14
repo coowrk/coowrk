@@ -1,11 +1,17 @@
 <div>
+	{{-- change password dialog --}}
+	<livewire:pages.auth.user.my-profile.security.change-password-dialog />
+
 	<x-typography.title.h1 title="Sicherheit" />
 
 	<div class="mt-6">
 		<div class="flex items-end justify-between">
 			<x-typography.title.h3 title="Passwort" />
 
-			<x-forms.buttons theme="white">
+			<x-forms.buttons
+				theme="white"
+				wire:click="$dispatch('change.user.my-profile.security.show.change-password-dialog.visibility.state')"
+			>
 				Passwort ändern
 			</x-forms.buttons>
 		</div>
