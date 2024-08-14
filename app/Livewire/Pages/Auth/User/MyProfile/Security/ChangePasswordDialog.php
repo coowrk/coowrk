@@ -47,15 +47,22 @@ class ChangePasswordDialog extends Component
         $validated = $this->validate();
 
         // update user password
-        auth()->user()->update(
-            Arr::only($validated, ['password'])
-        );
+        auth()
+            ->user()
+            ->update(
+                Arr::only($validated, ['password'])
+            );
 
-        // logout user and other devices
-        Auth::logoutOtherDevices($this->password);
+        // logout other sessions
+        auth()
+            ->user()
+            ->sessions()
+            ->delete();
+
+        // logout current user
         Auth::logout();
 
-        // redirect
+        // redirect to login
         return $this->redirectRoute('login');
     }
 }
