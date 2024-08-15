@@ -38,8 +38,8 @@ Route::middleware(['auth'])
                     });
             });
 
-        // shortletter
-        Route::prefix('shortletter')
+        // short-letter
+        Route::prefix('short-letter')
             ->as('short-letter.')
             ->group(function () {
                 Route::get('/', App\Livewire\Pages\Auth\ShortLetter\Index::class)->name('index');
@@ -47,5 +47,12 @@ Route::middleware(['auth'])
                 Route::get('/{id}', App\Livewire\Pages\Auth\ShortLetter\Show::class)->where('id', '[0-9]+')->name('show');
                 Route::get('/{id}/edit', App\Livewire\Pages\Auth\ShortLetter\Edit::class)->where('id', '[0-9]+')->name('edit');
                 Route::get('/{id}/pdf', App\Livewire\Pages\Auth\ShortLetter\Pdf::class)->where('id', '[0-9]+')->name('pdf');
+            });
+
+        // cancellation
+        Route::prefix('cancellation')
+            ->as('cancellation.')
+            ->group(function () {
+                Route::get('/', App\Livewire\Pages\Auth\Cancellation\Index::class)->name('index');
             });
     });
