@@ -48,10 +48,23 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the settions associated with the user.
+     * Eager Loading following relationships.
+     */
+    // protected $with = ['settings', 'sessions'];
+
+    /**
+     * Get the settings associated with the user.
      */
     public function settings(): HasOne
     {
         return $this->hasOne(UserSetting::class);
+    }
+
+    /**
+     * Get the sessions associated with the user.
+     */
+    public function sessions()
+    {
+        return $this->hasMany(Session::class);
     }
 }

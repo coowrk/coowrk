@@ -24,6 +24,20 @@ Route::middleware(['auth'])
         // home
         Route::get('home', App\Livewire\Pages\Auth\Home::class)->name('home');
 
+        // user
+        Route::prefix('user')
+            ->as('user.')
+            ->group(function () {
+
+                // my profile
+                Route::prefix('my-profile')
+                    ->as('my-profile.')
+                    ->group(function () {
+                        Route::get('general', App\Livewire\Pages\Auth\User\MyProfile\General::class)->name('general');
+                        Route::get('security', App\Livewire\Pages\Auth\User\MyProfile\Security::class)->name('security');
+                    });
+            });
+
         // shortletter
         Route::prefix('shortletter')
             ->as('short-letter.')

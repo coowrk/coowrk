@@ -97,6 +97,10 @@
 
 					<p class="truncate text-sm/5 font-medium text-white">Startseite</p>
 				</button>
+			</div>
+
+			<div class="mt-8 flex flex-col gap-0.5">
+				<h3 class="mb-1 px-2 text-xs/6 font-medium text-zinc-500 dark:text-zinc-400">Service-Tools</h3>
 
 				{{-- shortletters --}}
 				<button
@@ -130,6 +134,39 @@
 
 					<p class="truncate text-sm/5 font-medium text-white">Kurzbrief</p>
 				</button>
+
+				{{-- cancellation --}}
+				<button
+					class="group relative flex w-full items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
+					href="{{ route('cancellation.index') }}"
+					wire:navigate
+				>
+					@if (Route::is('cancellation.*'))
+						<span
+							class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+							style="transform: none; transform-origin: 50% 50% 0px;"
+						></span>
+					@endif
+
+					<div class="size-6 flex items-center justify-center">
+						<svg
+							@class([
+								'size-5 group-hover:fill-white',
+								'fill-zinc-500' => !Route::is('cancellation.*'),
+								'fill-white' => Route::is('cancellation.*'),
+							])
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M3 3.5A1.5 1.5 0 0 1 4.5 2h6.879a1.5 1.5 0 0 1 1.06.44l4.122 4.12A1.5 1.5 0 0 1 17 7.622V16.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 16.5v-13Z"
+							/>
+						</svg>
+					</div>
+
+					<p class="truncate text-sm/5 font-medium text-white">Kündigung</p>
+				</button>
 			</div>
 		</div>
 
@@ -156,6 +193,8 @@
 					>
 						<a
 							class="group flex cursor-default items-center gap-2 rounded-lg px-3.5 py-2.5 text-sm/6 hover:bg-zinc-100 focus:outline-none dark:text-white dark:hover:text-zinc-950 sm:px-3 sm:py-1.5"
+							href="{{ route('user.my-profile.general') }}"
+							wire:navigate
 						>
 							<svg
 								class="size-5 sm:size-4 text-zinc-500 dark:text-zinc-400 group-hover:dark:text-zinc-950"
@@ -229,32 +268,6 @@
 						</div>
 					</button>
 				</div>
-				{{-- <button class="flex cursor-default items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2">
-					<span class="size-10 inline-flex shrink-0 items-center justify-center rounded-lg bg-white/10">
-						<span class="text-xs font-medium leading-none text-white">NU</span>
-					</span>
-
-					<div class="truncate text-left">
-						<p class="truncate text-sm/5 font-medium text-white">
-							{{ auth()->user()->first_name }}
-							{{ auth()->user()->last_name }}
-						</p>
-						<p class="truncate text-xs/5 text-zinc-400">{{ auth()->user()->email }}</p>
-					</div>
-
-					<svg
-						class="size-4 shrink-0 fill-zinc-500"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							clip-rule="evenodd"
-							d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
-							fill-rule="evenodd"
-						/>
-					</svg>
-				</button> --}}
 			</div>
 		</div>
 	</nav>
