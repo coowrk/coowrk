@@ -5,7 +5,7 @@
 
 		<div>
 			<x-forms.buttons.white
-				href="{{ route('short-letter.create') }}"
+				href="{{ route('cancellation.create') }}"
 				type="button"
 				wire:navigate
 			>

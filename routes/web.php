@@ -54,5 +54,6 @@ Route::middleware(['auth'])
             ->as('cancellation.')
             ->group(function () {
                 Route::get('/', App\Livewire\Pages\Auth\Cancellation\Index::class)->name('index');
+                Route::get('create', App\Livewire\Pages\Auth\Cancellation\Create::class)->name('create');
             });
     });
