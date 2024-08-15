@@ -58,8 +58,8 @@
 				<div>
 					<p class="font-medium text-white sm:text-sm/6">{{ $session->ip_address }}</p>
 					<p class="text-zinc-500 dark:text-zinc-400 sm:text-sm/6">
-						{{ Browser::browserFamily($session->user_agent) }} auf
-						{{ Browser::platformName($session->user_agent) }}
+						{{ Browser::parse($session->user_agent)->browserFamily() }} auf
+						{{ Browser::parse($session->user_agent)->platformName() }}
 					</p>
 				</div>
 				<div class="ml-auto">
