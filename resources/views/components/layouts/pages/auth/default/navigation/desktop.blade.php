@@ -97,6 +97,10 @@
 
 					<p class="truncate text-sm/5 font-medium text-white">Startseite</p>
 				</button>
+			</div>
+
+			<div class="mt-8 flex flex-col gap-0.5">
+				<h3 class="mb-1 px-2 text-xs/6 font-medium text-zinc-500 dark:text-zinc-400">Service-Tools</h3>
 
 				{{-- shortletters --}}
 				<button
@@ -129,6 +133,39 @@
 					</div>
 
 					<p class="truncate text-sm/5 font-medium text-white">Kurzbrief</p>
+				</button>
+
+				{{-- cancellation --}}
+				<button
+					class="group relative flex w-full items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
+					href="{{ route('short-letter.index') }}"
+					wire:navigate
+				>
+					@if (Route::is('short-letter.*'))
+						<span
+							class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+							style="transform: none; transform-origin: 50% 50% 0px;"
+						></span>
+					@endif
+
+					<div class="size-6 flex items-center justify-center">
+						<svg
+							@class([
+								'size-5 group-hover:fill-white',
+								'fill-zinc-500' => !Route::is('short-letter.*'),
+								'fill-white' => Route::is('short-letter.*'),
+							])
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M3 3.5A1.5 1.5 0 0 1 4.5 2h6.879a1.5 1.5 0 0 1 1.06.44l4.122 4.12A1.5 1.5 0 0 1 17 7.622V16.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 16.5v-13Z"
+							/>
+						</svg>
+					</div>
+
+					<p class="truncate text-sm/5 font-medium text-white">Kündigung</p>
 				</button>
 			</div>
 		</div>
