@@ -157,10 +157,10 @@
 							{{-- cancellation --}}
 							<button
 								class="group relative flex w-full items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5"
-								href="{{ route('short-letter.index') }}"
+								href="{{ route('cancellation.index') }}"
 								wire:navigate
 							>
-								@if (Route::is('short-letter.*'))
+								@if (Route::is('cancellation.*'))
 									<span
 										class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
 										style="transform: none; transform-origin: 50% 50% 0px;"
@@ -171,8 +171,8 @@
 									<svg
 										@class([
 											'size-6 group-hover:fill-white',
-											'fill-zinc-500' => !Route::is('short-letter.*'),
-											'fill-white' => Route::is('short-letter.*'),
+											'fill-zinc-500' => !Route::is('cancellation.*'),
+											'fill-white' => Route::is('cancellation.*'),
 										])
 										fill="currentColor"
 										viewBox="0 0 20 20"
