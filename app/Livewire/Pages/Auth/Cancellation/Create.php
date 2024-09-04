@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Pages\Auth\Cancellation;
 
+use App\Models\Customer;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -38,5 +40,21 @@ class Create extends Component
     public function render()
     {
         return view('pages.auth.cancellation.create');
+    }
+
+    // fetch user data
+    #[On('set.customer-data')]
+    public function setCustomerData($customer_id)
+    {
+        $customer = Customer::find($customer_id);
+
+        $this->salutation = $customer->salutation;
+        $this->first_name = $customer->first_name;
+        $this->last_name = $customer->last_name;
+        $this->street = $customer->street;
+        $this->house_number = $customer->house_number;
+        $this->postcode = $customer->postcode;
+        $this->city = $customer->city;
+        $this->country = $customer->country;
     }
 }

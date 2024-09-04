@@ -1,4 +1,7 @@
 <div>
+	{{-- search user palett --}}
+	<livewire:components.dialog.search-customer-palett />
+
 	{{-- breadcrumb --}}
 	<div>
 		<a
@@ -42,9 +45,9 @@
 					<div class="mt-2">
 						<x-forms.buttons.zinc
 							type="button"
-							wire:click="$dispatch('change.short-letter.search-customer-palett.visibility.state')"
+							wire:click="$dispatch('change.search-customer-palett.visibility.state')"
 						>
-							Empfänger ermitteln
+							Absender ermitteln
 						</x-forms.buttons.zinc>
 					</div>
 				</div>
@@ -168,6 +171,8 @@
 					</div>
 				</div>
 			</div>
+
+			<x-typography.divider class="my-4 sm:my-8" />
 
 			<div class="mt-4 flex justify-end">
 				<x-forms.buttons.white>
