@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('street');
             $table->string('house_number');
-            $table->string('postalcode');
+            $table->string('postcode');
             $table->string('city');
             $table->string('country');
             $table->timestamps();

@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Allianz Deutschland AG',
             'street' => 'Königinstraße',
             'house_number' => '28',
-            'postalcode' => '80802',
+            'postcode' => '80802',
             'city' => 'München',
             'country' => 'Germany'
         ]);

@@ -2,6 +2,9 @@
 	{{-- search user palett --}}
 	<livewire:components.dialog.search-customer-palett />
 
+	{{-- search company palett --}}
+	<livewire:components.dialog.search-company-palett />
+
 	{{-- breadcrumb --}}
 	<div>
 		<a
@@ -171,17 +174,23 @@
 
 			<x-typography.divider class="my-4 sm:my-8" />
 
-			<div class="flex items-end justify-between">
-				<x-typography.title.h2 title="Empfänger" />
+			<x-typography.title.h2 title="Empfänger" />
 
-				{{-- search customer --}}
+			<div class="flex items-center justify-between rounded-lg border border-white/10 bg-black/10 p-5">
+				<div class="text-base/6 dark:text-zinc-400 sm:text-sm/6">
+					Kein Empfänger ermittelt
+				</div>
+
+				{{-- search company --}}
 				<x-forms.buttons.zinc
 					type="button"
-					wire:click="$dispatch('change.search-customer-palett.visibility.state')"
+					wire:click="$dispatch('change.search-company-palett.visibility.state')"
 				>
 					Empfänger ermitteln
 				</x-forms.buttons.zinc>
 			</div>
+
+			<x-typography.divider class="my-4 sm:my-8" />
 
 			<div class="mt-4 flex justify-end">
 				<x-forms.buttons.white>

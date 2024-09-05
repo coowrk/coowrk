@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\Auth\Cancellation;
 
+use App\Models\Company;
 use App\Models\Customer;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
@@ -44,10 +45,10 @@ class Create extends Component
 
     // fetch user data
     #[On('set.customer-data')]
-    public function setCustomerData($customer_id)
+    public function customerData($customer_id)
     {
+        // compan
         $customer = Customer::find($customer_id);
-
         $this->salutation = $customer->salutation;
         $this->first_name = $customer->first_name;
         $this->last_name = $customer->last_name;
