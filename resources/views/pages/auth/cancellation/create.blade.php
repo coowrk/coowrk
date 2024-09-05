@@ -38,20 +38,16 @@
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
-			{{-- search customer --}}
-			<div class="shrink-0">
-				<div class="flex flex-col">
-					<x-forms.label title="Suche" />
-					<div class="mt-2">
-						<x-forms.buttons.zinc
-							type="button"
-							wire:click="$dispatch('change.search-customer-palett.visibility.state')"
-						>
-							Absender ermitteln
-						</x-forms.buttons.zinc>
-					</div>
-				</div>
-				<x-typography.divider class="my-8 sm:hidden" />
+			<div class="flex items-end justify-between">
+				<x-typography.title.h2 title="Absender" />
+
+				{{-- search customer --}}
+				<x-forms.buttons.zinc
+					type="button"
+					wire:click="$dispatch('change.search-customer-palett.visibility.state')"
+				>
+					Absender ermitteln
+				</x-forms.buttons.zinc>
 			</div>
 
 			{{-- customer options --}}
@@ -173,6 +169,18 @@
 			</div>
 
 			<x-typography.divider class="my-4 sm:my-8" />
+
+			<div class="flex items-end justify-between">
+				<x-typography.title.h2 title="Empfänger" />
+
+				{{-- search customer --}}
+				<x-forms.buttons.zinc
+					type="button"
+					wire:click="$dispatch('change.search-customer-palett.visibility.state')"
+				>
+					Empfänger ermitteln
+				</x-forms.buttons.zinc>
+			</div>
 
 			<div class="mt-4 flex justify-end">
 				<x-forms.buttons.white>
