@@ -52,7 +52,7 @@
 									class="flex cursor-default select-none px-4 py-2 text-zinc-100 hover:bg-white/5"
 									role="company"
 									tabindex="-1"
-									wire:click="sendCompanyDataToResource('{{ $company->id }}')"
+									wire:click="sendCompanyDataToRessource('{{ $company->id }}')"
 								>
 									<div class="mr-3">
 										{{ $company->name }}
