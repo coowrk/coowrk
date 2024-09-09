@@ -37,15 +37,4 @@ Route::middleware(['auth'])
                         Route::get('security', App\Livewire\Pages\Auth\User\MyProfile\Security::class)->name('security');
                     });
             });
-
-        // shortletter
-        Route::prefix('shortletter')
-            ->as('short-letter.')
-            ->group(function () {
-                Route::get('/', App\Livewire\Pages\Auth\ShortLetter\Index::class)->name('index');
-                Route::get('create', App\Livewire\Pages\Auth\ShortLetter\Create::class)->name('create');
-                Route::get('/{id}', App\Livewire\Pages\Auth\ShortLetter\Show::class)->where('id', '[0-9]+')->name('show');
-                Route::get('/{id}/edit', App\Livewire\Pages\Auth\ShortLetter\Edit::class)->where('id', '[0-9]+')->name('edit');
-                Route::get('/{id}/pdf', App\Livewire\Pages\Auth\ShortLetter\Pdf::class)->where('id', '[0-9]+')->name('pdf');
-            });
     });

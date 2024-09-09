@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('short_letters', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class)->comment('short letter created by (user)_id');
+            $table->foreignIdFor(Customer::class)->comment('short letter belongs to (customer)_id');
             $table->string('salutation');
             $table->string('first_name');
             $table->string('last_name')->nullable();
@@ -33,8 +35,6 @@ return new class extends Migration
             5 -> postal return, 
             6 -> message from customer
             ');
-            $table->foreignIdFor(User::class)->comment('short letter created by (user)_id');
-            $table->foreignIdFor(Customer::class)->comment('short letter belongs to (customer)_id');
             $table->timestamps();
         });
     }

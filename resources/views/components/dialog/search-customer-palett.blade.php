@@ -52,7 +52,7 @@
 									class="flex cursor-default select-none px-4 py-2 text-zinc-100 hover:bg-white/5"
 									role="customer"
 									tabindex="-1"
-									wire:click="sendShortLetterCustomerData('{{ $customer->id }}')"
+									wire:click="sendCustomerDataToResource('{{ $customer->id }}')"
 								>
 									<div class="w-14 text-zinc-500">
 										{{ $customer->salutation }}
