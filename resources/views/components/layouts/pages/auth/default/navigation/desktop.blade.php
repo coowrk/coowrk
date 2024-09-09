@@ -31,16 +31,11 @@
 
 			<div class="mt-2.5 flex flex-col gap-0.5">
 
-				{{-- home button --}}
-				<button
-					class="group relative flex cursor-not-allowed items-center gap-3 rounded-lg px-2 py-2.5 opacity-50 hover:bg-white/5 sm:py-2"
+				{{-- messages --}}
+				{{-- <button
+					class="group relative flex items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
 					wire:navigate="{{ route('home') }}"
 				>
-					{{-- <span
-						class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
-						style="transform: none; transform-origin: 50% 50% 0px;"
-					></span> --}}
-
 					<div class="size-6 flex items-center justify-center">
 						<svg
 							class="size-5 fill-zinc-500 group-hover:fill-white"
@@ -57,7 +52,7 @@
 					</div>
 
 					<p class="truncate text-sm/5 font-medium text-white">Nachrichten</p>
-				</button>
+				</button> --}}
 			</div>
 		</div>
 
@@ -97,6 +92,45 @@
 
 					<p class="truncate text-sm/5 font-medium text-white">Startseite</p>
 				</button>
+
+				{{-- calendar
+				<button
+					class="group relative flex items-center gap-3 rounded-lg px-2 py-2.5 hover:bg-white/5 sm:py-2"
+					href="{{ route('home') }}"
+					wire:navigate
+				>
+					@if (Route::is('home'))
+						<span
+							class="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+							style="transform: none; transform-origin: 50% 50% 0px;"
+						></span>
+					@endif
+
+					<div class="size-6 flex items-center justify-center">
+						<svg
+							@class([
+								'size-5 group-hover:fill-white',
+								'fill-zinc-500' => !Route::is('home'),
+								'fill-white' => Route::is('home'),
+							])
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								clip-rule="evenodd"
+								d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+
+					<p class="truncate text-sm/5 font-medium text-white">Kalender</p>
+				</button> --}}
+			</div>
+
+			<div class="mt-8 flex flex-col gap-0.5">
+				<h3 class="mb-1 px-2 text-xs/6 font-medium text-zinc-500 dark:text-zinc-400">Verwaltung</h3>
 			</div>
 
 			<div class="mt-8 flex flex-col gap-0.5">
