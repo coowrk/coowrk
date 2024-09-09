@@ -8,7 +8,7 @@ use Livewire\Component;
 class Home extends Component
 {
     // render html
-    #[Layout('components.layouts.pages.auth.default')]
+    #[Layout('components.layout.page.auth.default')]
     public function render()
     {
         return view('pages.auth.home');

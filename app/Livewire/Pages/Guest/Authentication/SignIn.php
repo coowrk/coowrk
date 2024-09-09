@@ -18,7 +18,7 @@ class SignIn extends Component
     public $password;
 
     // render html
-    #[Layout('components.layouts.pages.guest.authentication')]
+    #[Layout('components.layout.page.guest.authentication')]
     public function render()
     {
         return view('pages.guest.authentication.sign-in');

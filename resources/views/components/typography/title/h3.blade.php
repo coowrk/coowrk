@@ -1,3 +1,6 @@
-<h1 class="text-base font-semibold text-zinc-950 dark:text-zinc-100 sm:text-sm/6">
+<h3 @class([
+	$attributes->get('class'),
+	'text-base font-semibold text-zinc-950 dark:text-white sm:text-sm/6',
+])>
 	{{ $attributes->get('title') ?: $slot }}
-</h1>
+</h3>

@@ -30,9 +30,10 @@ class ChangePasswordDialog extends Component
     }
 
     // visibility state event
-    #[On('change.user.my-profile.security.show.change-password-dialog.visibility.state')]
-    public function changeUserMyProfileSecurityShowChangePasswordDialogVisibilityState()
+    #[On('change.change-password-dialog.visibility.state')]
+    public function changeChangePasswordDialogVisibilityState()
     {
+        $this->reset();
         $this->show = true;
     }
 
@@ -41,7 +42,7 @@ class ChangePasswordDialog extends Component
     {
         // check user password
         if (!Hash::check($this->password_old, auth()->user()->password))
-            return $this->addError('password_old', 'Ne');
+            return $this->addError('password_old', 'localization');
 
         // validate input data
         $validated = $this->validate();

@@ -5,7 +5,7 @@
 			<span class="grow basis-0">
 				@if (!$paginator->onFirstPage())
 					<a
-						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6"
+						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-white hover:bg-white/5 sm:text-sm/6"
 						rel="prev"
 						wire:click="previousPage()"
 					>
@@ -27,7 +27,7 @@
 					</a>
 				@else
 					<span
-						class="inline-flex cursor-not-allowed items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 opacity-50 hover:bg-white/10 sm:text-sm/6"
+						class="inline-flex cursor-not-allowed items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-white opacity-50 hover:bg-white/5 sm:text-sm/6"
 						rel="prev"
 					>
 						<svg
@@ -52,7 +52,7 @@
 			{{-- pages --}}
 			<span class="hidden items-baseline gap-x-2 sm:flex">
 				@if ($paginator->currentPage() >= 5)
-					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 sm:text-sm/6">
+					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-white sm:text-sm/6">
 						...
 					</span>
 				@endif
@@ -61,8 +61,8 @@
 					@if ($i >= 1 && $i <= $paginator->lastPage())
 						<span
 							@class([
-								'cursor-pointer rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6',
-								'bg-white/10 hover:bg-white/15' => $paginator->currentPage() == $i,
+								'cursor-pointer rounded-lg px-3.5 py-1.5 font-semibold text-white hover:bg-white/5 sm:text-sm/6',
+								'bg-white/5 hover:bg-white/15' => $paginator->currentPage() == $i,
 							])
 							wire:click="setPage({{ $i }})"
 						>
@@ -72,7 +72,7 @@
 				@endfor
 
 				@if ($paginator->lastPage() - $paginator->currentPage() >= 4)
-					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-zinc-100 sm:text-sm/6">
+					<span class="cursor-default rounded-lg px-3.5 py-1.5 font-semibold text-white sm:text-sm/6">
 						...
 					</span>
 				@endif
@@ -82,7 +82,7 @@
 			<span class="flex grow basis-0 justify-end">
 				@if (!$paginator->onLastPage())
 					<a
-						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 hover:bg-white/10 sm:text-sm/6"
+						class="inline-flex cursor-pointer items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-white hover:bg-white/5 sm:text-sm/6"
 						rel="next"
 						wire:click="nextPage()"
 					>
@@ -103,7 +103,7 @@
 					</a>
 				@else
 					<span
-						class="inline-flex cursor-not-allowed items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-zinc-100 opacity-50 hover:bg-white/10 sm:text-sm/6"
+						class="inline-flex cursor-not-allowed items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 font-semibold text-white opacity-50 hover:bg-white/5 sm:text-sm/6"
 						rel="next"
 					>
 						Next

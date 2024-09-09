@@ -5,36 +5,36 @@
 	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
 
-	{{-- head --}}
+{{-- head --}}
 
-	<head>
-		{{-- meta tags --}}
-		<meta charset="utf-8">
-		<meta
-			content="width=device-width, initial-scale=1"
-			name="viewport"
-		>
-		<meta
-			content="ie=edge"
-			http-equiv="X-UA-Compatible"
-		>
+<head>
+	{{-- meta tags --}}
+	<meta charset="utf-8">
+	<meta
+		content="width=device-width, initial-scale=1"
+		name="viewport"
+	>
+	<meta
+		content="ie=edge"
+		http-equiv="X-UA-Compatible"
+	>
 
-		{{-- title --}}
-		<title>{{ config('app.name') }}</title>
+	{{-- title --}}
+	<title>{{ config('app.name') }}</title>
 
-		{{-- styles --}}
-		@livewireStyles
-		@vite('resources/scripts/app.js')
-	</head>
+	{{-- styles --}}
+	@livewireStyles
+	@vite('resources/scripts/app.js')
+</head>
 
-	{{-- body --}}
+{{-- body --}}
 
-	<body class="h-full">
-		{{-- content --}}
-		{{ $slot }}
+<body class="h-full">
+	{{-- content --}}
+	{{ $slot }}
 
-		{{-- scripts --}}
-		@livewireScripts
-	</body>
+	{{-- scripts --}}
+	@livewireScripts
+</body>
 
 </html>

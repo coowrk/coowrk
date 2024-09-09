@@ -1,9 +1,11 @@
+{{-- Controller: App\Livewire\Pages\Guest\Authentication\SignIn --}}
 <div>
 	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
-		<h1 class="text-center text-4xl font-extrabold text-white">Coowrk.</h1>
-		<h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-			Melde dich bei deinem Konto an
-		</h2>
+		<h1 class="text-center text-4xl font-extrabold text-zinc-950 dark:text-white">Coowrk.</h1>
+		<x-typography.title.h2
+			class="mt-10 text-center tracking-tight"
+			title="Melde dich bei deinem Konto an"
+		/>
 	</div>
 
 	<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -12,12 +14,12 @@
 			wire:submit="signIn"
 		>
 			<div>
-				<x-forms.label
+				<x-formular.label
 					for="email"
 					title="E-Mail Adresse"
 				/>
 
-				<x-forms.input
+				<x-formular.input
 					for="email"
 					id="test"
 				/>
@@ -25,7 +27,7 @@
 
 			<div>
 				<div class="flex items-center justify-between">
-					<x-forms.label
+					<x-formular.label
 						for="password"
 						title="Passwort"
 					/>
@@ -37,16 +39,16 @@
 					</div>
 				</div>
 
-				<x-forms.input
+				<x-formular.input
 					autocomplete="current-password"
 					for="password"
 				/>
 			</div>
 
-			<div>
-				<x-forms.buttons.white type="submit">
+			<div class="flex items-end justify-end">
+				<x-button type="submit">
 					Anmelden
-				</x-forms.buttons.white>
+				</x-button>
 			</div>
 		</form>
 	</div>

@@ -1,49 +1,53 @@
 {{-- Controller: App\Livewire\Pages\Auth\User\MyProfile\Security\ChangePasswordDialog --}}
-<x-overlays.dialog>
+<x-overlay.dialog>
 	<x-typography.title.h2 title="Passwort ändern" />
 
 	<form wire:submit="updateUserPassword">
 		<div class="mt-6">
 			<x-typography.title.h3 title="Altes Passwort" />
 
-			<x-forms.input
+			<x-formular.input
 				for="password_old"
 				title="password_old"
 				type="password"
+				wire:model="password_old"
 			/>
 		</div>
 
-		<div class="mt-2">
+		<div class="mt-4">
 			<x-typography.title.h3 title="Neues Passwort" />
 
-			<x-forms.input
+			<x-formular.input
 				for="password"
 				title="password"
 				type="password"
+				wire:model="password"
 			/>
 		</div>
 
-		<div class="mt-2">
+		<div class="mt-4">
 			<x-typography.title.h3 title="Neues Passwort bestätigen" />
 
-			<x-forms.input
+			<x-formular.input
 				for="password_confirmation"
-				title="password_new_confirmation"
+				title="password_confirmation"
 				type="password"
+				wire:model="password_confirmation"
 			/>
 		</div>
 
 		<div class="mt-6 flex justify-end gap-4">
-			<x-forms.buttons.blank
+			<x-button
+				theme="blank"
 				type="button"
 				x-on:click="show = false"
 			>
 				Abbrechen
-			</x-forms.buttons.blank>
+			</x-button>
 
-			<x-forms.buttons.white>
+			<x-button type="submit">
 				Ändern
-			</x-forms.buttons.white>
+			</x-button>
 		</div>
 	</form>
-</x-overlays.dialog>
+</x-overlay.dialog>

@@ -11,7 +11,7 @@ class Security extends Component
     public $sessions = [];
 
     // render html
-    #[Layout('components.layouts.pages.auth.user.my-profile.default')]
+    #[Layout('components.layout.page.auth.user.my-profile.default')]
     public function render()
     {
         return view('pages.auth.user.my-profile.security');
