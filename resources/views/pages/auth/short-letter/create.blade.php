@@ -32,226 +32,147 @@
 		<x-typography.title.h1 title="Erstellen" />
 	</div>
 
-	<div class="mt-12">
-		<!-- Stepper -->
-		<ul class="relative flex flex-col gap-2 md:flex-row">
-			<!-- Item -->
-			<li class="group flex flex-1 gap-x-2 md:block md:shrink md:basis-0">
-				<div
-					class="min-w-7 min-h-7 flex flex-col items-center align-middle text-xs md:inline-flex md:w-full md:flex-row md:flex-wrap"
-				>
-					<span
-						class="size-7 flex shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 dark:bg-neutral-700 dark:text-white"
-					>
-						1
-					</span>
-					<div
-						class="mt-2 h-full w-px bg-gray-200 group-last:hidden dark:bg-neutral-700 md:ms-2 md:mt-0 md:h-px md:w-full md:flex-1"
-					></div>
-				</div>
-				<div class="grow pb-5 md:mt-3 md:grow-0">
-					<span class="block text-sm font-medium text-gray-800 dark:text-white">
-						Step
-					</span>
-					<p class="text-sm text-gray-500 dark:text-neutral-500">
-						This is a description text.
-					</p>
-				</div>
-			</li>
-			<!-- End Item -->
-
-			<!-- Item -->
-			<li class="group flex flex-1 gap-x-2 md:block md:shrink md:basis-0">
-				<div
-					class="min-w-7 min-h-7 flex flex-col items-center align-middle text-xs md:inline-flex md:w-full md:flex-row md:flex-wrap"
-				>
-					<span
-						class="size-7 flex shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 dark:bg-neutral-700 dark:text-white"
-					>
-						2
-					</span>
-					<div
-						class="mt-2 h-full w-px bg-gray-200 group-last:hidden dark:bg-neutral-700 md:ms-2 md:mt-0 md:h-px md:w-full md:flex-1"
-					></div>
-				</div>
-				<div class="grow pb-5 md:mt-3 md:grow-0">
-					<span class="block text-sm font-medium text-gray-800 dark:text-white">
-						Step
-					</span>
-					<p class="text-sm text-gray-500 dark:text-neutral-500">
-						This is a description text.
-					</p>
-				</div>
-			</li>
-			<!-- End Item -->
-
-			<!-- Item -->
-			<li class="group flex flex-1 gap-x-2 md:block md:shrink md:basis-0">
-				<div
-					class="min-w-7 min-h-7 flex flex-col items-center align-middle text-xs md:inline-flex md:w-full md:flex-row md:flex-wrap"
-				>
-					<span
-						class="size-7 flex shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 dark:bg-neutral-700 dark:text-white"
-					>
-						3
-					</span>
-					<div
-						class="mt-2 h-full w-px bg-gray-200 group-last:hidden dark:bg-neutral-700 md:ms-2 md:mt-0 md:h-px md:w-full md:flex-1"
-					></div>
-				</div>
-				<div class="grow pb-5 md:mt-3 md:grow-0">
-					<span class="block text-sm font-medium text-gray-800 dark:text-white">
-						Step
-					</span>
-					<p class="text-sm text-gray-500 dark:text-neutral-500">
-						This is a description text.
-					</p>
-				</div>
-			</li>
-			<!-- End Item -->
-		</ul>
-		<!-- End Stepper -->
-	</div>
-
 	{{-- formular --}}
 	<div class="mt-12">
 		<form
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
-			{{-- search customer --}}
-			<div class="shrink-0">
-				<div class="flex flex-col">
-					<x-formular.label title="Suche" />
-					<div class="mt-2">
-						<x-button
-							type="button"
-							wire:click="$dispatch('change.search-customer-dialog.visibility.state')"
-						>
-							Empfänger ermitteln
-						</x-button>
-					</div>
-				</div>
-				<x-divider class="my-8 sm:hidden" />
-			</div>
+			{{-- customer data --}}
+			<section class="flex flex-col gap-y-4">
+				{{-- title --}}
+				<div class="flex items-end justify-between">
+					<x-typography.title.h2 title="Empfänger (Kunde)" />
 
-			{{-- customer options --}}
-			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
-				<div class="col-span-1 sm:col-span-2">
-					<x-formular.label
-						for="salutation"
-						title="Anrede"
-					/>
-					<x-formular.select
-						:options="[
-						    'Herr' => 'Herr',
-						    'Frau' => 'Frau',
-						    'Divers' => 'Divers',
-						    'Firma' => 'Firma',
-						]"
-						for="salutation"
-						title="first name"
-						wire:model.live="salutation"
+					{{-- search customer --}}
+					<x-button
+						type="button"
+						wire:click="$dispatch('change.search-customer-dialog.visibility.state')"
 					>
-					</x-formular.select>
+						Empfänger ermitteln
+					</x-button>
 				</div>
 
-				@if ($salutation == 'Firma')
-					<div class="col-span-1 sm:col-span-6">
+				{{-- name --}}
+				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
+					<div class="col-span-1 sm:col-span-2">
 						<x-formular.label
-							for="first_name"
-							title="Name"
+							for="salutation"
+							title="Anrede"
+						/>
+						<x-formular.select
+							:options="[
+							    'Herr' => 'Herr',
+							    'Frau' => 'Frau',
+							    'Divers' => 'Divers',
+							    'Firma' => 'Firma',
+							]"
+							for="salutation"
+							title="first name"
+							wire:model.live="salutation"
+						>
+						</x-formular.select>
+					</div>
+
+					@if ($salutation == 'Firma')
+						<div class="col-span-1 sm:col-span-6">
+							<x-formular.label
+								for="first_name"
+								title="Name"
+							/>
+							<x-formular.input
+								for="first_name"
+								title="first name"
+							/>
+						</div>
+					@else
+						<div class="col-span-1 sm:col-span-3">
+							<x-formular.label
+								for="first_name"
+								title="Vorname"
+							/>
+							<x-formular.input
+								for="first_name"
+								title="first name"
+							/>
+						</div>
+
+						<div class="col-span-1 sm:col-span-3">
+							<x-formular.label
+								for="last_name"
+								title="Nachname"
+							/>
+							<x-formular.input
+								for="last_name"
+								title="last name"
+							/>
+						</div>
+					@endif
+				</div>
+
+				{{-- address --}}
+				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
+					<div class="col-span-1 sm:col-span-4">
+						<x-formular.label
+							for="street"
+							title="Straße"
 						/>
 						<x-formular.input
-							for="first_name"
-							title="first name"
+							for="street"
+							title="street"
 						/>
 					</div>
-				@else
+
+					<div class="col-span-1">
+						<x-formular.label
+							for="house_number"
+							title="Hausnummer"
+						/>
+						<x-formular.input
+							for="house_number"
+							title="Hausnummer"
+						/>
+					</div>
+				</div>
+
+				{{-- postalcode, city & country --}}
+				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
+					<div class="col-span-1">
+						<x-formular.label
+							for="postcode"
+							title="Postleitzahl"
+						/>
+						<x-formular.input
+							for="postcode"
+							title="Postleitzahl"
+						/>
+					</div>
+
 					<div class="col-span-1 sm:col-span-3">
 						<x-formular.label
-							for="first_name"
-							title="Vorname"
+							for="city"
+							title="Stadt"
 						/>
 						<x-formular.input
-							for="first_name"
-							title="first name"
+							for="city"
+							title="Stadt"
 						/>
 					</div>
 
-					<div class="col-span-1 sm:col-span-3">
-						<x-formular.label
-							for="last_name"
-							title="Nachname"
-						/>
-						<x-formular.input
-							for="last_name"
-							title="last name"
-						/>
-					</div>
-				@endif
-			</div>
-
-			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
-				<div class="col-span-1 sm:col-span-4">
-					<x-formular.label
-						for="street"
-						title="Straße"
-					/>
-					<x-formular.input
-						for="street"
-						title="street"
-					/>
-				</div>
-
-				<div class="col-span-1">
-					<x-formular.label
-						for="house_number"
-						title="Hausnummer"
-					/>
-					<x-formular.input
-						for="house_number"
-						title="Hausnummer"
-					/>
-				</div>
-			</div>
-
-			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
-				<div class="col-span-1">
-					<x-formular.label
-						for="postcode"
-						title="Postleitzahl"
-					/>
-					<x-formular.input
-						for="postcode"
-						title="Postleitzahl"
-					/>
-				</div>
-
-				<div class="col-span-1 sm:col-span-3">
-					<x-formular.label
-						for="city"
-						title="Stadt"
-					/>
-					<x-formular.input
-						for="city"
-						title="Stadt"
-					/>
-				</div>
-
-				<div class="col-span-1">
-					<div>
-						<x-formular.label
-							for="country"
-							title="Land"
-						/>
-						<x-formular.input
-							for="country"
-							title="Land"
-						/>
+					<div class="col-span-1">
+						<div>
+							<x-formular.label
+								for="country"
+								title="Land"
+							/>
+							<x-formular.input
+								for="country"
+								title="Land"
+							/>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<x-divider class="my-4 sm:my-8" />
 
