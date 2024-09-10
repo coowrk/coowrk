@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter;
 
 use App\Models\Customer;
 use App\Models\ShortLetter;
@@ -60,7 +60,7 @@ class Edit extends Component
     #[Layout('components.layout.page.auth.default')]
     public function render()
     {
-        return view('pages.auth.short-letter.edit');
+        return view('pages.auth.service-tool.short-letter.edit');
     }
 
     // fetch data

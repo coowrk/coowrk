@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter;
 
 use App\Models\ShortLetter;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
@@ -19,7 +19,7 @@ class Pdf
             ->findOrFail($id);
 
         // return pdf
-        return FacadePdf::loadView('pages.auth.short-letter.pdf', [
+        return FacadePdf::loadView('pages.auth.service-tool.short-letter.pdf', [
             'short_letter' => json_encode($this->short_letter),
             'we_ask_for' => json_encode($this->short_letter->all_options('we_ask_for')),
             'cause_for_letter' => json_encode($this->short_letter->all_options('cause_for_letter'))

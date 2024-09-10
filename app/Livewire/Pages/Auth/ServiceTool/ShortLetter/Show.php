@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter;
 
 use App\Models\ShortLetter;
 use Livewire\Attributes\Layout;
@@ -17,7 +17,7 @@ class Show extends Component
     #[Layout('components.layout.page.auth.default')]
     public function render()
     {
-        return view('pages.auth.short-letter.show', [
+        return view('pages.auth.service-tool.short-letter.show', [
             'short_letter' => ShortLetter::with(
                 'created_by:id,first_name,last_name',
                 'belongs_to_customer:id,first_name,last_name',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter\Show;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Show;
 
 use App\Models\ShortLetter;
 use Livewire\Attributes\On;
@@ -47,7 +47,7 @@ class AddDiaryEntryDialog extends Component
     // render html
     public function render()
     {
-        return view('pages.auth.short-letter.show.add-diary-entry-dialog');
+        return view('pages.auth.service-tool.short-letter.show.add-diary-entry-dialog');
     }
 
     // visibility state event

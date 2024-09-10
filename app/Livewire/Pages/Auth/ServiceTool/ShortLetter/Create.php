@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter;
 
 use App\Livewire\Forms\CustomerForm;
 use App\Models\Customer;
@@ -30,7 +30,7 @@ class Create extends Component
     #[Layout('components.layout.page.auth.default')]
     public function render()
     {
-        return view('pages.auth.short-letter.create');
+        return view('pages.auth.service-tool.short-letter.create');
     }
 
     // create

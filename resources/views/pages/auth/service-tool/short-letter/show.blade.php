@@ -1,6 +1,6 @@
 <div wire:poll.2s>
 	{{-- add diary entry dialog --}}
-	<livewire:pages.auth.short-letter.show.add-diary-entry-dialog short_letter="{{ $short_letter->id }}" />
+	<livewire:pages.auth.service-tool.short-letter.show.add-diary-entry-dialog short_letter="{{ $short_letter->id }}" />
 
 	{{-- breadcrumb --}}
 	<div>

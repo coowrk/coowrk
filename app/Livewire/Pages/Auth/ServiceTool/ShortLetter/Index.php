@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages\Auth\ShortLetter;
+namespace App\Livewire\Pages\Auth\ServiceTool\ShortLetter;
 
 use App\Models\ShortLetter;
 use Livewire\Attributes\Layout;
@@ -27,7 +27,7 @@ class Index extends Component
     public function render()
     {
         return view(
-            'pages.auth.short-letter.index',
+            'pages.auth.service-tool.short-letter.index',
             [
                 'short_letters' => ShortLetter::query()
                     ->select(['id', 'salutation', 'first_name', 'last_name', 'reason', 'status', 'created_at'])

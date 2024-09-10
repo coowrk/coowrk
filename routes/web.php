@@ -47,11 +47,18 @@ Route::middleware(['auth'])
                 Route::prefix('short-letter')
                     ->as('short-letter.')
                     ->group(function () {
-                        Route::get('/', App\Livewire\Pages\Auth\ShortLetter\Index::class)->name('index');
-                        Route::get('create', App\Livewire\Pages\Auth\ShortLetter\Create::class)->name('create');
-                        Route::get('/{id}', App\Livewire\Pages\Auth\ShortLetter\Show::class)->where('id', '[0-9]+')->name('show');
-                        Route::get('/{id}/edit', App\Livewire\Pages\Auth\ShortLetter\Edit::class)->where('id', '[0-9]+')->name('edit');
-                        Route::get('/{id}/pdf', App\Livewire\Pages\Auth\ShortLetter\Pdf::class)->where('id', '[0-9]+')->name('pdf');
+                        Route::get('/', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Index::class)->name('index');
+                        Route::get('create', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Create::class)->name('create');
+                        Route::get('/{id}', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Show::class)->where('id', '[0-9]+')->name('show');
+                        Route::get('/{id}/edit', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Edit::class)->where('id', '[0-9]+')->name('edit');
+                        Route::get('/{id}/pdf', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Pdf::class)->where('id', '[0-9]+')->name('pdf');
+                    });
+
+                // broker-authority
+                Route::prefix('broker-authority')
+                    ->as('broker-authority.')
+                    ->group(function () {
+                        Route::get('/', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Index::class)->name('index');
                     });
             });
     });
