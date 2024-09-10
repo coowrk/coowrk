@@ -66,6 +66,40 @@
 
 				<p class="truncate text-base/5 font-medium text-zinc-950 dark:text-white sm:text-sm/5">Sicherheit</p>
 			</button>
+
+			<button
+				@class([
+					'group relative flex w-full items-center gap-3 rounded-lg px-2 py-2.5 sm:py-2',
+					'hover:bg-zinc-950/5 dark:hover:bg-white/5' => !Route::is(
+						'user.my-profile.sessions'),
+					'bg-zinc-950/5 dark:bg-white/5' => Route::is('user.my-profile.sessions'),
+				])
+				href="{{ route('user.my-profile.sessions') }}"
+				wire:navigate
+			>
+				<div class="size-6 flex items-center justify-center">
+					<svg
+						@class([
+							'size-5 group-hover:fill-zinc-950 dark:group-hover:fill-white',
+							'fill-zinc-500 dark:fill-zinc-400' => !Route::is(
+								'user.my-profile.sessions'),
+							'fill-zinc-950 dark:fill-white' => Route::is('user.my-profile.sessions'),
+						])
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M16.364 3.636a.75.75 0 0 0-1.06 1.06 7.5 7.5 0 0 1 0 10.607.75.75 0 0 0 1.06 1.061 9 9 0 0 0 0-12.728ZM4.697 4.697a.75.75 0 0 0-1.061-1.061 9 9 0 0 0 0 12.728.75.75 0 1 0 1.06-1.06 7.5 7.5 0 0 1 0-10.607Z"
+						/>
+						<path
+							d="M12.475 6.464a.75.75 0 0 1 1.06 0 5 5 0 0 1 0 7.072.75.75 0 0 1-1.06-1.061 3.5 3.5 0 0 0 0-4.95.75.75 0 0 1 0-1.06ZM7.525 6.464a.75.75 0 0 1 0 1.061 3.5 3.5 0 0 0 0 4.95.75.75 0 0 1-1.06 1.06 5 5 0 0 1 0-7.07.75.75 0 0 1 1.06 0ZM11 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+						/>
+					</svg>
+				</div>
+
+				<p class="truncate text-base/5 font-medium text-zinc-950 dark:text-white sm:text-sm/5">Verbindungen</p>
+			</button>
 		</div>
 
 		<div class="col-span-1 sm:col-span-3">

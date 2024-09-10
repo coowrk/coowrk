@@ -35,6 +35,7 @@ Route::middleware(['auth'])
                     ->group(function () {
                         Route::get('general', App\Livewire\Pages\Auth\User\MyProfile\General::class)->name('general');
                         Route::get('security', App\Livewire\Pages\Auth\User\MyProfile\Security::class)->name('security');
+                        Route::get('sessions', App\Livewire\Pages\Auth\User\MyProfile\Sessions::class)->name('sessions');
                     });
             });
 

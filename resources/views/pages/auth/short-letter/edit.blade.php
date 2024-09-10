@@ -3,7 +3,7 @@
 	<div>
 		<a
 			class="inline-flex items-center gap-2 text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6"
-			href="{{ route('short-letter.show', $short_letter->id) }}"
+			href="{{ route('service-tool.short-letter.show', $short_letter->id) }}"
 			wire:navigate
 		>
 			<svg
@@ -39,11 +39,11 @@
 			{{-- customer options --}}
 			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
 				<div class="col-span-1 sm:col-span-2">
-					<x-forms.label
+					<x-formular.label
 						for="salutation"
 						title="Anrede"
 					/>
-					<x-forms.select
+					<x-formular.select
 						:options="[
 						    'Herr' => 'Herr',
 						    'Frau' => 'Frau',
@@ -54,38 +54,38 @@
 						title="first name"
 						wire:model.live="salutation"
 					>
-					</x-forms.select>
+					</x-formular.select>
 				</div>
 
 				@if ($salutation == 'Firma')
 					<div class="col-span-1 sm:col-span-6">
-						<x-forms.label
+						<x-formular.label
 							for="first_name"
 							title="Name"
 						/>
-						<x-forms.input
+						<x-formular.input
 							for="first_name"
 							title="first name"
 						/>
 					</div>
 				@else
 					<div class="col-span-1 sm:col-span-3">
-						<x-forms.label
+						<x-formular.label
 							for="first_name"
 							title="Vorname"
 						/>
-						<x-forms.input
+						<x-formular.input
 							for="first_name"
 							title="first name"
 						/>
 					</div>
 
 					<div class="col-span-1 sm:col-span-3">
-						<x-forms.label
+						<x-formular.label
 							for="last_name"
 							title="Nachname"
 						/>
-						<x-forms.input
+						<x-formular.input
 							for="last_name"
 							title="last name"
 						/>
@@ -95,22 +95,22 @@
 
 			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
 				<div class="col-span-1 sm:col-span-4">
-					<x-forms.label
+					<x-formular.label
 						for="street"
 						title="Straße"
 					/>
-					<x-forms.input
+					<x-formular.input
 						for="street"
 						title="street"
 					/>
 				</div>
 
 				<div class="col-span-1">
-					<x-forms.label
+					<x-formular.label
 						for="house_number"
 						title="Hausnummer"
 					/>
-					<x-forms.input
+					<x-formular.input
 						for="house_number"
 						title="Hausnummer"
 					/>
@@ -119,22 +119,22 @@
 
 			<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
 				<div class="col-span-1">
-					<x-forms.label
+					<x-formular.label
 						for="postcode"
 						title="Postleitzahl"
 					/>
-					<x-forms.input
+					<x-formular.input
 						for="postcode"
 						title="Postleitzahl"
 					/>
 				</div>
 
 				<div class="col-span-1 sm:col-span-3">
-					<x-forms.label
+					<x-formular.label
 						for="city"
 						title="Stadt"
 					/>
-					<x-forms.input
+					<x-formular.input
 						for="city"
 						title="Stadt"
 					/>
@@ -142,11 +142,11 @@
 
 				<div class="col-span-1">
 					<div>
-						<x-forms.label
+						<x-formular.label
 							for="country"
 							title="Land"
 						/>
-						<x-forms.input
+						<x-formular.input
 							for="country"
 							title="Land"
 						/>
@@ -157,7 +157,7 @@
 			{{-- update main customer data option --}}
 			@if ($short_letter->belongs_to_customer->created_at->diffInHours(Carbon\Carbon::now(), false) < 1)
 				<div class="mt-2">
-					<x-forms.checkbox
+					<x-formular.checkbox
 						description="Durch das Bestätigen dieses Häkchens werden die Hauptdaten des Kunden sowie die Kundendaten des Kurzbriefes automatisch aktualisiert."
 						for="update_customer"
 						title="Kunde aktualisieren"
@@ -166,15 +166,15 @@
 				</div>
 			@endif
 
-			<x-typography.divider class="my-4 sm:my-8" />
+			<x-divider class="my-4 sm:my-8" />
 
 			{{-- letter options --}}
 			<div>
-				<x-forms.label
+				<x-formular.label
 					for="reason"
 					title="Betreff"
 				/>
-				<x-forms.input
+				<x-formular.input
 					for="reason"
 					title="Betreff"
 				/>
@@ -185,49 +185,49 @@
 					<x-typography.title.h3 title="Wir bitten um" />
 
 					<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="anruf-ruecksprache"
 							title="Anruf / Rücksprache"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="rueckgabe"
 							title="Rückgabe"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="kenntnisnahme"
 							title="Kenntnisnahme"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="bericht"
 							title="Bericht"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="erledigung"
 							title="Erledigung"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="weitere-veranlassung"
 							title="Weitere Veranlassung"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="stellungnahme"
 							title="Stellungnahme"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="pruefung"
 							title="Prüfung"
 							wire:model="options"
@@ -238,37 +238,37 @@
 					<x-typography.title.h3 title="Sie erhalten den Vorgang" />
 
 					<div class="mt-2 flex flex-col gap-4">
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="zur-unterschrift"
 							title="zur Unterschrift"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="zum-verbleib"
 							title="zum Verbleib"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="zur-weitergabe"
 							title="zur Weitergabe"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="zur-vorlage"
 							title="zur Vorlage"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="mit-dank-zurueck"
 							title="mit Dank zurück"
 							wire:model="options"
 						/>
 
-						<x-forms.checkbox
+						<x-formular.checkbox
 							for="anbei-anlagen"
 							title="anbei Anlagen"
 							wire:model="options"
@@ -278,7 +278,7 @@
 			</div>
 
 			<div class="mt-4 flex justify-end">
-				<x-forms.buttons.white>
+				<x-button>
 					<svg
 						class="size-5 sm:size-4 text-zinc-500"
 						fill="currentColor"
@@ -291,7 +291,7 @@
 					</svg>
 
 					Bearbeiten
-				</x-forms.buttons.white>
+				</x-button>
 			</div>
 		</form>
 	</div>

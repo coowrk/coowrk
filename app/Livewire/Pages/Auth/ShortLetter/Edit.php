@@ -57,7 +57,7 @@ class Edit extends Component
     public $options = [];
 
     // render html
-    #[Layout('components.layouts.pages.auth.default')]
+    #[Layout('components.layout.page.auth.default')]
     public function render()
     {
         return view('pages.auth.short-letter.edit');
