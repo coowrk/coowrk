@@ -38,250 +38,271 @@
 			class="flex flex-col gap-y-4"
 			wire:submit="create"
 		>
-			{{-- customer data --}}
-			<section class="flex flex-col gap-y-4">
-				{{-- title --}}
-				<div class="flex items-end justify-between">
-					<x-typography.title.h2 title="Empfänger (Kunde)" />
-
-					{{-- search customer --}}
-					<x-button
-						type="button"
-						wire:click="$dispatch('change.search-customer-dialog.visibility.state')"
+			<div class="grid grid-cols-1 gap-10 sm:grid-cols-12">
+				<div class="col-span-1 sm:col-span-4">
+					<x-stepper.vertical
+						description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est quo quae sit aspernatur, et praesentium expedita ullam fugit, optio harum incidunt unde numquam voluptatem commodi officia vitae, quisquam iure molestias."
+						item="1"
+						title="Empfänger des Briefes"
 					>
-						Empfänger ermitteln
-					</x-button>
-				</div>
-
-				{{-- name --}}
-				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
-					<div class="col-span-1 sm:col-span-2">
-						<x-formular.label
-							for="salutation"
-							title="Anrede"
-						/>
-						<x-formular.select
-							:options="[
-							    'Herr' => 'Herr',
-							    'Frau' => 'Frau',
-							    'Divers' => 'Divers',
-							    'Firma' => 'Firma',
-							]"
-							for="salutation"
-							title="first name"
-							wire:model.live="salutation"
+						<x-button
+							type="button"
+							wire:click="$dispatch('change.search-customer-dialog.visibility.state')"
 						>
-						</x-formular.select>
-					</div>
-
-					@if ($salutation == 'Firma')
-						<div class="col-span-1 sm:col-span-6">
-							<x-formular.label
-								for="first_name"
-								title="Name"
-							/>
-							<x-formular.input
-								for="first_name"
-								title="first name"
-							/>
-						</div>
-					@else
-						<div class="col-span-1 sm:col-span-3">
-							<x-formular.label
-								for="first_name"
-								title="Vorname"
-							/>
-							<x-formular.input
-								for="first_name"
-								title="first name"
-							/>
-						</div>
-
-						<div class="col-span-1 sm:col-span-3">
-							<x-formular.label
-								for="last_name"
-								title="Nachname"
-							/>
-							<x-formular.input
-								for="last_name"
-								title="last name"
-							/>
-						</div>
-					@endif
+							Empfänger ermitteln
+						</x-button>
+					</x-stepper.vertical>
+					<x-stepper.vertical
+						item="2"
+						title="Grund des Briefes"
+					/>
+					<x-stepper.vertical
+						item="3"
+						title="Aktion des Empfängers"
+					/>
 				</div>
 
-				{{-- address --}}
-				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
-					<div class="col-span-1 sm:col-span-4">
-						<x-formular.label
-							for="street"
-							title="Straße"
-						/>
-						<x-formular.input
-							for="street"
-							title="street"
-						/>
-					</div>
+				<div class="col-span-1 sm:col-span-8">
+					{{-- customer data --}}
+					<section class="flex flex-col gap-y-4">
+						{{-- title --}}
+						<x-typography.title.h2 title="Empfänger" />
 
-					<div class="col-span-1">
-						<x-formular.label
-							for="house_number"
-							title="Hausnummer"
-						/>
-						<x-formular.input
-							for="house_number"
-							title="Hausnummer"
-						/>
-					</div>
-				</div>
+						{{-- name --}}
+						<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-8">
+							<div class="col-span-1 sm:col-span-2">
+								<x-formular.label
+									for="customer.salutation"
+									title="Anrede"
+								/>
+								<x-formular.select
+									:options="[
+									    'Herr' => 'Herr',
+									    'Frau' => 'Frau',
+									    'Divers' => 'Divers',
+									    'Firma' => 'Firma',
+									]"
+									for="customer.salutation"
+									title="first name"
+									wire:model.live="customer.salutation"
+								>
+								</x-formular.select>
+							</div>
 
-				{{-- postalcode, city & country --}}
-				<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
-					<div class="col-span-1">
-						<x-formular.label
-							for="postcode"
-							title="Postleitzahl"
-						/>
-						<x-formular.input
-							for="postcode"
-							title="Postleitzahl"
-						/>
-					</div>
+							@if ($customer->salutation == 'Firma')
+								<div class="col-span-1 sm:col-span-6">
+									<x-formular.label
+										for="customer.first_name"
+										title="Name"
+									/>
+									<x-formular.input
+										for="customer.first_name"
+										title="first name"
+									/>
+								</div>
+							@else
+								<div class="col-span-1 sm:col-span-3">
+									<x-formular.label
+										for="customer.first_name"
+										title="Vorname"
+									/>
+									<x-formular.input
+										for="customer.first_name"
+										title="first name"
+									/>
+								</div>
 
-					<div class="col-span-1 sm:col-span-3">
-						<x-formular.label
-							for="city"
-							title="Stadt"
-						/>
-						<x-formular.input
-							for="city"
-							title="Stadt"
-						/>
-					</div>
+								<div class="col-span-1 sm:col-span-3">
+									<x-formular.label
+										for="customer.last_name"
+										title="Nachname"
+									/>
+									<x-formular.input
+										for="customer.last_name"
+										title="last name"
+									/>
+								</div>
+							@endif
+						</div>
 
-					<div class="col-span-1">
+						{{-- address --}}
+						<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
+							<div class="col-span-1 sm:col-span-4">
+								<x-formular.label
+									for="customer.street"
+									title="Straße"
+								/>
+								<x-formular.input
+									for="customer.street"
+									title="street"
+								/>
+							</div>
+
+							<div class="col-span-1">
+								<x-formular.label
+									for="customer.house_number"
+									title="Hausnummer"
+								/>
+								<x-formular.input
+									for="customer.house_number"
+									title="Hausnummer"
+								/>
+							</div>
+						</div>
+
+						{{-- postalcode, city & country --}}
+						<div class="grid grow grid-cols-1 gap-4 sm:grid-cols-5">
+							<div class="col-span-1">
+								<x-formular.label
+									for="customer.postcode"
+									title="Postleitzahl"
+								/>
+								<x-formular.input
+									for="customer.postcode"
+									title="Postleitzahl"
+								/>
+							</div>
+
+							<div class="col-span-1 sm:col-span-3">
+								<x-formular.label
+									for="customer.city"
+									title="Stadt"
+								/>
+								<x-formular.input
+									for="customer.city"
+									title="Stadt"
+								/>
+							</div>
+
+							<div class="col-span-1">
+								<div>
+									<x-formular.label
+										for="customer.country"
+										title="Land"
+									/>
+									<x-formular.input
+										for="customer.country"
+										title="Land"
+									/>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<x-divider class="my-4 sm:my-8" />
+
+					{{-- letter options --}}
+					<section class="flex flex-col gap-y-4">
+						{{-- topic --}}
 						<div>
 							<x-formular.label
-								for="country"
-								title="Land"
+								for="reason"
+								title="Betreff"
 							/>
 							<x-formular.input
-								for="country"
-								title="Land"
+								for="reason"
+								title="Betreff"
 							/>
 						</div>
-					</div>
-				</div>
-			</section>
 
-			<x-divider class="my-4 sm:my-8" />
+						{{-- action --}}
+						<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+							<div class="col-span-1 sm:col-span-2">
+								<x-typography.title.h3 title="Wir bitten um" />
 
-			{{-- letter options --}}
-			<div>
-				<x-formular.label
-					for="reason"
-					title="Betreff"
-				/>
-				<x-formular.input
-					for="reason"
-					title="Betreff"
-				/>
-			</div>
+								<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+									<x-formular.checkbox
+										for="anruf-ruecksprache"
+										title="Anruf / Rücksprache"
+										wire:model="options"
+									/>
 
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-				<div class="col-span-1 sm:col-span-2">
-					<x-typography.title.h3 title="Wir bitten um" />
+									<x-formular.checkbox
+										for="rueckgabe"
+										title="Rückgabe"
+										wire:model="options"
+									/>
 
-					<div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-						<x-formular.checkbox
-							for="anruf-ruecksprache"
-							title="Anruf / Rücksprache"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="kenntnisnahme"
+										title="Kenntnisnahme"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="rueckgabe"
-							title="Rückgabe"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="bericht"
+										title="Bericht"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="kenntnisnahme"
-							title="Kenntnisnahme"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="erledigung"
+										title="Erledigung"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="bericht"
-							title="Bericht"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="weitere-veranlassung"
+										title="Weitere Veranlassung"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="erledigung"
-							title="Erledigung"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="stellungnahme"
+										title="Stellungnahme"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="weitere-veranlassung"
-							title="Weitere Veranlassung"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="pruefung"
+										title="Prüfung"
+										wire:model="options"
+									/>
+								</div>
+							</div>
+							<div class="col-span-1">
+								<x-typography.title.h3 title="Sie erhalten den Vorgang" />
 
-						<x-formular.checkbox
-							for="stellungnahme"
-							title="Stellungnahme"
-							wire:model="options"
-						/>
+								<div class="mt-2 flex flex-col gap-4">
+									<x-formular.checkbox
+										for="zur-unterschrift"
+										title="zur Unterschrift"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="pruefung"
-							title="Prüfung"
-							wire:model="options"
-						/>
-					</div>
-				</div>
-				<div class="col-span-1">
-					<x-typography.title.h3 title="Sie erhalten den Vorgang" />
+									<x-formular.checkbox
+										for="zum-verbleib"
+										title="zum Verbleib"
+										wire:model="options"
+									/>
 
-					<div class="mt-2 flex flex-col gap-4">
-						<x-formular.checkbox
-							for="zur-unterschrift"
-							title="zur Unterschrift"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="zur-weitergabe"
+										title="zur Weitergabe"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="zum-verbleib"
-							title="zum Verbleib"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="zur-vorlage"
+										title="zur Vorlage"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="zur-weitergabe"
-							title="zur Weitergabe"
-							wire:model="options"
-						/>
+									<x-formular.checkbox
+										for="mit-dank-zurueck"
+										title="mit Dank zurück"
+										wire:model="options"
+									/>
 
-						<x-formular.checkbox
-							for="zur-vorlage"
-							title="zur Vorlage"
-							wire:model="options"
-						/>
-
-						<x-formular.checkbox
-							for="mit-dank-zurueck"
-							title="mit Dank zurück"
-							wire:model="options"
-						/>
-
-						<x-formular.checkbox
-							for="anbei-anlagen"
-							title="anbei Anlagen"
-							wire:model="options"
-						/>
-					</div>
+									<x-formular.checkbox
+										for="anbei-anlagen"
+										title="anbei Anlagen"
+										wire:model="options"
+									/>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 

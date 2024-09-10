@@ -43,7 +43,7 @@
 			<div class="col-span-1 sm:col-span-5">
 				<x-formular.input
 					for="search"
-					placeholder="Suche..."
+					placeholder="Suche Kurzbriefe..."
 					wire:keyup.debounce.500ms="updateSearchQuery"
 				/>
 			</div>

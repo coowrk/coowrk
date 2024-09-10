@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\Auth\ShortLetter;
 
+use App\Livewire\Forms\CustomerForm;
 use App\Models\Customer;
 use App\Models\ShortLetter;
 use Illuminate\Support\Arr;
@@ -13,29 +14,7 @@ use Livewire\Component;
 class Create extends Component
 {
     // properties
-    #[Validate(['required', 'in:Herr,Frau,Divers,Firma'])]
-    public $salutation;
-
-    #[Validate(['required', 'min:2', 'max:255'])]
-    public $first_name;
-
-    #[Validate(['max:255', 'required_if:salutation,Herr,Frau,Divers'])]
-    public $last_name;
-
-    #[Validate(['required', 'min:1', 'max:255'])]
-    public $street;
-
-    #[Validate(['required', 'min:1', 'max:255'])]
-    public $house_number;
-
-    #[Validate(['required', 'min:1', 'max:255'])]
-    public $postcode;
-
-    #[Validate(['required', 'min:1', 'max:255'])]
-    public $city;
-
-    #[Validate(['required', 'min:1', 'max:255'])]
-    public $country = 'Deutschland';
+    public CustomerForm $customer;
 
     #[Validate(['required', 'min:1', 'max:255'])]
     public $reason;
@@ -95,15 +74,17 @@ class Create extends Component
     #[On('set.customer-data')]
     public function setCustomerData($customer_id)
     {
+        // fetch user data
         $customer = Customer::find($customer_id);
 
-        $this->salutation = $customer->salutation;
-        $this->first_name = $customer->first_name;
-        $this->last_name = $customer->last_name;
-        $this->street = $customer->street;
-        $this->house_number = $customer->house_number;
-        $this->postcode = $customer->postcode;
-        $this->city = $customer->city;
-        $this->country = $customer->country;
+        // set user data
+        $this->customer->salutation = $customer->salutation;
+        $this->customer->first_name = $customer->first_name;
+        $this->customer->last_name = $customer->last_name;
+        $this->customer->street = $customer->street;
+        $this->customer->house_number = $customer->house_number;
+        $this->customer->postcode = $customer->postcode;
+        $this->customer->city = $customer->city;
+        $this->customer->country = $customer->country;
     }
 }
