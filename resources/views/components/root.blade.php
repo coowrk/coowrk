@@ -24,6 +24,7 @@
 	<title>{{ config('app.name') }}</title>
 
 	{{-- styles --}}
+	@livewireStyles
 	@filamentStyles
 </head>
 
@@ -35,6 +36,7 @@
 
 	{{-- scripts --}}
 	@filamentScripts
+	@livewireScripts
 	@vite('resources/scripts/app.js')
 </body>
 
