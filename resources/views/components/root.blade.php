@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 {{-- html --}}
 <html
 	class="h-full antialiased"
@@ -24,7 +25,6 @@
 
 	{{-- styles --}}
 	@filamentStyles
-	@vite('resources/scripts/app.js')
 </head>
 
 {{-- body --}}
@@ -35,6 +35,7 @@
 
 	{{-- scripts --}}
 	@filamentScripts
+	@vite('resources/scripts/app.js')
 </body>
 
 </html>
