@@ -26,6 +26,7 @@
 	{{-- styles --}}
 	@livewireStyles
 	@filamentStyles
+	@vite('resources/styles/app.css')
 </head>
 
 {{-- body --}}
