@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('telephone')->nullable();
             $table->timestamps();
+            $table->string('full_name')->virtualAs('concat(first_name, \' \', last_name)');
         });
     }
 
