@@ -58,7 +58,8 @@ Route::middleware(['auth'])
                 Route::prefix('broker-authority')
                     ->as('broker-authority.')
                     ->group(function () {
-                        Route::get('/', App\Livewire\Pages\Auth\ServiceTool\ShortLetter\Index::class)->name('index');
+                        Route::get('/', App\Livewire\Pages\Auth\ServiceTool\BrokerAuthority\Index::class)->name('index');
+                        Route::get('create', App\Livewire\Pages\Auth\ServiceTool\BrokerAuthority\Create::class)->name('create');
                     });
             });
     });

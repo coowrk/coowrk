@@ -37,7 +37,7 @@ class Index extends Component
                                 return $query->where($this->search_option, 'LIKE', '%' . $this->search . '%');
                     })
                     ->latest()
-                    ->paginate(10)
+                    ->paginate(1)
             ]
         );
     }
