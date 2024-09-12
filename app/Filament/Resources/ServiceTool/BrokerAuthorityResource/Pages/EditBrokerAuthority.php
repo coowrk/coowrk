@@ -19,7 +19,9 @@ class EditBrokerAuthority extends EditRecord
             Actions\Action::make('pdf')
                 ->label('Download PDF')
                 ->action(function (BrokerAuthority $brokerAuthority) {
-                    return Pdf::loadView('pdf.broker-authority')->download('myfile.pdf');
+                    return Pdf::loadView('pdf.broker-authority', [
+                        'customer' => json_encode($brokerAuthority->customer)
+                    ])->download('myfile.pdf');
                 })
         ];
     }

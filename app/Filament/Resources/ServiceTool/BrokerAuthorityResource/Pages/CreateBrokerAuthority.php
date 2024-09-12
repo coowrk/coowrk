@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\ServiceTool\BrokerAuthorityResource\Pages;
 
 use App\Filament\Resources\ServiceTool\BrokerAuthorityResource;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -32,6 +32,59 @@ class CreateBrokerAuthority extends CreateRecord
     protected function getSteps(): array
     {
         return [
+            Wizard\Step::make('Makler')
+                ->schema([
+                    Select::make('broker_authority_agent_id')
+                        ->prefixIcon('heroicon-s-user')
+                        ->label('Makler')
+                        ->relationship(name: 'agent', titleAttribute: 'name')
+                        ->searchable()
+                        ->preload()
+                        ->createOptionForm([
+                            Grid::make(1)->schema([
+                                FileUpload::make('logo')
+                                    ->label('Logo')
+                            ]),
+
+                            Grid::make(1)->schema([
+                                TextInput::make('name')
+                                    ->label('Name')
+                                    ->required()
+                            ]),
+
+                            Grid::make(5)->schema([
+                                TextInput::make('street')
+                                    ->label('Straße')
+                                    ->columnSpan(4)
+                                    ->required(),
+
+                                TextInput::make('house_number')
+                                    ->label('Hausnummer')
+                                    ->columnSpan(1)
+                                    ->required()
+                            ]),
+
+                            Grid::make(5)->schema([
+                                TextInput::make('postcode')
+                                    ->label('Postleitzahl')
+                                    ->columnSpan(1)
+                                    ->required(),
+
+                                TextInput::make('city')
+                                    ->label('Stadt')
+                                    ->columnSpan(2)
+                                    ->required(),
+
+                                TextInput::make('country')
+                                    ->label('Land')
+                                    ->default('Deutschland')
+                                    ->columnSpan(2)
+                                    ->required(),
+                            ])
+                        ])
+                        ->required()
+                ]),
+
             Wizard\Step::make('Kunde')
                 ->schema([
                     Select::make('customer_id')
