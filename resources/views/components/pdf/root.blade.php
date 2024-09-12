@@ -23,7 +23,7 @@
 			font-weight: 400;
 			padding-left: 96px;
 			padding-right: 96px;
-			font-size: 0.875rem;
+			font-size: 0.813rem;
 		}
 
 		@font-face {

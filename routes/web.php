@@ -9,12 +9,9 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    $customerAll = App\Models\Customer::all();
-
-    foreach ($customerAll as $customer) {
-        Pdf::loadView('pdf.broker-authority', [
-            'customer' => json_encode($customer),
-        ])
-            ->save('maklervollmacht/' . $customer->full_name . '.pdf');
-    }
+    $customer = App\Models\Customer::find(1);
+    return Pdf::loadView('pdf.broker-authority', [
+        'customer' => json_encode($customer),
+    ])
+        ->stream('maklervollmacht.pdf');
 });

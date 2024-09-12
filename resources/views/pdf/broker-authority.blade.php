@@ -12,7 +12,7 @@
 	<section>
 		<x-pdf.table.base>
 			<x-pdf.table.row>
-				<x-pdf.table.data>
+				<x-pdf.table.data style="vertical-align: bottom;">
 					<div>
 						{{ $customer->full_name }}
 					</div>
@@ -27,13 +27,19 @@
 
 				<x-pdf.table.data style="text-align: right">
 					<div>
-						MC Versicherungsservice Rhein-Ruhr GmbH
+						<img
+							src="{{ public_path('images/CL-Logo-Capital-Living-GmbH-smal_0.jpg') }}"
+							style="width: 1024px"
+						>
+					</div>
+					<div style="margin-top:64px">
+						CL Capital Living GmbH
 					</div>
 					<div>
-						Viktor-Reuter-Str. 5
+						Hattinger Str. 574
 					</div>
 					<div>
-						44623 Herne
+						44879 Bochum
 					</div>
 					<div class="text-xs">(nachstehend Versicherungsmakler genannt)</div>
 				</x-pdf.table.data>
