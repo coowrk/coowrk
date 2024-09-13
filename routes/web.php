@@ -8,10 +8,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    $customer = App\Models\Customer::find(1);
-    return Pdf::loadView('pdf.broker-authority', [
-        'customer' => json_encode($customer),
-    ])
-        ->stream('maklervollmacht.pdf');
+Route::get('/generate-broker-authorities', function () {
+    $customerAll = App\Models\Customer::all();
+
+    foreach ($customerAll as $customer)
+        Pdf::loadView('pdf.broker-authority', [
+            'customer' => json_encode($customer),
+        ])
+            ->save('maklervollmacht/' . $customer->full_name . '.pdf');
 });
