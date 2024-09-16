@@ -35,6 +35,11 @@ class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->font(
+                'Inter',
+                url: asset('css/fonts.css'),
+                provider: LocalFontProvider::class,
+            )
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->pages([
@@ -58,12 +63,7 @@ class AppPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->authGuard('web')
-            ->font(
-                'Inter',
-                url: asset('css/fonts.css'),
-                provider: LocalFontProvider::class,
-            )
+            ->authGuard('user')
             ->tenant(Team::class, ownershipRelationship: 'team')
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class);

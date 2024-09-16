@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::create('teams', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('company_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('company_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('slug');
             $table->timestamps();
@@ -38,6 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('companies');
         Schema::dropIfExists('teams');
         Schema::dropIfExists('team_user');
     }

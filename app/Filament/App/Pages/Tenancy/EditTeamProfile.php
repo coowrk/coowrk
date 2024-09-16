@@ -5,7 +5,6 @@ namespace App\Filament\Pages\Tenancy;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\Tenancy\EditTenantProfile;
-use Illuminate\Support\Str;
 
 class EditTeamProfile extends EditTenantProfile
 {
