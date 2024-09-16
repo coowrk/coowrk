@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\App\Resources;
+namespace App\Filament\App\Resources\Management;
 
-use App\Filament\App\Resources\BrokerAttorneyResource\Pages;
-use App\Filament\App\Resources\BrokerAttorneyResource\RelationManagers;
-use App\Models\BrokerAttorney;
+use App\Filament\App\Resources\CustomerResource\Pages;
+use App\Filament\App\Resources\CustomerResource\RelationManagers;
+use App\Models\Customer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,17 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BrokerAttorneyResource extends Resource
+class CustomerResource extends Resource
 {
-    protected static ?string $model = BrokerAttorney::class;
+    // model data
+    protected static ?string $model = Customer::class;
+    protected static ?string $modelLabel = 'Kunde';
+    protected static ?string $pluralModelLabel = 'Kunden';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // navigation
+    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationLabel = 'Kunden';
+    protected static ?string $navigationGroup = 'Verwaltung';
 
     public static function form(Form $form): Form
     {
@@ -56,9 +62,9 @@ class BrokerAttorneyResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrokerAttorneys::route('/'),
-            'create' => Pages\CreateBrokerAttorney::route('/create'),
-            'edit' => Pages\EditBrokerAttorney::route('/{record}/edit'),
+            'index' => Pages\ListCustomers::route('/'),
+            'create' => Pages\CreateCustomer::route('/create'),
+            'edit' => Pages\EditCustomer::route('/{record}/edit'),
         ];
     }
 }

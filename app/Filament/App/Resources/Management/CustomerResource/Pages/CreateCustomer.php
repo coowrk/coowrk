@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\CustomerResource\Pages;
 
-use App\Filament\App\Resources\CustomerResource;
+use App\Filament\App\Resources\Management\CustomerResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 

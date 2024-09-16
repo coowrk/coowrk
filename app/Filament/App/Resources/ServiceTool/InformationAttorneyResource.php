@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Filament\App\Resources;
+namespace App\Filament\App\Resources\ServiceTool;
 
 use App\Filament\App\Resources\InformationAttorneyResource\Pages;
-use App\Filament\App\Resources\InformationAttorneyResource\RelationManagers;
 use App\Models\InformationAttorney;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class InformationAttorneyResource extends Resource
 {
+    // model data
     protected static ?string $model = InformationAttorney::class;
+    protected static ?string $modelLabel = 'Auskunftsvollmacht';
+    protected static ?string $pluralModelLabel = 'Auskunftsvollmächte';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // navigation
+    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationLabel = 'Auskunftsvollmächte';
+    protected static ?string $navigationGroup = 'Service-Tool';
 
     public static function form(Form $form): Form
     {

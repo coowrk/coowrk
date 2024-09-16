@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\InformationAttorneyResource\Pages;
 
-use App\Filament\App\Resources\InformationAttorneyResource;
+use App\Filament\App\Resources\ServiceTool\InformationAttorneyResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 

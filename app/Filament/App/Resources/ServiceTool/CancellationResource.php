@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Filament\App\Resources;
+namespace App\Filament\App\Resources\ServiceTool;
 
 use App\Filament\App\Resources\CancellationResource\Pages;
-use App\Filament\App\Resources\CancellationResource\RelationManagers;
 use App\Models\Cancellation;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CancellationResource extends Resource
 {
+    // model data
     protected static ?string $model = Cancellation::class;
+    protected static ?string $modelLabel = 'Kündigung';
+    protected static ?string $pluralModelLabel = 'Kündigungen';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // navigation
+    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationLabel = 'Kündigungen';
+    protected static ?string $navigationGroup = 'Service-Tool';
 
     public static function form(Form $form): Form
     {

@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\ShortLetterResource\Pages;
 
-use App\Filament\App\Resources\ShortLetterResource;
+use App\Filament\App\Resources\ServiceTool\ShortLetterResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

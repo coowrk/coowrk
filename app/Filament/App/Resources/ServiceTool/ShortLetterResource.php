@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Filament\App\Resources;
+namespace App\Filament\App\Resources\ServiceTool;
 
 use App\Filament\App\Resources\ShortLetterResource\Pages;
-use App\Filament\App\Resources\ShortLetterResource\RelationManagers;
 use App\Models\ShortLetter;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ShortLetterResource extends Resource
 {
+    // model data
     protected static ?string $model = ShortLetter::class;
+    protected static ?string $modelLabel = 'Kurzbrief';
+    protected static ?string $pluralModelLabel = 'Kurzbriefe';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // navigation
+    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationLabel = 'Kurzbriefe';
+    protected static ?string $navigationGroup = 'Service-Tool';
 
     public static function form(Form $form): Form
     {

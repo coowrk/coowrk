@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cancellations', function (Blueprint $table) {
             // ids
             $table->id();
+            $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
 
             // timestamps
             $table->timestamps();

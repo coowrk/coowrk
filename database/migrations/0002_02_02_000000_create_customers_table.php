@@ -15,9 +15,9 @@ return new class extends Migration
             // ids
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
-            $table->string('salutation')->enum(['male', 'female', 'divers', 'company']);
 
             // properties
+            $table->string('salutation')->enum(['male', 'female', 'divers', 'company']);
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('street');
