@@ -49,16 +49,40 @@ class User extends Authenticatable implements HasTenants
         ];
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Multi-Tenancy
+    |--------------------------------------------------------------------------
+    |
+    | The following functions are used to secure and filter data records.
+    |
+    */
+
+    /**
+     * Get all teams associated with the user.
+     * 
+     * @return array|Collection
+     */
     public function getTenants(Panel $panel): array|Collection
     {
         return $this->teams;
     }
 
+    /**
+     * The teams that belong to the user.
+     * 
+     * @return BelongsToMany
+     */
     public function teams(): BelongsToMany
     {
         return $this->belongsToMany(Team::class);
     }
 
+    /**
+     * Check whether the user has access to the team and therefore access to the panel.
+     * 
+     * @return bool
+     */
     public function canAccessTenant(Model $tenant): bool
     {
         return $this->teams->contains($tenant);

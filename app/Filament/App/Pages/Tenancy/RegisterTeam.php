@@ -3,9 +3,11 @@
 namespace App\Filament\App\Pages\Tenancy;
 
 use App\Models\Team;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\Tenancy\RegisterTenant;
+use Illuminate\Support\Str;
 
 class RegisterTeam extends RegisterTenant
 {
@@ -27,7 +29,10 @@ class RegisterTeam extends RegisterTenant
     {
         $team = Team::create($data);
 
-        $team->members()->attach(auth()->user());
+        $team->members()->attach(
+            auth()->user(),
+            ['id' => Str::lower(Str::ulid())]
+        );
 
         return $team;
     }

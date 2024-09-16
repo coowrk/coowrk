@@ -11,15 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('companies', function (Blueprint $table) {
+            $table->ulid('id')->primary();
+            $table->string('name');
+            $table->timestamps();
+        });
+
         Schema::create('teams', function (Blueprint $table) {
             $table->ulid('id')->primary();
+            $table->foreignUlid('company_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('slug');
             $table->timestamps();
         });
 
         Schema::create('team_user', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
