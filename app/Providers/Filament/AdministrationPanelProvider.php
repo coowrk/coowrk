@@ -18,22 +18,23 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdministratorPanelProvider extends PanelProvider
+class AdministrationPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('administrator')
-            ->path('administrator')
+            ->id('administration')
+            ->path('administration')
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Administrator/Resources'), for: 'App\\Filament\\Administrator\\Resources')
-            ->discoverPages(in: app_path('Filament/Administrator/Pages'), for: 'App\\Filament\\Administrator\\Pages')
+            ->login()
+            ->discoverResources(in: app_path('Filament/Administration/Resources'), for: 'App\\Filament\\Administration\\Resources')
+            ->discoverPages(in: app_path('Filament/Administration/Pages'), for: 'App\\Filament\\Administration\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Administrator/Widgets'), for: 'App\\Filament\\Administrator\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Administration/Widgets'), for: 'App\\Filament\\Administration\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
