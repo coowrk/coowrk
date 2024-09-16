@@ -2,9 +2,9 @@
 
 namespace App\Filament\App\Resources;
 
-use App\Filament\App\Resources\BrokerAuthorityResource\Pages;
-use App\Filament\App\Resources\BrokerAuthorityResource\RelationManagers;
-use App\Models\BrokerAuthority;
+use App\Filament\App\Resources\BrokerAttorneyResource\Pages;
+use App\Filament\App\Resources\BrokerAttorneyResource\RelationManagers;
+use App\Models\BrokerAttorney;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BrokerAuthorityResource extends Resource
+class BrokerAttorneyResource extends Resource
 {
-    protected static ?string $model = BrokerAuthority::class;
+    protected static ?string $model = BrokerAttorney::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -56,9 +56,9 @@ class BrokerAuthorityResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrokerAuthorities::route('/'),
-            'create' => Pages\CreateBrokerAuthority::route('/create'),
-            'edit' => Pages\EditBrokerAuthority::route('/{record}/edit'),
+            'index' => Pages\ListBrokerAttorneys::route('/'),
+            'create' => Pages\CreateBrokerAttorney::route('/create'),
+            'edit' => Pages\EditBrokerAttorney::route('/{record}/edit'),
         ];
     }
 }
