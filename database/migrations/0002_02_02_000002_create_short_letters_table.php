@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('short_letters', function (Blueprint $table) {
+            // ids
             $table->id();
+
+            // timestamps
             $table->timestamps();
         });
     }

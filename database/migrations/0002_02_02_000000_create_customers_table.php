@@ -12,8 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
+            // ids
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
+            $table->string('salutation')->enum(['male', 'female', 'divers', 'company']);
+
+            // properties
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
+            $table->string('street');
+            $table->string('house_number');
+            $table->string('postalcode');
+            $table->string('city');
+            $table->string('country');
+
+            // timestamps
             $table->timestamps();
         });
     }
