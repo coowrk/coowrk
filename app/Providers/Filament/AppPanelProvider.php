@@ -2,7 +2,8 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Tenancy\RegisterTeam;
+use App\Filament\App\Pages\Tenancy\RegisterTeam;
+use App\Filament\Pages\Tenancy\EditTeamProfile;
 use App\Models\Team;
 use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
@@ -62,6 +63,9 @@ class AppPanelProvider extends PanelProvider
                 'Inter',
                 url: asset('css/fonts.css'),
                 provider: LocalFontProvider::class,
-            );
+            )
+            ->tenant(Team::class, ownershipRelationship: 'team')
+            ->tenantRegistration(RegisterTeam::class)
+            ->tenantProfile(EditTeamProfile::class);
     }
 }
