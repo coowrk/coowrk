@@ -29,7 +29,6 @@ return new class extends Migration
 
             // properties
             $table->string('name');
-            $table->string('slug');
 
             // timestamps
             $table->timestamps();

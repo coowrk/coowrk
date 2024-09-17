@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('short_letters', function (Blueprint $table) {
             // ids
-            $table->id();
+            $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
 
             // timestamps

@@ -104,12 +104,6 @@ class CustomerResource extends Resource
             ])
             ->searchPlaceholder('Suche (Name, Straße, ...)')
             ->defaultSort('created_at', 'desc')
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(CustomerExporter::class),
-                ImportAction::make()
-                    ->importer(CustomerImporter::class)
-            ])
             ->filters([
                 SelectFilter::make('salutation')
                     ->label('Anrede')
