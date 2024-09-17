@@ -116,10 +116,13 @@ class CustomerResource extends Resource
                     Tables\Actions\DeleteAction::make(),
                 ])
             ])
+            ->headerActions([
+                Tables\Actions\ImportAction::make()
+                    ->label('Kunden importieren')
+                    ->importer(CustomerImporter::class)
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\ExportBulkAction::make()
-                        ->exporter(CustomerExporter::class),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);

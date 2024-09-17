@@ -13,18 +13,22 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             // ids
-            $table->ulid('id')->primary();
-            $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
+            $table->ulid('id')
+                ->primary();
+            $table->foreignUlid('team_id')
+                ->nullable()
+                ->constrained()
+                ->cascadeOnDelete();
 
             // properties
-            $table->string('salutation')->enum(['male', 'female', 'divers', 'company', 'not_specified']);
+            $table->enum('salutation', ['male', 'female', 'divers', 'company', 'not_specified']);
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('street');
             $table->string('house_number');
             $table->string('postalcode');
             $table->string('city');
-            $table->string('country');
+            $table->string('country')->nullable();
 
             // timestamps
             $table->timestamps();
