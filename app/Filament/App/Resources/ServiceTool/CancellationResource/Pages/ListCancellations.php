@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\CancellationResource\Pages;
+namespace App\Filament\App\Resources\ServiceTool\CancellationResource\Pages;
 
 use App\Filament\App\Resources\ServiceTool\CancellationResource;
 use Filament\Actions;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\BrokerAttorneyResource\Pages;
+namespace App\Filament\App\Resources\ServiceTool\BrokerAttorneyResource\Pages;
 
 use App\Filament\App\Resources\ServiceTool\BrokerAttorneyResource;
 use Filament\Actions;

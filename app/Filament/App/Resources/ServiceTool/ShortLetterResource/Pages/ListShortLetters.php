@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\ShortLetterResource\Pages;
+namespace App\Filament\App\Resources\ServiceTool\ShortLetterResource\Pages;
 
 use App\Filament\App\Resources\ServiceTool\ShortLetterResource;
 use Filament\Actions;

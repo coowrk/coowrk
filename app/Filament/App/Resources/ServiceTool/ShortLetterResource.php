@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
-use App\Filament\App\Resources\ShortLetterResource\Pages;
+use App\Filament\App\Resources\ServiceTool\ShortLetterResource\Pages;
 use App\Models\ShortLetter;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\InformationAttorneyResource\Pages;
+namespace App\Filament\App\Resources\ServiceTool\InformationAttorneyResource\Pages;
 
 use App\Filament\App\Resources\ServiceTool\InformationAttorneyResource;
 use Filament\Actions;

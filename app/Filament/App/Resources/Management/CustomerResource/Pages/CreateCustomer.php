@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\CustomerResource\Pages;
+namespace App\Filament\App\Resources\Management\CustomerResource\Pages;
 
 use App\Filament\App\Resources\Management\CustomerResource;
 use Filament\Actions;

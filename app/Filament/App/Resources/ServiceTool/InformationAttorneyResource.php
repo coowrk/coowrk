@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
-use App\Filament\App\Resources\InformationAttorneyResource\Pages;
+use App\Filament\App\Resources\ServiceTool\InformationAttorneyResource\Pages;
 use App\Models\InformationAttorney;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

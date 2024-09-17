@@ -3,7 +3,7 @@
 namespace App\Filament\App\Resources\Management;
 
 use App\Filament\Components\Forms\CustomerForm;
-use App\Filament\App\Resources\CustomerResource\Pages;
+use App\Filament\App\Resources\Management\CustomerResource\Pages;
 use App\Filament\Components\Enums\UserSalutationEnum;
 use App\Filament\Exports\CustomerExporter;
 use App\Filament\Imports\CustomerImporter;

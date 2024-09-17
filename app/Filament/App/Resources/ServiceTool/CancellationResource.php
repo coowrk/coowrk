@@ -2,7 +2,7 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
-use App\Filament\App\Resources\CancellationResource\Pages;
+use App\Filament\App\Resources\ServiceTool\CancellationResource\Pages;
 use App\Models\Cancellation;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
