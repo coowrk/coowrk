@@ -17,9 +17,10 @@ class CancellationResource extends Resource
     protected static ?string $pluralModelLabel = 'Kündigungen';
 
     // navigation
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'icon-x-circle';
     protected static ?string $navigationLabel = 'Kündigungen';
     protected static ?string $navigationGroup = 'Service-Tool';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

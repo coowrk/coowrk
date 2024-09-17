@@ -17,9 +17,10 @@ class ShortLetterResource extends Resource
     protected static ?string $pluralModelLabel = 'Kurzbriefe';
 
     // navigation
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'heroicon-s-envelope';
     protected static ?string $navigationLabel = 'Kurzbriefe';
     protected static ?string $navigationGroup = 'Service-Tool';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

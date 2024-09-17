@@ -2,25 +2,25 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
-use App\Filament\App\Resources\ServiceTool\BrokerAttorneyResource\Pages;
-use App\Models\BrokerAttorney;
+use App\Filament\App\Resources\ServiceTool\ChangeOfSupervisorResource\Pages;
+use App\Models\ChangeOfSupervisor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class BrokerAttorneyResource extends Resource
+class ChangeOfSupervisorResource extends Resource
 {
     // model data
-    protected static ?string $model = BrokerAttorney::class;
-    protected static ?string $modelLabel = 'Maklervollmacht';
-    protected static ?string $pluralModelLabel = 'Maklervollmächte';
+    protected static ?string $model = ChangeOfSupervisor::class;
+    protected static ?string $modelLabel = 'Betreuerwechsel';
+    protected static ?string $pluralModelLabel = 'Betreuerwechsel';
 
     // navigation
-    protected static ?string $navigationIcon = 'icon-shield-exclamation';
-    protected static ?string $navigationLabel = 'Maklervollmächte';
+    protected static ?string $navigationIcon = 'icon-users';
+    protected static ?string $navigationLabel = 'Betreuerwechsel';
     protected static ?string $navigationGroup = 'Service-Tool';
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -59,9 +59,9 @@ class BrokerAttorneyResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrokerAttorneys::route('/'),
-            'create' => Pages\CreateBrokerAttorney::route('/create'),
-            'edit' => Pages\EditBrokerAttorney::route('/{record}/edit'),
+            'index' => Pages\ListChangeOfSupervisors::route('/'),
+            'create' => Pages\CreateChangeOfSupervisor::route('/create'),
+            'edit' => Pages\EditChangeOfSupervisor::route('/{record}/edit'),
         ];
     }
 }

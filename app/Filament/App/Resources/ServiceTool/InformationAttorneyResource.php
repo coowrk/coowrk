@@ -17,9 +17,10 @@ class InformationAttorneyResource extends Resource
     protected static ?string $pluralModelLabel = 'Auskunftsvollmächte';
 
     // navigation
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'icon-shield-exclamation';
     protected static ?string $navigationLabel = 'Auskunftsvollmächte';
     protected static ?string $navigationGroup = 'Service-Tool';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
