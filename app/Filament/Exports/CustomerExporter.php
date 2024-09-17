@@ -14,7 +14,8 @@ class CustomerExporter extends Exporter
     public static function getColumns(): array
     {
         return [
-            ExportColumn::make('salutation'),
+            ExportColumn::make('salutation')
+                ->getStateUsing(fn(Customer $record): string => $record->getRawOriginal('salutation', 'not_specified')),
             ExportColumn::make('first_name'),
             ExportColumn::make('last_name'),
             ExportColumn::make('street'),

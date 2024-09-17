@@ -28,7 +28,7 @@ class MakeUser extends Command
     {
         $name = $this->ask('Name', 'admin');
         $email = $this->ask('E-Mail', 'admin@admin.com');
-        $password = $this->secret('Password');
+        $password = $this->ask('Password', 'password');
 
         User::create([
             'name' => $name,
