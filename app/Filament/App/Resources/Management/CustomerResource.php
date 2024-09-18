@@ -5,18 +5,15 @@ namespace App\Filament\App\Resources\Management;
 use App\Filament\Components\Forms\CustomerForm;
 use App\Filament\App\Resources\Management\CustomerResource\Pages;
 use App\Filament\Components\Enums\UserSalutationEnum;
-use App\Filament\Exports\CustomerExporter;
 use App\Filament\Imports\CustomerImporter;
 use App\Models\Customer;
 use Filament\Forms\Form;
+use Filament\Pages\SubNavigationPosition;
+use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
 use Filament\Tables;
-use Filament\Tables\Actions\ExportAction;
-use Filament\Tables\Actions\ImportAction;
-use Filament\Tables\Columns\ColumnGroup;
-use Filament\Tables\Columns\Layout\Grid;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\{ColumnGroup, TextColumn};
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
@@ -34,12 +31,25 @@ class CustomerResource extends Resource
     protected static ?string $navigationLabel = 'Kunden';
     protected static ?string $navigationGroup = 'Verwaltung';
 
+    // subnavigation
+    protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Start;
+
+    /**
+     * Create a form for the create and edit resource.
+     * 
+     * @return Form
+     */
     public static function form(Form $form): Form
     {
         return $form
             ->schema(CustomerForm::schema());
     }
 
+    /**
+     * Create a table for the listing resource.
+     * 
+     * @return Table 
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -126,34 +136,57 @@ class CustomerResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ->paginated([10, 25, 50]);;
+            ->paginated([10, 25, 50])
+            ->recordUrl(fn(Customer $record): string => self::getUrl('view', [$record]));
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
+    /**
+     * Get all available pages for this resource.
+     * 
+     * @return array
+     */
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListCustomers::route('/'),
             'create' => Pages\CreateCustomer::route('/create'),
+            'view' => Pages\ViewCustomer::route('/{record}'),
             'edit' => Pages\EditCustomer::route('/{record}/edit'),
+            'contacts' => Pages\ManageCustomerContacts::route('/{record}/contacts'),
         ];
     }
 
-    // global search results title
+    /**
+     * Set the sub navigation items.
+     * 
+     * @return array
+     */
+    public static function getRecordSubNavigation(Page $page): array
+    {
+        return $page->generateNavigationItems([
+            Pages\ViewCustomer::class,
+            Pages\EditCustomer::class,
+            Pages\ManageCustomerContacts::class
+        ]);
+    }
+
+    /**
+     * How the record is presented on the global search modal.
+     * 
+     * @return array
+     */
     public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return "{$record->first_name} {$record->last_name}";
     }
 
-    // global searchable attributes
+    /**
+     * Set the attributes which should be searchable on the global search modal.
+     * 
+     * @return array
+     */
     public static function getGloballySearchableAttributes(): array
     {
-        return ['first_name', 'last_name'];
+        return ['first_name', 'last_name', 'street', 'postalcode', 'city', 'contacts.value'];
     }
 }

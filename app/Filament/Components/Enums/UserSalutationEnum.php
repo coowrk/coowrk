@@ -12,6 +12,11 @@ enum UserSalutationEnum: string implements HasLabel
     case Company = 'company';
     case NotSpecified = 'not_specified';
 
+    /**
+     * Cast the 'input' to a string
+     * 
+     * @return string
+     */
     public function getLabel(): ?string
     {
         return match ($this) {

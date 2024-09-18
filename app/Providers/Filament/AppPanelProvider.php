@@ -13,6 +13,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -64,9 +65,10 @@ class AppPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->authGuard('user')
+            ->globalSearchKeyBindings(['command+s', 'ctrl+s'])
+            ->maxContentWidth(MaxWidth::ScreenTwoExtraLarge)
             ->tenant(Team::class, ownershipRelationship: 'team')
             ->tenantRegistration(RegisterTeam::class)
-            ->tenantProfile(EditTeamProfile::class)
-            ->globalSearchKeyBindings(['command+s', 'ctrl+s']);
+            ->tenantProfile(EditTeamProfile::class);
     }
 }

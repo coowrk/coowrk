@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
 {
@@ -19,7 +20,6 @@ class Customer extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'team_id',
         'salutation',
         'first_name',
@@ -43,6 +43,11 @@ class Customer extends Model
         ];
     }
 
+    /**
+     * Mutate the first and last name to full name
+     *
+     * @return Attribute|string
+     */
     protected function fullName(): Attribute
     {
         return Attribute::make(
@@ -58,5 +63,15 @@ class Customer extends Model
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
+    }
+
+    /**
+     * The contacts that are associated with the customer.
+     * 
+     * @return HasMany
+     */
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(CustomerContact::class);
     }
 }

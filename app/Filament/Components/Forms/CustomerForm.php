@@ -17,6 +17,7 @@ class CustomerForm
                         Select::make('salutation')
                             ->name('Anrede')
                             ->options(UserSalutationEnum::class)
+                            ->native(false)
                             ->required()
                             ->live(),
 
