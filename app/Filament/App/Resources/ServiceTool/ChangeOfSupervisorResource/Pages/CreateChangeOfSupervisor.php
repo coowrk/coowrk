@@ -7,5 +7,6 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateChangeOfSupervisor extends CreateRecord
 {
+    // resource
     protected static string $resource = ChangeOfSupervisorResource::class;
 }

@@ -8,8 +8,14 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListCancellations extends ListRecords
 {
+    // resource
     protected static string $resource = CancellationResource::class;
 
+    /**
+     * Set the header actions for this resource.
+     * 
+     * @return array
+     */
     protected function getHeaderActions(): array
     {
         return [

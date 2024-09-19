@@ -8,8 +8,14 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListInformationAttorneys extends ListRecords
 {
+    // resource
     protected static string $resource = InformationAttorneyResource::class;
 
+    /**
+     * Set the header actions for this resource.
+     * 
+     * @return array
+     */
     protected function getHeaderActions(): array
     {
         return [

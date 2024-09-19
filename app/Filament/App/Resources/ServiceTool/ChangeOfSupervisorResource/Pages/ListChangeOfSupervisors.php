@@ -8,8 +8,14 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListChangeOfSupervisors extends ListRecords
 {
+    // resource
     protected static string $resource = ChangeOfSupervisorResource::class;
 
+    /**
+     * Set the header actions for this resource.
+     * 
+     * @return array
+     */
     protected function getHeaderActions(): array
     {
         return [

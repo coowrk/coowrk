@@ -8,8 +8,14 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditInformationAttorney extends EditRecord
 {
+    // resource
     protected static string $resource = InformationAttorneyResource::class;
 
+    /**
+     * Set the header actions for this resource.
+     * 
+     * @return array
+     */
     protected function getHeaderActions(): array
     {
         return [

@@ -7,5 +7,6 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateShortLetter extends CreateRecord
 {
+    // resource
     protected static string $resource = ShortLetterResource::class;
 }

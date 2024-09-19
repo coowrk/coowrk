@@ -7,5 +7,6 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateCancellation extends CreateRecord
 {
+    // resource
     protected static string $resource = CancellationResource::class;
 }

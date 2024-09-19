@@ -7,5 +7,6 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateInformationAttorney extends CreateRecord
 {
+    // resource
     protected static string $resource = InformationAttorneyResource::class;
 }

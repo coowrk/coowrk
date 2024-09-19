@@ -22,6 +22,11 @@ class BrokerAttorneyResource extends Resource
     protected static ?string $navigationGroup = 'Service-Tool';
     protected static ?int $navigationSort = 0;
 
+    /**
+     * Create a form for the create and edit resource.
+     * 
+     * @return Form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -30,6 +35,11 @@ class BrokerAttorneyResource extends Resource
             ]);
     }
 
+    /**
+     * Create a table for the listing resource.
+     * 
+     * @return Table 
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -49,13 +59,11 @@ class BrokerAttorneyResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
+    /**
+     * Get all available pages for this resource.
+     * 
+     * @return array
+     */
     public static function getPages(): array
     {
         return [
