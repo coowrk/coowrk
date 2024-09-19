@@ -3,6 +3,7 @@
 namespace App\Filament\App\Resources\ServiceTool;
 
 use App\Filament\App\Resources\ServiceTool\ShortLetterResource\Pages;
+use App\Filament\Components\Forms\ShortLetterForm;
 use App\Models\ShortLetter;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -30,9 +31,7 @@ class ShortLetterResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+            ->schema(ShortLetterForm::schema());
     }
 
     /**

@@ -37,7 +37,7 @@ class CustomerForm
                             ->name('Nachname')
                             ->columnSpan([1, 'lg' => 2])
                             ->hidden(fn(Get $get): bool => ($get('salutation') == 'company'))
-                            ->requiredIf('salutation', ['male', 'female', 'divers'])
+                            ->required(fn(Get $get): bool => !($get('salutation') == 'company'))
                     ]),
                 ]),
 

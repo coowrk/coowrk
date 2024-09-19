@@ -15,6 +15,15 @@ return new class extends Migration
             // ids
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
+
+            // properties
+            $table->date('sent_at');
+            $table->string('sent_from');
+            $table->string('title');
+            $table->string('description');
+            $table->json('we_ask_for_options');
+            $table->json('you_receive_this_process_options');
 
             // timestamps
             $table->timestamps();
