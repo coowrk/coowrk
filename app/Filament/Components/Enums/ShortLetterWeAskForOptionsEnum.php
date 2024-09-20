@@ -2,13 +2,10 @@
 
 namespace App\Filament\Components\Enums;
 
-use App\Traits\EnumValues;
 use Filament\Support\Contracts\HasLabel;
 
 enum ShortLetterWeAskForOptionsEnum: string implements HasLabel
 {
-    use EnumValues;
-
     case Call = 'call';
     case Return = 'return';
     case Acknowledgment = 'acknowledgment';

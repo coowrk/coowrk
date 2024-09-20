@@ -2,13 +2,10 @@
 
 namespace App\Filament\Components\Enums;
 
-use App\Traits\EnumValues;
 use Filament\Support\Contracts\HasLabel;
 
 enum ShortLetterYouReceiveThisProcessOptionsEnum: string implements HasLabel
 {
-    use EnumValues;
-
     case ForSignature = 'for_signature';
     case ToRemain = 'to_remain';
     case ForDistribution = 'for_distribution';

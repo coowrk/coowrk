@@ -7,15 +7,17 @@ use App\Models\Customer;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
-use Filament\Forms\Components\Checkbox;
 use Illuminate\Validation\Rules\Enum;
 
 class CustomerImporter extends Importer
 {
+    // model
     protected static ?string $model = Customer::class;
 
+    // tenant
     public $tenant = null;
 
+    // constructor
     public function __construct(
         protected Import $import,
         protected array $columnMap,
@@ -24,6 +26,11 @@ class CustomerImporter extends Importer
         $this->tenant = filament()->getTenant();
     }
 
+    /**
+     * Get all columns of the table.
+     * 
+     * @return array
+     */
     public static function getColumns(): array
     {
         return [
@@ -74,18 +81,25 @@ class CustomerImporter extends Importer
         ];
     }
 
+    /**
+     * Resolve every single entry.
+     * 
+     * @return ?Customer
+     */
     public function resolveRecord(): ?Customer
     {
+        Customer::unsetEventDispatcher();
+
         return Customer::create($this->data)
             ->team()
             ->associate($this->tenant);
     }
 
-    protected function afterCreate(): void
-    {
-        $this->getRecord()->syncToCurrentTenant(filament()->getTenant()->id);
-    }
-
+    /**
+     * Get user notification.
+     * 
+     * @return string;
+     */
     public static function getCompletedNotificationBody(Import $import): string
     {
         $body = 'Your customer import has completed and ' . number_format($import->successful_rows) . ' ' . str('row')->plural($import->successful_rows) . ' imported.';
