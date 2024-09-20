@@ -3,9 +3,7 @@
 namespace App\Filament\App\Pages\Tenancy;
 
 use App\Models\Team;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\{Section, TextInput};
 use Filament\Forms\Form;
 use Filament\Pages\Tenancy\RegisterTenant;
 use Illuminate\Support\Str;
@@ -21,13 +19,10 @@ class RegisterTeam extends RegisterTenant
     {
         return $form
             ->schema([
-                Grid::make(3)
+                Section::make()
+                    ->columnSpan(1)
                     ->schema([
-                        Section::make()
-                            ->columnSpan(1)
-                            ->schema([
-                                TextInput::make('name'),
-                            ])
+                        TextInput::make('name'),
                     ])
             ]);
     }

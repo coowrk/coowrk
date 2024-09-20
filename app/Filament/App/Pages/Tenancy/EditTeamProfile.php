@@ -1,10 +1,11 @@
 <?php
 
+// !
+// TODO: CLUSTER mit Navigation. (Einstellungen -> Allgemein, Mitglieder, Öffnungszeiten)
+
 namespace App\Filament\App\Pages\Tenancy;
 
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\{Grid, Section, TextInput};
 use Filament\Forms\Form;
 use Filament\Pages\Tenancy\EditTenantProfile;
 
@@ -39,24 +40,29 @@ class EditTeamProfile extends EditTenantProfile
                                     ->disabled(),
                             ]),
 
-                        Section::make('Adresse')
+                        Grid::make(1)
                             ->columnSpan(2)
-                            ->columns(2)
                             ->schema([
-                                TextInput::make('street')
-                                    ->label('Straße'),
+                                Section::make('Adresse')
+                                    ->columns(4)
+                                    ->schema([
+                                        TextInput::make('street')
+                                            ->label('Straße')
+                                            ->columnSpan(3),
 
-                                TextInput::make('house_number')
-                                    ->label('Hausnummer'),
+                                        TextInput::make('house_number')
+                                            ->label('Hausnummer'),
 
-                                TextInput::make('postalcode')
-                                    ->label('Postleitzahl'),
+                                        TextInput::make('postalcode')
+                                            ->label('Postleitzahl'),
 
-                                TextInput::make('city')
-                                    ->label('Stadt'),
+                                        TextInput::make('city')
+                                            ->label('Stadt')
+                                            ->columnSpan(2),
 
-                                TextInput::make('country')
-                                    ->label('Land'),
+                                        TextInput::make('country')
+                                            ->label('Land'),
+                                    ]),
                             ])
                     ])
             ]);

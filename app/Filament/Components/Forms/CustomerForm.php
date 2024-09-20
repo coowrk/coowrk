@@ -69,6 +69,7 @@ class CustomerForm
                         TextInput::make('country')
                             ->name('Land')
                             ->columnSpan([1, 'sm' => 2, 'lg' => 1])
+                            ->default(filament()->getTenant()->country)
                             ->required(),
                     ])
                 ])

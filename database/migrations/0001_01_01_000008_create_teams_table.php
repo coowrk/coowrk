@@ -29,6 +29,11 @@ return new class extends Migration
 
             // properties
             $table->string('name');
+            $table->string('street')->nullable();
+            $table->string('house_number')->nullable();
+            $table->string('postalcode')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
 
             // timestamps
             $table->timestamps();

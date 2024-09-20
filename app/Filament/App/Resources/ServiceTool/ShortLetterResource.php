@@ -7,7 +7,10 @@ use App\Filament\Components\Forms\ShortLetterForm;
 use App\Models\ShortLetter;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Tables;
+use Filament\Tables\Columns\ColumnGroup;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class ShortLetterResource extends Resource
@@ -43,19 +46,59 @@ class ShortLetterResource extends Resource
     {
         return $table
             ->columns([
-                //
+                // customer
+                ColumnGroup::make('Kunde')
+                    ->columns([
+                        // salutation
+                        TextColumn::make('customer.salutation')
+                            ->label('Anrede')
+                            ->placeholder('Keine Angabe')
+                            ->color(Color::Zinc)
+                            ->searchable()
+                            ->sortable()
+                            ->toggleable(),
+
+                        // full_name
+                        TextColumn::make('customer.full_name')
+                            ->label('Name')
+                            ->searchable(['first_name', 'last_name'])
+                            ->sortable(['first_name', 'last_name'])
+                    ]),
+
+                // short-letter
+                ColumnGroup::make('Brief')
+                    ->columns([
+                        // salutation
+                        TextColumn::make('title')
+                            ->label('Betreff')
+                            ->placeholder('Keine Angabe')
+                            ->searchable()
+                            ->sortable(),
+                    ]),
+
+                // created_at
+                TextColumn::make('created_at')
+                    ->label('Erstellt am')
+                    ->date('d.m.Y')
+                    ->color(Color::Zinc)
+                    ->alignEnd()
+                    ->sortable()
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->paginated([10, 25, 50]);
     }
 
     /**

@@ -1,9 +1,5 @@
 <?php
 
-// TODO
-// ! Kunden die über Select erstellt werden, werden ohne team_id abgespeichert
-// ! Ebenfalls werden alle Kunden ohne berücksichtigung auf team_id gelistet
-
 namespace App\Filament\Components\Forms;
 
 use App\Filament\Components\Enums\ShortLetterWeAskForOptionsEnum;
@@ -28,7 +24,6 @@ class ShortLetterForm
                                 ->getOptionLabelFromRecordUsing(fn(Customer $record) => "{$record->first_name} {$record->last_name}")
                                 ->searchable(['first_name', 'last_name'])
                                 ->selectablePlaceholder(false)
-                                // ->createOptionUsing(fn($data) => Filament::getTenant()->customers()->create($data))
                                 ->createOptionForm(CustomerForm::schema())
                                 ->createOptionAction(fn($action) => $action->modalWidth('7xl'))
                                 ->createOptionModalHeading('Empfänger erstellen')
@@ -42,7 +37,8 @@ class ShortLetterForm
                         ->schema([
                             TextInput::make('sent_from')
                                 ->label('Stadt')
-                                ->required(),
+                                ->required()
+                                ->default(filament()->getTenant()->city),
 
                             DatePicker::make('sent_at')
                                 ->label('Datum')

@@ -26,7 +26,11 @@ class Team extends Model implements HasName
      */
     protected $fillable = [
         'name',
-        'slug'
+        'street',
+        'house_number',
+        'postalcode',
+        'city',
+        'country'
     ];
 
     /**
