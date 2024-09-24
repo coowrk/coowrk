@@ -9,6 +9,7 @@ use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -69,6 +70,10 @@ class AppPanelProvider extends PanelProvider
             ->maxContentWidth(MaxWidth::ScreenTwoExtraLarge)
             ->tenant(Team::class, ownershipRelationship: 'team')
             ->tenantRegistration(RegisterTeam::class)
-            ->tenantProfile(EditTeamProfile::class);
+            ->tenantProfile(EditTeamProfile::class)
+            ->tenantMenuItems([
+                // 'edit' => MenuItem::make()->visible(fn(): bool => ),
+                'register' => MenuItem::make()->hidden()
+            ]);
     }
 }

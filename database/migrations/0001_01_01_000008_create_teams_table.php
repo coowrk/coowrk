@@ -45,6 +45,9 @@ return new class extends Migration
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
+            // properties
+            $table->enum('role', ['editor', 'owner'])->default('editor');
+
             // timestamp
             $table->timestamps();
         });
