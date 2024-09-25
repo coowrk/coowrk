@@ -9,4 +9,6 @@ class CreateShortLetter extends CreateRecord
 {
     // resource
     protected static string $resource = ShortLetterResource::class;
+
+    public $customer_signatures = [];
 }

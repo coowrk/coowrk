@@ -32,8 +32,8 @@ class RegisterTeam extends RegisterTenant
         $team = Team::create($data);
 
         $team->members()->attach(
-            auth()->user(),
-            ['id' => Str::lower(Str::ulid())]
+            ['id' => Str::lower(Str::ulid())],
+            auth()->user()
         );
 
         return $team;

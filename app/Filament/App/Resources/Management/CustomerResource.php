@@ -153,6 +153,7 @@ class CustomerResource extends Resource
             'view' => Pages\ViewCustomer::route('/{record}'),
             'edit' => Pages\EditCustomer::route('/{record}/edit'),
             'contacts' => Pages\ManageCustomerContacts::route('/{record}/contacts'),
+            'signatures' => Pages\ManageCustomerSignatures::route('/{record}/signatures'),
         ];
     }
 
@@ -166,7 +167,8 @@ class CustomerResource extends Resource
         return $page->generateNavigationItems([
             Pages\ViewCustomer::class,
             Pages\EditCustomer::class,
-            Pages\ManageCustomerContacts::class
+            Pages\ManageCustomerContacts::class,
+            Pages\ManageCustomerSignatures::class
         ]);
     }
 

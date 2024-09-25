@@ -49,6 +49,16 @@ return new class extends Migration
             // timestamps
             $table->timestamps();
         });
+
+        Schema::create('customer_signature', function (Blueprint $table) {
+            // ids
+            $table->id();
+            $table->foreignUlid('signature_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
+
+            // timestamps
+            $table->timestamps();
+        });
     }
 
     /**
@@ -58,5 +68,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('customers');
         Schema::dropIfExists('customer_contacts');
+        Schema::dropIfExists('customer_signature');
     }
 };

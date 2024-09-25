@@ -28,6 +28,10 @@ return new class extends Migration
                 ->default(0)
                 ->comment('{0 => created today}, {1 => on the post way}, {2 => customer should received letter}, {3 => letter came back}');
 
+            // development
+            if (app()->isLocal())
+                $table->binary('signature');
+
             // timestamps
             $table->timestamps();
         });
