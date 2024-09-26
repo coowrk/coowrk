@@ -20,8 +20,8 @@ return new class extends Migration
             // properties
             $table->string('contract_number');
             $table->json('sections');
-            $table->boolean('existing_contracts');
-            $table->boolean('coverage_done');
+            $table->boolean('existing_contracts')->default(false);
+            $table->boolean('coverage_finished')->default(false);
 
             // timestamps
             $table->date('expiration_at');

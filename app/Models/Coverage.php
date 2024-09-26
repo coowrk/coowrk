@@ -23,7 +23,7 @@ class Coverage extends Model
         'expiration_at',
         'coverable_at',
         'existing_contracts',
-        'coverage_done'
+        'coverage_finished'
     ];
 
     /**

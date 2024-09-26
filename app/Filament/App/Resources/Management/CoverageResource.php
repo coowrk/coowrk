@@ -9,6 +9,7 @@ use App\Filament\App\Resources\Management\CustomerResource\Forms\CoverageForm;
 use App\Models\Coverage;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Components\Tab;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -38,13 +39,6 @@ class CoverageResource extends Resource
     public static function table(Table $table): Table
     {
         return CoverageTable::make($table);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

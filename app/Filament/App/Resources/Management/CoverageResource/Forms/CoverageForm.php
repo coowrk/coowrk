@@ -5,13 +5,16 @@ namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 use App\Components\Enums\Coverage\SectionEnum;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Models\Customer;
+use Carbon\Carbon;
 use Filament\Forms\Form;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Set;
 use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
 class CoverageForm extends FormBuilder
@@ -19,73 +22,74 @@ class CoverageForm extends FormBuilder
     public function form(Form $form): Form
     {
         return $form->schema([
-            Section::make('Kunde')
-                ->aside()
-                ->columns(3)
+            Grid::make(3)
                 ->schema([
-                    // customer_id
-                    Select::make('customer_id')
-                        ->label('Kunde')
-                        ->placeholder('Empfänger im System ermitteln')
-                        ->relationship(name: 'team.customers')
-                        ->getOptionLabelFromRecordUsing(fn(Customer $record) => "{$record->first_name} {$record->last_name}")
-                        ->searchable(['first_name', 'last_name'])
-                        ->selectablePlaceholder(false)
-                        ->createOptionForm(CustomerForm::schema())
-                        ->createOptionAction(fn($action) => $action->modalWidth('7xl'))
-                        ->createOptionModalHeading('Empfänger erstellen')
-                        ->required()
-                        ->live()
-                        ->columnSpan(2),
+                    Group::make([
+                        Section::make()
+                            ->schema([
+                                // customer_id
+                                Select::make('customer_id')
+                                    ->label('Kunde')
+                                    ->placeholder('Empfänger im System ermitteln')
+                                    ->relationship(name: 'team.customers')
+                                    ->getOptionLabelFromRecordUsing(fn(Customer $record) => "{$record->first_name} {$record->last_name}")
+                                    ->searchable(['first_name', 'last_name'])
+                                    ->selectablePlaceholder(false)
+                                    ->createOptionForm(CustomerForm::schema())
+                                    ->createOptionAction(fn($action) => $action->modalWidth('7xl'))
+                                    ->createOptionModalHeading('Empfänger erstellen')
+                                    ->required()
+                                    ->live(),
+                            ]),
 
-                    // existing_contracts
-                    Toggle::make('existing_contracts')
-                        ->label('Bestehende Verträge')
-                        ->inline(false)
-                ]),
+                        Section::make()
+                            ->columns(1)
+                            ->schema([
+                                // existing_contracts
+                                Toggle::make('existing_contracts')
+                                    ->label('Bestehende Verträge vorhanden?')
+                                    ->hint('Bspw. Psp')
+                                    ->inline(false),
+                            ]),
+                    ]),
 
-            Section::make('Vertrag')
-                ->aside()
-                ->columns(4)
-                ->schema([
-                    // contract_number
-                    TextInput::make('contract_number')
-                        ->label('Vertragsnummer')
-                        ->columnSpan(1)
-                        ->required(),
+                    Group::make([
+                        Section::make('Vertrag')
+                            ->columns(4)
+                            ->schema([
+                                // contract_number
+                                TextInput::make('contract_number')
+                                    ->label('Vertragsnummer')
+                                    ->columnSpan(1)
+                                    ->required(),
 
-                    // sections
-                    Select::make('sections')
-                        ->label('Sparte(n)')
-                        ->native(false)
-                        ->multiple()
-                        ->options(SectionEnum::class)
-                        ->columnSpan(3),
+                                // sections
+                                Select::make('sections')
+                                    ->label('Sparte(n)')
+                                    ->native(false)
+                                    ->multiple()
+                                    ->options(SectionEnum::class)
+                                    ->columnSpan(3),
 
-                    // expiration_at
-                    DatePicker::make('expiration_at')
-                        ->label('Ablauf')
-                        ->native(false)
-                        ->displayFormat('d. F Y')
-                        ->required()
-                        ->columnSpan(2),
+                                // expiration_at
+                                DatePicker::make('expiration_at')
+                                    ->label('Ablauf')
+                                    ->native(false)
+                                    ->displayFormat('d. F Y')
+                                    ->required()
+                                    ->columnSpan(2)
+                                    ->live()
+                                    ->afterStateUpdated(fn(Set $set, ?string $state) => $set('coverable_at', Carbon::parse($state)->subYear(1))),
 
-                    // coverable_at
-                    DatePicker::make('coverable_at')
-                        ->label('Umdeckbar')
-                        ->native(false)
-                        ->displayFormat('d. F Y')
-                        ->default(now())
-                        ->required()
-                        ->columnSpan(2),
-                ]),
-
-            Section::make('Status')
-                ->aside()
-                ->columns(1)
-                ->schema([
-                    Toggle::make('coverage_done')
-                        ->label('Umdeckung abgeschlossen')
+                                // coverable_at
+                                DatePicker::make('coverable_at')
+                                    ->label('Umdeckbar')
+                                    ->native(false)
+                                    ->displayFormat('d. F Y')
+                                    ->required()
+                                    ->columnSpan(2),
+                            ]),
+                    ])->columnSpan(2)
                 ]),
         ]);
     }
