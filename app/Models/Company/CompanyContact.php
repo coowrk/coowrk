@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Company;
 
-use App\Filament\Components\Enums\CustomerContactTypeEnum;
+use App\Components\Enums\Company\ContactTypeEnum;
+use App\Filament\Components\Enums\CompanyContactTypeEnum;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class CustomerContact extends Model
+class CompanyContact extends Model
 {
     use HasFactory, HasUlids;
 
@@ -30,7 +32,7 @@ class CustomerContact extends Model
     protected function casts(): array
     {
         return [
-            'type' => CustomerContactTypeEnum::class
+            'type' => ContactTypeEnum::class
         ];
     }
 
@@ -39,8 +41,8 @@ class CustomerContact extends Model
      * 
      * @return HasMany
      */
-    public function contacts(): BelongsTo
+    public function companies(): BelongsTo
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Company::class);
     }
 }

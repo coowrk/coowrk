@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Traits;
+namespace App\Components\Traits;
 
-use App\Observers\ModelTenancyObserver;
-use App\Scopes\ModelTenancyScope;
+use App\Components\Observers\ModelTenancyObserver;
+use App\Components\Scopes\ModelTenancyScope;
 
 trait HasModelTenancy
 {

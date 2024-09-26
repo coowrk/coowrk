@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Components\Enums\User\SalutationEnum;
+use App\Components\Traits\HasModelTenancy;
 use App\Filament\Components\Enums\UserSalutationEnum;
-use App\Traits\HasModelTenancy;
+use App\Models\Customer\CustomerContact;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,7 +43,7 @@ class Customer extends Model
     protected function casts(): array
     {
         return [
-            'salutation' => UserSalutationEnum::class
+            'salutation' => SalutationEnum::class
         ];
     }
 

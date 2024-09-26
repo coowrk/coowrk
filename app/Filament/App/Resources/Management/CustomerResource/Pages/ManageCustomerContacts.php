@@ -2,9 +2,9 @@
 
 namespace App\Filament\App\Resources\Management\CustomerResource\Pages;
 
+use App\Components\Enums\Customer\ContactTypeEnum;
 use App\Filament\App\Resources\Management\CustomerResource;
-use App\Filament\Components\Enums\CustomerContactTypeEnum;
-use App\Filament\Components\Forms\ManageCustomerContactsForm;
+use App\Filament\App\Resources\Management\CustomerResource\Forms\ManageCustomerContactsForm;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Support\Colors\Color;
@@ -103,7 +103,7 @@ class ManageCustomerContacts extends ManageRelatedRecords
             ->filters([
                 SelectFilter::make('type')
                     ->label('Kontakttyp')
-                    ->options(CustomerContactTypeEnum::class)
+                    ->options(ContactTypeEnum::class)
                     ->native(false)
             ])
             ->headerActions([

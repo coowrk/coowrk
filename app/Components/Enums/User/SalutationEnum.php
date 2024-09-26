@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Components\Enums;
+namespace App\Components\Enums\User;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum UserSalutationEnum: string implements HasLabel
+enum SalutationEnum: string implements HasLabel
 {
     case Male = 'male';
     case Female = 'female';

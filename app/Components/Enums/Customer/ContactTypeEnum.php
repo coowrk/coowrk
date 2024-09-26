@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Components\Enums;
+namespace App\Components\Enums\Customer;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum CustomerContactTypeEnum: string implements HasLabel
+enum ContactTypeEnum: string implements HasLabel
 {
     case Telephone = 'telephone';
     case TelephonePrivate = 'telephone_private';

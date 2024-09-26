@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Components\Forms;
+namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
-use App\Filament\Components\Enums\CustomerContactTypeEnum;
+use App\Components\Enums\Customer\ContactTypeEnum;
 use Filament\Forms\Components\{Select, TextInput};
 use Filament\Forms\Get;
 
@@ -14,7 +14,7 @@ class ManageCustomerContactsForm
             // type
             Select::make('type')
                 ->name('Kontakttyp')
-                ->options(CustomerContactTypeEnum::class)
+                ->options(ContactTypeEnum::class)
                 ->native(false)
                 ->required()
                 ->live()

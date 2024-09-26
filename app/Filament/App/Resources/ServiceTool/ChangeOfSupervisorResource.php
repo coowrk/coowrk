@@ -2,6 +2,7 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
+use App\Filament\App\Resources\ServiceTool\ChangeOfSupervisorResource\Forms\ChangeOfSupervisorForm;
 use App\Filament\App\Resources\ServiceTool\ChangeOfSupervisorResource\Pages;
 use App\Models\ChangeOfSupervisor;
 use Filament\Forms\Form;
@@ -29,10 +30,7 @@ class ChangeOfSupervisorResource extends Resource
      */
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return ChangeOfSupervisorForm::make($form);
     }
 
     /**

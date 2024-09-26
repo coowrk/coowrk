@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Components\Enums;
+namespace App\Components\Enums\ShortLetter;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum ShortLetterWeAskForOptionsEnum: string implements HasLabel
+enum WeAskForOptionsEnum: string implements HasLabel
 {
     case Call = 'call';
     case Return = 'return';

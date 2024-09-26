@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Company\CompanyContact;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,5 +20,15 @@ class Company extends Model
     public function teams(): HasMany
     {
         return $this->hasMany(Team::class);
+    }
+
+    /**
+     * The contacts that are associated with the company.
+     * 
+     * @return HasMany
+     */
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(CompanyContact::class);
     }
 }

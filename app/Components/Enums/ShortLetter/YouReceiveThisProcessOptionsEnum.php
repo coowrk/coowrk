@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Components\Enums;
+namespace App\Components\Enums\ShortLetter;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum ShortLetterYouReceiveThisProcessOptionsEnum: string implements HasLabel
+enum YouReceiveThisProcessOptionsEnum: string implements HasLabel
 {
     case ForSignature = 'for_signature';
     case ToRemain = 'to_remain';

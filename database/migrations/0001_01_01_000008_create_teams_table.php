@@ -17,6 +17,23 @@ return new class extends Migration
 
             // properties
             $table->string('name');
+            $table->string('street')->nullable();
+            $table->string('house_number')->nullable();
+            $table->string('postalcode')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+
+            // timestamps
+            $table->timestamps();
+        });
+
+        Schema::create('company_contacts', function (Blueprint $table) {
+            // ids
+            $table->ulid('id')->primary();
+
+            // properties
+            $table->enum('type', ['telephone', 'email']);
+            $table->string('value');
 
             // timestamps
             $table->timestamps();

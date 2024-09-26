@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Components\Forms;
+namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
 use Filament\Forms\Components\TextInput;
 use Saade\FilamentAutograph\Forms\Components\SignaturePad;

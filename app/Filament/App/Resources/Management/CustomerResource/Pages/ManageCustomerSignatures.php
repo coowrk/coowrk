@@ -3,7 +3,7 @@
 namespace App\Filament\App\Resources\Management\CustomerResource\Pages;
 
 use App\Filament\App\Resources\Management\CustomerResource;
-use App\Filament\Components\Forms\ManageCustomerSignaturesForm;
+use App\Filament\App\Resources\Management\CustomerResource\Forms\ManageCustomerSignaturesForm;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Support\Colors\Color;

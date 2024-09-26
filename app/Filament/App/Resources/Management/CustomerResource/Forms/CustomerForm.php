@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Components\Forms;
+namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
-use App\Filament\Components\Enums\UserSalutationEnum;
+use App\Components\Enums\User\SalutationEnum;
 use Filament\Forms\Components\{Select, TextInput, Section, Grid};
 use Filament\Forms\Get;
 
@@ -16,7 +16,7 @@ class CustomerForm
                     Grid::make([1, 'lg' => 5])->schema([
                         Select::make('salutation')
                             ->name('Anrede')
-                            ->options(UserSalutationEnum::class)
+                            ->options(SalutationEnum::class)
                             ->native(false)
                             ->required()
                             ->live(),
