@@ -52,9 +52,6 @@ class ShortLetterTable extends TableBuilder
                     ->alignEnd()
                     ->sortable()
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),

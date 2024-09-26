@@ -8,11 +8,9 @@ use App\Filament\App\Resources\ServiceTool\ShortLetterResource\Tables\ShortLette
 use App\Models\ShortLetter;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Support\Colors\Color;
-use Filament\Tables;
-use Filament\Tables\Columns\ColumnGroup;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
 
 class ShortLetterResource extends Resource
 {
@@ -59,5 +57,25 @@ class ShortLetterResource extends Resource
             'create' => Pages\CreateShortLetter::route('/create'),
             'edit' => Pages\EditShortLetter::route('/{record}/edit'),
         ];
+    }
+
+    /**
+     * How the record is presented on the global search modal.
+     * 
+     * @return array
+     */
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+        return "{$record->title}";
+    }
+
+    /**
+     * Set the attributes which should be searchable on the global search modal.
+     * 
+     * @return array
+     */
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['customer.first_name', 'customer.last_name', 'title'];
     }
 }

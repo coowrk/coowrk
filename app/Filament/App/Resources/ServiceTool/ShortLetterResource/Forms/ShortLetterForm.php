@@ -77,13 +77,13 @@ class ShortLetterForm extends FormBuilder
                                         ->options(fn(Get $get) => Customer::find($get('data.customer_id', isAbsolute: true))->signatures->pluck('name', 'id'))
                                 ]),
 
+                            // action: unset_customer_signature
                             Action::make('unset_customer_signature')
                                 ->label('Zurücksetzen')
                                 ->disabled(fn(Get $get): bool => !filled($get('signature_id')))
                                 ->color('danger')
                                 ->action(fn(Set $set) => $set('data.signature_id', null, isAbsolute: true))
-                        ])
-                            ->alignEnd(),
+                        ])->alignEnd(),
                     ])->columnSpan(1),
 
                     Group::make([
