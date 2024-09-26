@@ -29,7 +29,7 @@ class EditCoverage extends EditRecord
                 ->label('Unerledigt')
                 ->visible(fn(Coverage $record): bool => $record->coverage_finished)
                 ->action(fn(Coverage $record) => $record->update(['coverage_finished' => false])),
-            // Actions\Action::make('unfinished')->action(),
+
             Actions\DeleteAction::make(),
         ];
     }

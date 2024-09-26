@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('description');
             $table->json('we_ask_for_options');
             $table->json('you_receive_this_process_options');
-            $table->enum('status', [0, 1, 2, 3])
+            $table->enum('status', [0, 1, 2, 3, 4])
                 ->default(0)
-                ->comment('{0 => created today}, {1 => on the post way}, {2 => customer should received letter}, {3 => letter came back}');
+                ->comment('{0 => created today}, {1 => on the post way}, {2 => customer should received letter}, {3 => letter came back}, {4 => archived}');
 
             // timestamps
             $table->date('sent_at');

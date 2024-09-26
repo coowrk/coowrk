@@ -121,11 +121,13 @@ class ViewCustomer extends ViewRecord
                                 // contacts.type
                                 TextEntry::make('type')
                                     ->label('Kontakttyp')
+                                    ->hiddenLabel(true)
                                     ->badge(),
 
                                 // contacts.value
                                 TextEntry::make('value')
                                     ->label('Kontakt')
+                                    ->hiddenLabel(true)
                                     ->copyable()
                                     ->columnSpan(2)
                             ])

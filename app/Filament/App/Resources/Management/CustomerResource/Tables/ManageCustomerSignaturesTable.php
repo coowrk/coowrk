@@ -32,25 +32,22 @@ class ManageCustomerSignaturesTable extends TableBuilder
                     ->alignEnd()
                     ->sortable()
             ])
-            ->filters([
-                // 
-            ])
             ->headerActions([
                 CreateAction::make()
-                    ->modalWidth('md'),
+                    ->modalWidth('5xl'),
             ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make()
-                        ->modalWidth('md'),
+                        ->modalWidth('5xl'),
 
                     DeleteAction::make(),
                 ])
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+            ->emptyStateHeading('Keine Unterschrift(en) gefunden')
+            ->emptyStateDescription('Erstelle eine Unterschrift.')
+            ->emptyStateActions([
+                CreateAction::make()->modalWidth('5xl')
             ])
             ->paginated([10, 25, 50]);
     }

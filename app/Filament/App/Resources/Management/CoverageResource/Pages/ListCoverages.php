@@ -33,10 +33,15 @@ class ListCoverages extends ListRecords
     public function getTabs(): array
     {
         return [
+            // all
             'all' => Tab::make()->label('Alle'),
+
+            // unfinished
             'unfinished' => Tab::make()
                 ->label('Unerledigt')
                 ->modifyQueryUsing(fn(Builder $query) => $query->where('coverage_finished', false)),
+
+            // finished
             'finished' => Tab::make()
                 ->label('Erledigt')
                 ->modifyQueryUsing(fn(Builder $query) => $query->where('coverage_finished', true)),

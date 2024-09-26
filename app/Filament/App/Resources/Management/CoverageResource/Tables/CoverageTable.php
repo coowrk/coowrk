@@ -6,8 +6,7 @@ use App\Components\Enums\Coverage\SectionEnum;
 use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Support\Colors\Color;
-use Filament\Tables\Columns\ColumnGroup;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\{ColumnGroup, TextColumn};
 use TomatoPHP\FilamentHelpers\Contracts\TableBuilder;
 
 class CoverageTable extends TableBuilder

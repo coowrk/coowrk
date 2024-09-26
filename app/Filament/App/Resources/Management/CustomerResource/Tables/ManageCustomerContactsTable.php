@@ -54,10 +54,10 @@ class ManageCustomerContactsTable extends TableBuilder
                     DeleteAction::make(),
                 ])
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+            ->emptyStateHeading('Keine Kontaktmöglichkeit(en) gefunden')
+            ->emptyStateDescription('Erstelle eine Kontaktmöglichkeit.')
+            ->emptyStateActions([
+                CreateAction::make()->modalWidth('5xl')
             ])
             ->paginated([10, 25, 50]);
     }

@@ -6,15 +6,8 @@ use App\Components\Enums\Coverage\SectionEnum;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Models\Customer;
 use Carbon\Carbon;
-use Filament\Forms\Form;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Set;
+use Filament\Forms\{Form, Set};
+use Filament\Forms\Components\{DatePicker, Grid, Group, Section, Select, TextInput, Toggle};
 use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
 class CoverageForm extends FormBuilder
@@ -35,7 +28,7 @@ class CoverageForm extends FormBuilder
                                     ->getOptionLabelFromRecordUsing(fn(Customer $record) => "{$record->first_name} {$record->last_name}")
                                     ->searchable(['first_name', 'last_name'])
                                     ->selectablePlaceholder(false)
-                                    ->createOptionForm(CustomerForm::schema())
+                                    ->createOptionForm(fn(Form $form): Form => CustomerForm::make($form))
                                     ->createOptionAction(fn($action) => $action->modalWidth('7xl'))
                                     ->createOptionModalHeading('Empfänger erstellen')
                                     ->required()
