@@ -11,6 +11,9 @@ use Filament\Tables\Table;
 
 class InformationAttorneyResource extends Resource
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // model data
     protected static ?string $model = InformationAttorney::class;
     protected static ?string $modelLabel = 'Auskunftsvollmacht';

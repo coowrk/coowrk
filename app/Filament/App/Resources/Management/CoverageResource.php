@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class CoverageResource extends Resource
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // model data
     protected static ?string $model = Coverage::class;
     protected static ?string $modelLabel = 'Umdeckung';

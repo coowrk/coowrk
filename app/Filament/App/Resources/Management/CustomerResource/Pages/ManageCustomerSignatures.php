@@ -12,6 +12,9 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class ManageCustomerSignatures extends ManageRelatedRecords
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // resource
     protected static string $resource = CustomerResource::class;
 

@@ -11,6 +11,9 @@ use Filament\Tables\Table;
 
 class CancellationResource extends Resource
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // model data
     protected static ?string $model = Cancellation::class;
     protected static ?string $modelLabel = 'Kündigung';

@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShortLetterResource extends Resource
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // model data
     protected static ?string $model = ShortLetter::class;
     protected static ?string $modelLabel = 'Kurzbrief';

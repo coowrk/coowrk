@@ -12,6 +12,9 @@ use Filament\Tables\Table;
 
 class ChangeOfSupervisorResource extends Resource
 {
+    // tenant
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     // model data
     protected static ?string $model = ChangeOfSupervisor::class;
     protected static ?string $modelLabel = 'Betreuerwechsel';
