@@ -2,15 +2,11 @@
 
 namespace App\Filament\App\Resources\Management\CustomerResource\Pages;
 
-use App\Components\Enums\Customer\ContactTypeEnum;
 use App\Filament\App\Resources\Management\CustomerResource;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\ManageCustomerContactsForm;
+use App\Filament\App\Resources\Management\CustomerResource\Tables\ManageCustomerContactsTable;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRelatedRecords;
-use Filament\Support\Colors\Color;
-use Filament\Tables\Actions\{CreateAction, ActionGroup, EditAction, DeleteAction, BulkActionGroup, DeleteBulkAction};
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 
@@ -67,8 +63,7 @@ class ManageCustomerContacts extends ManageRelatedRecords
      */
     public function form(Form $form): Form
     {
-        return $form
-            ->schema(ManageCustomerContactsForm::schema());
+        return ManageCustomerContactsForm::make($form);
     }
 
     /**
@@ -78,51 +73,6 @@ class ManageCustomerContacts extends ManageRelatedRecords
      */
     public function table(Table $table): Table
     {
-        return $table
-            ->recordTitleAttribute('value')
-            ->columns([
-                // type
-                TextColumn::make('type')
-                    ->label('Kontakttyp')
-                    ->color(Color::Zinc)
-                    ->sortable(),
-
-                // value
-                TextColumn::make('value')
-                    ->label('Kontakt')
-                    ->copyable(),
-
-                // created_at
-                TextColumn::make('created_at')
-                    ->label('Erstellt am')
-                    ->date('d. F Y')
-                    ->color(Color::Zinc)
-                    ->alignEnd()
-                    ->sortable()
-            ])
-            ->filters([
-                SelectFilter::make('type')
-                    ->label('Kontakttyp')
-                    ->options(ContactTypeEnum::class)
-                    ->native(false)
-            ])
-            ->headerActions([
-                CreateAction::make()
-                    ->modalWidth('md'),
-            ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()
-                        ->modalWidth('md'),
-
-                    DeleteAction::make(),
-                ])
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->paginated([10, 25, 50]);
+        return ManageCustomerContactsTable::make($table);
     }
 }

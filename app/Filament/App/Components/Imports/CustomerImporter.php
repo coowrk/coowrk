@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Imports;
+namespace App\Filament\App\Components\Imports;
 
-use App\Filament\Components\Enums\UserSalutationEnum;
+use App\Components\Enums\User\SalutationEnum;
 use App\Models\Customer;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
@@ -38,7 +38,7 @@ class CustomerImporter extends Importer
                 ->exampleHeader('salutation')
                 ->label('Anrede')
                 ->requiredMapping()
-                ->rules(['required', 'max:255', new Enum(UserSalutationEnum::class)]),
+                ->rules(['required', 'max:255', new Enum(SalutationEnum::class)]),
 
             ImportColumn::make('first_name')
                 ->exampleHeader('first_name')

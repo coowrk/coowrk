@@ -31,7 +31,7 @@ class ShortLetterForm extends FormBuilder
                                     ->getOptionLabelFromRecordUsing(fn(Customer $record) => "{$record->first_name} {$record->last_name}")
                                     ->searchable(['first_name', 'last_name'])
                                     ->selectablePlaceholder(false)
-                                    ->createOptionForm(CustomerForm::schema())
+                                    ->createOptionForm(fn(Form $form): Form => CustomerForm::make($form))
                                     ->createOptionAction(fn($action) => $action->modalWidth('7xl'))
                                     ->createOptionModalHeading('Empfänger erstellen')
                                     ->required()
@@ -59,7 +59,7 @@ class ShortLetterForm extends FormBuilder
                                 ->label('Unterschreiben')
                                 ->disabled(fn(Get $get): bool => !filled($get('customer_id')))
                                 ->modalWidth('5xl')
-                                ->form(ManageCustomerSignaturesForm::schema())
+                                ->form(fn(Form $form): Form => ManageCustomerSignaturesForm::make($form))
                                 ->action(fn(Get $get, Set $set, array $data) => $set('data.signature_id', Customer::find($get('data.customer_id', isAbsolute: true))->signatures()->create($data)->id, isAbsolute: true)),
 
                             // action: search_customer_signature

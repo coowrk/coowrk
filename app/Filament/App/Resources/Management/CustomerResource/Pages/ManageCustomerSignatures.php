@@ -4,12 +4,9 @@ namespace App\Filament\App\Resources\Management\CustomerResource\Pages;
 
 use App\Filament\App\Resources\Management\CustomerResource;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\ManageCustomerSignaturesForm;
+use App\Filament\App\Resources\Management\CustomerResource\Tables\ManageCustomerSignaturesTable;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRelatedRecords;
-use Filament\Support\Colors\Color;
-use Filament\Tables\Actions\{CreateAction, ActionGroup, EditAction, DeleteAction, BulkActionGroup, DeleteBulkAction};
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 
@@ -66,8 +63,7 @@ class ManageCustomerSignatures extends ManageRelatedRecords
      */
     public function form(Form $form): Form
     {
-        return $form
-            ->schema(ManageCustomerSignaturesForm::schema());
+        return ManageCustomerSignaturesForm::make($form);
     }
 
     /**
@@ -77,46 +73,6 @@ class ManageCustomerSignatures extends ManageRelatedRecords
      */
     public function table(Table $table): Table
     {
-        return $table
-            ->recordTitleAttribute('value')
-            ->columns([
-                // type
-                TextColumn::make('name')
-                    ->label('Name')
-                    ->sortable(),
-
-                // value
-                ImageColumn::make('signature')
-                    ->label('Unterschrift'),
-
-                // created_at
-                TextColumn::make('created_at')
-                    ->label('Erstellt am')
-                    ->date('d. F Y')
-                    ->color(Color::Zinc)
-                    ->alignEnd()
-                    ->sortable()
-            ])
-            ->filters([
-                // 
-            ])
-            ->headerActions([
-                CreateAction::make()
-                    ->modalWidth('md'),
-            ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()
-                        ->modalWidth('md'),
-
-                    DeleteAction::make(),
-                ])
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->paginated([10, 25, 50]);
+        return ManageCustomerSignaturesTable::make($table);
     }
 }

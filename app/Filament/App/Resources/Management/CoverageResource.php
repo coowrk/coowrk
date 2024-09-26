@@ -3,20 +3,14 @@
 namespace App\Filament\App\Resources\Management;
 
 use App\Filament\App\Resources\Management\CoverageResource\Pages;
-use App\Filament\App\Resources\CoverageResource\RelationManagers;
 use App\Filament\App\Resources\Management\CoverageResource\Tables\CoverageTable;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CoverageForm;
 use App\Models\Coverage;
-use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Components\Tab;
 use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CoverageResource extends Resource
 {

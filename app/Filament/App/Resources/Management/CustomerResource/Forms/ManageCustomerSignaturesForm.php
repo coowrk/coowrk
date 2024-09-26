@@ -4,12 +4,14 @@ namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
 use Filament\Forms\Components\TextInput;
 use Saade\FilamentAutograph\Forms\Components\SignaturePad;
+use Filament\Forms\Form;
+use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
-class ManageCustomerSignaturesForm
+class ManageCustomerSignaturesForm extends FormBuilder
 {
-    public static function schema(): array
+    public function form(Form $form): Form
     {
-        return [
+        return $form->schema([
             // name
             TextInput::make('name')
                 ->label('Name')
@@ -22,6 +24,6 @@ class ManageCustomerSignaturesForm
                 ->required()
                 ->columnSpanFull()
                 ->confirmable(),
-        ];
+        ]);
     }
 }

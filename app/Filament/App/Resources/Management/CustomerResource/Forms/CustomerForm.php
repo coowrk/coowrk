@@ -4,13 +4,14 @@ namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
 use App\Components\Enums\User\SalutationEnum;
 use Filament\Forms\Components\{Select, TextInput, Section, Grid};
-use Filament\Forms\Get;
+use Filament\Forms\{Get, Form};
+use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
-class CustomerForm
+class CustomerForm extends FormBuilder
 {
-    public static function schema(): array
+    public function form(Form $form): Form
     {
-        return [
+        return $form->schema([
             Section::make('Kunde')
                 ->schema([
                     Grid::make([1, 'lg' => 5])->schema([
@@ -73,6 +74,6 @@ class CustomerForm
                             ->required(),
                     ])
                 ])
-        ];
+        ]);
     }
 }

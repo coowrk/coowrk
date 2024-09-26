@@ -4,13 +4,14 @@ namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
 
 use App\Components\Enums\Customer\ContactTypeEnum;
 use Filament\Forms\Components\{Select, TextInput};
-use Filament\Forms\Get;
+use Filament\Forms\{Get, Form};
+use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
-class ManageCustomerContactsForm
+class ManageCustomerContactsForm extends FormBuilder
 {
-    public static function schema(): array
+    public function form(Form $form): Form
     {
-        return [
+        return $form->schema([
             // type
             Select::make('type')
                 ->name('Kontakttyp')
@@ -28,6 +29,6 @@ class ManageCustomerContactsForm
                 ->email(fn(Get $get) => in_array($get('type'), ['email', 'email_private', 'email_business']))
                 ->required()
                 ->columnSpanFull()
-        ];
+        ]);
     }
 }
