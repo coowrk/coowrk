@@ -2,9 +2,9 @@
 
 namespace App\Filament\App\Resources\Management;
 
-use App\Filament\Components\Forms\CustomerForm;
+use App\Components\Enums\User\SalutationEnum;
+use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Filament\App\Resources\Management\CustomerResource\Pages;
-use App\Filament\Components\Enums\UserSalutationEnum;
 use App\Filament\Imports\CustomerImporter;
 use App\Models\Customer;
 use Filament\Forms\Form;
@@ -30,6 +30,7 @@ class CustomerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-s-user-group';
     protected static ?string $navigationLabel = 'Kunden';
     protected static ?string $navigationGroup = 'Verwaltung';
+    protected static ?int $navigationSort = 0;
 
     // subnavigation
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Start;
@@ -117,7 +118,7 @@ class CustomerResource extends Resource
             ->filters([
                 SelectFilter::make('salutation')
                     ->label('Anrede')
-                    ->options(UserSalutationEnum::class)
+                    ->options(SalutationEnum::class)
                     ->native(false)
             ])
             ->actions([

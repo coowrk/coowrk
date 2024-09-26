@@ -72,4 +72,14 @@ class Team extends Model implements HasName
     {
         return $this->hasMany(ShortLetter::class);
     }
+
+    /**
+     * The shortletters that are associated with the team.
+     * 
+     * @return HasMany
+     */
+    public function coverages(): HasMany
+    {
+        return $this->hasMany(Coverage::class);
+    }
 }
