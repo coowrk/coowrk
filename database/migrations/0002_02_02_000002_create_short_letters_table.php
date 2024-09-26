@@ -16,10 +16,9 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
-            $table->foreignUlid('signature_id')->nullable();
+            $table->foreignUlid('signature_id')->nullable()->constrained()->nullOnDelete();
 
             // properties
-            $table->date('sent_at');
             $table->string('sent_from');
             $table->string('title');
             $table->string('description');
@@ -30,6 +29,7 @@ return new class extends Migration
                 ->comment('{0 => created today}, {1 => on the post way}, {2 => customer should received letter}, {3 => letter came back}');
 
             // timestamps
+            $table->date('sent_at');
             $table->timestamps();
         });
     }

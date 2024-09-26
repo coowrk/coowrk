@@ -16,7 +16,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
-            $table->foreignUlid('signature_id')->nullable();
+            $table->foreignUlid('signature_id')->nullable()->constrained()->nullOnDelete();
 
             // timestamps
             $table->timestamps();

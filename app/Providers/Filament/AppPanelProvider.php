@@ -35,7 +35,7 @@ class AppPanelProvider extends PanelProvider
             ->spa()
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Zinc,
             ])
             ->font(
                 'Inter',

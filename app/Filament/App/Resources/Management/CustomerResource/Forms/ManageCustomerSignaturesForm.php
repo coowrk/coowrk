@@ -10,17 +10,18 @@ class ManageCustomerSignaturesForm
     public static function schema(): array
     {
         return [
-            // type
+            // name
             TextInput::make('name')
                 ->label('Name')
                 ->required()
                 ->columnSpanFull(),
 
-            // value
+            // signature
             SignaturePad::make('signature')
                 ->label('Unterschrift')
                 ->required()
-                ->columnSpanFull(),
+                ->columnSpanFull()
+                ->confirmable(),
         ];
     }
 }
