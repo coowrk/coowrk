@@ -16,6 +16,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('signature_id')->nullable();
 
             // properties
             $table->date('sent_at');
@@ -27,10 +28,6 @@ return new class extends Migration
             $table->enum('status', [0, 1, 2, 3])
                 ->default(0)
                 ->comment('{0 => created today}, {1 => on the post way}, {2 => customer should received letter}, {3 => letter came back}');
-
-            // development
-            if (app()->isLocal())
-                $table->binary('signature');
 
             // timestamps
             $table->timestamps();

@@ -28,6 +28,16 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('user_signature', function (Blueprint $table) {
+            // ids
+            $table->id();
+            $table->foreignUlid('signature_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+            // timestamps
+            $table->timestamps();
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             // properties
             $table->string('email')->primary();
@@ -56,6 +66,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('user_signature');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

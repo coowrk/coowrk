@@ -23,6 +23,11 @@ class EditTeamProfile extends EditTenantProfile
         return "{$this->data['name']} - Einstellungen";
     }
 
+    /**
+     * Create a form for the create and edit resource.
+     * 
+     * @return Form
+     */
     public function form(Form $form): Form
     {
         return $form
