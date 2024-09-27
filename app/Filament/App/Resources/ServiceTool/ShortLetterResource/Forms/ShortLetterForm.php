@@ -87,12 +87,13 @@ class ShortLetterForm extends FormBuilder
                     ])->columnSpan(1),
 
                     Group::make([
-                        Section::make('Status')
-                            ->collapsible()
+                        Section::make()
                             ->columnSpan(2)
                             ->schema([
                                 ToggleButtons::make('status')
                                     ->options(StatusEnum::class)
+                                    ->inline()
+                                    ->columnSpan(2),
                             ]),
 
                         Section::make('Kurzbrief')
