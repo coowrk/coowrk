@@ -43,6 +43,7 @@ class CoverageForm extends FormBuilder
                                     ->label('Bestehende Verträge vorhanden?')
                                     ->boolean()
                                     ->grouped()
+                                    ->default('0')
                                     ->options(ExistingContractsEnum::class)
                             ]),
                     ]),
