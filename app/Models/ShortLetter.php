@@ -26,7 +26,8 @@ class ShortLetter extends Model
         'description',
         'we_ask_for_options',
         'you_receive_this_process_options',
-        'signature_id'
+        'signature_id',
+        'status'
     ];
 
     /**

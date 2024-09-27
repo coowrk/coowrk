@@ -2,12 +2,12 @@
 
 namespace App\Filament\App\Resources\ServiceTool\ShortLetterResource\Forms;
 
-use App\Components\Enums\ShortLetter\{WeAskForOptionsEnum, YouReceiveThisProcessOptionsEnum};
+use App\Components\Enums\ShortLetter\{StatusEnum, WeAskForOptionsEnum, YouReceiveThisProcessOptionsEnum};
 use App\Filament\App\Resources\Management\CustomerResource\Forms\{CustomerForm, ManageCustomerSignaturesForm};
 use Filament\Forms\Form;
 use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 use App\Models\{Customer, Signature};
-use Filament\Forms\Components\{Actions, DatePicker, Fieldset, Grid, Group, Hidden, Placeholder, Section, Select, Textarea, TextInput};
+use Filament\Forms\Components\{Actions, DatePicker, Fieldset, Grid, Group, Hidden, Placeholder, Section, Select, Textarea, TextInput, ToggleButtons};
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\{Get, Set};
 use Illuminate\Support\HtmlString;
@@ -87,6 +87,14 @@ class ShortLetterForm extends FormBuilder
                     ])->columnSpan(1),
 
                     Group::make([
+                        Section::make('Status')
+                            ->collapsible()
+                            ->columnSpan(2)
+                            ->schema([
+                                ToggleButtons::make('status')
+                                    ->options(StatusEnum::class)
+                            ]),
+
                         Section::make('Kurzbrief')
                             ->collapsible()
                             ->columnSpan(2)
