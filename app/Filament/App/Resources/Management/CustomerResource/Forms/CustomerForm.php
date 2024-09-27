@@ -65,6 +65,7 @@ class CustomerForm extends FormBuilder
                         TextInput::make('city')
                             ->name('Stadt')
                             ->columnSpan([1, 'lg' => 3])
+                            ->default(filament()->getTenant()->city)
                             ->required(),
 
                         TextInput::make('country')
