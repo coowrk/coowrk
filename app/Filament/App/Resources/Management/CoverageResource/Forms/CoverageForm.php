@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\App\Resources\Management\CustomerResource\Forms;
+namespace App\Filament\App\Resources\Management\CoverageResource\Forms;
 
 use App\Components\Enums\Coverage\SectionEnum;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;

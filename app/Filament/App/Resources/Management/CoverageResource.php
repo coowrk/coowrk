@@ -4,7 +4,7 @@ namespace App\Filament\App\Resources\Management;
 
 use App\Filament\App\Resources\Management\CoverageResource\Pages;
 use App\Filament\App\Resources\Management\CoverageResource\Tables\CoverageTable;
-use App\Filament\App\Resources\Management\CustomerResource\Forms\CoverageForm;
+use App\Filament\App\Resources\Management\CoverageResource\Forms\CoverageForm;
 use App\Models\Coverage;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,16 +28,31 @@ class CoverageResource extends Resource
     protected static ?string $navigationGroup = 'Verwaltung';
     protected static ?int $navigationSort = 1;
 
+    /**
+     * Create a form for the create and edit resource.
+     * 
+     * @return Form
+     */
     public static function form(Form $form): Form
     {
         return CoverageForm::make($form);
     }
 
+    /**
+     * Create a table for the listing resource.
+     * 
+     * @return Table 
+     */
     public static function table(Table $table): Table
     {
         return CoverageTable::make($table);
     }
 
+    /**
+     * Get all available pages for this resource.
+     * 
+     * @return array
+     */
     public static function getPages(): array
     {
         return [
