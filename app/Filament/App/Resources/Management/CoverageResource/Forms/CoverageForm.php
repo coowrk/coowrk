@@ -2,12 +2,13 @@
 
 namespace App\Filament\App\Resources\Management\CoverageResource\Forms;
 
+use App\Components\Enums\Coverage\ExistingContractsEnum;
 use App\Components\Enums\Coverage\SectionEnum;
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Models\Customer;
 use Carbon\Carbon;
 use Filament\Forms\{Form, Set};
-use Filament\Forms\Components\{DatePicker, Grid, Group, Section, Select, TextInput, Toggle};
+use Filament\Forms\Components\{DatePicker, Grid, Group, Section, Select, TextInput, ToggleButtons};
 use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
 class CoverageForm extends FormBuilder
@@ -38,11 +39,11 @@ class CoverageForm extends FormBuilder
                         Section::make()
                             ->columns(1)
                             ->schema([
-                                // existing_contracts
-                                Toggle::make('existing_contracts')
+                                ToggleButtons::make('existing_contracts')
                                     ->label('Bestehende Verträge vorhanden?')
-                                    ->hint('Bspw. Psp')
-                                    ->inline(false),
+                                    ->boolean()
+                                    ->grouped()
+                                    ->options(ExistingContractsEnum::class)
                             ]),
                     ]),
 
