@@ -39,6 +39,7 @@ class CoverageForm extends FormBuilder
                         Section::make()
                             ->columns(1)
                             ->schema([
+                                // existing_contracts
                                 ToggleButtons::make('existing_contracts')
                                     ->label('Bestehende Verträge vorhanden?')
                                     ->boolean()
