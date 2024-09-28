@@ -50,7 +50,8 @@ class Team extends Model implements HasName
      */
     public function members(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withTimestamps();
     }
 
     /**

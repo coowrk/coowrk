@@ -45,6 +45,8 @@ class EditTeamProfile extends EditTenantProfile
                                     ->disabled(),
                             ]),
 
+                        // dd(auth()->user()->teams),
+
                         Grid::make(1)
                             ->columnSpan(2)
                             ->schema([
