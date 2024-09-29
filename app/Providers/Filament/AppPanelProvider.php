@@ -35,23 +35,37 @@ class AppPanelProvider extends PanelProvider
             ->path('app')
             ->spa()
             ->login()
+
+            // colors
             ->colors([
                 'primary' => Color::Zinc,
             ])
+
+            // font settings
             ->font(
                 'Inter',
                 url: asset('css/fonts.css'),
                 provider: LocalFontProvider::class,
             )
+
+            // collapsible sidebar on desktop view
             ->sidebarCollapsibleOnDesktop()
+
+            // notification
             ->databaseNotifications()
             ->databaseNotificationsPolling('5s')
+
+            // discover entities
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
+            ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
+
+            // custom pages
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
+
+            // middlewares
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -63,12 +77,20 @@ class AppPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+
+            // authentication
             ->authMiddleware([
                 Authenticate::class,
             ])
             ->authGuard('user')
+
+            // global search key bindings
             ->globalSearchKeyBindings(['command+s', 'ctrl+s'])
+
+            // set content width
             ->maxContentWidth(MaxWidth::ScreenTwoExtraLarge)
+
+            // tenant settings
             ->tenant(Team::class, ownershipRelationship: 'team')
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
@@ -76,6 +98,8 @@ class AppPanelProvider extends PanelProvider
                 // 'edit' => MenuItem::make()->visible(fn(): bool => ),
                 'register' => MenuItem::make()->hidden()
             ])
+
+            // User dropdown menu
             ->userMenuItems([
                 'profile' => MenuItem::make()
                     ->label(fn() => auth()->user()->name)
@@ -83,9 +107,19 @@ class AppPanelProvider extends PanelProvider
                     ->icon('heroicon-m-user-circle')
                     ->visible(fn(): bool => auth()->user()->teams()->exists()),
             ])
+
+            // Plugins
             ->plugins([
+                // User Profile Editor Plugin
                 FilamentEditProfilePlugin::make()
+                    ->slug('user/profile')
+                    ->shouldRegisterNavigation(false)
                     ->shouldShowDeleteAccountForm(false)
+                    ->shouldShowAvatarForm(
+                        value: true,
+                        directory: 'avatars', // image will be stored in 'storage/app/public/avatars
+                        rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
+                    ),
             ]);
     }
 }
