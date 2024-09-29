@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\HasAvatar;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable implements HasTenants
+class User extends Authenticatable implements HasTenants, HasAvatar
 {
     use HasFactory, Notifiable;
 
@@ -24,6 +27,7 @@ class User extends Authenticatable implements HasTenants
         'name',
         'email',
         'password',
+        'avatar_url'
     ];
 
     /**
@@ -49,6 +53,11 @@ class User extends Authenticatable implements HasTenants
         ];
     }
 
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url ? Storage::url("$this->avatar_url") : null;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Multi-Tenancy
@@ -63,7 +72,7 @@ class User extends Authenticatable implements HasTenants
      * 
      * @return array|Collection
      */
-    public function getTenants(Panel $panel): array|Collection
+    public function getTenants(Panel $panel): array|EloquentCollection
     {
         return $this->teams;
     }
