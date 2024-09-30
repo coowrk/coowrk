@@ -59,6 +59,7 @@ class ShortLetterResource extends Resource
             'index' => Pages\ListShortLetters::route('/'),
             'create' => Pages\CreateShortLetter::route('/create'),
             'edit' => Pages\EditShortLetter::route('/{record}/edit'),
+            'pdf' => Pages\PdfShortLetter::route('/{record}/pdf'),
         ];
     }
 

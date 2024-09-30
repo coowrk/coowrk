@@ -19,6 +19,8 @@ class EditShortLetter extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('Pdf')
+                ->url(PdfShortLetter::getUrl([$this->record->id])),
             Actions\DeleteAction::make(),
         ];
     }
