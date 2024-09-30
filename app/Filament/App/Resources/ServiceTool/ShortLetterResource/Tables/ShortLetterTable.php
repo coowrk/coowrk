@@ -13,6 +13,8 @@ class ShortLetterTable extends TableBuilder
     public function table(Table $table): Table
     {
         return $table
+            ->poll()
+            ->deferLoading()
             ->columns([
                 // customer
                 ColumnGroup::make('Kunde')

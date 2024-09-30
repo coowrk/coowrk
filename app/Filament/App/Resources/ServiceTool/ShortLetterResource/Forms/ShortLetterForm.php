@@ -50,7 +50,9 @@ class ShortLetterForm extends FormBuilder
                                     ->hiddenLabel(true)
                                     ->visible(fn(Get $get): bool => filled($get('signature_id')))
                                     ->columnSpanFull()
-                                    ->content(fn(Get $get): HtmlString => new HtmlString('<img src=' . Signature::find($get('signature_id'))->signature . '>'))
+                                    ->content(fn(Get $get): HtmlString => new HtmlString('
+                                        <img class="dark:invert" src=' . Signature::find($get('signature_id'))->signature . '>
+                                    '))
                             ]),
 
                         Actions::make([

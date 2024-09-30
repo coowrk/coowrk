@@ -21,6 +21,7 @@ class ManageCustomerSignaturesForm extends FormBuilder
             // signature
             SignaturePad::make('signature')
                 ->label('Unterschrift')
+                ->exportPenColor('#000')
                 ->required()
                 ->columnSpanFull()
                 ->confirmable(),

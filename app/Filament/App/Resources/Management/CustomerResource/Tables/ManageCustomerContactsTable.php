@@ -15,6 +15,10 @@ class ManageCustomerContactsTable extends TableBuilder
     public function table(Table $table): Table
     {
         return $table
+            ->heading('Kontaktmöglichkeiten')
+            ->description('Verwalte die Kontaktmöglichkeiten des Kunden.')
+            ->poll()
+            ->deferLoading()
             ->recordTitleAttribute('value')
             ->columns([
                 // type
@@ -34,7 +38,6 @@ class ManageCustomerContactsTable extends TableBuilder
                     ->date('d. F Y')
                     ->color(Color::Zinc)
                     ->alignEnd()
-                    ->sortable()
             ])
             ->filters([
                 SelectFilter::make('type')
@@ -44,14 +47,17 @@ class ManageCustomerContactsTable extends TableBuilder
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->modalWidth('md'),
+                    ->modalWidth('md')
+                    ->modalHeading('Kontaktmöglichkeit erstellen'),
             ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make()
-                        ->modalWidth('md'),
+                        ->modalWidth('md')
+                        ->modalHeading('Kontaktmöglichkeit bearbeiten'),
 
-                    DeleteAction::make(),
+                    DeleteAction::make()
+                        ->modalHeading('Kontaktmöglichkeit löschen'),
                 ])
             ])
             ->emptyStateHeading('Keine Kontaktmöglichkeit(en) gefunden')
@@ -59,6 +65,6 @@ class ManageCustomerContactsTable extends TableBuilder
             ->emptyStateActions([
                 CreateAction::make()->modalWidth('5xl')
             ])
-            ->paginated([10, 25, 50]);
+            ->paginationPageOptions([10, 25, 50]);
     }
 }

@@ -13,6 +13,10 @@ class ManageCustomerSignaturesTable extends TableBuilder
     public function table(Table $table): Table
     {
         return $table
+            ->heading('Unterschriften')
+            ->description('Verwalte die Unterschriften des Kunden.')
+            ->poll()
+            ->deferLoading()
             ->recordTitleAttribute('value')
             ->columns([
                 // type
@@ -30,18 +34,20 @@ class ManageCustomerSignaturesTable extends TableBuilder
                     ->date('d. F Y')
                     ->color(Color::Zinc)
                     ->alignEnd()
-                    ->sortable()
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->modalWidth('5xl'),
+                    ->modalWidth('5xl')
+                    ->modalHeading('Unterschrift erstellen'),
             ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make()
-                        ->modalWidth('5xl'),
+                        ->modalWidth('5xl')
+                        ->modalHeading('Unterschrift bearbeiten'),
 
-                    DeleteAction::make(),
+                    DeleteAction::make()
+                        ->modalHeading('Unterschrift löschen'),
                 ])
             ])
             ->emptyStateHeading('Keine Unterschrift(en) gefunden')
@@ -49,6 +55,6 @@ class ManageCustomerSignaturesTable extends TableBuilder
             ->emptyStateActions([
                 CreateAction::make()->modalWidth('5xl')
             ])
-            ->paginated([10, 25, 50]);
+            ->paginationPageOptions([10, 25, 50]);
     }
 }
