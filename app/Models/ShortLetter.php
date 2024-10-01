@@ -20,13 +20,14 @@ class ShortLetter extends Model
     protected $fillable = [
         'customer_id',
         'team_id',
+        'signature_id',
+        'user_id',
         'sent_at',
         'sent_from',
         'title',
         'description',
         'we_ask_for_options',
         'you_receive_this_process_options',
-        'signature_id',
         'status'
     ];
 
@@ -58,5 +59,15 @@ class ShortLetter extends Model
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    /**
+     * The user that created the short-letter or is managing it.
+     * 
+     * @return BelongsToMany
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

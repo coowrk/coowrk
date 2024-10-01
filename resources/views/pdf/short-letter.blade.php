@@ -1,264 +1,102 @@
 @php
-	$short_letter = json_decode($short_letter);
+	use App\Components\Enums\User\SalutationEnum;
+	use App\Components\Enums\ShortLetter\WeAskForOptionsEnum;
+	use App\Components\Enums\ShortLetter\YouReceiveThisProcessOptionsEnum;
+
+	$short_letter = json_decode($data);
+	$customer = $short_letter->customer;
+	$user = $short_letter->user;
 @endphp
 
 <x-pdf.root>
-	<style>
-		.w-1/2 {
-			width: 50%;
-		}
+	<section>
+		<div style="text-align: right">
+			<img
+				src="{{ resource_path('img/signal-iduna.png') }}"
+				style="height: 3rem"
+			/>
+		</div>
+	</section>
 
-		.w-1/3 {
-			width: 33.333333%;
-		}
-
-		.w-2/3 {
-			width: 66.666667%;
-		}
-
-		.text-sm {
-			font-size: 0.875rem;
-			line-height: 1.25rem;
-		}
-
-		.text-sm/4 {
-			font-size: 0.875rem;
-			line-height: 1rem;
-		}
-
-		.text-xs/4 {
-			font-size: 0.75rem;
-			line-height: 1rem;
-		}
-
-		.text-gray-500 {
-			color: #6B7280;
-		}
-
-		.text-right {
-			text-align: right;
-		}
-
-		.-mt-2 {
-			margin-top: -8px;
-		}
-
-		.mt-2 {
-			margin-top: 8px;
-		}
-
-		.mt-6 {
-			margin-top: 24px;
-		}
-
-		.mt-24 {
-			margin-top: 96px;
-		}
-
-		.w-full {
-			width: 100%;
-		}
-
-		.border-collapse {
-			border-collapse: collapse;
-		}
-
-		.h-4 {
-			height: 16px;
-		}
-
-		.w-4 {
-			width: 16px;
-		}
-
-		.h-8 {
-			height: 32px;
-		}
-
-		.h-10 {
-			height: 40px;
-		}
-
-		.h-12 {
-			height: 48px;
-		}
-
-		.h-32 {
-			height: 128px;
-		}
-
-		.relative {
-			position: relative;
-		}
-
-		.absolute {
-			position: absolute;
-		}
-
-		.py-2 {
-			padding-top: 8px;
-			padding-bottom: 8px
-		}
-
-		.py-4 {
-			padding-top: 16px;
-			padding-bottom: 16px
-		}
-
-		.py-8 {
-			padding-top: 32px;
-			padding-bottom: 32px
-		}
-
-		.size-12 {
-			height: 48px;
-			width: 48px;
-		}
-
-		.left-0 {
-			left: 0;
-		}
-
-		.right-0 {
-			right: 0;
-		}
-
-		.pl-20 {
-			padding-left: 80px;
-		}
-
-		.pr-8 {
-			padding-right: 32px;
-		}
-
-		.border {
-			border-width: 1px;
-			border-style: solid;
-		}
-
-		.border-gray-500 {
-			border-color: rgb(107 114 128);
-		}
-
-		.rounded {
-			border-radius: 12px;
-		}
-
-		.align-top {
-			vertical-align: top;
-		}
-
-		.align-middle {
-			vertical-align: middle;
-		}
-	</style>
-
-	<table class="w-full border-collapse">
-		<tr>
-			<td>
-				<div class="text-xs/4">Bezirksdirektion Caykara * Mülheimer Str. 100 * 47057 Duisburg</div>
-				<br>
-				<div>{{ $short_letter->customer->salutation }}</div>
-				<div>{{ $short_letter->customer->first_name }} {{ $short_letter->customer->last_name }} </div>
-				<div>{{ $short_letter->customer->street }} {{ $short_letter->customer->house_number }}</div>
-				<div>{{ $short_letter->customer->postalcode }} {{ $short_letter->customer->city }}</div>
-			</td>
-			<td class="text-right">
-				<div>
-					<img
-						class="h-32"
-						src="{{ resource_path('images/signal-iduna.png') }}"
-					/>
-				</div>
-
-				<div class="mt-6">Bezirksdirektion</div>
-				<div>Cihan Volkan Caykara</div>
-				<div class="text-xs/4 text-gray-500">Mülheimer Str. 100</div>
-				<div class="text-xs/4 text-gray-500">47057 Duisburg</div>
-				<div class="text-xs/4 text-gray-500">Öffnungszeiten von:</div>
-				<div class="text-xs/4 text-gray-500">Mo. - Do. von 09:00 bis 16:00 Uhr</div>
-				<div class="text-xs/4 text-gray-500">Fr. von 09:00 bis 14:00 Uhr</div>
-				<br>
-				<div>Es schreibt Ihnen:</div>
-				<div>
-					{{ $short_letter->created_by->first_name }}
-					{{ $short_letter->created_by->last_name }}
-				</div>
-				<div>Auszubildender</div>
-				<div class="text-xs/4 text-gray-500">E-Mail: nail.ucdu@signal-iduna.net</div>
-				<div class="text-xs/4 text-gray-500">Telefon: 0203 - 93025931</div>
-				<div class="text-xs/4 text-gray-500">Fax: 0203 - 93025932</div>
-			</td>
-		</tr>
-	</table>
-
-	<div class="mt-24 text-right text-xs/4">
-		04. August 2024
-	</div>
-
-	<div class="mt-24 font-bold">
-		{{ $short_letter->reason }}
-	</div>
-
-	<div class="mt-6">
-		Zur Vereinfachung unseres Schriftverkehrs senden wir Ihnen diesen Kurzbrief.
-	</div>
-
-	<div class="mt-24">
-		<table class="w-full border-collapse">
+	<section style="margin-top: 1rem">
+		<table style="width: 100%; border-collapse: collapse">
 			<tr>
-				<td class="w-2/3 align-top">
-					<div class="font-medium">Wir bitten um</div>
-					<table class="mt-6 w-full border-collapse">
-						@foreach (json_decode($we_ask_for) as $key => $value)
-							@if ($loop->index % 2 == 0)
-								<tr>
-							@endif
-							<td class="relative w-1/2 py-8 pl-20">
-								<div class="size-12 absolute left-0 rounded border border-gray-500">
-									@if (in_array($key, $short_letter->options))
-										<img
-											class="h-12"
-											src="{{ resource_path('images/icons/x-icon.png') }}"
-										/>
-									@endif
-								</div>
-								<div class="-mt-2 text-sm/4">
-									{{ $value }}
-								</div>
-							</td>
-							@if ($loop->index % 2 != 0)
-			</tr>
-			@endif
-			@endforeach
-		</table>
-		</td>
-		<td class="relative w-1/3 text-right align-top">
-			<div class="font-medium">Sie erhalten den Vorgang</div>
-
-			<div class="relative mt-6 w-full">
-				@foreach (json_decode($cause_for_letter) as $key => $value)
-					<div class="relative py-8 pl-20">
-						<div class="size-12 absolute left-0 rounded border border-gray-500">
-							@if (in_array($key, $short_letter->options))
-								<img
-									class="h-12"
-									src="{{ resource_path('images/icons/x-icon.png') }}"
-								/>
-							@endif
-						</div>
-						<div class="-mt-2 text-sm/4">
-							{{ $value }}
-						</div>
+				<td>
+					<div style="font-size: 0.75rem; line-height: 1">
+						Bezirksdirektion Caykara * Mülheimer Str. 100 * 47057 Duisburg
 					</div>
-				@endforeach
-			</div>
-		</td>
-		</tr>
-		</table>
-	</div>
+					<br>
+					<div style="font-size: 0.875rem;">{{ SalutationEnum::from($customer->salutation)->getLabel() }}
+					</div>
+					<div style="font-size: 0.875rem;">{{ $customer->first_name }} {{ $customer->last_name }} </div>
+					<div style="font-size: 0.875rem;">{{ $customer->street }} {{ $customer->house_number }}</div>
+					<div style="font-size: 0.875rem;">{{ $customer->postalcode }} {{ $customer->city }}</div>
+				</td>
 
-	<div class="mt-24">
-		Mit freundlichen Grüßen
-	</div>
+				<td style="text-align: right">
+					<div style="font-size: 0.875rem;">Bezirksdirektion</div>
+					<div style="font-size: 0.875rem;">Cihan Volkan Caykara</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Mülheimer Str. 100</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">47057 Duisburg</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Öffnungszeiten von:</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Mo. - Do. von 09:00 bis 16:00 Uhr</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Fr. von 09:00 bis 14:00 Uhr</div>
+					<br>
+					<div style="font-size: 0.875rem;">Es schreibt Ihnen:</div>
+					<div style="font-size: 0.875rem;">{{ $user->name }}</div>
+					<div style="font-size: 0.875rem;">Auszubildender</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">E-Mail: nail.ucdu@signal-iduna.net
+					</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Telefon: 0203 - 93025931</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Fax: 0203 - 93025932</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+
+	<section style="margin-top: 2rem">
+		<div style="text-align: right; font-size: 0.875rem;">
+			04. August 2024
+		</div>
+	</section>
+
+	<section style="margin-top: 3rem">
+		<div style="font-size: 0.875rem;font-weight: bold">
+			{{ $short_letter->title }}
+		</div>
+	</section>
+
+	<section style="margin-top: 2rem">
+		<div style="font-size: 0.875rem;">
+			{{ $short_letter->description }}
+		</div>
+	</section>
+
+	<section>
+		<x-pdf.table.base>
+			<x-pdf.table.row>
+				<x-pdf.table.data style="width: 66%">
+					<ul>
+						@foreach (WeAskForOptionsEnum::cases() as $we_ask_for)
+							<li>{{ $we_ask_for->getLabel() }}</li>
+						@endforeach
+					</ul>
+				</x-pdf.table.data>
+
+				<x-pdf.table.data>
+					<ul>
+						@foreach (YouReceiveThisProcessOptionsEnum::cases() as $we_ask_for)
+							<li>{{ $we_ask_for->getLabel() }}</li>
+						@endforeach
+					</ul>
+				</x-pdf.table.data>
+			</x-pdf.table.row>
+		</x-pdf.table.base>
+	</section>
+
+	<section style="margin-top: 2rem">
+		<div style="font-size: 0.875rem;">
+			Mit freundlichen Grüßen
+		</div>
+	</section>
 </x-pdf.root>

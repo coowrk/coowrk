@@ -10,5 +10,10 @@ class CreateShortLetter extends CreateRecord
     // resource
     protected static string $resource = ShortLetterResource::class;
 
-    public $customer_signatures = [];
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
 }
