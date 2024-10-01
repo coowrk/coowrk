@@ -3,7 +3,7 @@
 namespace App\Filament\App\Resources\Management\CoverageResource\Forms;
 
 use App\Components\Enums\Coverage\ExistingContractsEnum;
-use App\Components\Enums\Coverage\SectionEnum;
+use App\Components\Enums\Coverage\{SectionEnum};
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Models\Customer;
 use Carbon\Carbon;
