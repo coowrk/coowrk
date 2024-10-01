@@ -7,7 +7,7 @@ use App\Components\Enums\Coverage\{SectionEnum};
 use App\Filament\App\Resources\Management\CustomerResource\Forms\CustomerForm;
 use App\Models\Customer;
 use Carbon\Carbon;
-use Filament\Forms\{Form, Set};
+use Filament\Forms\{Form, Get, Set};
 use Filament\Forms\Components\{DatePicker, Grid, Group, Section, Select, TextInput, ToggleButtons};
 use TomatoPHP\FilamentHelpers\Contracts\FormBuilder;
 
@@ -57,14 +57,25 @@ class CoverageForm extends FormBuilder
                                 TextInput::make('contract_number')
                                     ->label('Vertragsnummer')
                                     ->columnSpan(1)
-                                    ->required(),
+                                    ->required()
+                                    ->live(),
 
                                 // sections
                                 Select::make('sections')
                                     ->label('Sparte(n)')
                                     ->native(false)
                                     ->multiple()
-                                    ->options(SectionEnum::class)
+                                    // ->options(function (Get $get) {
+                                    //     if (! $get('contract_number'))
+                                    //         return;
+
+                                    //     $options = [];
+
+                                    //     str_starts_with('123', $get('contract_number')) ?: array_push($options, '123');
+
+
+                                    //     return $options;
+                                    // })
                                     ->columnSpan(3),
 
                                 // expiration_at

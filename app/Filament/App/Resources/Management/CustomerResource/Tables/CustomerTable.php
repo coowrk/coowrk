@@ -96,7 +96,10 @@ class CustomerTable extends TableBuilder
             ->headerActions([
                 Tables\Actions\ImportAction::make()
                     ->label('Kunden importieren')
-                    ->importer(CustomerImporter::class)
+                    ->importer(CustomerImporter::class),
+
+                Tables\Actions\CreateAction::make()
+                    ->label('Kunde erstellen'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
