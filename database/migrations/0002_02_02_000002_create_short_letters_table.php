@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignUlid('team_id')->constrained()->cascadeOnDelete();
             $table->foreignUlid('customer_id')->constrained()->cascadeOnDelete();
             $table->foreignUlid('signature_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
 
             // properties
             $table->string('sent_from');
