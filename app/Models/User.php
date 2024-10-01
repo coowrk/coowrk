@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -14,7 +15,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable implements HasTenants, HasAvatar
+class User extends Authenticatable implements FilamentUser, HasTenants, HasAvatar
 {
     use HasFactory, Notifiable;
 
@@ -53,9 +54,35 @@ class User extends Authenticatable implements HasTenants, HasAvatar
         ];
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Multi-Tenancy
+    |--------------------------------------------------------------------------
+    |
+    | The following functions are needed for filament.
+    |
+    */
+
+    /**
+     * Get the avatar and disk location from the user.
+     * 
+     * @return string
+     */
     public function getFilamentAvatarUrl(): ?string
     {
         return $this->avatar_url ? Storage::url("$this->avatar_url") : null;
+    }
+
+
+    /**
+     * Validate the user panel access.
+     * 
+     * @return string
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
+        return true;
     }
 
     /*
