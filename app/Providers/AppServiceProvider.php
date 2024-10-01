@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
          * @return FilamentIcon
          */
         FilamentIcon::register([
+            'panels::pages.dashboard.navigation-item' => 'heroicon-s-rectangle-group',
             'panels::theme-switcher.light-button' => 'heroicon-s-sun',
             'panels::topbar.open-database-notifications-button' => 'heroicon-s-bell',
             'panels::tenant-menu.toggle-button' => 'heroicon-s-chevron-up-down',

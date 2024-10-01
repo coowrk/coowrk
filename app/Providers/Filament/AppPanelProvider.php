@@ -95,7 +95,6 @@ class AppPanelProvider extends PanelProvider
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
             ->tenantMenuItems([
-                // 'edit' => MenuItem::make()->visible(fn(): bool => ),
                 'register' => MenuItem::make()->hidden()
             ])
 
