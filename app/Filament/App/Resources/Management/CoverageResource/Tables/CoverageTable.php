@@ -80,11 +80,15 @@ class CoverageTable extends TableBuilder
             ->filters([
                 // 
             ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make()
+                    ->label('Umdeckung erstellen'),
+            ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ])->tooltip('Aktionen')
             ])
             ->paginated([10, 25, 50]);
     }

@@ -83,6 +83,13 @@ class ViewCustomer extends ViewRecord
                             ->weight(FontWeight::Medium)
                             ->copyable(),
 
+
+                        // full name
+                        TextEntry::make('created_at')
+                            ->label('Erstellt am')
+                            ->color(Color::Zinc)
+                            ->date('d. F Y'),
+
                         Fieldset::make('Adresse')
                             ->columns(3)
                             ->schema([
@@ -131,7 +138,7 @@ class ViewCustomer extends ViewRecord
                                     ->copyable()
                                     ->columnSpan(2)
                             ])
-                    ]),
+                    ])->visible(fn(Customer $record): bool => $record->contacts()->exists()),
             ]);
     }
 }

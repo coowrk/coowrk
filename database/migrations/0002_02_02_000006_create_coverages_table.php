@@ -30,17 +30,18 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Schema::create('coverage_contract_number_patterns', function (Blueprint $table) {
-        //     // ids
-        //     $table->ulid('id')->primary();
+        Schema::create('coverage_contract_number_patterns', function (Blueprint $table) {
+            // ids
+            $table->ulid('id')->primary();
 
-        //     // properties
-        //     $table->string('pattern');
-        //     $table->string('option');
+            // properties
+            $table->string('pattern');
+            $table->string('slug');
+            $table->string('option');
 
-        //     // timestamps
-        //     $table->timestamps();
-        // });
+            // timestamps
+            $table->timestamps();
+        });
     }
 
     /**
