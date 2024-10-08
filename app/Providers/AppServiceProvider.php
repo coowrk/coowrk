@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Replace icons on the interface.
          * 
-         * @return FilamentIcon
+         * @var FilamentIcon
          */
         FilamentIcon::register([
             'panels::pages.dashboard.navigation-item' => 'heroicon-s-rectangle-group',
@@ -30,14 +30,14 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Position the action buttons on pages to the right.
          * 
-         * @return Page
+         * @var Page
          */
         Page::formActionsAlignment(Alignment::Right);
 
         /**
          * Position the action buttons on modals to the right.
          * 
-         * @return MountableAction
+         * @var MountableAction
          */
         MountableAction::configureUsing(fn(MountableAction $action): MountableAction => $action->modalFooterActionsAlignment(Alignment::Right));
     }
@@ -47,6 +47,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // 
     }
 }

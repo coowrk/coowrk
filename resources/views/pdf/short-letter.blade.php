@@ -2,6 +2,7 @@
 	use App\Components\Enums\User\SalutationEnum;
 	use App\Components\Enums\ShortLetter\WeAskForOptionsEnum;
 	use App\Components\Enums\ShortLetter\YouReceiveThisProcessOptionsEnum;
+	use Illuminate\Support\Arr;
 
 	$short_letter = json_decode($data);
 	$customer = $short_letter->customer;
@@ -56,7 +57,7 @@
 
 	<section style="margin-top: 2rem">
 		<div style="text-align: right; font-size: 0.875rem;">
-			04. August 2024
+			{{ Carbon\Carbon::parse($short_letter->sent_at)->translatedFormat('d. F Y') }}
 		</div>
 	</section>
 
@@ -72,21 +73,39 @@
 		</div>
 	</section>
 
-	<section>
+	<section style="margin-top: 1rem">
 		<x-pdf.table.base>
 			<x-pdf.table.row>
 				<x-pdf.table.data style="width: 66%">
-					<ul>
-						@foreach (WeAskForOptionsEnum::cases() as $we_ask_for)
-							<li>{{ $we_ask_for->getLabel() }}</li>
-						@endforeach
-					</ul>
+					@foreach (WeAskForOptionsEnum::cases() as $we_ask_for)
+						<div style="margin-bottom: .5rem;position: relative;">
+							<div
+								style="height: 0.875rem; width: 0.875rem; position: relative; border-radius:0.25rem; border: 1px solid rgb(107 114 128); display:inline-block"
+							>
+								<div style="position: absolute; font-size: 0.5rem; top:0;">
+									@if (in_array($we_ask_for->value, $short_letter->we_ask_for_options))
+										x
+									@endif
+								</div>
+							</div>
+							<span style="font-size: 0.875rem; position: absolute;">{{ $we_ask_for->getLabel() }}</span>
+						</div>
+					@endforeach
 				</x-pdf.table.data>
 
 				<x-pdf.table.data>
-					<ul>
-						@foreach (YouReceiveThisProcessOptionsEnum::cases() as $we_ask_for)
-							<li>{{ $we_ask_for->getLabel() }}</li>
+					<ul style="list-style-type: none; padding:0">
+						@foreach (YouReceiveThisProcessOptionsEnum::cases() as $you_receive_this_process)
+							<div style="margin-bottom: .5rem">
+								<div
+									style="height: 0.875rem; width: 0.875rem; font-size: 0.5rem; border-radius:0.25rem; border: 1px solid rgb(107 114 128); display:inline-block"
+								>
+									@if (in_array($you_receive_this_process->value, $short_letter->you_receive_this_process_options))
+										x
+									@endif
+								</div>
+								<div style="font-size: 0.875rem;display:inline-block">{{ $you_receive_this_process->getLabel() }}</div>
+							</div>
 						@endforeach
 					</ul>
 				</x-pdf.table.data>
