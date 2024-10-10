@@ -46,8 +46,7 @@
 					<div style="font-size: 0.875rem;">Es schreibt Ihnen:</div>
 					<div style="font-size: 0.875rem;">{{ $user->name }}</div>
 					<div style="font-size: 0.875rem;">Auszubildender</div>
-					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">E-Mail: nail.ucdu@signal-iduna.net
-					</div>
+					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">E-Mail: {{ $user->email }}</div>
 					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Telefon: 0203 - 93025931</div>
 					<div style="font-size: 0.75rem; line-height: 1rem; color: rgb(107 114 128)">Fax: 0203 - 93025932</div>
 				</td>
@@ -84,7 +83,10 @@
 							>
 								<div style="position: absolute; font-size: 0.5rem; top:0;">
 									@if (in_array($we_ask_for->value, $short_letter->we_ask_for_options))
-										x
+										<img
+											src="{{ resource_path('svg/heroicon-s-x-mark.svg') }}"
+											style="height: 0.875rem; width: 0.875rem;"
+										>
 									@endif
 								</div>
 							</div>
@@ -101,7 +103,10 @@
 									style="height: 0.875rem; width: 0.875rem; font-size: 0.5rem; border-radius:0.25rem; border: 1px solid rgb(107 114 128); display:inline-block"
 								>
 									@if (in_array($you_receive_this_process->value, $short_letter->you_receive_this_process_options))
-										x
+										<img
+											src="{{ resource_path('svg/heroicon-s-x-mark.svg') }}"
+											style="height: 0.875rem; width: 0.875rem;"
+										>
 									@endif
 								</div>
 								<div style="font-size: 0.875rem;display:inline-block">{{ $you_receive_this_process->getLabel() }}</div>
@@ -114,8 +119,7 @@
 	</section>
 
 	<section style="margin-top: 2rem">
-		<div style="font-size: 0.875rem;">
-			Mit freundlichen Grüßen
-		</div>
+		<div style="font-size: 0.875rem;">Mit freundlichen Grüßen</div>
+		<div style="font-size: 0.875rem;">{{ $user->name }}</div>
 	</section>
 </x-pdf.root>
