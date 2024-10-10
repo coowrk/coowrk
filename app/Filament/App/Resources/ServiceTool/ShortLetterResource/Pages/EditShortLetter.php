@@ -20,7 +20,8 @@ class EditShortLetter extends EditRecord
     {
         return [
             Actions\Action::make('Pdf')
-                ->url(PdfShortLetter::getUrl([$this->record->id])),
+                ->url(PdfShortLetter::getUrl([$this->record->id]))
+                ->openUrlInNewTab(true),
             Actions\DeleteAction::make(),
         ];
     }
