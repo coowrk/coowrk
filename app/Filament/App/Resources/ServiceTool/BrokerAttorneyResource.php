@@ -2,6 +2,7 @@
 
 namespace App\Filament\App\Resources\ServiceTool;
 
+use App\Filament\App\Resources\ServiceTool\BrokerAttorneyResource\Forms\BrokerAttorneyForm;
 use App\Filament\App\Resources\ServiceTool\BrokerAttorneyResource\Pages;
 use App\Models\BrokerAttorney;
 use Filament\Forms\Form;
@@ -32,10 +33,7 @@ class BrokerAttorneyResource extends Resource
      */
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return BrokerAttorneyForm::make($form);
     }
 
     /**
