@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+	class="h-full"
+	lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+>
 
 <head>
 	{{-- meta tags --}}
@@ -19,7 +22,7 @@
 	@livewireStyles
 </head>
 
-<body>
+<body class="h-full antialiased dark:bg-zinc-900 lg:bg-zinc-100 dark:lg:bg-zinc-950">
 	{{-- content --}}
 	{{ $slot }}
 
