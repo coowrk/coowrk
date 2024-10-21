@@ -59,7 +59,7 @@
 		</a>
 	</div>
 	<div class="hidden gap-5 lg:flex lg:flex-1 lg:justify-end">
-		<x-button>
+		<x-button variant="secondary">
 			Log in
 		</x-button>
 
