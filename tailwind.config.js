@@ -16,42 +16,46 @@ export default {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
 
+            borderRadius: {
+                DEFAULT: "var(--radius)",
+            },
+
             colors: {
                 background: "hsl(var(--background) / <alpha-value>)",
                 foreground: "hsl(var(--foreground) / <alpha-value>)",
 
-                card: "hsl(var(--card) / <alpha-value>)",
                 card: {
+                    DEFAULT: "hsl(var(--card) / <alpha-value>)",
                     foreground: "hsl(var(--card-foreground) / <alpha-value>)",
                 },
 
-                popover: "hsl(var(--popover) / <alpha-value>)",
                 popover: {
+                    DEFAULT: "hsl(var(--popover) / <alpha-value>)",
                     foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
                 },
 
-                primary: "hsl(var(--primary) / <alpha-value>)",
                 primary: {
+                    DEFAULT: "hsl(var(--primary) / <alpha-value>)",
                     foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
                 },
 
-                secondary: "hsl(var(--secondary) / <alpha-value>)",
                 secondary: {
+                    DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
                     foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
                 },
 
-                muted: "hsl(var(--muted) / <alpha-value>)",
                 muted: {
+                    DEFAULT: "hsl(var(--muted) / <alpha-value>)",
                     foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
                 },
 
-                accent: "hsl(var(--accent) / <alpha-value>)",
                 accent: {
+                    DEFAULT: "hsl(var(--accent) / <alpha-value>)",
                     foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
                 },
 
-                destructive: "hsl(var(--destructive) / <alpha-value>)",
                 destructive: {
+                    DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
                     foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
                 },
 
@@ -63,21 +67,19 @@ export default {
                     background: "hsl(var(--sidebar-background) / <alpha-value>)",
                     foreground: "hsl(var(--sidebar-foreground) / <alpha-value>)",
 
-                    primary: "hsl(var(--sidebar-primary) / <alpha-value>)",
                     primary: {
+                        DEFAULT: "hsl(var(--sidebar-primary) / <alpha-value>)",
                         foreground: "hsl(var(--sidebar-primary-foreground) / <alpha-value>)",
                     },
-
-                    accent: "hsl(var(--sidebar-accent) / <alpha-value>)",
+                    
                     accent: {
+                        DEFAULT: "hsl(var(--sidebar-accent) / <alpha-value>)",
                         foreground: "hsl(var(--sidebar-accent-foreground) / <alpha-value>)",
                     },
 
                     border: "hsl(var(--sidebar-border) / <alpha-value>)",
                     ring: "hsl(var(--sidebar-ring) / <alpha-value>)",    
-                },
-
-                radius: "hsl(var(--foreground) / <alpha-value>)",
+                }
               },
         },
     },
