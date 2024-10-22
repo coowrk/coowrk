@@ -47,9 +47,12 @@
 		{{-- right --}}
 		<div class="hidden gap-5 lg:flex lg:flex-1 lg:justify-end">
 			@foreach ($menu->right as $item)
-				<x-button :variant="$item->variant">
+				<x-ui::button
+					:url="$item->url"
+					:variant="$item->variant"
+				>
 					{{ $item->title }}
-				</x-button>
+				</x-ui::button>
 			@endforeach
 		</div>
 	</nav>

@@ -7,7 +7,7 @@
 	        (object) ['title' => 'Unternehmen', 'url' => '#'],
 	    ],
 	    'right' => (object) [
-	        (object) ['title' => 'Log in', 'url' => '#', 'variant' => 'primary'],
+	        (object) ['title' => 'Log in', 'url' => route('login'), 'variant' => 'primary'],
 	        (object) ['title' => 'Sign up', 'url' => '#', 'variant' => 'secondary'],
 	    ],
 	]" />
