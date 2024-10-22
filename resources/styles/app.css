@@ -1,5 +1,6 @@
 /* fonts */
 @import '../fonts/Inter/font.css';
+@import '../fonts/InterVariable/font.css';
 
 /* tailwind */
 @tailwind base;

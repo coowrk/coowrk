@@ -14,7 +14,7 @@
 				href="#"
 			>
 				<span class="sr-only">Your Company</span>
-				<h2 class="text-xl font-bold text-secondary-foreground">
+				<h2 class="text-xl font-extrabold text-secondary-foreground">
 					Cw.
 				</h2>
 			</a>
