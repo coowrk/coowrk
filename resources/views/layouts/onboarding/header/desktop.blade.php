@@ -13,8 +13,12 @@
 				class="-m-1.5 p-1.5"
 				href="#"
 			>
-				<span class="sr-only">Your Company</span>
-				<h2 class="text-xl font-extrabold text-secondary-foreground">
+				<span class="sr-only">Coowrk</span>
+				<h2
+					class="text-xl font-extrabold text-secondary-foreground"
+					href="{{ route('landingpage') }}"
+					wire:navigate
+				>
 					Cw.
 				</h2>
 			</a>
@@ -47,12 +51,12 @@
 		{{-- right --}}
 		<div class="hidden gap-5 lg:flex lg:flex-1 lg:justify-end">
 			@foreach ($menu->right as $item)
-				<x-ui::button
+				<x-button
 					:url="$item->url"
 					:variant="$item->variant"
 				>
 					{{ $item->title }}
-				</x-ui::button>
+				</x-button>
 			@endforeach
 		</div>
 	</nav>

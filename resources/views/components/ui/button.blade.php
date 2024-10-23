@@ -13,6 +13,9 @@
 		'bg-destructive hover:bg-destructive/80 text-destructive-foreground' =>
 			$variant == 'destructive',
 	
+		'bg-accent-yellow hover:bg-accent-yellow/90 text-accent-yellow-foreground' =>
+			$variant == 'accent-yellow',
+	
 		'border border-input bg-background hover:bg-accent text-secondary-foreground hover:text-accent-foreground' =>
 			$variant == 'outline',
 	])

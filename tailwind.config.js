@@ -52,6 +52,11 @@ export default {
                 accent: {
                     DEFAULT: "hsl(var(--accent) / <alpha-value>)",
                     foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
+
+                    yellow: {
+                        DEFAULT: "hsl(var(--accent-yellow) / <alpha-value>)",
+                        foreground: "hsl(var(--accent-yellow-foreground) / <alpha-value>)",
+                    }
                 },
 
                 destructive: {
