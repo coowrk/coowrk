@@ -1,5 +1,5 @@
 <x-layout::onboarding>
-	<section class="flex h-screen items-center">
+	<section class="flex min-h-screen items-center">
 		<div class="mx-auto w-full max-w-7xl px-8 md:px-4 xl:px-0">
 			<div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
 				<div class="col-span-1">
