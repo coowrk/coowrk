@@ -1,47 +1,32 @@
 <x-layout::onboarding>
-	<section class="flex h-screen items-center px-2 py-32 md:px-0">
-		<div class="container mx-auto max-w-6xl items-center px-8 xl:px-5">
-			<div class="flex flex-wrap items-center sm:-mx-3">
-				<div class="w-full md:w-1/2 md:px-3">
-					<div
-						class="w-full space-y-6 pb-6 sm:max-w-md sm:pr-5 md:space-y-4 md:pb-0 lg:max-w-lg lg:space-y-8 lg:pr-0 xl:space-y-9"
-					>
-						<h1 class="text-3xl font-extrabold tracking-tight text-secondary-foreground lg:text-5xl">
-							<span class="block xl:inline">Übersicht in der</span>
-							<span
-								class="block text-accent-yellow xl:inline"
-								data-primary="indigo-600"
-							>
-								Bürowelt!
-							</span>
-						</h1>
-						<p class="mx-auto text-base text-muted-foreground sm:max-w-md md:max-w-3xl lg:text-lg">
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore sint nobis minus
-						</p>
-						<div class="relative flex flex-col sm:flex-row sm:space-x-4">
-							<x-button>
-								Kostenlos testen
-							</x-button>
-							<x-button variant="accent-yellow">
-								Mehr erfahren
-							</x-button>
-						</div>
+	<section class="flex h-screen items-center">
+		<div class="mx-auto w-full max-w-7xl px-8 md:px-4 xl:px-0">
+			<div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+				<div class="col-span-1">
+					<h1 class="text-3xl font-extrabold tracking-tight text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl">
+						Den
+						<span class="text-accent-yellow">überblick</span>
+						in der
+						<span class="text-accent-yellow">Bürowelt</span>
+						behalten!
+					</h1>
+					<p class="mt-5 text-base text-zinc-400 md:text-lg lg:text-xl">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus sit sunt, illum odit animi excepturi maxime
+						fugit pariatur aliquam veniam nulla.
+					</p>
+					<div class="mt-5 flex flex-col space-y-5 sm:flex-row sm:space-x-5 sm:space-y-0">
+						<x-button>Kostenlos testen</x-button>
+						<x-button variant="accent-yellow">Mehr erfahren</x-button>
 					</div>
 				</div>
-				<div class="w-full md:w-1/2">
-					<div
-						class="h-auto w-full overflow-hidden rounded-md shadow-xl sm:rounded-xl"
-						data-rounded-max="rounded-full"
-						data-rounded="rounded-xl"
+				<div class="col-span-1">
+					<img
+						alt="office"
+						class="aspect-auto max-h-96 w-full rounded object-cover object-center"
+						src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 					>
-						<img
-							src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						>
-					</div>
-					<span class="mt-2 block text-center text-sm font-medium text-accent">&copy; Andrew Neel</span>
 				</div>
 			</div>
 		</div>
 	</section>
-
 </x-layout::onboarding>

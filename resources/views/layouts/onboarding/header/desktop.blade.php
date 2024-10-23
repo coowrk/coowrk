@@ -1,7 +1,7 @@
 {{-- Pass menu data --}}
 @aware(['menu'])
 
-<div class="fixed top-6 w-full px-2 md:px-4 xl:px-0">
+<div class="fixed top-4 w-full px-8 md:px-4 xl:px-0">
 	{{-- navbar --}}
 	<nav
 		aria-label="Global"
@@ -10,7 +10,7 @@
 		{{-- left --}}
 		<div class="flex lg:flex-1">
 			<a
-				class="-m-1.5 p-1.5"
+				class="-m-1.5 rounded p-1.5 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 				href="#"
 			>
 				<span class="sr-only">Coowrk</span>
@@ -40,8 +40,8 @@
 		<div class="hidden lg:flex lg:gap-x-12">
 			@foreach ($menu->mid as $item)
 				<a
-					class="text-sm/6 font-medium text-secondary-foreground transition-colors hover:text-secondary-foreground/90"
-					href="#"
+					class="rounded text-sm/6 font-medium text-secondary-foreground ring-offset-background transition-colors hover:text-secondary-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+					href="{{ $item->url }}"
 				>
 					{{ $item->title }}
 				</a>
