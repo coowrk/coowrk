@@ -24,6 +24,7 @@
 		--muted-foreground:240 3.8% 46.1%;
 		--accent:240 4.8% 95.9%;
 		--accent-foreground:240 5.9% 10%;
+		/* TODO: CHECK LIGHT MODE COMPATABILITY */
 		--accent-yellow:60 100% 50%;
 		--accent-yellow-foreground:0 0% 98%;
 		--destructive:0 72.22% 50.59%;
