@@ -8,7 +8,7 @@
 	    ],
 	    'right' => (object) [
 	        (object) ['title' => 'Log in', 'url' => route('login'), 'variant' => 'primary'],
-	        (object) ['title' => 'Sign up', 'url' => '#', 'variant' => 'accent-yellow'],
+	        (object) ['title' => 'Sign up', 'url' => route('signup'), 'variant' => 'accent-yellow'],
 	    ],
 	]" />
 
