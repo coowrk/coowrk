@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Signup extends Component
 {
-    #[Layout('layout::onboarding')]
+    #[Layout('layouts.authentication')]
     public function render()
     {
         return view('routes.authentication.signup');

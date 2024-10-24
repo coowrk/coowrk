@@ -19,6 +19,7 @@
 		'border border-input bg-background hover:bg-accent text-secondary-foreground hover:text-accent-foreground' =>
 			$variant == 'outline',
 	])
+	{!! $getUrl !!}
 >
 	{{ $slot }}
 </button>
