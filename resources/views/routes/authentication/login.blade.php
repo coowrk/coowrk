@@ -7,5 +7,9 @@
 			type="email"
 			value="test"
 		/>
+
+		<x-button url="Test">
+			lol
+		</x-button>
 	</form>
 </div>
