@@ -1,4 +1,6 @@
-<button
+{{-- App\View\Components\Button --}}
+
+<a
 	@class([
 		'[&_svg]:size-4 inline-flex h-8 items-center justify-center gap-2 whitespace-nowrap rounded px-4 py-2 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
 	
@@ -17,7 +19,7 @@
 		'border border-input bg-background hover:bg-accent text-secondary-foreground hover:text-accent-foreground' =>
 			$variant == 'outline',
 	])
-	{!! $getUrl !!}
+	{!! $getAllAvailableTags !!}
 >
 	{{ $slot }}
-</button>
+</a>

@@ -2,19 +2,25 @@
 
 namespace App\View\Components;
 
+use App\Traits\Component\GetAllAvailableTags;
+use App\Traits\Component\HasType;
+use App\Traits\Component\HasUrl;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Illuminate\Support\Str;
 
 class Button extends Component
 {
+    use HasType, HasUrl;
+    use GetAllAvailableTags;
+
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $variant = 'primary',
-        public $url = null,
+        public string|null $type = null,
+        public string|null $url = null,
     ) {
         // 
     }
@@ -24,19 +30,10 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.ui.button');
-    }
-
-    public function getUrl()
-    {
-        if ($this->url == null)
-            return false;
-
-        if (Str::startsWith($this->url, ['']))
-            $wire = "wire:navigate";
-
-        $href = 'href="' . $this->url . '"';
-
-        return "{$wire} {$href}";
+        return view(
+            $this->urlIsOutgoing() ?
+                'components.ui.button.linkAsAButton' :
+                'components.ui.button.button'
+        );
     }
 }

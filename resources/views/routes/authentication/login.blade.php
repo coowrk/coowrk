@@ -3,12 +3,19 @@
 
 	<form action="">
 		<x-input
-			placeholder="Nach E-Mail suchen"
+			placeholder="E-Mail-Adresse"
 			type="email"
-			value="test"
 		/>
 
-		<x-button url="Test">
+		<x-input
+			placeholder="Passwort"
+			type="password"
+		/>
+
+		<x-button
+			type="test"
+			url="https://google.com"
+		>
 			lol
 		</x-button>
 	</form>
