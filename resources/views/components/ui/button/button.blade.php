@@ -21,5 +21,6 @@
 	])
 	{!! $getAllAvailableTags !!}
 >
-	{{ $slot }}
+	<span wire:loading.remove>{{ $label ?? $slot }}</span>
+	<span wire:loading.delay><x-ui.button.spinner /></span>
 </button>

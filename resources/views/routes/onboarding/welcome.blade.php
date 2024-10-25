@@ -10,7 +10,7 @@
 						<span class="text-accent-yellow">Bürowelt</span>
 						behalten!
 					</h1>
-					<p class="mt-5 text-base text-zinc-400 md:text-lg lg:text-xl">
+					<p class="mt-5 text-base text-muted-foreground md:text-lg lg:text-xl">
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus sit sunt, illum odit animi excepturi maxime
 						fugit pariatur aliquam veniam nulla.
 					</p>

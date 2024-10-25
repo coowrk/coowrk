@@ -21,6 +21,7 @@ class Button extends Component
         public string $variant = 'primary',
         public string|null $type = null,
         public string|null $url = null,
+        public string|null $label = null,
     ) {
         // 
     }

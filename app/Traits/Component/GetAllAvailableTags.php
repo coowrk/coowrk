@@ -2,6 +2,8 @@
 
 namespace App\Traits\Component;
 
+use Illuminate\Support\Str;
+
 trait GetAllAvailableTags
 {
     /**
@@ -19,6 +21,7 @@ trait GetAllAvailableTags
                 method_exists(get_class(), 'getUrl') ? $this->getUrl() : null,
                 method_exists(get_class(), 'getValue') ? $this->getValue() : null,
                 method_exists(get_class(), 'getName') ? $this->getName() : null,
+                method_exists(get_class(), 'getRequired') ? $this->getRequired() : null
             ]
         );
     }

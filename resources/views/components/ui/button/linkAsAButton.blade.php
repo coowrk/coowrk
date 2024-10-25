@@ -21,5 +21,5 @@
 	])
 	{!! $getAllAvailableTags !!}
 >
-	{{ $slot }}
+	{{ $label ?? $slot }}
 </a>
