@@ -25,8 +25,8 @@
 		--accent:240 4.8% 95.9%;
 		--accent-foreground:240 5.9% 10%;
 		/* TODO: CHECK LIGHT MODE COMPATABILITY */
-		--accent-yellow:60 100% 50%;
-		--accent-yellow-foreground:0 0% 98%;
+		--accent-color:217 91% 60%;
+		--accent-color-foreground:240 5.9% 10%;
 		--destructive:0 72.22% 50.59%;
 		--destructive-foreground:0 0% 98%;
 		--border:240 5.9% 90%;
@@ -64,8 +64,8 @@
 			--muted-foreground:240 5% 64.9%;
 			--accent:240 3.7% 15.9%;
 			--accent-foreground:0 0% 98%;
-			--accent-yellow:60 100% 50%;
-			--accent-yellow-foreground:240 5.9% 10%;
+			--accent-color:217 91% 60%;
+			--accent-color-foreground:240 5.9% 10%;
 			--destructive:0 62.8% 30.6%;
 			--destructive-foreground:0 85.7% 97.3%;
 			--border:240 3.7% 15.9%;
@@ -86,4 +86,72 @@
 			--sidebar-ring:240 4.9% 83.9%;
 		}
   	}
+}
+
+/* misc */
+.bubble {
+	@apply text-xs flex items-center px-1 relative font-medium;
+	background-image: url('/images/bubble_mid.png');
+	height: 22px;
+}
+
+.bubbleHat {
+	@apply h-[19px] w-[19px] absolute -left-[28px];
+	background-image: url('/images/bubble_hat.png');
+}
+
+.bubble::before {
+	@apply h-full w-[37px] absolute -left-[37px] top-0 bg-no-repeat;
+	content: '';
+	background-image: url('/images/bubble_left.png');
+}
+
+.bubble::after {
+	@apply h-full w-[5px] absolute -right-[5px] top-0 bg-no-repeat;
+	background-image: url('/images/bubble_right.png');
+	content: '';
+}
+
+.sideBarAccentUserBannerNameTag::after {
+	@apply rounded top-0 pointer-events-none;
+
+	content: "";
+	position: absolute;
+	right: -25px;
+	height: 25px;
+	width: 25px;
+	box-shadow: -10px -10px 0 hsl(var(--sidebar-background));
+}
+
+.sideBarAccentUserBannerNameTag::before {
+	@apply rounded left-0 pointer-events-none;
+
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	height: 25px;
+	width: 25px;
+	box-shadow: -10px -10px 0 hsl(var(--sidebar-background));
+}
+
+.backgroundUserBannerNameTag::after {
+	@apply rounded top-0 pointer-events-none;
+
+	content: "";
+	position: absolute;
+	right: -25px;
+	height: 25px;
+	width: 25px;
+	box-shadow: -10px -10px 0 hsl(var(--background));
+}
+
+.backgroundUserBannerNameTag::before {
+	@apply rounded left-0 pointer-events-none;
+
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	height: 25px;
+	width: 25px;
+	box-shadow: -10px -10px 0 hsl(var(--background));
 }

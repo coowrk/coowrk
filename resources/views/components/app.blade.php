@@ -15,11 +15,14 @@
 		content="ie=edge"
 		http-equiv="X-UA-Compatible"
 	>
-	<title>Document</title>
+
+	{{-- title --}}
+	<title>{{ config('app.name') }}</title>
 
 	{{-- styles --}}
 	@vite('resources/scripts/app.js')
 	@livewireStyles
+	@fluxStyles
 </head>
 
 <body {{ $attributes->merge(['class' => 'h-full antialiased']) }}>
@@ -27,6 +30,7 @@
 	{{ $slot }}
 
 	{{-- scripts --}}
+	@fluxScripts
 	@livewireScripts
 </body>
 
