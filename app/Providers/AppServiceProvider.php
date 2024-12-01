@@ -18,9 +18,5 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        Blade::anonymousComponentPath(__DIR__ . '/../../resources/views/layouts', 'layout');
-        Blade::anonymousComponentPath(__DIR__ . '/../../resources/views/forms', 'form');
-    }
+    public function boot(): void {}
 }
